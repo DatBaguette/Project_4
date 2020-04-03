@@ -21,7 +21,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 if (_instance == null)
                 {
 
-                    _instance = new GameObject("GameController").AddComponent<T>();
+                    _instance = new GameObject("Game Manager").AddComponent<T>();
                 }
             }
             return _instance;
