@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ClickToMoveEntity : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private NavMeshAgent m_navMeshAgent;
+
     void Start()
     {
-        
+        m_navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
+        }
     }
 }
