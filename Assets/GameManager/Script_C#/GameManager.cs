@@ -4,6 +4,52 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public enum m_PlayerState
+    {
+        move_player,
+        boomerang,
+        mouve_drone1,
+        mouve_drone2,
+        mouve_drone3,
+        cinématique,
+        Idle,
+        Menu
+    }
+
+    public m_PlayerState m_currentPlayerState;
+
+
+    private void Start()
+    {
+        m_currentPlayerState = m_PlayerState.move_player;
+    }
+
+    private void Update()
+    {
+        StateController();
+    }
+
+    public void StateController()
+    {
+        if (Input.GetKeyDown("z"))
+        {
+            m_currentPlayerState = m_PlayerState.boomerang;
+        }
+        if (Input.GetKeyDown("a"))
+        {
+            m_currentPlayerState = m_PlayerState.move_player;
+        }
+        if (Input.GetKeyDown("e"))
+        {
+            m_currentPlayerState = m_PlayerState.mouve_drone1;
+        }
+        if (Input.GetKeyDown("e"))
+        {
+            m_currentPlayerState = m_PlayerState.mouve_drone2;
+        }
+
+    }
     public Vector3 RetrievePosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
