@@ -14,7 +14,7 @@ public class ClickToMoveEntity : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
         {
             m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
         }
