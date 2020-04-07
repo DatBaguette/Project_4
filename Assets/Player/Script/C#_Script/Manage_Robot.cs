@@ -23,6 +23,10 @@ public class Manage_Robot : MonoBehaviour
         ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
         robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
 
+        RobotType robotTypeScript = robot.gameObject.GetComponent<RobotType>();
+        robotTypeScript.SelectRobotTypeRandomly();
+        robotTypeScript.AssignRobotType();
+
         var robotUi = Instantiate(m_robotUIPrefab);
         robotUi.transform.SetParent(m_robotUIContainer.transform, false);
 
