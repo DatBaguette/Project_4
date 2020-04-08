@@ -22,6 +22,8 @@ public class GameManager : Singleton<GameManager>
 
     public int m_robotNumber = 0;
 
+    public int m_actualRessources = 0;
+
     private void Start()
     {
         m_currentPlayerState = m_PlayerState.move_player;

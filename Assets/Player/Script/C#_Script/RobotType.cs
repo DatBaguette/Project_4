@@ -5,6 +5,7 @@ using UnityEngine;
 public class RobotType : MonoBehaviour
 {
     public robotType m_robotType;
+    public int m_robotTypeInCreation;
 
     private Rigidbody controller;
 
@@ -22,11 +23,10 @@ public class RobotType : MonoBehaviour
         destruction
     }
 
-    public void SelectRobotTypeRandomly()
+    public void SelectRobotType()
     {
-        var rand = Random.Range(1, 4);
 
-        switch ( rand)
+        switch (m_robotTypeInCreation)
         {
             case 1:
 
@@ -46,6 +46,8 @@ public class RobotType : MonoBehaviour
 
                 break;
         }
+
+        Debug.Log(m_robotType);
     }
 
     public void AssignRobotType()

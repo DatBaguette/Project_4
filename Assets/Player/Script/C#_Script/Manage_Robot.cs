@@ -12,7 +12,29 @@ public class Manage_Robot : MonoBehaviour
     [SerializeField] GameObject m_robotContainer;
     [SerializeField] GameObject m_player;
 
-    public void CreateRobot()
+    public void CreateFlyingRobot()
+    {
+        int actualRobotType = 1;
+
+        InstantiateRobot(actualRobotType);
+    }
+
+    public void CreatePlatformRobot()
+    {
+        int actualRobotType = 2;
+
+        InstantiateRobot(actualRobotType);
+    }
+
+    public void CreateDestructionRobot()
+    {
+        int actualRobotType = 3;
+
+        InstantiateRobot(actualRobotType);
+       
+    }
+
+    private void InstantiateRobot(int actualRobotType)
     {
         GameManager.Instance.m_robotNumber += 1;
 
@@ -24,7 +46,8 @@ public class Manage_Robot : MonoBehaviour
         robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
 
         RobotType robotTypeScript = robot.gameObject.GetComponent<RobotType>();
-        robotTypeScript.SelectRobotTypeRandomly();
+        robotTypeScript.m_robotTypeInCreation = actualRobotType;
+        robotTypeScript.SelectRobotType();
         robotTypeScript.AssignRobotType();
 
         var robotUi = Instantiate(m_robotUIPrefab);
