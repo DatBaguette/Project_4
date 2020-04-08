@@ -17,6 +17,9 @@ public class GameManager : Singleton<GameManager>
         Menu
     }
 
+    public LayerMask defautMask;
+    public LayerMask boomerang;
+
     public m_PlayerState m_currentPlayerState;
 
 
@@ -31,7 +34,18 @@ public class GameManager : Singleton<GameManager>
 
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 100))
+        LayerMask currentLayer;
+
+        if(m_currentPlayerState == m_PlayerState.boomerang)
+        {
+            currentLayer = boomerang;
+        }
+        else
+        {
+            currentLayer = defautMask;
+        }
+
+        if (Physics.Raycast(ray, out hit, 100 ))
         {
             return (hit.point);
         }
@@ -52,18 +66,22 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown("z"))
         {
             m_currentPlayerState = m_PlayerState.boomerang;
+            Debug.Log(m_currentPlayerState);
         }
         if (Input.GetKeyDown("a"))
         {
             m_currentPlayerState = m_PlayerState.move_player;
+            Debug.Log(m_currentPlayerState);
         }
         if (Input.GetKeyDown("e"))
         {
             m_currentPlayerState = m_PlayerState.mouve_drone1;
+            Debug.Log(m_currentPlayerState);
         }
         if (Input.GetKeyDown("e"))
         {
             m_currentPlayerState = m_PlayerState.mouve_drone2;
+            Debug.Log(m_currentPlayerState);
         }
     }
 }
