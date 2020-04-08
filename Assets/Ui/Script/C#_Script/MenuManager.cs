@@ -40,6 +40,6 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        m_ressourcesText.text = "Pièces détachés : " + GameManager.Instance.m_actualRessources.ToString();
+        m_ressourcesText.text = "Pièces détachées : " + GameManager.Instance.m_actualRessources.ToString();
     }
 }

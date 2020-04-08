@@ -7,6 +7,8 @@ public class RobotType : MonoBehaviour
     public robotType m_robotType;
     public int m_robotTypeInCreation;
 
+    public int m_robotSize;
+
     private Rigidbody controller;
 
     private float m_timer = 0;
@@ -46,8 +48,6 @@ public class RobotType : MonoBehaviour
 
                 break;
         }
-
-        Debug.Log(m_robotType);
     }
 
     public void AssignRobotType()

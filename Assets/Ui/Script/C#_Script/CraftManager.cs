@@ -10,7 +10,14 @@ public class CraftManager : MonoBehaviour
 
     [SerializeField] List<Text> m_robotCost;
 
-    private int m_choosenSize;
+    [HideInInspector] public int m_choosenSize = 1;
+
+    private void Start()
+    {
+        m_robotCost[0].text = "5";
+        m_robotCost[1].text = "10";
+        m_robotCost[2].text = "15";
+    }
 
     public void RobotSize(int choosenSize)
     {
