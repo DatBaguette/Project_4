@@ -29,32 +29,24 @@ public class SC_Boomerang : MonoBehaviour
 
     private int nextNodeId;
     private int finalNode;
+    private int NodeFrom = 0;
+    private int NodeTo = 1;
 
     [SerializeField]
     private float BoomerangCoolDown;
     private float CurrentBoomerangCD;
 
-
-
-
-    /// ////////////////////
-
     // Movement speed in units per second.
-    private float LerpTime = 3f;
+    [SerializeField]
+    private float LerpTime;
 
     private float currentLerptime = 0f;
-
-    /// ////////////////////
-
 
     // Start is called before the first frame update
     void Start()
     {
         CurrentBoomerangstat = m_BoomerangState.ReadyToCast;
         nextNodeId = 0;
-
-        
-
     }
 
 
@@ -67,48 +59,56 @@ public class SC_Boomerang : MonoBehaviour
         {
             CurrentBoomerangstat = m_BoomerangState.Channeling;
 
-            //helperBoomerang.transform.position = GameManager.Instance.RetrievePosition();
-
-            //m_Boomerang.MovePosition(helperBoomerang.transform.position);
-
-            if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId<TravelNode.Length && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+            if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length && CurrentBoomerangstat != m_BoomerangState.OnTravel)
             {
                 TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
                 nextNodeId++;
                 CurrentTimeBetweenNode = 0;
             }
         }
-
-        
-
         if (Input.GetMouseButtonUp(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
         {
             CurrentBoomerangstat = m_BoomerangState.OnTravel;
-            finalNode = nextNodeId - 1;
+            finalNode = nextNodeId;
             nextNodeId = 0;
         }
-
-    }
-
-    private void FixedUpdate()
-    {
-
-        
-
         if (CurrentBoomerangstat == m_BoomerangState.OnTravel)
         {
-            currentLerptime += Time.deltaTime;
-            if(currentLerptime >= LerpTime)
-            {
-                currentLerptime = LerpTime;
-            }
-
-            float Perc = currentLerptime / LerpTime;
-
-            //for (int i = 0; i < finalNode; i++)
-            //{
-            m_Boomerang.position = Vector3.Lerp(TravelNode[0].transform.position, TravelNode[4].transform.position, Perc);
-           // }
+            MouveBoomerang();
         }
+    }
+
+    private void MouveBoomerang()
+    {
+
+        currentLerptime += Time.deltaTime;
+        if (currentLerptime >= LerpTime)
+        {
+            currentLerptime = LerpTime;
+        }
+        float Perc = currentLerptime / LerpTime;
+
+        CurrentBoomerangCD += Time.deltaTime;
+        m_Boomerang.position = Vector3.Lerp(TravelNode[NodeFrom].transform.position, TravelNode[NodeTo].transform.position, Perc);
+
+        if (Perc >= 1)
+        {
+            NodeFrom++;
+            NodeTo++;
+            currentLerptime = 0f;
+            if (NodeTo == finalNode)
+            {
+                CurrentBoomerangstat = m_BoomerangState.Restart;
+                Restart_boomerang();
+            }
+        }
+    }
+
+
+    private void Restart_boomerang()
+    {
+        nextNodeId = 0;
+        NodeFrom = 0;
+        NodeTo = 1;
     }
 }
