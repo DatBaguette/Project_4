@@ -7,6 +7,8 @@ public class ClickToMoveEntity : MonoBehaviour
 {
     private NavMeshAgent m_navMeshAgent;
 
+    [SerializeField] public int m_thisEntityNumber;
+
     void Start()
     {
         m_navMeshAgent = GetComponent<NavMeshAgent>();
@@ -14,7 +16,7 @@ public class ClickToMoveEntity : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
+        if (Input.GetMouseButtonDown(0) && m_thisEntityNumber == GameManager.Instance.m_actualSelectedRobotNumber )
         {
             m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
         }

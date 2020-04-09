@@ -9,11 +9,9 @@ public class GameManager : Singleton<GameManager>
     public enum m_PlayerState
     {
         move_player,
+        move_drone,
         boomerang,
-        mouve_drone1,
-        mouve_drone2,
-        mouve_drone3,
-        cinématique,
+        cinematic,
         Idle,
         Menu
     }
@@ -22,7 +20,12 @@ public class GameManager : Singleton<GameManager>
     public LayerMask boomerang;
 
     public m_PlayerState m_currentPlayerState;
+    
+    public int m_actualSelectedRobotNumber = 0;
 
+    public int m_robotNumber = 0;
+
+    public int m_actualRessources = 0;
 
     private void Start()
     {
@@ -75,15 +78,9 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown("e"))
         {
-            m_currentPlayerState = m_PlayerState.mouve_drone1;
-            Debug.Log(m_currentPlayerState);
+            m_currentPlayerState = m_PlayerState.move_drone;
         }
-        if (Input.GetKeyDown("e"))
-        {
-            m_currentPlayerState = m_PlayerState.mouve_drone2;
-            Debug.Log(m_currentPlayerState);
-        }
-
     }
-   
+
+
 }
