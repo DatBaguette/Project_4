@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+
     public enum m_PlayerState
     {
         move_player,
@@ -60,7 +61,6 @@ public class GameManager : Singleton<GameManager>
         StateController();
     }
 
-
     public void StateController()
     {
         if (Input.GetKeyDown("z"))
@@ -83,5 +83,7 @@ public class GameManager : Singleton<GameManager>
             m_currentPlayerState = m_PlayerState.mouve_drone2;
             Debug.Log(m_currentPlayerState);
         }
+
     }
+   
 }
