@@ -5,13 +5,22 @@ using UnityEngine.UI;
 
 public class Manage_Robot : MonoBehaviour
 {
+    [Tooltip("Prefab of the base robot")]
     [SerializeField] GameObject m_robotPrefab;
+
+    [Tooltip("Prefab that will allow the player to select his robot")]
     [SerializeField] GameObject m_robotUIPrefab;
 
+    [Tooltip("GameObject that will contain all the Robot UI Instance")]
     [SerializeField] GameObject m_robotUIContainer;
+
+    [Tooltip("GameObject that will contain all the robot gameObject")]
     [SerializeField] GameObject m_robotContainer;
+
+    [Tooltip("The main character gameObject")]
     [SerializeField] GameObject m_player;
 
+    [Tooltip("Craft manager gameObject")]
     [SerializeField] CraftManager m_craftManager;
     
     public void CreateFlyingRobot()

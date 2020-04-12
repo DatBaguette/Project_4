@@ -8,6 +8,7 @@ public class CraftManager : MonoBehaviour
     [HideInInspector] public int[] m_RobotCraftCost = { 0, 0, 0 };
     [HideInInspector] public int[] m_RobotSize = { 0, 0, 0 };
 
+    [Tooltip("Text that will show the cost of each robot depending of his size")]
     [SerializeField] List<Text> m_robotCost;
 
     [HideInInspector] public int m_choosenSize = 1;

@@ -55,6 +55,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         return (hit.point);
+
     }
 
 

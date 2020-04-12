@@ -6,11 +6,14 @@ public class RessourcesBehavior : MonoBehaviour
 {
     [HideInInspector] private bool m_harvested;
 
+    [Tooltip("Time to reach the player")]
     [SerializeField] float m_speed = 2f;
 
+    [Tooltip("Main character gameObject")]
     [SerializeField] GameObject m_player;
     private Vector3 m_targetPosition;
 
+    [Tooltip("Amount of ressources that will give the object")]
     [SerializeField] int m_ressourcesAmount = 10;
 
     private void Start()

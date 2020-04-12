@@ -127,6 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18394308319a134b8c5f86125e0af3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defautMask:
+    serializedVersion: 2
+    m_Bits: 0
+  boomerang:
+    serializedVersion: 2
+    m_Bits: 0
   m_currentPlayerState: 0
   m_actualSelectedRobotNumber: 0
   m_robotNumber: 0
@@ -178,9 +184,12 @@ MonoBehaviour:
     type: 3}
   m_robotUIPrefab: {fileID: 2316894327587165556, guid: 82dc793b8ffff3844bb9033729073a96,
     type: 3}
-  m_robotUIContainer: {fileID: 0}
-  m_robotContainer: {fileID: 0}
-  m_player: {fileID: 0}
+  m_robotUIContainer: {fileID: 1791719482689734445, guid: 5f4e4a085e892f846aeecfc2913d85fe,
+    type: 3}
+  m_robotContainer: {fileID: 5736194887197587080, guid: b12c5e1830bfa5042804011f609acaca,
+    type: 3}
+  m_player: {fileID: 6023011473359263973, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
   m_craftManager: {fileID: 5468893606908338789}
 --- !u!1 &5468893608244249326
 GameObject:
@@ -225,5 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b89fe620de0144c9dc42f497f22fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_craftMenu: {fileID: 0}
+  m_craftMenu: {fileID: 4886767971170171414, guid: 46782a8f2f488bc47bf7c5d8732e6348,
+    type: 3}
   m_ressourcesText: {fileID: 0}

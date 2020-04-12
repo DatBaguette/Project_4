@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    [Tooltip("craft menu Manager")]
     [SerializeField] GameObject m_craftMenu;
 
+    [Tooltip("Text gameObject that will show the actual amount of ressources")]
     [SerializeField] Text m_ressourcesText;
 
     public void OpenCraftMenu()
