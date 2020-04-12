@@ -49,7 +49,7 @@ public class GameManager : Singleton<GameManager>
             currentLayer = defautMask;
         }
 
-        if (Physics.Raycast(ray, out hit, 100 ))
+        if (Physics.Raycast(ray, out hit, 100 , currentLayer))
         {
             return (hit.point);
         }
