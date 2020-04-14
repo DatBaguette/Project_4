@@ -84,4 +84,15 @@ public class GameManager : Singleton<GameManager>
     }
 
 
+    public void RobotDestruction( int type, int size, GameObject ressources, GameObject robotObject)
+    {
+        Instantiate(ressources, robotObject.transform);
+
+        RessourcesBehavior ressourcesScript = ressources.GetComponent<RessourcesBehavior>();
+
+        // Value to change later
+        ressourcesScript.m_ressourcesAmount = 100;
+    }
+
+
 }

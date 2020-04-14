@@ -14,7 +14,7 @@ public class RessourcesBehavior : MonoBehaviour
     private Vector3 m_targetPosition;
 
     [Tooltip("Amount of ressources that will give the object")]
-    [SerializeField] int m_ressourcesAmount = 10;
+    public int m_ressourcesAmount = 10;
 
     private void Start()
     {
