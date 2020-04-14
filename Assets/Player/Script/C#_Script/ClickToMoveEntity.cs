@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class ClickToMoveEntity : MonoBehaviour
 {
+    
     private NavMeshAgent m_navMeshAgent;
+
 
     [SerializeField] public int m_thisEntityNumber;
 
