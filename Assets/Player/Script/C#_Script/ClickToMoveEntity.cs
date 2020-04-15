@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ClickToMoveEntity : MonoBehaviour
 {
+    
     private NavMeshAgent m_navMeshAgent;
 
     [HideInInspector] public int m_thisEntityNumber;
