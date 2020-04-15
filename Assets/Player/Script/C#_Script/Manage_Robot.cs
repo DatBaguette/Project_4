@@ -152,7 +152,7 @@ public class Manage_Robot : MonoBehaviour
         Text UINameText = UIName.gameObject.GetComponent<Text>();
         UINameText.text = robot.gameObject.name;
 
-        robot.gameObject.transform.position += new Vector3(10 * GameManager.Instance.m_robotNumber, 0, 0);
+        robot.gameObject.transform.position += new Vector3(1 * GameManager.Instance.m_robotNumber, 0, 0);
     }
 
     private bool CheckIfEnoughMoney(int price)

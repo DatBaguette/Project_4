@@ -100,5 +100,16 @@ public class GameManager : Singleton<GameManager>
         ressourcesScript.m_ressourcesAmount = 100;
     }
 
+    public void ActivateMagnet()
+    {
+        if ( m_currentPlayerState == m_PlayerState.boomerang)
+        {
+            m_currentPlayerState = m_PlayerState.move_player;
+        }
+        else
+        {
+            m_currentPlayerState = m_PlayerState.boomerang;
+        }
+    }
 
 }

@@ -25,6 +25,8 @@ public class ClickToMoveEntity : MonoBehaviour
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
 
+            Debug.Log("kek");
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hitInfo;
