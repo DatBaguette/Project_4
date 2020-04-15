@@ -21,7 +21,7 @@ public class ClickToMoveEntity : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && m_thisEntityNumber == GameManager.Instance.m_actualSelectedRobotNumber 
             && (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player || GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_drone))
         {
-            
+
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
 

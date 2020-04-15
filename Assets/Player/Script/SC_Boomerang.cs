@@ -56,11 +56,13 @@ public class SC_Boomerang : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(CurrentBoomerangstat);
+        //Debug.Log(CurrentBoomerangstat);
         CurrentTimeBetweenNode = CurrentTimeBetweenNode + Time.deltaTime;
 
         if (Input.GetMouseButton(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
         {
+            GameManager.Instance.m_boomerangLaunch = true;
+
             CurrentBoomerangstat = m_BoomerangState.Channeling;
 
             if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length && CurrentBoomerangstat != m_BoomerangState.OnTravel)
@@ -111,6 +113,8 @@ public class SC_Boomerang : MonoBehaviour
                 CurrentBoomerangstat = m_BoomerangState.Restart;
             }
         }
+
+        Debug.Log("nodeFrom : " + NodeFrom + "    nodeTo : " + NodeTo);
     }
 
     private void RestardBoomrangPos()
@@ -134,6 +138,7 @@ public class SC_Boomerang : MonoBehaviour
 
     private void Restart_boomerang()
     {
+        GameManager.Instance.m_boomerangLaunch = false;
         nextNodeId = 0;
         NodeFrom = 0;
         NodeTo = 1;

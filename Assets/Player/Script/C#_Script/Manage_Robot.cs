@@ -31,11 +31,11 @@ public class Manage_Robot : MonoBehaviour
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(5); break;
+            case 1: createRobot = CheckIfEnoughMoney(50); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(10); break;
+            case 2: createRobot = CheckIfEnoughMoney(100); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(15); break;
+            case 3: createRobot = CheckIfEnoughMoney(150); break;
         }
 
         if (createRobot)
@@ -43,11 +43,11 @@ public class Manage_Robot : MonoBehaviour
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= 5; break;
+                case 1: GameManager.Instance.m_actualRessources -= 50; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= 10; break;
+                case 2: GameManager.Instance.m_actualRessources -= 100; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= 15; break;
+                case 3: GameManager.Instance.m_actualRessources -= 150; break;
             }
 
             InstantiateRobot(actualRobotType);
@@ -62,11 +62,11 @@ public class Manage_Robot : MonoBehaviour
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(10); break;
+            case 1: createRobot = CheckIfEnoughMoney(100); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(20); break;
+            case 2: createRobot = CheckIfEnoughMoney(200); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(40); break;
+            case 3: createRobot = CheckIfEnoughMoney(400); break;
         }
 
         if (createRobot)
@@ -74,11 +74,11 @@ public class Manage_Robot : MonoBehaviour
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= 10; break;
+                case 1: GameManager.Instance.m_actualRessources -= 100; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= 20; break;
+                case 2: GameManager.Instance.m_actualRessources -= 200; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= 40; break;
+                case 3: GameManager.Instance.m_actualRessources -= 400; break;
             }
 
             InstantiateRobot(actualRobotType);
@@ -93,11 +93,11 @@ public class Manage_Robot : MonoBehaviour
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(15); break;
+            case 1: createRobot = CheckIfEnoughMoney(150); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(30); break;
+            case 2: createRobot = CheckIfEnoughMoney(300); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(60); break;
+            case 3: createRobot = CheckIfEnoughMoney(600); break;
         }
 
         if (createRobot)
@@ -105,11 +105,11 @@ public class Manage_Robot : MonoBehaviour
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= 15; break;
+                case 1: GameManager.Instance.m_actualRessources -= 150; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= 30; break;
+                case 2: GameManager.Instance.m_actualRessources -= 300; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= 60; break;
+                case 3: GameManager.Instance.m_actualRessources -= 600; break;
             }
 
             InstantiateRobot(actualRobotType);
@@ -160,8 +160,6 @@ public class Manage_Robot : MonoBehaviour
         if ( GameManager.Instance.m_actualRessources >= price)
         {
             return true;
-
-            Debug.Log(price);
         }
 
         return false;

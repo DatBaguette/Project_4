@@ -15,9 +15,9 @@ public class CraftManager : MonoBehaviour
 
     private void Start()
     {
-        m_robotCost[0].text = "5";
-        m_robotCost[1].text = "10";
-        m_robotCost[2].text = "15";
+        m_robotCost[0].text = "50";
+        m_robotCost[1].text = "100";
+        m_robotCost[2].text = "150";
     }
 
     public void RobotSize(int choosenSize)
@@ -28,25 +28,25 @@ public class CraftManager : MonoBehaviour
         {
             case 1:
 
-                m_robotCost[0].text = "5";
-                m_robotCost[1].text = "10";
-                m_robotCost[2].text = "15";
+                m_robotCost[0].text = "50";
+                m_robotCost[1].text = "100";
+                m_robotCost[2].text = "150";
 
                 break;
 
             case 2:
 
-                m_robotCost[0].text = "10";
-                m_robotCost[1].text = "20";
-                m_robotCost[2].text = "30";
+                m_robotCost[0].text = "100";
+                m_robotCost[1].text = "200";
+                m_robotCost[2].text = "300";
 
                 break;
 
             case 3:
 
-                m_robotCost[0].text = "20";
-                m_robotCost[1].text = "40";
-                m_robotCost[2].text = "60";
+                m_robotCost[0].text = "200";
+                m_robotCost[1].text = "400";
+                m_robotCost[2].text = "600";
 
                 break;
         }

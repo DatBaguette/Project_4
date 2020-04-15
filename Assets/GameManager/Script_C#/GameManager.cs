@@ -27,6 +27,8 @@ public class GameManager : Singleton<GameManager>
 
     public int m_actualRessources = 0;
 
+    public bool m_boomerangLaunch = false;
+
     private void Start()
     {
         m_currentPlayerState = m_PlayerState.move_player;
@@ -67,20 +69,24 @@ public class GameManager : Singleton<GameManager>
 
     public void StateController()
     {
-        if (Input.GetKeyDown("z"))
+        if (!m_boomerangLaunch)
         {
-            m_currentPlayerState = m_PlayerState.boomerang;
-            Debug.Log(m_currentPlayerState);
+            if (Input.GetKeyDown("z"))
+            {
+                m_currentPlayerState = m_PlayerState.boomerang;
+                Debug.Log(m_currentPlayerState);
+            }
+            if (Input.GetKeyDown("a"))
+            {
+                m_currentPlayerState = m_PlayerState.move_player;
+                Debug.Log(m_currentPlayerState);
+            }
+            if (Input.GetKeyDown("e"))
+            {
+                m_currentPlayerState = m_PlayerState.move_drone;
+            }
         }
-        if (Input.GetKeyDown("a"))
-        {
-            m_currentPlayerState = m_PlayerState.move_player;
-            Debug.Log(m_currentPlayerState);
-        }
-        if (Input.GetKeyDown("e"))
-        {
-            m_currentPlayerState = m_PlayerState.move_drone;
-        }
+       
     }
 
 

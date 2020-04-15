@@ -18,7 +18,7 @@ public class RessourcesBehavior : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.localScale *= ( m_ressourcesAmount * 0.2f ) / 10;
+        gameObject.transform.localScale *= ( m_ressourcesAmount * 0.2f ) / 10 + 1;
     }
 
     private void OnTriggerEnter(Collider other)
