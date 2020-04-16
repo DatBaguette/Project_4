@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// It will assign parameter to robot depending on their type
+/// 
+/// </summary>
+
 public class RobotType : MonoBehaviour
 {
     public robotType m_robotType;
@@ -25,6 +31,7 @@ public class RobotType : MonoBehaviour
         destruction
     }
 
+    // Assign a type
     public void SelectRobotType()
     {
 
@@ -50,6 +57,7 @@ public class RobotType : MonoBehaviour
         }
     }
 
+    // Assign parameter when create
     public void AssignRobotType()
     {
 
@@ -84,6 +92,7 @@ public class RobotType : MonoBehaviour
         }
     }
 
+    // Behavior depending on the robot type
     private void Update()
     {
         switch (m_robotType)

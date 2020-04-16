@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+///  
+/// it will manage the price of robot in the Crafting menu
+/// 
+/// </summary>
+
 public class CraftManager : MonoBehaviour
 {
     [HideInInspector] public int[] m_RobotCraftCost = { 0, 0, 0 };

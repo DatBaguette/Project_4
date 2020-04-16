@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// It contain function to create robot
+/// 
+/// </summary>
+
 public class Manage_Robot : MonoBehaviour
 {
     [Tooltip("Prefab of the base robot")]
@@ -25,10 +31,13 @@ public class Manage_Robot : MonoBehaviour
     
     public void CreateFlyingRobot()
     {
+        // Use to define robot type in "RobotType" script
         int actualRobotType = 1;
 
+        // Condition to create robot if player have enough money
         bool createRobot = false;
 
+        // Check if there is enough money depending on the chosen size
         switch (m_craftManager.m_choosenSize)
         {
             case 1: createRobot = CheckIfEnoughMoney(50); break;
@@ -38,6 +47,7 @@ public class Manage_Robot : MonoBehaviour
             case 3: createRobot = CheckIfEnoughMoney(150); break;
         }
 
+        // Delete ressources depending on the good amount
         if (createRobot)
         {
 
@@ -117,25 +127,31 @@ public class Manage_Robot : MonoBehaviour
 
     }
 
+    // Instantiate Robot and give him properties to work
+
     public void InstantiateRobot(int actualRobotType)
     {
         GameManager.Instance.m_robotNumber += 1;
 
+        // Robot Object
         var robot = Instantiate(m_robotPrefab, m_player.gameObject.transform);
         robot.transform.SetParent(m_robotContainer.transform, false);
         robot.gameObject.name = "robot " + GameManager.Instance.m_robotNumber;
         robot.gameObject.transform.localScale *= m_craftManager.m_choosenSize;
         robot.gameObject.transform.localScale /= 1.5f;
 
+        // Robot Values
         ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
         robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
 
+        // Assign robot type
         RobotType robotTypeScript = robot.gameObject.GetComponent<RobotType>();
         robotTypeScript.m_robotTypeInCreation = actualRobotType;
         robotTypeScript.m_robotSize = m_craftManager.m_choosenSize;
         robotTypeScript.SelectRobotType();
         robotTypeScript.AssignRobotType();
 
+        // Robot UI
         var robotUi = Instantiate(m_robotUIPrefab);
         robotUi.transform.SetParent(m_robotUIContainer.transform, false);
 
@@ -152,9 +168,11 @@ public class Manage_Robot : MonoBehaviour
         Text UINameText = UIName.gameObject.GetComponent<Text>();
         UINameText.text = robot.gameObject.name;
 
+        // Change position ( dont worl ) :(
         robot.gameObject.transform.position += new Vector3(127, 7, 87);
     }
 
+    // Check if the player have enough money in the GameManager
     private bool CheckIfEnoughMoney(int price)
     {
         if ( GameManager.Instance.m_actualRessources >= price)

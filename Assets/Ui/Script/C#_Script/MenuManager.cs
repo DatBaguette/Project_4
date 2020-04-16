@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// It will show the menu and allow to give money for prototyping
+/// 
+/// </summary>
+
 public class MenuManager : MonoBehaviour
 {
     [Tooltip("craft menu Manager")]

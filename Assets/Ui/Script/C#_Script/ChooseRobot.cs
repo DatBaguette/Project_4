@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+/// <summary>
+/// 
+/// It will allow player to switch between a robot and the main character
+/// 
+/// </summary>
+
 public class ChooseRobot : MonoBehaviour
 {
     public int m_uiRobotNumber;
