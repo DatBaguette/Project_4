@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class RobotType : MonoBehaviour
 {
-    [HideInInspector]
     public robotType m_robotType;
-    [HideInInspector]
     public int m_robotTypeInCreation;
 
-    [HideInInspector]
     public int m_robotSize;
 
     private Rigidbody controller;

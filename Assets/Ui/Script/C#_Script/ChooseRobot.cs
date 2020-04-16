@@ -5,13 +5,10 @@ using Cinemachine;
 
 public class ChooseRobot : MonoBehaviour
 {
-    [HideInInspector]
     public int m_uiRobotNumber;
-
-    [HideInInspector]
+    
     public GameObject m_associateRobot;
-
-    [HideInInspector]
+    
     public GameObject m_player;
 
     private CinemachineVirtualCamera m_playerCamera;
