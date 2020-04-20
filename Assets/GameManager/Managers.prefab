@@ -84,6 +84,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_choosenSize: 1
+  getPrice: 
+  CurrentManager: {fileID: 5468893607689251633}
 --- !u!1 &5468893607486663499
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +139,7 @@ MonoBehaviour:
   m_actualSelectedRobotNumber: 0
   m_robotNumber: 0
   m_actualRessources: 0
+  m_boomerangLaunch: 0
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +194,7 @@ MonoBehaviour:
   m_player: {fileID: 6023011473359263973, guid: 83d42bdde083caf419af893bc83c5fba,
     type: 3}
   m_craftManager: {fileID: 5468893606908338789}
+  price: 32000000640000009600000064000000c800000090010000960000002c01000058020000
 --- !u!1 &5468893608244249326
 GameObject:
   m_ObjectHideFlags: 0

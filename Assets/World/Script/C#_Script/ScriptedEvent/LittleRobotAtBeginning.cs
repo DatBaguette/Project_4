@@ -14,6 +14,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
     private void Start()
     {
-        m_manageRobotScript.InstantiateRobot(1);
+        m_manageRobotScript.InstantiateRobot(Manage_Robot.RobotType.Flying);
     }
 }

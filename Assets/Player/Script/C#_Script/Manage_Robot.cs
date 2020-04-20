@@ -28,11 +28,22 @@ public class Manage_Robot : MonoBehaviour
 
     [Tooltip("Craft manager gameObject")]
     [SerializeField] CraftManager m_craftManager;
+
+    public enum RobotType
+    {
+        Flying,
+        Platforme,
+        Destruction
+    }
+
+    [Tooltip("Array of robot price")]
+    [SerializeField]
+    public int[] price;
     
     public void CreateFlyingRobot()
     {
         // Use to define robot type in "RobotType" script
-        int actualRobotType = 1;
+        //int actualRobotType = 1;
 
         // Condition to create robot if player have enough money
         bool createRobot = false;
@@ -40,11 +51,11 @@ public class Manage_Robot : MonoBehaviour
         // Check if there is enough money depending on the chosen size
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(50); break;
+            case 1: createRobot = CheckIfEnoughMoney(price[0]); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(100); break;
+            case 2: createRobot = CheckIfEnoughMoney(price[1]); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(150); break;
+            case 3: createRobot = CheckIfEnoughMoney(price[2]); break;
         }
 
         // Delete ressources depending on the good amount
@@ -53,30 +64,30 @@ public class Manage_Robot : MonoBehaviour
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= 50; break;
+                case 1: GameManager.Instance.m_actualRessources -= price[0]; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= 100; break;
+                case 2: GameManager.Instance.m_actualRessources -= price[1]; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= 150; break;
+                case 3: GameManager.Instance.m_actualRessources -= price[2]; break;
             }
 
-            InstantiateRobot(actualRobotType);
+            InstantiateRobot(RobotType.Flying);
         }
     }
 
     public void CreatePlatformRobot()
     {
-        int actualRobotType = 2;
+        //int actualRobotType = 2;
 
         bool createRobot = false;
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(100); break;
+            case 1: createRobot = CheckIfEnoughMoney(price[3]); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(200); break;
+            case 2: createRobot = CheckIfEnoughMoney(price[4]); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(400); break;
+            case 3: createRobot = CheckIfEnoughMoney(price[5]); break;
         }
 
         if (createRobot)
@@ -84,30 +95,30 @@ public class Manage_Robot : MonoBehaviour
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= 100; break;
+                case 1: GameManager.Instance.m_actualRessources -= price[3]; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= 200; break;
+                case 2: GameManager.Instance.m_actualRessources -= price[4]; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= 400; break;
+                case 3: GameManager.Instance.m_actualRessources -= price[5]; break;
             }
 
-            InstantiateRobot(actualRobotType);
+            InstantiateRobot(RobotType.Platforme);
         }
     }
 
     public void CreateDestructionRobot()
     {
-        int actualRobotType = 3;
+        //int actualRobotType = 3;
 
         bool createRobot = false;
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(150); break;
+            case 1: createRobot = CheckIfEnoughMoney(price[6]); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(300); break;
+            case 2: createRobot = CheckIfEnoughMoney(price[7]); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(600); break;
+            case 3: createRobot = CheckIfEnoughMoney(price[8]); break;
         }
 
         if (createRobot)
@@ -115,62 +126,68 @@ public class Manage_Robot : MonoBehaviour
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= 150; break;
+                case 1: GameManager.Instance.m_actualRessources -= price[6]; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= 300; break;
+                case 2: GameManager.Instance.m_actualRessources -= price[7]; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= 600; break;
+                case 3: GameManager.Instance.m_actualRessources -= price[8]; break;
             }
 
-            InstantiateRobot(actualRobotType);
+            InstantiateRobot(RobotType.Destruction);
         }
 
     }
 
     // Instantiate Robot and give him properties to work
 
-    public void InstantiateRobot(int actualRobotType)
+    public void InstantiateRobot(RobotType RobotCreat)
     {
-        GameManager.Instance.m_robotNumber += 1;
 
-        // Robot Object
-        var robot = Instantiate(m_robotPrefab, m_player.gameObject.transform);
-        robot.transform.SetParent(m_robotContainer.transform, false);
-        robot.gameObject.name = "robot " + GameManager.Instance.m_robotNumber;
-        robot.gameObject.transform.localScale *= m_craftManager.m_choosenSize;
-        robot.gameObject.transform.localScale /= 1.5f;
-
-        // Robot Values
-        ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
-        robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
-
-        // Assign robot type
-        RobotType robotTypeScript = robot.gameObject.GetComponent<RobotType>();
-        robotTypeScript.m_robotTypeInCreation = actualRobotType;
-        robotTypeScript.m_robotSize = m_craftManager.m_choosenSize;
-        robotTypeScript.SelectRobotType();
-        robotTypeScript.AssignRobotType();
-
-        // Robot UI
-        var robotUi = Instantiate(m_robotUIPrefab);
-        robotUi.transform.SetParent(m_robotUIContainer.transform, false);
-
-        ChooseRobot chooseRobotScript = robotUi.gameObject.GetComponent<ChooseRobot>();
-        chooseRobotScript.m_uiRobotNumber = GameManager.Instance.m_robotNumber;
-        chooseRobotScript.m_associateRobot = robot;
-        chooseRobotScript.m_player = m_player;
-
-        Button robotUiButton = robotUi.gameObject.GetComponent<Button>();
-        robotUiButton.onClick.AddListener(chooseRobotScript.SelectRobot);
-
-        var UIName = robotUi.gameObject.transform.Find("Text");
-
-        Text UINameText = UIName.gameObject.GetComponent<Text>();
-        UINameText.text = robot.gameObject.name;
-
-        // Change position ( dont worl ) :(
-        robot.gameObject.transform.position += new Vector3(127, 7, 87);
     }
+
+
+    //public void InstantiateRobot(int actualRobotType)
+    //{
+    //    GameManager.Instance.m_robotNumber += 1;
+
+    //    // Robot Object
+    //    var robot = Instantiate(m_robotPrefab, m_player.gameObject.transform);
+    //    robot.transform.SetParent(m_robotContainer.transform, false);
+    //    robot.gameObject.name = "robot " + GameManager.Instance.m_robotNumber;
+    //    robot.gameObject.transform.localScale *= m_craftManager.m_choosenSize;
+    //    robot.gameObject.transform.localScale /= 1.5f;
+
+    //    // Robot Values
+    //    ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
+    //    robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
+
+    //    // Assign robot type
+    //    RobotType robotTypeScript = robot.gameObject.GetComponent<RobotType>();
+    //    robotTypeScript.m_robotTypeInCreation = actualRobotType;
+    //    robotTypeScript.m_robotSize = m_craftManager.m_choosenSize;
+    //    robotTypeScript.SelectRobotType();
+    //    robotTypeScript.AssignRobotType();
+
+    //    // Robot UI
+    //    var robotUi = Instantiate(m_robotUIPrefab);
+    //    robotUi.transform.SetParent(m_robotUIContainer.transform, false);
+
+    //    ChooseRobot chooseRobotScript = robotUi.gameObject.GetComponent<ChooseRobot>();
+    //    chooseRobotScript.m_uiRobotNumber = GameManager.Instance.m_robotNumber;
+    //    chooseRobotScript.m_associateRobot = robot;
+    //    chooseRobotScript.m_player = m_player;
+
+    //    Button robotUiButton = robotUi.gameObject.GetComponent<Button>();
+    //    robotUiButton.onClick.AddListener(chooseRobotScript.SelectRobot);
+
+    //    var UIName = robotUi.gameObject.transform.Find("Text");
+
+    //    Text UINameText = UIName.gameObject.GetComponent<Text>();
+    //    UINameText.text = robot.gameObject.name;
+
+    //    // Change position ( dont worl ) :(
+    //    robot.gameObject.transform.position += new Vector3(127, 7, 87);
+    //}
 
     // Check if the player have enough money in the GameManager
     private bool CheckIfEnoughMoney(int price)

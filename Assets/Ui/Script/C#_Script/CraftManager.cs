@@ -19,11 +19,25 @@ public class CraftManager : MonoBehaviour
 
     [HideInInspector] public int m_choosenSize = 1;
 
+    [SerializeField]
+    private int[] getPrice;
+
+    [SerializeField]
+    private Manage_Robot CurrentManager;
+
     private void Start()
     {
-        m_robotCost[0].text = "50";
-        m_robotCost[1].text = "100";
-        m_robotCost[2].text = "150";
+        //getPrice[] = gameObject.GetComponent<Manage_Robot>().price[];
+
+        for(int i = 0; i < getPrice.Length; i++)
+        {
+            getPrice[i] = CurrentManager.price[i];
+        }
+
+
+        m_robotCost[0].text = getPrice[0].ToString();
+        m_robotCost[1].text = getPrice[1].ToString();
+        m_robotCost[2].text = getPrice[2].ToString();
     }
 
     public void RobotSize(int choosenSize)
@@ -34,25 +48,25 @@ public class CraftManager : MonoBehaviour
         {
             case 1:
 
-                m_robotCost[0].text = "50";
-                m_robotCost[1].text = "100";
-                m_robotCost[2].text = "150";
+                m_robotCost[0].text = getPrice[0].ToString();
+                m_robotCost[1].text = getPrice[1].ToString();
+                m_robotCost[2].text = getPrice[2].ToString();
 
                 break;
 
             case 2:
 
-                m_robotCost[0].text = "100";
-                m_robotCost[1].text = "200";
-                m_robotCost[2].text = "300";
+                m_robotCost[0].text = getPrice[3].ToString();
+                m_robotCost[1].text = getPrice[4].ToString();
+                m_robotCost[2].text = getPrice[5].ToString();
 
                 break;
 
             case 3:
 
-                m_robotCost[0].text = "200";
-                m_robotCost[1].text = "400";
-                m_robotCost[2].text = "600";
+                m_robotCost[0].text = getPrice[6].ToString();
+                m_robotCost[1].text = getPrice[7].ToString();
+                m_robotCost[2].text = getPrice[8].ToString();
 
                 break;
         }
