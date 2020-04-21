@@ -8,10 +8,9 @@ using UnityEngine;
 /// 
 /// </summary>
 
-public class RobotType : MonoBehaviour
+public class RobotInisialisation : MonoBehaviour
 {
-    public robotType m_robotType;
-    public int m_robotTypeInCreation;
+    public Robot_Type m_robotType;
 
     public int m_robotSize;
 
@@ -24,65 +23,26 @@ public class RobotType : MonoBehaviour
     [HideInInspector] public GameObject m_cone;
     [SerializeField] GameObject m_conePrefabs;
 
-    public enum robotType
+    private void Start()
     {
-        flying,
-        platform,
-        destruction
-    }
-
-    // Assign a type
-    public void SelectRobotType()
-    {
-
-        switch (m_robotTypeInCreation)
-        {
-            case 1:
-
-                m_robotType = robotType.flying;
-
-                break;
-
-            case 2:
-
-                m_robotType = robotType.platform;
-
-                break;
-
-            case 3:
-
-                m_robotType = robotType.destruction;
-
-                break;
-        }
-    }
-
-    // Assign parameter when create
-    public void AssignRobotType()
-    {
-
-        controller = GetComponent<Rigidbody>();
-
-        m_clickToMoveScript = gameObject.GetComponent<ClickToMoveEntity>();
-
         switch (m_robotType)
         {
-            case robotType.flying:
+            case Robot_Type.Flying:
 
                 gameObject.transform.localScale /= 2;
-                controller.useGravity = false;
+                //controller.useGravity = false;
                 gameObject.tag = "FlyingRobot";
 
                 break;
 
-            case robotType.platform:
+            case Robot_Type.Platforme:
 
                 gameObject.transform.localScale += new Vector3(gameObject.transform.localScale.x, 0, gameObject.transform.localScale.z);
                 gameObject.tag = "PlateformRobot";
 
                 break;
 
-            case robotType.destruction:
+            case Robot_Type.Destruction:
 
                 gameObject.transform.localScale /= 1.5f;
                 m_cone = Instantiate(m_conePrefabs, gameObject.transform.position + gameObject.transform.forward * 1.5f, new Quaternion(0, 180, 0, 1), gameObject.transform);
@@ -90,26 +50,33 @@ public class RobotType : MonoBehaviour
 
                 break;
         }
+
+        controller = GetComponent<Rigidbody>();
+
+        m_clickToMoveScript = gameObject.GetComponent<ClickToMoveEntity>();
+
+
     }
 
+    
     // Behavior depending on the robot type
     private void Update()
     {
         switch (m_robotType)
         {
-            case robotType.flying:
+            case Robot_Type.Flying:
 
                 gameObject.transform.position += new Vector3(0, 2, 0);
 
                 break;
 
-            case robotType.platform:
+            case Robot_Type.Platforme:
 
                 //Nothing for the moment
 
                 break;
 
-            case robotType.destruction:
+            case Robot_Type.Destruction:
 
                 if (m_timer > 0)
                 {

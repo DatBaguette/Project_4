@@ -12,8 +12,10 @@ public class LittleRobotAtBeginning : MonoBehaviour
 {
     [SerializeField] Manage_Robot m_manageRobotScript;
 
+
+    [SerializeField] GameObject m_fliyingbot;
     private void Start()
     {
-        m_manageRobotScript.InstantiateRobot(Manage_Robot.RobotType.Flying);
+        m_manageRobotScript.InstantiateRobot(m_fliyingbot);
     }
 }

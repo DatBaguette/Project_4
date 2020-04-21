@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4672030914307114181}
   - component: {fileID: 5534576420000826309}
   - component: {fileID: 5429171910321501140}
-  - component: {fileID: 6437506366544270378}
   - component: {fileID: 5775361718960643681}
+  - component: {fileID: -3148997031274946675}
   m_Layer: 0
   m_Name: Robot_Plateform
   m_TagString: PlateformRobot
@@ -126,24 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_thisEntityNumber: 2
---- !u!114 &6437506366544270378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814247677799154363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db96218679b53e4b8827d023f325bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_robotType: 1
-  m_robotTypeInCreation: 2
-  m_robotSize: 1
-  m_cone: {fileID: 0}
-  m_conePrefabs: {fileID: 6013160240437250808, guid: 2b5f24686e8587549be303e3201b3a24,
-    type: 3}
 --- !u!195 &5775361718960643681
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -166,3 +148,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-3148997031274946675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814247677799154363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b0a6871fc885d4494f3841501c9450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_robotType: 1
+  m_robotSize: 2
+  m_cone: {fileID: 0}
+  m_conePrefabs: {fileID: 0}

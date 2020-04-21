@@ -9,6 +9,13 @@ using UnityEngine.UI;
 /// 
 /// </summary>
 
+public enum Robot_Type
+{
+    Flying,
+    Platforme,
+    Destruction
+}
+
 public class Manage_Robot : MonoBehaviour
 {
     [Tooltip("Prefab of the base robot")]
@@ -29,12 +36,15 @@ public class Manage_Robot : MonoBehaviour
     [Tooltip("Craft manager gameObject")]
     [SerializeField] CraftManager m_craftManager;
 
-    public enum RobotType
-    {
-        Flying,
-        Platforme,
-        Destruction
-    }
+    [SerializeField]
+    private GameObject m_FlyingBot;
+    
+    [SerializeField]
+    private GameObject m_PlatformeBot;
+    
+    [SerializeField]
+    private GameObject m_DestructionBot;
+    
 
     [Tooltip("Array of robot price")]
     [SerializeField]
@@ -42,7 +52,7 @@ public class Manage_Robot : MonoBehaviour
     
     public void CreateFlyingRobot()
     {
-        // Use to define robot type in "RobotType" script
+        // Use to define robot type in "RobotInisialisation" script
         //int actualRobotType = 1;
 
         // Condition to create robot if player have enough money
@@ -71,7 +81,7 @@ public class Manage_Robot : MonoBehaviour
                 case 3: GameManager.Instance.m_actualRessources -= price[2]; break;
             }
 
-            InstantiateRobot(RobotType.Flying);
+            InstantiateRobot(m_FlyingBot);
         }
     }
 
@@ -102,7 +112,7 @@ public class Manage_Robot : MonoBehaviour
                 case 3: GameManager.Instance.m_actualRessources -= price[5]; break;
             }
 
-            InstantiateRobot(RobotType.Platforme);
+            InstantiateRobot(m_PlatformeBot);
         }
     }
 
@@ -133,20 +143,42 @@ public class Manage_Robot : MonoBehaviour
                 case 3: GameManager.Instance.m_actualRessources -= price[8]; break;
             }
 
-            InstantiateRobot(RobotType.Destruction);
+            InstantiateRobot(m_DestructionBot);
         }
 
     }
 
-    // Instantiate Robot and give him properties to work
+    //Instantiate Robot and give him properties to work
 
-    public void InstantiateRobot(RobotType RobotCreat)
+    public void InstantiateRobot(GameObject p_prebabbot)
     {
+        
+        // Robot Object
+        var robot = Instantiate(p_prebabbot, m_player.gameObject.transform);
+        robot.transform.SetParent(m_robotContainer.transform, false);
+        robot.gameObject.name = "robot " + GameManager.Instance.m_robotNumber;
 
+        // Robot Values
+        ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
+        robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
+
+        // Robot UI
+        var robotUi = Instantiate(m_robotUIPrefab);
+        robotUi.transform.SetParent(m_robotUIContainer.transform, false);
+        ChooseRobot chooseRobotScript = robotUi.gameObject.GetComponent<ChooseRobot>();
+        chooseRobotScript.m_uiRobotNumber = GameManager.Instance.m_robotNumber;
+        chooseRobotScript.m_associateRobot = robot;
+        chooseRobotScript.m_player = m_player;
+
+        Button robotUiButton = robotUi.gameObject.GetComponent<Button>();
+        robotUiButton.onClick.AddListener(chooseRobotScript.SelectRobot);
+
+        var UIName = robotUi.gameObject.transform.Find("Text");
+
+        Text UINameText = UIName.gameObject.GetComponent<Text>();
+        UINameText.text = robot.gameObject.name;
     }
-
-
-    //public void InstantiateRobot(int actualRobotType)
+    //public void InstantiateRobot(RobotInisialisation RobotCreat)
     //{
     //    GameManager.Instance.m_robotNumber += 1;
 
@@ -162,7 +194,7 @@ public class Manage_Robot : MonoBehaviour
     //    robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
 
     //    // Assign robot type
-    //    RobotType robotTypeScript = robot.gameObject.GetComponent<RobotType>();
+    //    RobotInisialisation robotTypeScript = robot.gameObject.GetComponent<RobotInisialisation>();
     //    robotTypeScript.m_robotTypeInCreation = actualRobotType;
     //    robotTypeScript.m_robotSize = m_craftManager.m_choosenSize;
     //    robotTypeScript.SelectRobotType();

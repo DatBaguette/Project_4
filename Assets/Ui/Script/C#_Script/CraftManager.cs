@@ -20,7 +20,7 @@ public class CraftManager : MonoBehaviour
     [HideInInspector] public int m_choosenSize = 1;
 
     [SerializeField]
-    private int[] getPrice;
+    private List<int> getPrice;
 
     [SerializeField]
     private Manage_Robot CurrentManager;
@@ -29,7 +29,7 @@ public class CraftManager : MonoBehaviour
     {
         //getPrice[] = gameObject.GetComponent<Manage_Robot>().price[];
 
-        for(int i = 0; i < getPrice.Length; i++)
+        for(int i = 0; i < getPrice.Count ; i++)
         {
             getPrice[i] = CurrentManager.price[i];
         }
@@ -72,10 +72,5 @@ public class CraftManager : MonoBehaviour
         }
     }
 
-    public enum robotType
-    {
-        flying,
-        platform,
-        destruction
-    }
+
 }
