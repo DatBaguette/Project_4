@@ -25,31 +25,6 @@ public class RobotInisialisation : MonoBehaviour
 
     private void Start()
     {
-        switch (m_robotType)
-        {
-            case Robot_Type.Flying:
-
-                gameObject.transform.localScale /= 2;
-                //controller.useGravity = false;
-                gameObject.tag = "FlyingRobot";
-
-                break;
-
-            case Robot_Type.Platforme:
-
-                gameObject.transform.localScale += new Vector3(gameObject.transform.localScale.x, 0, gameObject.transform.localScale.z);
-                gameObject.tag = "PlateformRobot";
-
-                break;
-
-            case Robot_Type.Destruction:
-
-                gameObject.transform.localScale /= 1.5f;
-                m_cone = Instantiate(m_conePrefabs, gameObject.transform.position + gameObject.transform.forward * 1.5f, new Quaternion(0, 180, 0, 1), gameObject.transform);
-                gameObject.tag = "DestructionRobot";
-
-                break;
-        }
 
         controller = GetComponent<Rigidbody>();
 

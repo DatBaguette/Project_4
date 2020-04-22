@@ -177,6 +177,7 @@ public class Manage_Robot : MonoBehaviour
         var robot = Instantiate(p_prebabbot, m_player.gameObject.transform);
         robot.transform.SetParent(m_robotContainer.transform, false);
         robot.gameObject.name = "robot " + GameManager.Instance.m_robotNumber;
+        robot.transform.position = m_player.gameObject.transform.position + new Vector3(2, 0, 0);
 
         // Robot Values
         ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();

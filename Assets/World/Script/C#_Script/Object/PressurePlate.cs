@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public bool GetIsOpen = false;
+    public bool m_getIsOpen = false;
 
- 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<ClickToMoveEntity>())
         {
-            GetIsOpen = true;
+            m_getIsOpen = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<ClickToMoveEntity>())
+        {
+            m_getIsOpen = false;
         }
     }
 }
