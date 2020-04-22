@@ -37,14 +37,32 @@ public class Manage_Robot : MonoBehaviour
     [SerializeField] CraftManager m_craftManager;
 
     [SerializeField]
-    private GameObject m_FlyingBot;
-    
+    private GameObject m_FlyingBot_1;
+
     [SerializeField]
-    private GameObject m_PlatformeBot;
-    
+    private GameObject m_FlyingBot_2;
+
     [SerializeField]
-    private GameObject m_DestructionBot;
-    
+    private GameObject m_FlyingBot_3;
+
+    [SerializeField]
+    private GameObject m_PlatformeBot_1;
+
+    [SerializeField]
+    private GameObject m_PlatformeBot_2;
+
+    [SerializeField]
+    private GameObject m_PlatformeBot_3;
+
+    [SerializeField]
+    private GameObject m_DestructionBot_1;
+
+    [SerializeField]
+    private GameObject m_DestructionBot_2;
+
+    [SerializeField]
+    private GameObject m_DestructionBot_3;
+
 
     [Tooltip("Array of robot price")]
     [SerializeField]
@@ -81,7 +99,7 @@ public class Manage_Robot : MonoBehaviour
                 case 3: GameManager.Instance.m_actualRessources -= price[2]; break;
             }
 
-            InstantiateRobot(m_FlyingBot);
+            InstantiateRobot(m_FlyingBot_1);
         }
     }
 
@@ -112,7 +130,7 @@ public class Manage_Robot : MonoBehaviour
                 case 3: GameManager.Instance.m_actualRessources -= price[5]; break;
             }
 
-            InstantiateRobot(m_PlatformeBot);
+            InstantiateRobot(m_PlatformeBot_1);
         }
     }
 
@@ -143,7 +161,7 @@ public class Manage_Robot : MonoBehaviour
                 case 3: GameManager.Instance.m_actualRessources -= price[8]; break;
             }
 
-            InstantiateRobot(m_DestructionBot);
+            InstantiateRobot(m_DestructionBot_1);
         }
 
     }
@@ -152,7 +170,9 @@ public class Manage_Robot : MonoBehaviour
 
     public void InstantiateRobot(GameObject p_prebabbot)
     {
-        
+
+        GameManager.Instance.m_robotNumber += 1;
+
         // Robot Object
         var robot = Instantiate(p_prebabbot, m_player.gameObject.transform);
         robot.transform.SetParent(m_robotContainer.transform, false);
@@ -165,6 +185,7 @@ public class Manage_Robot : MonoBehaviour
         // Robot UI
         var robotUi = Instantiate(m_robotUIPrefab);
         robotUi.transform.SetParent(m_robotUIContainer.transform, false);
+
         ChooseRobot chooseRobotScript = robotUi.gameObject.GetComponent<ChooseRobot>();
         chooseRobotScript.m_uiRobotNumber = GameManager.Instance.m_robotNumber;
         chooseRobotScript.m_associateRobot = robot;
