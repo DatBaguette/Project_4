@@ -114,7 +114,7 @@ public class SC_Boomerang : MonoBehaviour
             }
         }
 
-        Debug.Log("nodeFrom : " + NodeFrom + "    nodeTo : " + NodeTo);
+        //Debug.Log("nodeFrom : " + NodeFrom + "    nodeTo : " + NodeTo);
     }
 
     private void RestardBoomrangPos()

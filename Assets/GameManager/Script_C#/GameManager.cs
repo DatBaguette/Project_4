@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
     public LayerMask boomerang;
 
     public m_PlayerState m_currentPlayerState;
-    
+
     public int m_actualSelectedRobotNumber = 0;
 
     public int m_robotNumber = 0;
@@ -28,6 +28,10 @@ public class GameManager : Singleton<GameManager>
     public int m_actualRessources = 0;
 
     public bool m_boomerangLaunch = false;
+
+    public bool[] m_robotCore = {false, false, false};
+
+    public bool[] m_sizeUnlocked = { false, false};
 
     private void Start()
     {

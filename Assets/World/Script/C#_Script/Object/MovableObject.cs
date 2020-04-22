@@ -6,6 +6,8 @@ public class MovableObject : MonoBehaviour
 {
     private Rigidbody m_rb;
 
+    [SerializeField] GameObject m_parent;
+
     private void Start()
     {
         m_rb = GetComponent<Rigidbody>();
@@ -13,9 +15,11 @@ public class MovableObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if ( other.gameObject.tag == "PlateformRobot")
         {
-            transform.Translate(transform.forward * Time.deltaTime, Space.World);
+            Debug.Log("kek");
+            m_parent.gameObject.transform.Translate(transform.forward * Time.deltaTime, Space.World);
         }
     }
 }
