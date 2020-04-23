@@ -11,7 +11,7 @@ public class BridgeBehavior : MonoBehaviour
 
     private Animator m_animator;
 
-    [SerializeField] NavMeshSurface m_surface;
+    [SerializeField] GameObject m_invisibleWall;
 
     private void Start()
     {
@@ -20,6 +20,11 @@ public class BridgeBehavior : MonoBehaviour
 
     private void Update()
     {
+        if ( GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player )
+            m_invisibleWall.SetActive(false);
+        else
+            m_invisibleWall.SetActive(true);
+
         if ( m_canOpen > 0)
         {
             for (int i = 0; i < m_button.Count; i++)
@@ -37,8 +42,8 @@ public class BridgeBehavior : MonoBehaviour
 
     IEnumerator BakeNavMeshSurface()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(8);
 
-        m_surface.BuildNavMesh();
+        m_invisibleWall.SetActive(false);
     }
 }
