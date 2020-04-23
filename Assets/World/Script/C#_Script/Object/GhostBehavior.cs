@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class GhostBehavior : MonoBehaviour
 {
-    private bool m_canEnter = true;
+    //private bool m_canEnter = true;
 
     private bool m_chasePlayer = false;
+
+    private Vector3 m_spawnPosition;
 
     [SerializeField] GameObject m_player;
 
     [SerializeField] int m_speed;
+
+    private void Start()
+    {
+        m_spawnPosition = gameObject.transform.position;
+    }
 
     private void Update()
     {
@@ -25,6 +32,12 @@ public class GhostBehavior : MonoBehaviour
                     (directionOfTravel.z * m_speed * Time.deltaTime),
                     Space.World);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameManager.Instance.m_player.transform.position = GameManager.Instance.m_actualCheckPointObject.transform.position;
+        GameManager.Instance.ResetAllEnnemies();
     }
 
     private void OnTriggerStay(Collider other)
@@ -45,5 +58,11 @@ public class GhostBehavior : MonoBehaviour
 
             Debug.DrawRay(transform.position, transform.forward * ( Vector3.Distance(transform.position, other.transform.position) - 1 ), Color.white);
         }
+    }
+
+    public void ResetPosition()
+    {
+        gameObject.transform.position = m_spawnPosition;
+        m_chasePlayer = false;
     }
 }

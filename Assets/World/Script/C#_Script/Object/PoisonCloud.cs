@@ -6,10 +6,12 @@ public class PoisonCloud : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if ( GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro &&
-            ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() ))
+        if ( ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() ))
         {
-            GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
+            if (GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro)
+                GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
+            else
+                GameManager.Instance.m_player.transform.position = GameManager.Instance.m_actualCheckPointObject.transform.position;
         }
     }
 }

@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class IntroMovingCloud : MonoBehaviour
 {
-    private Animator m_animator;
-
-    private void Start()
-    {
-        m_animator = gameObject.GetComponent<Animator>();
-    }
+    [SerializeField] Animator m_animator;
 
     public void Move()
     {

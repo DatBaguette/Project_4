@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class GameManager : Singleton<GameManager>
@@ -15,6 +16,8 @@ public class GameManager : Singleton<GameManager>
         Idle,
         Menu
     }
+
+    public GameObject m_player;
 
     public LayerMask defautMask;
     public LayerMask boomerang;
@@ -34,6 +37,9 @@ public class GameManager : Singleton<GameManager>
     public bool[] m_sizeUnlocked = { false, false};
 
     public StoryStep m_actualStoryStep = StoryStep.Intro;
+
+    public int m_actualCheckPointNumber = 0;
+    public GameObject m_actualCheckPointObject;
 
     private void Start()
     {
@@ -117,6 +123,25 @@ public class GameManager : Singleton<GameManager>
         {
             m_currentPlayerState = m_PlayerState.boomerang;
         }
+    }
+
+    public void playerDeath()
+    {
+        ResetAllEnnemies();
+        m_player.transform.position = m_actualCheckPointObject.transform.position;
+        NavMeshAgent navmesh = m_player.GetComponent<NavMeshAgent>();
+    }
+
+    public void ResetAllEnnemies()
+    {
+        GameObject[] m_ennemies = GameObject.FindGameObjectsWithTag("Ghost");
+
+        for ( int i = 0; i < m_ennemies.Length; i++)
+        {
+            GhostBehavior ghostScript = m_ennemies[i].GetComponent<GhostBehavior>();
+            ghostScript.ResetPosition();
+        }
+        
     }
 
     public enum StoryStep

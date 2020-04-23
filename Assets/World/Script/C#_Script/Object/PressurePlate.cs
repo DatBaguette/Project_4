@@ -9,15 +9,16 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ClickToMoveEntity>())
+        if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
+            Debug.Log("banen");
             m_getIsOpen = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<ClickToMoveEntity>())
+        if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
             m_getIsOpen = false;
         }
