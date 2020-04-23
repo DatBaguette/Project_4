@@ -33,9 +33,14 @@ public class GameManager : Singleton<GameManager>
 
     public bool[] m_sizeUnlocked = { false, false};
 
+    public StoryStep m_actualStoryStep = StoryStep.Intro;
+
     private void Start()
     {
-        m_currentPlayerState = m_PlayerState.move_player;
+        if ( m_actualStoryStep == StoryStep.Intro)
+            m_currentPlayerState = m_PlayerState.move_drone;
+        else
+            m_currentPlayerState = m_PlayerState.move_player;
     }
 
     public Vector3 RetrievePosition()
@@ -63,8 +68,6 @@ public class GameManager : Singleton<GameManager>
         return (hit.point);
 
     }
-
-
 
     private void Update()
     {
@@ -114,6 +117,13 @@ public class GameManager : Singleton<GameManager>
         {
             m_currentPlayerState = m_PlayerState.boomerang;
         }
+    }
+
+    public enum StoryStep
+    {
+        Intro,
+        LevelOne,
+        BridgePass,
     }
 
 }

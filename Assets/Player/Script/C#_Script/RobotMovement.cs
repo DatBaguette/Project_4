@@ -48,8 +48,9 @@ public class RobotMovement : MonoBehaviour
         if (GameManager.Instance.m_actualSelectedRobotNumber != m_thisEntityNumber)
             dir = new Vector3(0, 0, 0);
 
-        //controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
-
-        transform.Translate(dir * m_movementSpeed);
+        if ( gameObject.tag == "FlyingRobot")
+            controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
+        else 
+            transform.Translate(dir * m_movementSpeed);
     }
 }

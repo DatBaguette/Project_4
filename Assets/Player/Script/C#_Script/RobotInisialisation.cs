@@ -27,6 +27,26 @@ public class RobotInisialisation : MonoBehaviour
 
         m_movementScript = gameObject.GetComponent<RobotMovement>();
 
+        switch (m_robotType)
+        {
+            case Robot_Type.Flying:
+
+                gameObject.transform.position += new Vector3(0, 2, 0);
+
+                break;
+
+            case Robot_Type.Platforme:
+
+                //Nothing for the moment
+
+                break;
+
+            case Robot_Type.Destruction:
+
+
+                break;
+        }
+
     }
 
     
