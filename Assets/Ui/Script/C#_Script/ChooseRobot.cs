@@ -30,6 +30,8 @@ public class ChooseRobot : MonoBehaviour
     {
         if (GameManager.Instance.m_actualSelectedRobotNumber == m_uiRobotNumber)
         {
+            GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_player;
+
             GameManager.Instance.m_actualSelectedRobotNumber = 0;
 
             m_playerCamera.Follow = m_player.transform;
@@ -37,6 +39,8 @@ public class ChooseRobot : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_drone;
+
             GameManager.Instance.m_actualSelectedRobotNumber = m_uiRobotNumber;
 
             m_playerCamera.Follow = m_associateRobot.transform;

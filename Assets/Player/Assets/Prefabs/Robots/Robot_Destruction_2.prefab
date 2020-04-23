@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 1654559882431114552}
   - component: {fileID: 4293089942610875506}
   - component: {fileID: 4406112519943212943}
-  - component: {fileID: 2046535960652180070}
-  - component: {fileID: 2989889035931523119}
   - component: {fileID: 4629307584182602238}
+  - component: {fileID: 803558422097778825}
   m_Layer: 0
   m_Name: Robot_Destruction_2
   m_TagString: DestructionRobot
@@ -112,43 +111,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &2046535960652180070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6017328427754874115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846b7c369ad95e1499b6bbcdd3f4ead5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_thisEntityNumber: 1
---- !u!195 &2989889035931523119
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6017328427754874115}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 7
-  m_Acceleration: 10
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &4629307584182602238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +126,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_robotType: 2
-  m_robotSize: 1
-  m_cone: {fileID: 0}
-  m_conePrefabs: {fileID: 7755484835542530847}
+  m_cone: {fileID: 7755484835542530847}
+--- !u!114 &803558422097778825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017328427754874115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47bdc1e8cbf4cd45ade01598e8197c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_baseMoveSpeed: 0.1
+  m_drag: 0.5
+  m_terminalRotationSpeed: 25
+  m_thisEntityNumber: 0
 --- !u!1 &7755484835542530847
 GameObject:
   m_ObjectHideFlags: 0

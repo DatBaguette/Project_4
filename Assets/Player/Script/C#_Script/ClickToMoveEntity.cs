@@ -9,7 +9,7 @@ public class ClickToMoveEntity : MonoBehaviour
     
     private NavMeshAgent m_navMeshAgent;
 
-    [HideInInspector] public int m_thisEntityNumber;
+    [SerializeField] GameObject m_boomerangManager;
 
     void Start()
     {
@@ -18,8 +18,10 @@ public class ClickToMoveEntity : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && m_thisEntityNumber == GameManager.Instance.m_actualSelectedRobotNumber 
-            && (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player || GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_drone))
+        if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player)
+            m_boomerangManager.SetActive(false);
+
+        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
         {
 
             if (EventSystem.current.IsPointerOverGameObject())

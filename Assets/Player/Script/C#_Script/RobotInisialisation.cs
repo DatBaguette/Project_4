@@ -12,24 +12,20 @@ public class RobotInisialisation : MonoBehaviour
 {
     public Robot_Type m_robotType;
 
-    public int m_robotSize;
-
     private Rigidbody controller;
 
     private float m_timer = 0;
 
-    private ClickToMoveEntity m_clickToMoveScript; 
+    [SerializeField] GameObject m_cone;
 
-    [HideInInspector] public GameObject m_cone;
-    [SerializeField] GameObject m_conePrefabs;
+    private RobotMovement m_movementScript;
 
     private void Start()
     {
 
         controller = GetComponent<Rigidbody>();
 
-        m_clickToMoveScript = gameObject.GetComponent<ClickToMoveEntity>();
-
+        m_movementScript = gameObject.GetComponent<RobotMovement>();
 
     }
 
@@ -40,8 +36,6 @@ public class RobotInisialisation : MonoBehaviour
         switch (m_robotType)
         {
             case Robot_Type.Flying:
-
-                gameObject.transform.position += new Vector3(0, 2, 0);
 
                 break;
 
@@ -63,7 +57,7 @@ public class RobotInisialisation : MonoBehaviour
                     m_cone.SetActive(false);
                 }
 
-                if (Input.touchCount == 2 && GameManager.Instance.m_actualSelectedRobotNumber == m_clickToMoveScript.m_thisEntityNumber)
+                if (Input.touchCount == 2 && GameManager.Instance.m_actualSelectedRobotNumber == m_movementScript.m_thisEntityNumber)
                 {
                     m_timer = 2;
 

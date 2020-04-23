@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 4437439074798918891}
   - component: {fileID: 4416558330557878081}
   - component: {fileID: 5523014786523732308}
-  - component: {fileID: 5546341518084375840}
-  - component: {fileID: 764725381349908312}
   - component: {fileID: 8321110318907984672}
+  - component: {fileID: -9090738286142573884}
   m_Layer: 0
   m_Name: Robot_Flying_3
   m_TagString: FlyingRobot
@@ -111,43 +110,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &5546341518084375840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647913404613452588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 846b7c369ad95e1499b6bbcdd3f4ead5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_thisEntityNumber: 1
---- !u!195 &764725381349908312
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647913404613452588}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 7
-  m_Acceleration: 10
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &8321110318907984672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +125,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_robotType: 0
-  m_robotSize: 1
   m_cone: {fileID: 0}
-  m_conePrefabs: {fileID: 0}
+--- !u!114 &-9090738286142573884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647913404613452588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47bdc1e8cbf4cd45ade01598e8197c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_baseMoveSpeed: 0.1
+  m_drag: 0.5
+  m_terminalRotationSpeed: 25
+  m_thisEntityNumber: 0

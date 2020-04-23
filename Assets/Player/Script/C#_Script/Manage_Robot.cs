@@ -180,7 +180,7 @@ public class Manage_Robot : MonoBehaviour
         robot.transform.position = m_player.gameObject.transform.position + new Vector3(2, 0, 0);
 
         // Robot Values
-        ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
+        RobotMovement robotScriptToMove = robot.gameObject.GetComponent<RobotMovement>();
         robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
 
         // Robot UI

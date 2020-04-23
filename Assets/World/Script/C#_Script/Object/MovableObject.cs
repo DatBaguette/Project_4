@@ -18,7 +18,6 @@ public class MovableObject : MonoBehaviour
 
         if ( other.gameObject.tag == "PlateformRobot")
         {
-            Debug.Log("kek");
             m_parent.gameObject.transform.Translate(transform.forward * Time.deltaTime, Space.World);
         }
     }
