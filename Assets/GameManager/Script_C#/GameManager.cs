@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 using Cinemachine;
 
+/// <summary>
+/// 
+/// Script that manage all the game
+/// 
+/// </summary>
 
 public class GameManager : Singleton<GameManager>
 {
@@ -18,6 +23,26 @@ public class GameManager : Singleton<GameManager>
         Menu
     }
 
+    /// <summary>
+    /// Used to trigger scripted event or scripted gameplay
+    /// </summary>
+    public StoryStep m_actualStoryStep = StoryStep.Intro;
+
+    /// <summary>
+    /// Number of ressources in the inventory
+    /// </summary>
+    public int m_actualRessources = 0;
+
+    /// <summary>
+    /// Check if the player has unlocked robots cores
+    /// </summary>
+    public bool[] m_robotCore = { false, false, false };
+
+    /// <summary>
+    /// Check if the player has unlocked robots size
+    /// </summary>
+    public bool[] m_sizeUnlocked = { false, false };
+
     public GameObject m_player;
 
     public LayerMask defautMask;
@@ -25,21 +50,26 @@ public class GameManager : Singleton<GameManager>
 
     public m_PlayerState m_currentPlayerState;
 
+    /// <summary>
+    /// The ID of the robot that the player is currently controlling
+    /// </summary>
     public int m_actualSelectedRobotNumber = 0;
 
+    /// <summary>
+    /// Number of robot in the game
+    /// </summary>
     public int m_robotNumber = 0;
-
-    public int m_actualRessources = 0;
 
     public bool m_boomerangLaunch = false;
 
-    public bool[] m_robotCore = {false, false, false};
-
-    public bool[] m_sizeUnlocked = { false, false};
-
-    public StoryStep m_actualStoryStep = StoryStep.Intro;
-
+    /// <summary>
+    /// ID of the actual checkpoint
+    /// </summary>
     public int m_actualCheckPointNumber = 0;
+
+    /// <summary>
+    /// GameObject of the actual CheckPoint
+    /// </summary>
     public GameObject m_actualCheckPointObject;
 
     public List<GameObject> m_robots;
@@ -57,6 +87,9 @@ public class GameManager : Singleton<GameManager>
             m_currentPlayerState = m_PlayerState.move_player;
     }
 
+    /// <summary>
+    /// Retrieve the position of the mouse on the screen
+    /// </summary>
     public Vector3 RetrievePosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -88,6 +121,7 @@ public class GameManager : Singleton<GameManager>
         StateController();
     }
 
+    // Cheat keycode
     public void StateController()
     {
         if (!m_boomerangLaunch)
@@ -114,17 +148,9 @@ public class GameManager : Singleton<GameManager>
        
     }
 
-
-    public void RobotDestruction( int type, int size, GameObject ressources, GameObject robotObject)
-    {
-        Instantiate(ressources, robotObject.transform);
-
-        RessourcesBehavior ressourcesScript = ressources.GetComponent<RessourcesBehavior>();
-
-        // Value to change later
-        ressourcesScript.m_ressourcesAmount = 100;
-    }
-
+    /// <summary>
+    /// Change the state of the player to activate the magnet
+    /// </summary>
     public void ActivateMagnet()
     {
         if ( m_currentPlayerState == m_PlayerState.boomerang)
@@ -137,6 +163,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// If the player die
+    /// </summary>
     public void playerDeath()
     {
         ResetAllEnnemies();
@@ -155,6 +184,9 @@ public class GameManager : Singleton<GameManager>
 
     }
 
+    /// <summary>
+    /// Reset all the ennemies
+    /// </summary>
     public void ResetAllEnnemies()
     {
         GameObject[] m_ennemies = GameObject.FindGameObjectsWithTag("Ghost");
@@ -167,6 +199,9 @@ public class GameManager : Singleton<GameManager>
         
     }
 
+    /// <summary>
+    /// Kill all robots that the player can control
+    /// </summary>
     public void KillAllRobot()
     {
         if ( m_robotNumber > 0)
@@ -180,6 +215,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// Kill a robot
+    /// </summary>
     public void KillOneRobot(int i)
     {
         RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();

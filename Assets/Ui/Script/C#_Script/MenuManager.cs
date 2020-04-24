@@ -54,6 +54,7 @@ public class MenuManager : MonoBehaviour
     {
         m_ressourcesText.text = "Pièces détachées : " + GameManager.Instance.m_actualRessources.ToString();
 
+        // Desactivate areas in the craft menu if the player dont have the robot's core associate
         for ( int i = 0; i < m_CraftMenuRobotTypeArea.Count; i++)
         {
              if (!GameManager.Instance.m_robotCore[i])

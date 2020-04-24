@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// Ressources behavior adapted on robots core :)
+/// 
+/// </summary>
+
 public class RobotCoreBehavior : MonoBehaviour
 {
     [HideInInspector] private bool m_harvested;

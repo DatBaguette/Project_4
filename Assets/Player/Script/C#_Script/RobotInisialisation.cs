@@ -10,15 +10,31 @@ using UnityEngine;
 
 public class RobotInisialisation : MonoBehaviour
 {
+    /// <summary>
+    /// Robot type to change their behavior
+    /// </summary>
     public Robot_Type m_robotType;
+
+    /// <summary>
+    /// Robot size ( 1 /2 / 3 )
+    /// </summary>
     public int m_size;
 
     private Rigidbody controller;
 
+    /// <summary>
+    /// Time of activation of the flameThrower
+    /// </summary>
     private float m_timer = 0;
 
+    /// <summary>
+    /// FlameThrower area of attack
+    /// </summary>
     [SerializeField] GameObject m_cone;
-
+    
+    /// <summary>
+    /// Script that allow the robot to move
+    /// </summary>
     private RobotMovement m_movementScript;
 
     private void Start()
@@ -28,6 +44,7 @@ public class RobotInisialisation : MonoBehaviour
 
         m_movementScript = gameObject.GetComponent<RobotMovement>();
 
+        //Initialise the robot depending of his type
         switch (m_robotType)
         {
             case Robot_Type.Flying:
@@ -44,6 +61,7 @@ public class RobotInisialisation : MonoBehaviour
 
             case Robot_Type.Destruction:
 
+                //Nothing for the moment
 
                 break;
         }
@@ -57,6 +75,8 @@ public class RobotInisialisation : MonoBehaviour
         switch (m_robotType)
         {
             case Robot_Type.Flying:
+
+                //Nothing for the moment
 
                 break;
 

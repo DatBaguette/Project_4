@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// Behavior of the object that can be move by the plateform robot
+/// 
+/// </summary>
+
 public class MovableObject : MonoBehaviour
 {
     private Rigidbody m_rb;

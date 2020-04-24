@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// 
+/// It will hide the interface if the character isn't controlled
+/// and allow to move him
+/// 
+/// </summary>
+
 public class ClickToMoveEntity : MonoBehaviour
 {
     
@@ -12,6 +19,9 @@ public class ClickToMoveEntity : MonoBehaviour
     [SerializeField] GameObject m_boomerangManager;
     [SerializeField] GameObject m_Joystick;
 
+    /// <summary>
+    /// Allow to reset the joystick position
+    /// </summary>
     private Vector3 m_baseJoystickPosition;
 
     void Start()
@@ -23,6 +33,7 @@ public class ClickToMoveEntity : MonoBehaviour
 
     private void Update()
     {
+        // desactivate the interface if the player dont control the character
         if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player 
             && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang )
         {
@@ -35,6 +46,7 @@ public class ClickToMoveEntity : MonoBehaviour
             m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
         }
 
+        // Move the player
         if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
         {
 

@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// Movement of the robot with the joystick
+/// 
+/// </summary>
+
 public class RobotMovement : MonoBehaviour
 {
     [SerializeField] float m_baseMoveSpeed = 5.0f;
@@ -40,14 +46,17 @@ public class RobotMovement : MonoBehaviour
         if (dir.magnitude > 1)
             dir.Normalize();
 
+        // if the joystick position isn't null, it give a direciton to the player
         if (m_moveJoystickScript.m_InputDirection != Vector3.zero)
         {
             dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z);
         }
 
+        // Stop the movement if the actual robot isn't this one
         if (GameManager.Instance.m_actualSelectedRobotNumber != m_thisEntityNumber)
             dir = new Vector3(0, 0, 0);
 
+        // Adpat the movement type because it did weird things with the flying robot
         if ( gameObject.tag == "FlyingRobot")
             controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
         else 

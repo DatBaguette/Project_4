@@ -2,8 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// It will move the ressources to the player if it reaches the trigger zone
+/// and add the good amount of ressources
+/// 
+/// </summary>
+
 public class RessourcesBehavior : MonoBehaviour
 {
+    /// <summary>
+    /// the ressource will move if it is harvested
+    /// </summary>
     [HideInInspector] private bool m_harvested;
 
     [Tooltip("Time to reach the player")]
@@ -16,17 +26,16 @@ public class RessourcesBehavior : MonoBehaviour
     [Tooltip("Amount of ressources that will give the object")]
     public int m_ressourcesAmount = 10;
 
-    private bool m_reachVoid = false;
-
     private void Start()
     {
+        // Adapt the ressources size of his amount
         gameObject.transform.localScale *= ( m_ressourcesAmount * 0.5f ) / 10 + 1;
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "HarvestZone" || other.gameObject.tag == "VOID")
+        if (other.gameObject.tag == "HarvestZone")
         {
             m_harvested = true;
             
@@ -51,6 +60,7 @@ public class RessourcesBehavior : MonoBehaviour
 
     }
 
+    // Move the ressources to the player
     private void moveRessources()
     {
         m_targetPosition = m_player.transform.position;

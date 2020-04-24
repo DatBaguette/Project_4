@@ -180,6 +180,7 @@ public class Manage_Robot : MonoBehaviour
 
         robot.transform.position = m_player.gameObject.transform.position + new Vector3(2, 0, 0);
 
+        // Add the robot to a global list
         if (GameManager.Instance.m_robots.Count >= GameManager.Instance.m_robotNumber)
         {
             GameManager.Instance.m_robots[GameManager.Instance.m_robotNumber-1] = robot;
@@ -195,6 +196,7 @@ public class Manage_Robot : MonoBehaviour
         var robotUi = Instantiate(m_robotUIPrefab);
         robotUi.transform.SetParent(m_robotUIContainer.transform, false);
 
+        // Add the robot UI to a global list
         if (GameManager.Instance.m_robotsUI.Count >= GameManager.Instance.m_robotNumber)
             GameManager.Instance.m_robotsUI[GameManager.Instance.m_robotNumber-1] = robotUi;
         else

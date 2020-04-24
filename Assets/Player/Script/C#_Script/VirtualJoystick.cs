@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// 
+/// Behavior of the joystick gameObject
+/// It save his direction to send it to the robot movement script
+/// 
+/// </summary>
+
 public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     private Image m_bgImg;
