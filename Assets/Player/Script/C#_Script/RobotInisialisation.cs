@@ -11,6 +11,7 @@ using UnityEngine;
 public class RobotInisialisation : MonoBehaviour
 {
     public Robot_Type m_robotType;
+    public int m_size;
 
     private Rigidbody controller;
 

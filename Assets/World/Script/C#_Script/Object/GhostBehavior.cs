@@ -36,8 +36,7 @@ public class GhostBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameManager.Instance.m_player.transform.position = GameManager.Instance.m_actualCheckPointObject.transform.position;
-        GameManager.Instance.ResetAllEnnemies();
+        GameManager.Instance.playerDeath();
     }
 
     private void OnTriggerStay(Collider other)

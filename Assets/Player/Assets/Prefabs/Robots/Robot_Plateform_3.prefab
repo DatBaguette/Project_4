@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5534576420000826309}
   - component: {fileID: -3148997031274946675}
   - component: {fileID: 4527386833940362661}
+  - component: {fileID: 3840644823266618144}
   m_Layer: 0
   m_Name: Robot_Plateform_3
   m_TagString: PlateformRobot
@@ -142,3 +143,16 @@ MonoBehaviour:
   m_drag: 0.5
   m_terminalRotationSpeed: 25
   m_thisEntityNumber: 0
+--- !u!135 &3840644823266618144
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814247677799154363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}

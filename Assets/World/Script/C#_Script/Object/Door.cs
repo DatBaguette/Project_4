@@ -14,9 +14,6 @@ public class Door : MonoBehaviour
 
     private bool m_activate = false;
 
-    [SerializeField] AudioSource m_failSound;
-    [SerializeField] AudioSource m_succeedSound;
-
     private void Start()
     {
         m_animator = gameObject.GetComponent<Animator>();
@@ -38,8 +35,8 @@ public class Door : MonoBehaviour
             m_animator.Play("Open");
             m_activate = true;
 
-            if (!m_succeedSound.isPlaying)
-                m_succeedSound.Play();
+            if (!SoundManager.Instance.m_succeedSound.isPlaying)
+                SoundManager.Instance.m_succeedSound.Play();
         }
 
         if (checkPressurePlate != m_theScript.Count && m_activate)
@@ -50,8 +47,8 @@ public class Door : MonoBehaviour
 
                 m_activate = false;
 
-                if (!m_failSound.isPlaying)
-                    m_failSound.Play();
+                if (!SoundManager.Instance.m_failSound.isPlaying)
+                    SoundManager.Instance.m_failSound.Play();
             }
         }
 

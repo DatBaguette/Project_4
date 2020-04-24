@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4406112519943212943}
   - component: {fileID: 4629307584182602238}
   - component: {fileID: 803558422097778825}
+  - component: {fileID: 2619599373543924457}
   m_Layer: 0
   m_Name: Robot_Destruction_2
   m_TagString: DestructionRobot
@@ -143,6 +144,19 @@ MonoBehaviour:
   m_drag: 0.5
   m_terminalRotationSpeed: 25
   m_thisEntityNumber: 0
+--- !u!135 &2619599373543924457
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017328427754874115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7755484835542530847
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class ButtonTrigger : MonoBehaviour
     {
         if ( ( other.GetComponent<RobotMovement>() || other.GetComponent<ClickToMoveEntity>() ) && !m_activate)
         {
-            Debug.Log("button activate");
             m_activate = true;
             gameObject.transform.position += transform.forward * .3f;
         }

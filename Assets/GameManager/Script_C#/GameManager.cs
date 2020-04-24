@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Cinemachine;
 
 
 public class GameManager : Singleton<GameManager>
@@ -40,6 +41,13 @@ public class GameManager : Singleton<GameManager>
 
     public int m_actualCheckPointNumber = 0;
     public GameObject m_actualCheckPointObject;
+
+    public List<GameObject> m_robots;
+    public List<GameObject> m_robotsUI;
+
+    public Manage_Robot m_manageRobotScript;
+
+    public CinemachineVirtualCamera m_camera;
 
     private void Start()
     {
@@ -98,6 +106,10 @@ public class GameManager : Singleton<GameManager>
             {
                 m_currentPlayerState = m_PlayerState.move_drone;
             }
+            if (Input.GetKeyDown("g"))
+            {
+                KillAllRobot();
+            }
         }
        
     }
@@ -129,7 +141,18 @@ public class GameManager : Singleton<GameManager>
     {
         ResetAllEnnemies();
         m_player.transform.position = m_actualCheckPointObject.transform.position;
+
+        m_camera.Follow = m_player.transform;
+        m_camera.LookAt = Instance.m_player.transform;
+
+        m_currentPlayerState = m_PlayerState.move_player;
+
+        KillAllRobot();
+
         NavMeshAgent navmesh = m_player.GetComponent<NavMeshAgent>();
+
+        navmesh.ResetPath();
+
     }
 
     public void ResetAllEnnemies()
@@ -142,6 +165,46 @@ public class GameManager : Singleton<GameManager>
             ghostScript.ResetPosition();
         }
         
+    }
+
+    public void KillAllRobot()
+    {
+        if ( m_robotNumber > 0)
+        {
+            for (int i = 0; i < m_robotNumber; i++)
+            {
+                KillOneRobot(i);
+            }
+
+            m_robotNumber = 0;
+        }
+    }
+
+    public void KillOneRobot(int i)
+    {
+        RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
+
+        int type = 0;
+
+        switch (m_robotScript.m_robotType)
+        {
+            case Robot_Type.Flying:
+                type = 0;
+                break;
+
+            case Robot_Type.Platforme:
+                type = 3;
+                break;
+
+            case Robot_Type.Destruction:
+                type = 6;
+                break;
+        }
+
+        m_actualRessources += m_manageRobotScript.price[type];
+
+        Destroy(m_robots[i]);
+        Destroy(m_robotsUI[i]);
     }
 
     public enum StoryStep

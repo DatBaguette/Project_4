@@ -9,6 +9,8 @@ public class BridgeBehavior : MonoBehaviour
 
     private int m_canOpen = 2;
 
+    private bool m_openOnce = false;
+
     private Animator m_animator;
 
     [SerializeField] GameObject m_invisibleWall;
@@ -16,6 +18,8 @@ public class BridgeBehavior : MonoBehaviour
     private void Start()
     {
         m_animator = gameObject.GetComponent<Animator>();
+
+        m_canOpen = m_button.Count;
     }
 
     private void Update()
@@ -30,13 +34,24 @@ public class BridgeBehavior : MonoBehaviour
             for (int i = 0; i < m_button.Count; i++)
             {
                 if (m_button[i].m_activate)
-                    m_canOpen -= 2;
+                    m_canOpen -= 1;
+                else
+                    m_canOpen = m_button.Count;
             }
         }
         else
         {
-            m_animator.Play("Open");
-            StartCoroutine(BakeNavMeshSurface());
+            if (!m_openOnce)
+            {
+                m_animator.Play("Open");
+
+                if (!SoundManager.Instance.m_succeedSound.isPlaying)
+                    SoundManager.Instance.m_succeedSound.Play();
+
+                StartCoroutine(BakeNavMeshSurface());
+
+                m_openOnce = true;
+            }
         }
     }
 

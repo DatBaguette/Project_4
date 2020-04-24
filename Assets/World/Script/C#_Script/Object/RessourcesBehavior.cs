@@ -16,6 +16,8 @@ public class RessourcesBehavior : MonoBehaviour
     [Tooltip("Amount of ressources that will give the object")]
     public int m_ressourcesAmount = 10;
 
+    private bool m_reachVoid = false;
+
     private void Start()
     {
         gameObject.transform.localScale *= ( m_ressourcesAmount * 0.5f ) / 10 + 1;
@@ -24,9 +26,8 @@ public class RessourcesBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "HarvestZone")
+        if (other.gameObject.tag == "HarvestZone" || other.gameObject.tag == "VOID")
         {
-            RessourcesBehavior ressourcesScript = other.gameObject.GetComponent<RessourcesBehavior>();
             m_harvested = true;
             
         }
