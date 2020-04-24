@@ -60,5 +60,10 @@ public class ClickToMoveEntity : MonoBehaviour
             if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity))
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
         }
+
+        if (Input.GetKeyDown("k")){
+            Debug.Log("oui");
+            GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
+        }
     }
 }

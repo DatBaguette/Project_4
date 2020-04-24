@@ -129,17 +129,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18394308319a134b8c5f86125e0af3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_actualStoryStep: 0
+  m_actualRessources: 0
+  m_robotCore: 000000
+  m_sizeUnlocked: 0000
+  m_player: {fileID: 0}
   defautMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   boomerang:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_currentPlayerState: 0
   m_actualSelectedRobotNumber: 0
   m_robotNumber: 0
-  m_actualRessources: 0
   m_boomerangLaunch: 0
+  m_actualCheckPointNumber: 0
+  m_actualCheckPointObject: {fileID: 0}
+  m_robots: []
+  m_robotsUI: []
+  m_manageRobotScript: {fileID: 0}
+  m_camera: {fileID: 0}
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +204,15 @@ MonoBehaviour:
   m_player: {fileID: 6023011473359263973, guid: 83d42bdde083caf419af893bc83c5fba,
     type: 3}
   m_craftManager: {fileID: 5468893606908338789}
+  m_FlyingBot_1: {fileID: 0}
+  m_FlyingBot_2: {fileID: 0}
+  m_FlyingBot_3: {fileID: 0}
+  m_PlatformeBot_1: {fileID: 0}
+  m_PlatformeBot_2: {fileID: 0}
+  m_PlatformeBot_3: {fileID: 0}
+  m_DestructionBot_1: {fileID: 0}
+  m_DestructionBot_2: {fileID: 0}
+  m_DestructionBot_3: {fileID: 0}
   price: 32000000640000009600000064000000c800000090010000960000002c01000058020000
 --- !u!1 &5468893608244249326
 GameObject:
@@ -241,3 +260,5 @@ MonoBehaviour:
   m_craftMenu: {fileID: 4886767971170171414, guid: 46782a8f2f488bc47bf7c5d8732e6348,
     type: 3}
   m_ressourcesText: {fileID: 0}
+  m_CraftMenuRobotTypeArea: []
+  m_sizeArea: []

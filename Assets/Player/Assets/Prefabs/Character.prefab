@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_boomerangManager: {fileID: 1530042240524683899}
+  m_Joystick: {fileID: 0}
 --- !u!195 &6023011473359263968
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -257,6 +258,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 6023011473359263973}
+    - target: {fileID: 1260787349597885828, guid: c0a6e318aadbd8843b62f9e116f1f8fe,
+        type: 3}
+      propertyPath: DelayBetweenNode
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5092942575147903853, guid: c0a6e318aadbd8843b62f9e116f1f8fe,
         type: 3}
       propertyPath: m_Name

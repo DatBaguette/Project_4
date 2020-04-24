@@ -56,36 +56,95 @@ public class SC_Boomerang : MonoBehaviour
     private void Update()
     {
 
-        //Debug.Log(CurrentBoomerangstat);
+        Debug.Log(CurrentBoomerangstat);
         CurrentTimeBetweenNode = CurrentTimeBetweenNode + Time.deltaTime;
 
-        if (Input.GetMouseButton(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
+        if (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
         {
-            GameManager.Instance.m_boomerangLaunch = true;
-
-            CurrentBoomerangstat = m_BoomerangState.Channeling;
-
-            if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+            switch (CurrentBoomerangstat)
             {
-                TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
-                nextNodeId++;
-                CurrentTimeBetweenNode = 0;
+                case m_BoomerangState.ReadyToCast:
+
+                    if (Input.GetMouseButtonDown(0) && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+                    {
+                        CurrentBoomerangstat = m_BoomerangState.Channeling;
+                    } 
+                    break;
+                        
+                case m_BoomerangState.Channeling:
+                        
+                    if (Input.GetMouseButton(0))
+                    {
+                        if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length
+                                && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+                        {
+
+
+                            TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
+                            Debug.Log(GameManager.Instance.RetrievePosition());                           
+                            nextNodeId++;
+                            CurrentTimeBetweenNode = 0;
+                        }
+                    }
+                    if (Input.GetMouseButtonUp(0))
+                    {      
+                        finalNode = nextNodeId-1;
+                        nextNodeId = 0;
+                        CurrentBoomerangstat = m_BoomerangState.OnTravel;
+                    }
+                    break;
+                case m_BoomerangState.OnTravel:
+
+                    MouveBoomerang();
+
+                    break;
+                case m_BoomerangState.Restart:
+
+
+                    RestardBoomrangPos();
+
+                    break;
             }
         }
-        if (Input.GetMouseButtonUp(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
-        {
-            CurrentBoomerangstat = m_BoomerangState.OnTravel;
-            finalNode = nextNodeId;
-            nextNodeId = 0;
-        }
-        if (CurrentBoomerangstat == m_BoomerangState.OnTravel)
-        {
-            MouveBoomerang();
-        }
-        if (CurrentBoomerangstat == m_BoomerangState.Restart)
-        {
-            RestardBoomrangPos();
-        }
+
+
+
+
+
+
+
+
+        //if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang 
+        //    && CurrentBoomerangstat == m_BoomerangState.ReadyToCast)
+        //{
+        //    //GameManager.Instance.m_boomerangLaunch = true;
+
+        //    CurrentBoomerangstat = m_BoomerangState.Channeling;
+
+        //    if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length
+        //        && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+        //    {
+        //        TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
+        //        Debug.Log(GameManager.Instance.RetrievePosition());
+        //        nextNodeId++;
+        //        CurrentTimeBetweenNode = 0;
+        //    }
+        //}
+        //if (Input.GetMouseButtonUp(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang 
+        //    && CurrentBoomerangstat == m_BoomerangState.Channeling)
+        //{
+        //    CurrentBoomerangstat = m_BoomerangState.OnTravel;
+        //    finalNode = nextNodeId;
+        //    nextNodeId = 0;
+        //}
+        //if (CurrentBoomerangstat == m_BoomerangState.OnTravel)
+        //{
+        //    MouveBoomerang();
+        //}
+        //if (CurrentBoomerangstat == m_BoomerangState.Restart)
+        //{
+        //    RestardBoomrangPos();
+        //}
     }
 
     private void MouveBoomerang()
@@ -138,7 +197,7 @@ public class SC_Boomerang : MonoBehaviour
 
     private void Restart_boomerang()
     {
-        GameManager.Instance.m_boomerangLaunch = false;
+        //GameManager.Instance.m_boomerangLaunch = false;
         nextNodeId = 0;
         NodeFrom = 0;
         NodeTo = 1;
