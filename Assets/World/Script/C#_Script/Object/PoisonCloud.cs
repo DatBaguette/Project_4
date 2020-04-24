@@ -21,6 +21,8 @@ public class PoisonCloud : MonoBehaviour
                 GameManager.Instance.m_camera.LookAt = GameManager.Instance.m_player.transform;
 
                 GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_player;
+
+                GameManager.Instance.m_robotNumber = 0;
             }
         }
     }
