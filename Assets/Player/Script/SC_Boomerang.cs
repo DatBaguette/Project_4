@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum BoomerangState
+{
+    Off,
+    ReadyToCast,
+    Channeling,
+    OnTravel,
+    Restart
+}
 public class SC_Boomerang : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody m_Boomerang;
+    public Rigidbody m_Boomerang;
     [SerializeField]
     private GameObject helperBoomerang;
     [SerializeField]
     private GameObject Player;
 
-    private enum m_BoomerangState
-    {
-        ReadyToCast,
-        Channeling,
-        OnTravel,
-        Restart
-    }
+    
 
-    private m_BoomerangState CurrentBoomerangstat;
+    public BoomerangState CurrentBoomerangstat;
 
     [SerializeField]
     private float DelayBetweenNode;
@@ -44,44 +47,52 @@ public class SC_Boomerang : MonoBehaviour
 
     private float currentLerptime = 0f;
 
-    private bool readyTochannel = true;
+    public bool readyTochannel = true;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        CurrentBoomerangstat = m_BoomerangState.ReadyToCast;
-        nextNodeId = 0;
+        CurrentBoomerangstat = BoomerangState.Off;
     }
 
-
+    public void InitBoom()
+    {
+        GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.boomerang;
+        CurrentBoomerangstat = BoomerangState.ReadyToCast;
+        nextNodeId = 0;
+        readyTochannel = true;
+    }
 
     private void Update()
     {
 
-        //Debug.Log(CurrentBoomerangstat);
+        //Debug.Log(nextNodeId);
+        Debug.Log(GameManager.Instance.m_currentPlayerState);
+        Debug.Log(CurrentBoomerangstat);
+        Debug.Log(readyTochannel);
         CurrentTimeBetweenNode = CurrentTimeBetweenNode + Time.deltaTime;
 
         if (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
         {
             switch (CurrentBoomerangstat)
             {
-                case m_BoomerangState.ReadyToCast:
+                case BoomerangState.ReadyToCast:
 
                     PrepareToCast();
                     
                     break;
                         
-                case m_BoomerangState.Channeling:
+                case BoomerangState.Channeling:
                     readyTochannel = false;
                     ChannelingTheBoomerang();
                     
                     break;
-                case m_BoomerangState.OnTravel:
+                case BoomerangState.OnTravel:
 
                     MouveBoomerang();
 
                     break;
-                case m_BoomerangState.Restart:
+                case BoomerangState.Restart:
 
                     RestardBoomrangPos();
 
@@ -92,9 +103,9 @@ public class SC_Boomerang : MonoBehaviour
 
     private void PrepareToCast()
     {
-        if (Input.GetMouseButtonDown(0) && CurrentBoomerangstat != m_BoomerangState.OnTravel && readyTochannel == true)
+        if (Input.GetMouseButtonDown(0) && CurrentBoomerangstat != BoomerangState.OnTravel && readyTochannel == true)
         {
-            CurrentBoomerangstat = m_BoomerangState.Channeling;
+            CurrentBoomerangstat = BoomerangState.Channeling;
         }
         
     }
@@ -105,7 +116,7 @@ public class SC_Boomerang : MonoBehaviour
         {
 
             if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length
-                    && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+                    && CurrentBoomerangstat != BoomerangState.OnTravel)
             {
                 TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
                 //Debug.Log(GameManager.Instance.RetrievePosition());                           
@@ -117,7 +128,7 @@ public class SC_Boomerang : MonoBehaviour
         {
             finalNode = nextNodeId - 1;
             nextNodeId = 0;
-            CurrentBoomerangstat = m_BoomerangState.OnTravel;
+            CurrentBoomerangstat = BoomerangState.OnTravel;
         }
     }
 
@@ -132,27 +143,36 @@ public class SC_Boomerang : MonoBehaviour
         float Perc = currentLerptime / LerpTime;
 
         CurrentBoomerangCD += Time.deltaTime;
-        Debug.Log(TravelNode[NodeFrom].transform.position);
-        Debug.Log(TravelNode[NodeTo].transform.position);
-        m_Boomerang.position = Vector3.Lerp(TravelNode[NodeFrom].transform.position, TravelNode[NodeTo].transform.position, Perc);
+        // Debug.Log(TravelNode[NodeFrom]);
+        //Debug.Log(TravelNode[NodeTo]);
+        if (NodeTo >= TravelNode.Length)
+        {
+            NodeFrom = 1;
+            NodeTo = 0;
+        }
+            m_Boomerang.position = Vector3.Lerp(TravelNode[NodeFrom].transform.position, TravelNode[NodeTo].transform.position, Perc);
 
         if (Perc >= 1)
         {
-            NodeFrom++;
-            NodeTo++;
+            if(NodeTo < TravelNode.Length)
+            {
+                NodeFrom++;
+                NodeTo++;
+            }
+            
             currentLerptime = 0f;
             if (NodeTo == finalNode)
             {
                 
                 Restart_boomerang();
-                CurrentBoomerangstat = m_BoomerangState.Restart;
+                CurrentBoomerangstat = BoomerangState.Restart;
             }
         }
 
         //Debug.Log("nodeFrom : " + NodeFrom + "    nodeTo : " + NodeTo);
     }
 
-    private void RestardBoomrangPos()
+    public void RestardBoomrangPos()
     {
         currentLerptime += Time.deltaTime;
         if (currentLerptime >= LerpTime)
@@ -167,11 +187,11 @@ public class SC_Boomerang : MonoBehaviour
 
         if (Perc >= 1) 
         {
-            CurrentBoomerangstat = m_BoomerangState.ReadyToCast;
+            CurrentBoomerangstat = BoomerangState.ReadyToCast;
         }
     }
 
-    private void Restart_boomerang()
+    public void Restart_boomerang()
     {
         //GameManager.Instance.m_boomerangLaunch = false;
         nextNodeId = 0;
