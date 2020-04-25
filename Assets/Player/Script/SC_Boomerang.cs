@@ -44,6 +44,8 @@ public class SC_Boomerang : MonoBehaviour
 
     private float currentLerptime = 0f;
 
+    private bool readyTochannel = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +58,7 @@ public class SC_Boomerang : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(CurrentBoomerangstat);
+        //Debug.Log(CurrentBoomerangstat);
         CurrentTimeBetweenNode = CurrentTimeBetweenNode + Time.deltaTime;
 
         if (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
@@ -65,33 +67,14 @@ public class SC_Boomerang : MonoBehaviour
             {
                 case m_BoomerangState.ReadyToCast:
 
-                    if (Input.GetMouseButtonDown(0) && CurrentBoomerangstat != m_BoomerangState.OnTravel)
-                    {
-                        CurrentBoomerangstat = m_BoomerangState.Channeling;
-                    } 
+                    PrepareToCast();
+                    
                     break;
                         
                 case m_BoomerangState.Channeling:
-                        
-                    if (Input.GetMouseButton(0))
-                    {
-                        if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length
-                                && CurrentBoomerangstat != m_BoomerangState.OnTravel)
-                        {
-
-
-                            TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
-                            Debug.Log(GameManager.Instance.RetrievePosition());                           
-                            nextNodeId++;
-                            CurrentTimeBetweenNode = 0;
-                        }
-                    }
-                    if (Input.GetMouseButtonUp(0))
-                    {      
-                        finalNode = nextNodeId-1;
-                        nextNodeId = 0;
-                        CurrentBoomerangstat = m_BoomerangState.OnTravel;
-                    }
+                    readyTochannel = false;
+                    ChannelingTheBoomerang();
+                    
                     break;
                 case m_BoomerangState.OnTravel:
 
@@ -100,51 +83,42 @@ public class SC_Boomerang : MonoBehaviour
                     break;
                 case m_BoomerangState.Restart:
 
-
                     RestardBoomrangPos();
 
                     break;
             }
+        }       
+    }
+
+    private void PrepareToCast()
+    {
+        if (Input.GetMouseButtonDown(0) && CurrentBoomerangstat != m_BoomerangState.OnTravel && readyTochannel == true)
+        {
+            CurrentBoomerangstat = m_BoomerangState.Channeling;
         }
+        
+    }
 
+    private void ChannelingTheBoomerang()
+    {
+        if (Input.GetMouseButton(0))
+        {
 
-
-
-
-
-
-
-        //if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang 
-        //    && CurrentBoomerangstat == m_BoomerangState.ReadyToCast)
-        //{
-        //    //GameManager.Instance.m_boomerangLaunch = true;
-
-        //    CurrentBoomerangstat = m_BoomerangState.Channeling;
-
-        //    if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length
-        //        && CurrentBoomerangstat != m_BoomerangState.OnTravel)
-        //    {
-        //        TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
-        //        Debug.Log(GameManager.Instance.RetrievePosition());
-        //        nextNodeId++;
-        //        CurrentTimeBetweenNode = 0;
-        //    }
-        //}
-        //if (Input.GetMouseButtonUp(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang 
-        //    && CurrentBoomerangstat == m_BoomerangState.Channeling)
-        //{
-        //    CurrentBoomerangstat = m_BoomerangState.OnTravel;
-        //    finalNode = nextNodeId;
-        //    nextNodeId = 0;
-        //}
-        //if (CurrentBoomerangstat == m_BoomerangState.OnTravel)
-        //{
-        //    MouveBoomerang();
-        //}
-        //if (CurrentBoomerangstat == m_BoomerangState.Restart)
-        //{
-        //    RestardBoomrangPos();
-        //}
+            if (CurrentTimeBetweenNode >= DelayBetweenNode && nextNodeId < TravelNode.Length
+                    && CurrentBoomerangstat != m_BoomerangState.OnTravel)
+            {
+                TravelNode[nextNodeId].transform.position = GameManager.Instance.RetrievePosition();
+                //Debug.Log(GameManager.Instance.RetrievePosition());                           
+                nextNodeId++;
+                CurrentTimeBetweenNode = 0;
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            finalNode = nextNodeId - 1;
+            nextNodeId = 0;
+            CurrentBoomerangstat = m_BoomerangState.OnTravel;
+        }
     }
 
     private void MouveBoomerang()
@@ -158,6 +132,8 @@ public class SC_Boomerang : MonoBehaviour
         float Perc = currentLerptime / LerpTime;
 
         CurrentBoomerangCD += Time.deltaTime;
+        Debug.Log(TravelNode[NodeFrom].transform.position);
+        Debug.Log(TravelNode[NodeTo].transform.position);
         m_Boomerang.position = Vector3.Lerp(TravelNode[NodeFrom].transform.position, TravelNode[NodeTo].transform.position, Perc);
 
         if (Perc >= 1)
@@ -201,5 +177,6 @@ public class SC_Boomerang : MonoBehaviour
         nextNodeId = 0;
         NodeFrom = 0;
         NodeTo = 1;
+        readyTochannel = true;
     }
 }

@@ -60,7 +60,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public int m_robotNumber = 0;
 
-    public bool m_boomerangLaunch = false;
+    //public bool m_boomerangLaunch = false;
 
     /// <summary>
     /// ID of the actual checkpoint
@@ -124,8 +124,8 @@ public class GameManager : Singleton<GameManager>
     // Cheat keycode
     public void StateController()
     {
-        if (!m_boomerangLaunch)
-        {
+        //if (!m_boomerangLaunch)
+        //{
             if (Input.GetKeyDown("z"))
             {
                 m_currentPlayerState = m_PlayerState.boomerang;
@@ -144,7 +144,7 @@ public class GameManager : Singleton<GameManager>
             {
                 KillAllRobot();
             }
-        }
+        //}
        
     }
 
