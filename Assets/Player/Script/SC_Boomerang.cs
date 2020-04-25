@@ -132,8 +132,7 @@ public class SC_Boomerang : MonoBehaviour
         float Perc = currentLerptime / LerpTime;
 
         CurrentBoomerangCD += Time.deltaTime;
-        Debug.Log(TravelNode[NodeFrom].transform.position);
-        Debug.Log(TravelNode[NodeTo].transform.position);
+
         m_Boomerang.position = Vector3.Lerp(TravelNode[NodeFrom].transform.position, TravelNode[NodeTo].transform.position, Perc);
 
         if (Perc >= 1)
