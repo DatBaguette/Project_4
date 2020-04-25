@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 /// <summary>
 /// 
@@ -31,11 +32,16 @@ public class MenuManager : MonoBehaviour
         {
             m_craftMenu.SetActive(true);
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
+     
     }
 
     public void AddRessources()
     {
         GameManager.Instance.m_actualRessources += 100;
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     public void DeleteRessources()
@@ -48,6 +54,8 @@ public class MenuManager : MonoBehaviour
         {
             GameManager.Instance.m_actualRessources = 0;
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     private void Update()

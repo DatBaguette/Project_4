@@ -57,7 +57,7 @@ public class ClickToMoveEntity : MonoBehaviour
 
             RaycastHit hitInfo;
 
-            if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity))
+            if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity, 5))
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
         }
 

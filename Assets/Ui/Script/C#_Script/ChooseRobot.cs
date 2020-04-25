@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 
@@ -19,11 +20,16 @@ public class ChooseRobot : MonoBehaviour
 
     private CinemachineVirtualCamera m_playerCamera;
 
+    private Image m_img;
+
     private void Start()
     {
         GameObject[]  m_playerCameraObject = GameObject.FindGameObjectsWithTag("PlayerCamera");
 
         m_playerCamera = m_playerCameraObject[0].GetComponent<CinemachineVirtualCamera>();
+
+        m_img = gameObject.GetComponent<Image>();
+
     }
 
     public void SelectRobot()
@@ -36,6 +42,9 @@ public class ChooseRobot : MonoBehaviour
 
             m_playerCamera.Follow = m_player.transform;
             m_playerCamera.LookAt = m_player.transform;
+
+            m_img.color = Color.white;
+            
         }
         else
         {
@@ -45,6 +54,8 @@ public class ChooseRobot : MonoBehaviour
 
             m_playerCamera.Follow = m_associateRobot.transform;
             m_playerCamera.LookAt = m_associateRobot.transform;
+
+            m_img.color = Color.green;
         }
     }
 }

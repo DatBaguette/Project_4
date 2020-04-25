@@ -144,7 +144,7 @@ public class SC_Boomerang : MonoBehaviour
 
         CurrentBoomerangCD += Time.deltaTime;
         
-        if (NodeTo >= TravelNode.Length)
+        if (NodeTo >= TravelNode.Length || NodeFrom >= TravelNode.Length )
         {
             NodeFrom = 1;
             NodeTo = 0;
