@@ -10,51 +10,61 @@ using UnityEngine;
 
 public class RobotInisialisation : MonoBehaviour
 {
+    /// <summary>
+    /// Robot type to change their behavior
+    /// </summary>
     public Robot_Type m_robotType;
 
-    public int m_robotSize;
+    /// <summary>
+    /// Robot size ( 1 /2 / 3 )
+    /// </summary>
+    public int m_size;
 
     private Rigidbody controller;
 
+    /// <summary>
+    /// Time of activation of the flameThrower
+    /// </summary>
     private float m_timer = 0;
 
-    private ClickToMoveEntity m_clickToMoveScript; 
-
-    [HideInInspector] public GameObject m_cone;
-    [SerializeField] GameObject m_conePrefabs;
+    /// <summary>
+    /// FlameThrower area of attack
+    /// </summary>
+    [SerializeField] GameObject m_cone;
+    
+    /// <summary>
+    /// Script that allow the robot to move
+    /// </summary>
+    private RobotMovement m_movementScript;
 
     private void Start()
     {
+
+        controller = GetComponent<Rigidbody>();
+
+        m_movementScript = gameObject.GetComponent<RobotMovement>();
+
+        //Initialise the robot depending of his type
         switch (m_robotType)
         {
             case Robot_Type.Flying:
 
-                gameObject.transform.localScale /= 2;
-                //controller.useGravity = false;
-                gameObject.tag = "FlyingRobot";
+                gameObject.transform.position += new Vector3(0, 2, 0);
 
                 break;
 
             case Robot_Type.Platforme:
 
-                gameObject.transform.localScale += new Vector3(gameObject.transform.localScale.x, 0, gameObject.transform.localScale.z);
-                gameObject.tag = "PlateformRobot";
+                //Nothing for the moment
 
                 break;
 
             case Robot_Type.Destruction:
 
-                gameObject.transform.localScale /= 1.5f;
-                m_cone = Instantiate(m_conePrefabs, gameObject.transform.position + gameObject.transform.forward * 1.5f, new Quaternion(0, 180, 0, 1), gameObject.transform);
-                gameObject.tag = "DestructionRobot";
+                //Nothing for the moment
 
                 break;
         }
-
-        controller = GetComponent<Rigidbody>();
-
-        m_clickToMoveScript = gameObject.GetComponent<ClickToMoveEntity>();
-
 
     }
 
@@ -66,7 +76,7 @@ public class RobotInisialisation : MonoBehaviour
         {
             case Robot_Type.Flying:
 
-                gameObject.transform.position += new Vector3(0, 2, 0);
+                //Nothing for the moment
 
                 break;
 
@@ -88,7 +98,7 @@ public class RobotInisialisation : MonoBehaviour
                     m_cone.SetActive(false);
                 }
 
-                if (Input.touchCount == 2 && GameManager.Instance.m_actualSelectedRobotNumber == m_clickToMoveScript.m_thisEntityNumber)
+                if (Input.touchCount == 2 && GameManager.Instance.m_actualSelectedRobotNumber == m_movementScript.m_thisEntityNumber)
                 {
                     m_timer = 2;
 

@@ -2,16 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// Check if the pressure plate is activate
+/// 
+/// </summary>
+
 public class PressurePlate : MonoBehaviour
 {
-    public bool GetIsOpen = false;
+    public bool m_getIsOpen = false;
 
- 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ClickToMoveEntity>())
+        if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
-            GetIsOpen = true;
+            m_getIsOpen = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
+        {
+            m_getIsOpen = false;
         }
     }
 }

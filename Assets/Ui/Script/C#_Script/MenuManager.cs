@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 /// <summary>
 /// 
@@ -17,6 +18,10 @@ public class MenuManager : MonoBehaviour
     [Tooltip("Text gameObject that will show the actual amount of ressources")]
     [SerializeField] Text m_ressourcesText;
 
+    [SerializeField] List<GameObject> m_CraftMenuRobotTypeArea;
+
+    [SerializeField] List<GameObject> m_sizeArea;
+
     public void OpenCraftMenu()
     {
         if ( m_craftMenu.activeSelf)
@@ -27,11 +32,16 @@ public class MenuManager : MonoBehaviour
         {
             m_craftMenu.SetActive(true);
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
+     
     }
 
     public void AddRessources()
     {
         GameManager.Instance.m_actualRessources += 100;
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     public void DeleteRessources()
@@ -44,10 +54,31 @@ public class MenuManager : MonoBehaviour
         {
             GameManager.Instance.m_actualRessources = 0;
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     private void Update()
     {
         m_ressourcesText.text = "Pièces détachées : " + GameManager.Instance.m_actualRessources.ToString();
+
+        // Desactivate areas in the craft menu if the player dont have the robot's core associate
+        for ( int i = 0; i < m_CraftMenuRobotTypeArea.Count; i++)
+        {
+             if (!GameManager.Instance.m_robotCore[i])
+                 m_CraftMenuRobotTypeArea[i].SetActive(false);
+
+             else
+                 m_CraftMenuRobotTypeArea[i].SetActive(true);
+        }
+
+        for (int i = 0; i < m_sizeArea.Count; i++)
+        {
+            if (!GameManager.Instance.m_sizeUnlocked[i])
+                m_sizeArea[i].SetActive(false);
+
+            else
+                m_sizeArea[i].SetActive(true);
+        }
     }
 }

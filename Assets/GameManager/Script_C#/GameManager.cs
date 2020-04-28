@@ -1,7 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using Cinemachine;
 
+/// <summary>
+/// 
+/// Script that manage all the game
+/// 
+/// </summary>
 
 public class GameManager : Singleton<GameManager>
 {
@@ -16,24 +23,77 @@ public class GameManager : Singleton<GameManager>
         Menu
     }
 
+    /// <summary>
+    /// Used to trigger scripted event or scripted gameplay
+    /// </summary>
+    public StoryStep m_actualStoryStep = StoryStep.Intro;
+
+    /// <summary>
+    /// Number of ressources in the inventory
+    /// </summary>
+    public int m_actualRessources = 0;
+
+    /// <summary>
+    /// Check if the player has unlocked robots cores
+    /// </summary>
+    public bool[] m_robotCore = { false, false, false };
+
+    /// <summary>
+    /// Check if the player has unlocked robots size
+    /// </summary>
+    public bool[] m_sizeUnlocked = { false, false };
+
+    public GameObject m_player;
+
+    public NavMeshAgent m_navmesh;
+
     public LayerMask defautMask;
     public LayerMask boomerang;
 
     public m_PlayerState m_currentPlayerState;
-    
+
+    /// <summary>
+    /// The ID of the robot that the player is currently controlling
+    /// </summary>
     public int m_actualSelectedRobotNumber = 0;
 
+    /// <summary>
+    /// Number of robot in the game
+    /// </summary>
     public int m_robotNumber = 0;
 
-    public int m_actualRessources = 0;
+    //public bool m_boomerangLaunch = false;
 
-    public bool m_boomerangLaunch = false;
+    /// <summary>
+    /// ID of the actual checkpoint
+    /// </summary>
+    public int m_actualCheckPointNumber = 0;
+
+    /// <summary>
+    /// GameObject of the actual CheckPoint
+    /// </summary>
+    public GameObject m_actualCheckPointObject;
+
+    public List<GameObject> m_robots;
+    public List<GameObject> m_robotsUI;
+
+    public Manage_Robot m_manageRobotScript;
+
+    public CinemachineVirtualCamera m_camera;
+
+    public GameObject m_magnetActivateImage;
 
     private void Start()
     {
-        m_currentPlayerState = m_PlayerState.move_player;
+        if ( m_actualStoryStep == StoryStep.Intro)
+            m_currentPlayerState = m_PlayerState.move_drone;
+        else
+            m_currentPlayerState = m_PlayerState.move_player;
     }
 
+    /// <summary>
+    /// Retrieve the position of the mouse on the screen
+    /// </summary>
     public Vector3 RetrievePosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,6 +113,7 @@ public class GameManager : Singleton<GameManager>
 
         if (Physics.Raycast(ray, out hit, 100 , currentLayer))
         {
+
             return (hit.point);
         }
 
@@ -60,17 +121,16 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-
-
     private void Update()
     {
         StateController();
     }
 
+    // Cheat keycode
     public void StateController()
     {
-        if (!m_boomerangLaunch)
-        {
+        //if (!m_boomerangLaunch)
+        //{
             if (Input.GetKeyDown("z"))
             {
                 m_currentPlayerState = m_PlayerState.boomerang;
@@ -85,31 +145,124 @@ public class GameManager : Singleton<GameManager>
             {
                 m_currentPlayerState = m_PlayerState.move_drone;
             }
-        }
+            if (Input.GetKeyDown("g"))
+            {
+                KillAllRobot();
+            }
+        //}
        
     }
 
-
-    public void RobotDestruction( int type, int size, GameObject ressources, GameObject robotObject)
-    {
-        Instantiate(ressources, robotObject.transform);
-
-        RessourcesBehavior ressourcesScript = ressources.GetComponent<RessourcesBehavior>();
-
-        // Value to change later
-        ressourcesScript.m_ressourcesAmount = 100;
-    }
-
+    /// <summary>
+    /// Change the state of the player to activate the magnet
+    /// </summary>
     public void ActivateMagnet()
     {
         if ( m_currentPlayerState == m_PlayerState.boomerang)
         {
+
+            m_player.GetComponentInChildren<SC_Boomerang>().CurrentBoomerangstat = BoomerangState.Off;
+            m_player.GetComponentInChildren<SC_Boomerang>().RestardBoomrangPos();
+            m_player.GetComponentInChildren<SC_Boomerang>().Restart_boomerang();
+            m_player.GetComponentInChildren<SC_Boomerang>().m_Boomerang.position = m_player.transform.position;
             m_currentPlayerState = m_PlayerState.move_player;
+            m_magnetActivateImage.SetActive(false);
+
         }
         else
         {
-            m_currentPlayerState = m_PlayerState.boomerang;
+            m_player.GetComponentInChildren<SC_Boomerang>().InitBoom();
+            m_magnetActivateImage.SetActive(true);
         }
+
+        m_navmesh.ResetPath();
+    }
+
+    /// <summary>
+    /// If the player die
+    /// </summary>
+    public void playerDeath()
+    {
+        ResetAllEnnemies();
+        m_player.transform.position = m_actualCheckPointObject.transform.position;
+
+        KillAllRobot();
+
+    }
+
+    /// <summary>
+    /// Reset all the ennemies
+    /// </summary>
+    public void ResetAllEnnemies()
+    {
+        GameObject[] m_ennemies = GameObject.FindGameObjectsWithTag("Ghost");
+
+        for ( int i = 0; i < m_ennemies.Length; i++)
+        {
+            GhostBehavior ghostScript = m_ennemies[i].GetComponent<GhostBehavior>();
+            ghostScript.ResetPosition();
+        }
+        
+    }
+
+    /// <summary>
+    /// Kill all robots that the player can control
+    /// </summary>
+    public void KillAllRobot()
+    {
+        m_camera.Follow = m_player.transform;
+        m_camera.LookAt = Instance.m_player.transform;
+
+        m_currentPlayerState = m_PlayerState.move_player;
+
+        if ( m_robotNumber > 0)
+        {
+            for (int i = 0; i < m_robotNumber; i++)
+            {
+                KillOneRobot(i);
+            }
+
+            m_robotNumber = 0;
+        }
+
+        m_navmesh.ResetPath();
+    }
+
+    /// <summary>
+    /// Kill a robot
+    /// </summary>
+    public void KillOneRobot(int i)
+    {
+        RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
+
+        int type = 0;
+
+        switch (m_robotScript.m_robotType)
+        {
+            case Robot_Type.Flying:
+                type = 0;
+                break;
+
+            case Robot_Type.Platforme:
+                type = 3;
+                break;
+
+            case Robot_Type.Destruction:
+                type = 6;
+                break;
+        }
+
+        m_actualRessources += m_manageRobotScript.price[type];
+
+        Destroy(m_robots[i]);
+        Destroy(m_robotsUI[i]);
+    }
+
+    public enum StoryStep
+    {
+        Intro,
+        LevelOne,
+        BridgePass,
     }
 
 }

@@ -4,35 +4,66 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// 
+/// It will hide the interface if the character isn't controlled
+/// and allow to move him
+/// 
+/// </summary>
+
 public class ClickToMoveEntity : MonoBehaviour
 {
     
     private NavMeshAgent m_navMeshAgent;
 
-    [HideInInspector] public int m_thisEntityNumber;
+    [SerializeField] GameObject m_boomerangManager;
+    [SerializeField] GameObject m_Joystick;
+
+    /// <summary>
+    /// Allow to reset the joystick position
+    /// </summary>
+    private Vector3 m_baseJoystickPosition;
 
     void Start()
     {
         m_navMeshAgent = GetComponent<NavMeshAgent>();
+
+        m_baseJoystickPosition = m_Joystick.transform.position;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && m_thisEntityNumber == GameManager.Instance.m_actualSelectedRobotNumber 
-            && (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player || GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_drone))
+        // desactivate the interface if the player dont control the character
+        if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player 
+            && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang )
+        {
+            m_boomerangManager.SetActive(false);
+            m_Joystick.transform.position = m_baseJoystickPosition;
+        }
+        else
+        {
+            m_boomerangManager.SetActive(true);
+            m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
+        }
+
+        // Move the player
+        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
         {
 
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            Debug.Log("kek");
-
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hitInfo;
 
-            if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity))
+            if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity, 5))
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
+        }
+
+        if (Input.GetKeyDown("k")){
+            Debug.Log("oui");
+            GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
         }
     }
 }

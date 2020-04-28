@@ -178,13 +178,29 @@ public class Manage_Robot : MonoBehaviour
         robot.transform.SetParent(m_robotContainer.transform, false);
         robot.gameObject.name = "robot " + GameManager.Instance.m_robotNumber;
 
+        robot.transform.position = m_player.gameObject.transform.position + new Vector3(2, 0, 0);
+
+        // Add the robot to a global list
+        if (GameManager.Instance.m_robots.Count >= GameManager.Instance.m_robotNumber)
+        {
+            GameManager.Instance.m_robots[GameManager.Instance.m_robotNumber-1] = robot;
+        }
+        else
+            GameManager.Instance.m_robots.Add(robot);
+
         // Robot Values
-        ClickToMoveEntity robotScriptToMove = robot.gameObject.GetComponent<ClickToMoveEntity>();
+        RobotMovement robotScriptToMove = robot.gameObject.GetComponent<RobotMovement>();
         robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
 
         // Robot UI
         var robotUi = Instantiate(m_robotUIPrefab);
         robotUi.transform.SetParent(m_robotUIContainer.transform, false);
+
+        // Add the robot UI to a global list
+        if (GameManager.Instance.m_robotsUI.Count >= GameManager.Instance.m_robotNumber)
+            GameManager.Instance.m_robotsUI[GameManager.Instance.m_robotNumber-1] = robotUi;
+        else
+            GameManager.Instance.m_robotsUI.Add(robotUi);
 
         ChooseRobot chooseRobotScript = robotUi.gameObject.GetComponent<ChooseRobot>();
         chooseRobotScript.m_uiRobotNumber = GameManager.Instance.m_robotNumber;
