@@ -143,9 +143,8 @@ public class SC_Boomerang : MonoBehaviour
         float Perc = currentLerptime / LerpTime;
 
         CurrentBoomerangCD += Time.deltaTime;
-        // Debug.Log(TravelNode[NodeFrom]);
-        //Debug.Log(TravelNode[NodeTo]);
-        if (NodeTo >= TravelNode.Length)
+        
+        if (NodeTo >= TravelNode.Length || NodeFrom >= TravelNode.Length )
         {
             NodeFrom = 1;
             NodeTo = 0;

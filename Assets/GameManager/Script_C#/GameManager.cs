@@ -45,6 +45,8 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject m_player;
 
+    public NavMeshAgent m_navmesh;
+
     public LayerMask defautMask;
     public LayerMask boomerang;
 
@@ -78,6 +80,8 @@ public class GameManager : Singleton<GameManager>
     public Manage_Robot m_manageRobotScript;
 
     public CinemachineVirtualCamera m_camera;
+
+    public GameObject m_magnetActivateImage;
 
     private void Start()
     {
@@ -163,12 +167,16 @@ public class GameManager : Singleton<GameManager>
             m_player.GetComponentInChildren<SC_Boomerang>().Restart_boomerang();
             //m_player.GetComponentInChildren<SC_Boomerang>().m_Boomerang.position = m_player.transform.position;
             m_currentPlayerState = m_PlayerState.move_player;
+            m_magnetActivateImage.SetActive(false);
 
         }
         else
         {
             m_player.GetComponentInChildren<SC_Boomerang>().InitBoom();
+            m_magnetActivateImage.SetActive(true);
         }
+
+        m_navmesh.ResetPath();
     }
 
     /// <summary>
@@ -179,16 +187,7 @@ public class GameManager : Singleton<GameManager>
         ResetAllEnnemies();
         m_player.transform.position = m_actualCheckPointObject.transform.position;
 
-        m_camera.Follow = m_player.transform;
-        m_camera.LookAt = Instance.m_player.transform;
-
-        m_currentPlayerState = m_PlayerState.move_player;
-
         KillAllRobot();
-
-        NavMeshAgent navmesh = m_player.GetComponent<NavMeshAgent>();
-
-        navmesh.ResetPath();
 
     }
 
@@ -212,6 +211,11 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillAllRobot()
     {
+        m_camera.Follow = m_player.transform;
+        m_camera.LookAt = Instance.m_player.transform;
+
+        m_currentPlayerState = m_PlayerState.move_player;
+
         if ( m_robotNumber > 0)
         {
             for (int i = 0; i < m_robotNumber; i++)
@@ -221,6 +225,8 @@ public class GameManager : Singleton<GameManager>
 
             m_robotNumber = 0;
         }
+
+        m_navmesh.ResetPath();
     }
 
     /// <summary>
