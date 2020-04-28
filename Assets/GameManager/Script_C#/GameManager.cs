@@ -96,13 +96,14 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public Vector3 RetrievePosition()
     {
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
 
         LayerMask currentLayer;
 
-        if(m_currentPlayerState == m_PlayerState.boomerang)
+        if (m_currentPlayerState == m_PlayerState.boomerang)
         {
             currentLayer = boomerang;
         }
@@ -111,7 +112,7 @@ public class GameManager : Singleton<GameManager>
             currentLayer = defautMask;
         }
 
-        if (Physics.Raycast(ray, out hit, 100 , currentLayer))
+        if (Physics.Raycast(ray, out hit, 100, currentLayer))
         {
 
             return (hit.point);
@@ -164,7 +165,7 @@ public class GameManager : Singleton<GameManager>
             m_player.GetComponentInChildren<SC_Boomerang>().CurrentBoomerangstat = BoomerangState.Off;
             m_player.GetComponentInChildren<SC_Boomerang>().RestardBoomrangPos();
             m_player.GetComponentInChildren<SC_Boomerang>().Restart_boomerang();
-            m_player.GetComponentInChildren<SC_Boomerang>().m_Boomerang.position = m_player.transform.position;
+            //m_player.GetComponentInChildren<SC_Boomerang>().m_Boomerang.position = m_player.transform.position;
             m_currentPlayerState = m_PlayerState.move_player;
             m_magnetActivateImage.SetActive(false);
 
