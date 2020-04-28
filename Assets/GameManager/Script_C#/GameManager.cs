@@ -92,13 +92,14 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public Vector3 RetrievePosition()
     {
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
 
         LayerMask currentLayer;
 
-        if(m_currentPlayerState == m_PlayerState.boomerang)
+        if (m_currentPlayerState == m_PlayerState.boomerang)
         {
             currentLayer = boomerang;
         }
@@ -107,7 +108,7 @@ public class GameManager : Singleton<GameManager>
             currentLayer = defautMask;
         }
 
-        if (Physics.Raycast(ray, out hit, 100 , currentLayer))
+        if (Physics.Raycast(ray, out hit, 100, currentLayer))
         {
 
             return (hit.point);
