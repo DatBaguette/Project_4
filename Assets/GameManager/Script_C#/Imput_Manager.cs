@@ -7,9 +7,9 @@ public class Imput_Manager : MonoBehaviour
     // Start is called before the first frame update
     public bool GetInput()
     {
+        bool is_touched = true;
 
 
-
-        return ();
+        return (is_touched);
     }
 }
