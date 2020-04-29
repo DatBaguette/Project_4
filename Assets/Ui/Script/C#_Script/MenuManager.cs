@@ -10,7 +10,7 @@ using UnityEngine.AI;
 /// 
 /// </summary>
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : Singleton<MenuManager>
 {
     [Tooltip("craft menu Manager")]
     [SerializeField] GameObject m_craftMenu;

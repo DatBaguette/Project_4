@@ -16,7 +16,7 @@ public enum Robot_Type
     Destruction
 }
 
-public class Manage_Robot : MonoBehaviour
+public class Manage_Robot : Singleton<Manage_Robot>
 {
     [Tooltip("Prefab of the base robot")]
     [SerializeField] GameObject m_robotPrefab;
