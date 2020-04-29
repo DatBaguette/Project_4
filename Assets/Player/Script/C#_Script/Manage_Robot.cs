@@ -101,6 +101,8 @@ public class Manage_Robot : MonoBehaviour
 
             InstantiateRobot(m_FlyingBot_1);
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     public void CreatePlatformRobot()
@@ -132,6 +134,8 @@ public class Manage_Robot : MonoBehaviour
 
             InstantiateRobot(m_PlatformeBot_1);
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     public void CreateDestructionRobot()
@@ -164,6 +168,7 @@ public class Manage_Robot : MonoBehaviour
             InstantiateRobot(m_DestructionBot_1);
         }
 
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     //Instantiate Robot and give him properties to work

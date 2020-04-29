@@ -57,5 +57,7 @@ public class ChooseRobot : MonoBehaviour
 
             m_img.color = Color.green;
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 }
