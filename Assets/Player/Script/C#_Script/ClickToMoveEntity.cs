@@ -47,7 +47,7 @@ public class ClickToMoveEntity : MonoBehaviour
         }
 
         // Move the player
-        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
+        if (Imput_Manager.Instance.GetInput() == true && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
         {
 
             if (EventSystem.current.IsPointerOverGameObject())

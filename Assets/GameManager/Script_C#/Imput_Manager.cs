@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Imput_Manager : MonoBehaviour
+public class Imput_Manager : Singleton<Imput_Manager>
 {
     // Start is called before the first frame update
     public bool GetInput()
@@ -10,6 +11,22 @@ public class Imput_Manager : MonoBehaviour
         bool is_touched = true;
 
 
+        bool is_touched = false;
+
+
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            is_touched = true;
+        }
+#else
+        if (Input.touchCount > 0)
+        {
+           is_touched = true
+        }
+
+            
+#endif
         return (is_touched);
     }
 }
