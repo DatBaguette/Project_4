@@ -67,9 +67,9 @@ public class SC_Boomerang : MonoBehaviour
     {
 
         //Debug.Log(nextNodeId);
-        Debug.Log(GameManager.Instance.m_currentPlayerState);
-        Debug.Log(CurrentBoomerangstat);
-        Debug.Log(readyTochannel);
+        //Debug.Log(GameManager.Instance.m_currentPlayerState);
+        //Debug.Log(CurrentBoomerangstat);
+        //Debug.Log(readyTochannel);
         CurrentTimeBetweenNode = CurrentTimeBetweenNode + Time.deltaTime;
 
         if (GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
