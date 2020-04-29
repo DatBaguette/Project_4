@@ -31,7 +31,8 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Number of ressources in the inventory
     /// </summary>
-    public int m_actualRessources = 0;
+    [SerializeField]
+    public GD2Lib.IntVar m_actualRessources;
 
     /// <summary>
     /// Check if the player has unlocked robots cores
@@ -55,7 +56,8 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// The ID of the robot that the player is currently controlling
     /// </summary>
-    public int m_actualSelectedRobotNumber = 0;
+    [SerializeField]
+    public GD2Lib.IntVar m_actualSelectedRobotNumber;
 
     /// <summary>
     /// Number of robot in the game
@@ -253,7 +255,7 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
 
-        m_actualRessources += m_manageRobotScript.price[type];
+        m_actualRessources.Value += m_manageRobotScript.price[type];
 
         Destroy(m_robots[i]);
         Destroy(m_robotsUI[i]);

@@ -31,7 +31,7 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.m_actualSelectedRobotNumber = 1;
+        GameManager.Instance.m_actualSelectedRobotNumber.Value = 1;
 
         GameManager.Instance.m_robotNumber += 1;
 
@@ -74,7 +74,7 @@ public class LittleRobotAtBeginning : MonoBehaviour
             m_playerCamera.LookAt = m_player.transform;
 
             GameManager.Instance.m_robotNumber -= 1;
-            GameManager.Instance.m_actualSelectedRobotNumber = 0;
+            GameManager.Instance.m_actualSelectedRobotNumber.Value = 0;
 
             m_flyingRobotCore.SetActive(true);
 

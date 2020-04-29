@@ -92,11 +92,11 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= price[0]; break;
+                case 1: GameManager.Instance.m_actualRessources.Value -= price[0]; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= price[1]; break;
+                case 2: GameManager.Instance.m_actualRessources.Value -= price[1]; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= price[2]; break;
+                case 3: GameManager.Instance.m_actualRessources.Value -= price[2]; break;
             }
 
             InstantiateRobot(m_FlyingBot_1);
@@ -123,11 +123,11 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= price[3]; break;
+                case 1: GameManager.Instance.m_actualRessources.Value -= price[3]; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= price[4]; break;
+                case 2: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= price[5]; break;
+                case 3: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
             }
 
             InstantiateRobot(m_PlatformeBot_1);
@@ -154,11 +154,11 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources -= price[6]; break;
+                case 1: GameManager.Instance.m_actualRessources.Value -= price[6]; break;
 
-                case 2: GameManager.Instance.m_actualRessources -= price[7]; break;
+                case 2: GameManager.Instance.m_actualRessources.Value -= price[7]; break;
 
-                case 3: GameManager.Instance.m_actualRessources -= price[8]; break;
+                case 3: GameManager.Instance.m_actualRessources.Value -= price[8]; break;
             }
 
             InstantiateRobot(m_DestructionBot_1);
@@ -261,7 +261,7 @@ public class Manage_Robot : Singleton<Manage_Robot>
     // Check if the player have enough money in the GameManager
     private bool CheckIfEnoughMoney(int price)
     {
-        if ( GameManager.Instance.m_actualRessources >= price)
+        if ( GameManager.Instance.m_actualRessources.Value >= price)
         {
             return true;
         }

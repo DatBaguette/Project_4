@@ -8,7 +8,6 @@ public class Imput_Manager : Singleton<Imput_Manager>
     bool is_touched = false;
     private void Update()
     {
-        Debug.Log(is_touched);
         
         if(is_touched == true)
         is_touched = false;

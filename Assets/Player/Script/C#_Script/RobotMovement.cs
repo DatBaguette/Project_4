@@ -53,7 +53,7 @@ public class RobotMovement : MonoBehaviour
         }
 
         // Stop the movement if the actual robot isn't this one
-        if (GameManager.Instance.m_actualSelectedRobotNumber != m_thisEntityNumber)
+        if (GameManager.Instance.m_actualSelectedRobotNumber.Value != m_thisEntityNumber)
             dir = new Vector3(0, 0, 0);
 
         // Adpat the movement type because it did weird things with the flying robot

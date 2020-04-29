@@ -98,7 +98,7 @@ public class RobotInisialisation : MonoBehaviour
                     m_cone.SetActive(false);
                 }
 
-                if (Input.touchCount == 2 && GameManager.Instance.m_actualSelectedRobotNumber == m_movementScript.m_thisEntityNumber)
+                if (Input.touchCount == 2 && GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
                 {
                     m_timer = 2;
 

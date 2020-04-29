@@ -130,10 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_actualStoryStep: 0
-  m_actualRessources: 0
+  m_actualRessources: {fileID: 11400000, guid: 8dc41d20e44ac5241a444089e7a9d8df, type: 2}
   m_robotCore: 000000
   m_sizeUnlocked: 0000
   m_player: {fileID: 0}
+  m_navmesh: {fileID: 0}
   defautMask:
     serializedVersion: 2
     m_Bits: 1
@@ -143,13 +144,13 @@ MonoBehaviour:
   m_currentPlayerState: 0
   m_actualSelectedRobotNumber: 0
   m_robotNumber: 0
-  m_boomerangLaunch: 0
   m_actualCheckPointNumber: 0
   m_actualCheckPointObject: {fileID: 0}
   m_robots: []
   m_robotsUI: []
   m_manageRobotScript: {fileID: 0}
   m_camera: {fileID: 0}
+  m_magnetActivateImage: {fileID: 0}
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0

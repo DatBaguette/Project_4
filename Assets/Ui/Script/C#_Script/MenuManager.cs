@@ -39,20 +39,20 @@ public class MenuManager : Singleton<MenuManager>
 
     public void AddRessources()
     {
-        GameManager.Instance.m_actualRessources += 100;
+        GameManager.Instance.m_actualRessources.Value += 100;
 
         GameManager.Instance.m_navmesh.ResetPath();
     }
 
     public void DeleteRessources()
     {
-        if (GameManager.Instance.m_actualRessources > 100)
+        if (GameManager.Instance.m_actualRessources.Value > 100)
         {
-            GameManager.Instance.m_actualRessources -= 100;
+            GameManager.Instance.m_actualRessources.Value -= 100;
         }
         else
         {
-            GameManager.Instance.m_actualRessources = 0;
+            GameManager.Instance.m_actualRessources.Value = 0;
         }
 
         GameManager.Instance.m_navmesh.ResetPath();
@@ -60,7 +60,7 @@ public class MenuManager : Singleton<MenuManager>
 
     private void Update()
     {
-        m_ressourcesText.text = "Pièces détachées : " + GameManager.Instance.m_actualRessources.ToString();
+        m_ressourcesText.text = "Pièces détachées : " + GameManager.Instance.m_actualRessources.Value;
 
         // Desactivate areas in the craft menu if the player dont have the robot's core associate
         for ( int i = 0; i < m_CraftMenuRobotTypeArea.Count; i++)

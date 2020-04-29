@@ -47,7 +47,7 @@ public class RessourcesBehavior : MonoBehaviour
         if ( collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            GameManager.Instance.m_actualRessources += m_ressourcesAmount;
+            GameManager.Instance.m_actualRessources.Value += m_ressourcesAmount;
         }
     }
 

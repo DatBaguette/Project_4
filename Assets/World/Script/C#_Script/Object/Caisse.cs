@@ -7,7 +7,7 @@ public class Caisse : MonoBehaviour, IFireReact
 
     void IFireReact.OnFire()
     {
-        Debug.Log("ça brule !!!!!!!!!!!!!!!");
+        Debug.Log("ça brule !!!!");
 
         Destroy(gameObject);
     }

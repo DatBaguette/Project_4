@@ -34,11 +34,11 @@ public class ChooseRobot : MonoBehaviour
 
     public void SelectRobot()
     {
-        if (GameManager.Instance.m_actualSelectedRobotNumber == m_uiRobotNumber)
+        if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_uiRobotNumber)
         {
             GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_player;
 
-            GameManager.Instance.m_actualSelectedRobotNumber = 0;
+            GameManager.Instance.m_actualSelectedRobotNumber.Value = 0;
 
             m_playerCamera.Follow = m_player.transform;
             m_playerCamera.LookAt = m_player.transform;
@@ -50,7 +50,7 @@ public class ChooseRobot : MonoBehaviour
         {
             GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_drone;
 
-            GameManager.Instance.m_actualSelectedRobotNumber = m_uiRobotNumber;
+            GameManager.Instance.m_actualSelectedRobotNumber.Value = m_uiRobotNumber;
 
             m_playerCamera.Follow = m_associateRobot.transform;
             m_playerCamera.LookAt = m_associateRobot.transform;
