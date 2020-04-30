@@ -99,7 +99,7 @@ public class RobotInisialisation : MonoBehaviour
                 }
 
                 if ( ( Input.touchCount == 2 || Input.GetKeyDown(KeyCode.T) ) && 
-                    GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
+                    GameManager.Instance.m_actualSelectedRobotNumber == m_movementScript.m_thisEntityNumber)
                 {
                     m_timer = 2;
 
