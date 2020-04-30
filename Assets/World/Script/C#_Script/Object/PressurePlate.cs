@@ -14,6 +14,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
             m_activate = true;
@@ -22,6 +23,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+
         if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
             m_activate = false;
