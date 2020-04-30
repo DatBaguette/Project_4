@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Imput_Manager : Singleton<Imput_Manager>
 {
     // Start is called before the first frame update

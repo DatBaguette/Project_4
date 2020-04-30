@@ -10,13 +10,13 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public bool m_getIsOpen = false;
+    public bool m_activate = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
-            m_getIsOpen = true;
+            m_activate = true;
         }
     }
 
@@ -24,7 +24,7 @@ public class PressurePlate : MonoBehaviour
     {
         if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
-            m_getIsOpen = false;
+            m_activate = false;
         }
     }
 }

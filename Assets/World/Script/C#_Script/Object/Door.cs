@@ -20,7 +20,12 @@ public class Door : MonoBehaviour
     /// <summary>
     /// List of pressure plate's script
     /// </summary>
-    [SerializeField] List<PressurePlate> m_theScript;
+    [SerializeField] List<PressurePlate> m_theScriptP;
+
+    /// <summary>
+    /// List of button's script
+    /// </summary>
+    [SerializeField] List<ButtonTrigger> m_theScriptB;
 
     private Animator m_animator;
 
@@ -29,9 +34,34 @@ public class Door : MonoBehaviour
     /// </summary>
     private bool m_activate = false;
 
+    /// <summary>
+    /// Check if an entity must stay on the button or pressure plate to open the door 
+    /// </summary>
+    [SerializeField] bool m_onePushMode = false;
+
+    /// <summary>
+    /// Number of button OR pressure plate
+    /// </summary>
+    private int m_numberOfTrigger;
+
     private void Start()
     {
         m_animator = gameObject.GetComponent<Animator>();
+
+        if (m_onePushMode)
+        {
+            if (m_theScriptB.Count <= 0)
+                Debug.Log("Changer de mode !");
+
+            m_numberOfTrigger = m_theScriptB.Count;
+        }
+        else
+        {
+            if (m_theScriptP.Count <= 0)
+                Debug.Log("Changer de mode !");
+
+            m_numberOfTrigger = m_theScriptP.Count;
+        }
     }
 
     private void Update()
@@ -39,16 +69,26 @@ public class Door : MonoBehaviour
         int checkPressurePlate = 0;
 
         // Check if associate pressure plate are activated and increase a variable
-        for (int i = 0; i < m_theScript.Count; i++)
+        for (int i = 0; i < m_numberOfTrigger; i++)
         {
-            if (m_theScript[i].m_getIsOpen)
-                checkPressurePlate += 1;
-                
+            if (m_onePushMode)
+            {
+                if (m_theScriptB[i].m_activate)
+                    checkPressurePlate += 1;
+            }
+            else
+            {
+                if (m_theScriptP[i].m_activate)
+                    checkPressurePlate += 1;
+            }
+
+
         }
 
         //Open the door if all pressure plate are activate
-        if (checkPressurePlate == m_theScript.Count && !m_activate)
+        if (checkPressurePlate == m_numberOfTrigger && !m_activate)
         {
+            
             m_animator.Play("Open");
             m_activate = true;
 
@@ -57,7 +97,7 @@ public class Door : MonoBehaviour
         }
 
         //Close the door if one pressure plate is desactivate
-        if (checkPressurePlate != m_theScript.Count && m_activate)
+        if (checkPressurePlate != m_numberOfTrigger && m_activate)
         {
             if ( m_activate )
             {
