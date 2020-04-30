@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Caisse : MonoBehaviour, IFireReact
+public class DestructiblesObjects : MonoBehaviour, IFireReact
 {
 
     void IFireReact.OnFire()
