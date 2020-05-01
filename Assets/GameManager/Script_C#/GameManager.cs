@@ -201,7 +201,7 @@ public class GameManager : Singleton<GameManager>
         m_saveData.m_robotCoreS = m_robotCore;
         m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(m_saveData.m_actualSceneID);
 
         //ResetAllEnnemies();
         //m_player.transform.position = m_actualCheckPointObject.transform.position;
@@ -284,7 +284,6 @@ public class GameManager : Singleton<GameManager>
     {
         Intro,
         LevelOne,
-        BridgePass,
     }
 
 }

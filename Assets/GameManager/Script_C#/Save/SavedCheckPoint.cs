@@ -14,4 +14,6 @@ public class SavedCheckPoint : ScriptableObject
     public bool[] m_robotCoreS = { false, false, false };
 
     public bool[] m_sizeUnlockedS = { false, false };
+
+    public int m_actualSceneID = 0;
 }
