@@ -13,7 +13,13 @@ using UnityEngine.AI;
 public class MenuManager : Singleton<MenuManager>
 {
     [Tooltip("craft menu Manager")]
-    [SerializeField] GameObject m_craftMenu;
+    public GameObject m_craftMenu;
+
+    [Tooltip("Icon to open craft menu")]
+    public GameObject m_openCraftLogo;
+
+    [Tooltip("Icon to activate magnet")]
+    public GameObject m_magnetLogo;
 
     [Tooltip("Text gameObject that will show the actual amount of ressources")]
     [SerializeField] Text m_ressourcesText;
@@ -24,7 +30,7 @@ public class MenuManager : Singleton<MenuManager>
 
     public void OpenCraftMenu()
     {
-        if ( m_craftMenu.activeSelf)
+        if ( m_craftMenu.activeSelf )
         {
             m_craftMenu.SetActive(false);
         }

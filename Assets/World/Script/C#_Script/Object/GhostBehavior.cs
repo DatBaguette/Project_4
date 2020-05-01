@@ -47,7 +47,8 @@ public class GhostBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameManager.Instance.playerDeath();
+        if ( collision.gameObject.GetComponent<ClickToMoveEntity>() )
+            GameManager.Instance.playerDeath();
     }
 
     private void OnTriggerStay(Collider other)

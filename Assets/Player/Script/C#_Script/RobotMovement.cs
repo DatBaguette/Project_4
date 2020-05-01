@@ -35,7 +35,7 @@ public class RobotMovement : MonoBehaviour
         m_moveJoystickScript = m_moveJoystick[0].GetComponent<VirtualJoystick>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         Vector3 dir = Vector3.zero;

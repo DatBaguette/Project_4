@@ -229,6 +229,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillAllRobot()
     {
+        MenuManager.Instance.m_magnetLogo.SetActive(true);
+        MenuManager.Instance.m_openCraftLogo.SetActive(true);
+
         m_camera.Follow = m_player.transform;
         m_camera.LookAt = Instance.m_player.transform;
 
