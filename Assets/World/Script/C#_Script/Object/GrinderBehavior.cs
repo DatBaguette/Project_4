@@ -6,7 +6,9 @@ public class GrinderBehavior : MonoBehaviour
 {
     [SerializeField] GameObject m_objectToGrind;
 
-    private int m_numberOfGrind = 4;
+    [SerializeField] GameObject m_elevator;
+
+    [SerializeField] int m_numberOfGrind = 1;
 
     private bool m_canGrind = true;
 
@@ -31,5 +33,10 @@ public class GrinderBehavior : MonoBehaviour
 
         m_numberOfGrind -= 1;
         m_objectToGrind.transform.position -= new Vector3(0, 3, 0);
+
+        if ( m_numberOfGrind == 0)
+        {
+            m_elevator.GetComponent<Animator>().Play("MoveUp");
+        }
     }
 }
