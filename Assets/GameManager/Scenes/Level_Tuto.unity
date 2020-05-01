@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2467,12 +2467,12 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000004894654
+      value: -0.0000005209681
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000011422413
+      value: 0.0000011560911
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -2577,12 +2577,12 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000004894654
+      value: -0.0000005209681
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000011422413
+      value: 0.0000011560911
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -3950,6 +3950,11 @@ PrefabInstance:
       objectReference: {fileID: 470376758}
     - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
+      propertyPath: m_actualCheckPointObject.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
       propertyPath: m_robotCore.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
@@ -4019,6 +4024,31 @@ PrefabInstance:
       propertyPath: m_magnetActivateImage
       value: 
       objectReference: {fileID: 470376751}
+    - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_actualCheckPointObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 1370233938}
+    - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_actualCheckPointObject.Array.data[1]
+      value: 
+      objectReference: {fileID: 221637015}
+    - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_actualCheckPointObject.Array.data[2]
+      value: 
+      objectReference: {fileID: 1122199275}
+    - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_actualCheckPointObject.Array.data[3]
+      value: 
+      objectReference: {fileID: 1104410678}
+    - target: {fileID: 5468893607486663501, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_actualCheckPointObject.Array.data[4]
+      value: 
+      objectReference: {fileID: 1195460613}
     - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_robotUIContainer

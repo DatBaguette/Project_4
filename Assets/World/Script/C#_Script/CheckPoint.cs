@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    [SerializeField] int m_thisCheckPointNumber;
+    public int m_thisCheckPointNumber;
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.Instance.m_actualCheckPointObject = gameObject;
-        GameManager.Instance.m_actualCheckPointNumber = m_thisCheckPointNumber;
+        if (other.GetComponent<ClickToMoveEntity>() )
+            GameManager.Instance.m_actualCheckPointNumber = m_thisCheckPointNumber;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 
@@ -22,6 +23,8 @@ public class GameManager : Singleton<GameManager>
         Idle,
         Menu
     }
+
+    public SavedCheckPoint m_saveData;
 
     /// <summary>
     /// Used to trigger scripted event or scripted gameplay
@@ -72,7 +75,7 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// GameObject of the actual CheckPoint
     /// </summary>
-    public GameObject m_actualCheckPointObject;
+    public List<GameObject> m_actualCheckPointObject;
 
     public List<GameObject> m_robots;
     public List<GameObject> m_robotsUI;
@@ -85,6 +88,14 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
+        m_actualStoryStep = m_saveData.m_actualStoryStepS;
+        m_actualRessources = m_saveData.m_actualRessourcesS;
+        m_robotCore = m_saveData.m_robotCoreS;
+        m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
+
+        m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
+
         if ( m_actualStoryStep == StoryStep.Intro)
             m_currentPlayerState = m_PlayerState.move_drone;
         else
@@ -184,10 +195,17 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
-        ResetAllEnnemies();
-        m_player.transform.position = m_actualCheckPointObject.transform.position;
+        m_saveData.m_checkPointNumberS = m_actualCheckPointNumber;
+        m_saveData.m_actualStoryStepS = m_actualStoryStep;
+        m_saveData.m_actualRessourcesS = m_actualRessources;
+        m_saveData.m_robotCoreS = m_robotCore;
+        m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
 
-        KillAllRobot();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        //ResetAllEnnemies();
+        //m_player.transform.position = m_actualCheckPointObject.transform.position;
+        //KillAllRobot();
 
     }
 
