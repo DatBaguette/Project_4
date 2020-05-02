@@ -11,6 +11,8 @@ public class ChangeLevel : MonoBehaviour
     {
         if ( other.GetComponent<ClickToMoveEntity>())
         {
+            GameManager.Instance.KillAllRobot();
+
             GameManager.Instance.m_saveData.m_actualSceneID = m_nextLevelNumber;
             GameManager.Instance.m_actualCheckPointNumber = 0;
 

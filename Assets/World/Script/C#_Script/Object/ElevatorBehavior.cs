@@ -14,6 +14,9 @@ public class ElevatorBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<ClickToMoveEntity>())
+        {
+            
             m_animator.Play("MoveDown");
+        }
     }
 }

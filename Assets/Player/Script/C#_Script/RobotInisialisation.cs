@@ -61,7 +61,7 @@ public class RobotInisialisation : MonoBehaviour
 
             case Robot_Type.Destruction:
 
-                //Nothing for the moment
+                gameObject.transform.position += new Vector3(0, 2, 0);
 
                 break;
         }

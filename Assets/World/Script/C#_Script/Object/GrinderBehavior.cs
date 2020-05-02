@@ -36,6 +36,11 @@ public class GrinderBehavior : MonoBehaviour
 
         if ( m_numberOfGrind == 0)
         {
+            if (!SoundManager.Instance.m_succeedSound.isPlaying)
+            {
+                SoundManager.Instance.m_succeedSound.Play();
+            }
+
             m_elevator.GetComponent<Animator>().Play("MoveUp");
         }
     }

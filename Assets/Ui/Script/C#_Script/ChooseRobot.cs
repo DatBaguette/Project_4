@@ -46,6 +46,8 @@ public class ChooseRobot : MonoBehaviour
             MenuManager.Instance.m_magnetLogo.SetActive(true);
             MenuManager.Instance.m_openCraftLogo.SetActive(true);
 
+            m_img.color = Color.white;
+
         }
         else
         {

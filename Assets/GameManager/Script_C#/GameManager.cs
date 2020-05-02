@@ -201,6 +201,8 @@ public class GameManager : Singleton<GameManager>
     {
         SaveData();
 
+        KillAllRobot();
+
         SceneManager.LoadScene(m_saveData.m_actualSceneID);
 
         //ResetAllEnnemies();
@@ -238,14 +240,6 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillAllRobot()
     {
-        MenuManager.Instance.m_magnetLogo.SetActive(true);
-        MenuManager.Instance.m_openCraftLogo.SetActive(true);
-
-        m_camera.Follow = m_player.transform;
-        m_camera.LookAt = Instance.m_player.transform;
-
-        m_currentPlayerState = m_PlayerState.move_player;
-
         if ( m_robotNumber > 0)
         {
             for (int i = 0; i < m_robotNumber; i++)
@@ -264,6 +258,14 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillOneRobot(int i)
     {
+        MenuManager.Instance.m_magnetLogo.SetActive(true);
+        MenuManager.Instance.m_openCraftLogo.SetActive(true);
+
+        m_camera.Follow = m_player.transform;
+        m_camera.LookAt = Instance.m_player.transform;
+
+        m_currentPlayerState = m_PlayerState.move_player;
+
         RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
 
         int type = 0;
