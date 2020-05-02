@@ -92,7 +92,7 @@ public class GameManager : Singleton<GameManager>
     {
         m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
         m_actualStoryStep = m_saveData.m_actualStoryStepS;
-        m_actualRessources = m_saveData.m_actualRessourcesS;
+        m_actualRessources.Value = m_saveData.m_actualRessourcesS;
         m_robotCore = m_saveData.m_robotCoreS;
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
 
@@ -217,7 +217,7 @@ public class GameManager : Singleton<GameManager>
     {
         m_saveData.m_checkPointNumberS = m_actualCheckPointNumber;
         m_saveData.m_actualStoryStepS = m_actualStoryStep;
-        m_saveData.m_actualRessourcesS = m_actualRessources;
+        m_saveData.m_actualRessourcesS = m_actualRessources.Value;
         m_saveData.m_robotCoreS = m_robotCore;
         m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
     }

@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_saveData: {fileID: 11400000, guid: ebd9c245a7dabda41b17a9d93fb2ae03, type: 2}
   m_actualStoryStep: 1
-  m_actualRessources: 10
+  m_actualRessources: {fileID: 11400000, guid: 8dc41d20e44ac5241a444089e7a9d8df, type: 2}
   m_robotCore: 010101
   m_sizeUnlocked: 0000
   m_player: {fileID: 0}
@@ -387,7 +387,8 @@ MonoBehaviour:
     type: 2}
   m_robotNumber: 0
   m_actualCheckPointNumber: 0
-  m_actualCheckPointObject: {fileID: 0}
+  m_actualCheckPointObject:
+  - {fileID: 0}
   m_robots: []
   m_robotsUI: []
   m_manageRobotScript: {fileID: 5468893607689251633}
@@ -507,6 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_craftMenu: {fileID: 0}
+  m_openCraftLogo: {fileID: 0}
+  m_magnetLogo: {fileID: 0}
   m_ressourcesText: {fileID: 0}
   m_CraftMenuRobotTypeArea:
   - {fileID: 0}
