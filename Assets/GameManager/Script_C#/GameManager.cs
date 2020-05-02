@@ -94,7 +94,11 @@ public class GameManager : Singleton<GameManager>
         m_robotCore = m_saveData.m_robotCoreS;
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
 
+        m_player.GetComponent<NavMeshAgent>().enabled = false;
+
         m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
+
+        m_player.GetComponent<NavMeshAgent>().enabled = true;
 
         if ( m_actualStoryStep == StoryStep.Intro)
             m_currentPlayerState = m_PlayerState.move_drone;
@@ -195,11 +199,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
-        m_saveData.m_checkPointNumberS = m_actualCheckPointNumber;
-        m_saveData.m_actualStoryStepS = m_actualStoryStep;
-        m_saveData.m_actualRessourcesS = m_actualRessources;
-        m_saveData.m_robotCoreS = m_robotCore;
-        m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
+        SaveData();
 
         SceneManager.LoadScene(m_saveData.m_actualSceneID);
 
@@ -207,6 +207,15 @@ public class GameManager : Singleton<GameManager>
         //m_player.transform.position = m_actualCheckPointObject.transform.position;
         //KillAllRobot();
 
+    }
+
+    public void SaveData()
+    {
+        m_saveData.m_checkPointNumberS = m_actualCheckPointNumber;
+        m_saveData.m_actualStoryStepS = m_actualStoryStep;
+        m_saveData.m_actualRessourcesS = m_actualRessources;
+        m_saveData.m_robotCoreS = m_robotCore;
+        m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
     }
 
     /// <summary>

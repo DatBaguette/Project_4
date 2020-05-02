@@ -11,9 +11,12 @@ public class ChangeLevel : MonoBehaviour
     {
         if ( other.GetComponent<ClickToMoveEntity>())
         {
-            SceneManager.LoadScene(m_nextLevelNumber);
-
             GameManager.Instance.m_saveData.m_actualSceneID = m_nextLevelNumber;
+            GameManager.Instance.m_actualCheckPointNumber = 0;
+
+            GameManager.Instance.SaveData();
+
+            SceneManager.LoadScene(m_nextLevelNumber);
         }
         
     }
