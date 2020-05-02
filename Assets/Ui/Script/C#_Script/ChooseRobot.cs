@@ -43,8 +43,11 @@ public class ChooseRobot : MonoBehaviour
             m_playerCamera.Follow = m_player.transform;
             m_playerCamera.LookAt = m_player.transform;
 
+            MenuManager.Instance.m_magnetLogo.SetActive(true);
+            MenuManager.Instance.m_openCraftLogo.SetActive(true);
+
             m_img.color = Color.white;
-            
+
         }
         else
         {
@@ -55,7 +58,16 @@ public class ChooseRobot : MonoBehaviour
             m_playerCamera.Follow = m_associateRobot.transform;
             m_playerCamera.LookAt = m_associateRobot.transform;
 
+            for ( int i=0; i<GameManager.Instance.m_robotsUI.Count; i++)
+            {
+                GameManager.Instance.m_robotsUI[i].GetComponent<Image>().color = Color.white;
+            }
+
             m_img.color = Color.green;
+
+            MenuManager.Instance.m_craftMenu.SetActive(false);
+            MenuManager.Instance.m_magnetLogo.SetActive(false);
+            MenuManager.Instance.m_openCraftLogo.SetActive(false);
         }
 
         GameManager.Instance.m_navmesh.ResetPath();

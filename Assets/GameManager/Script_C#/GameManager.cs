@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 
@@ -22,6 +23,8 @@ public class GameManager : Singleton<GameManager>
         Idle,
         Menu
     }
+
+    public SavedCheckPoint m_saveData;
 
     /// <summary>
     /// Used to trigger scripted event or scripted gameplay
@@ -74,7 +77,7 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// GameObject of the actual CheckPoint
     /// </summary>
-    public GameObject m_actualCheckPointObject;
+    public List<GameObject> m_actualCheckPointObject;
 
     public List<GameObject> m_robots;
     public List<GameObject> m_robotsUI;
@@ -87,6 +90,18 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
+        m_actualStoryStep = m_saveData.m_actualStoryStepS;
+        m_actualRessources = m_saveData.m_actualRessourcesS;
+        m_robotCore = m_saveData.m_robotCoreS;
+        m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
+
+        m_player.GetComponent<NavMeshAgent>().enabled = false;
+
+        m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
+
+        m_player.GetComponent<NavMeshAgent>().enabled = true;
+
         if ( m_actualStoryStep == StoryStep.Intro)
             m_currentPlayerState = m_PlayerState.move_drone;
         else
@@ -186,11 +201,25 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
-        ResetAllEnnemies();
-        m_player.transform.position = m_actualCheckPointObject.transform.position;
+        SaveData();
 
         KillAllRobot();
 
+        SceneManager.LoadScene(m_saveData.m_actualSceneID);
+
+        //ResetAllEnnemies();
+        //m_player.transform.position = m_actualCheckPointObject.transform.position;
+        //KillAllRobot();
+
+    }
+
+    public void SaveData()
+    {
+        m_saveData.m_checkPointNumberS = m_actualCheckPointNumber;
+        m_saveData.m_actualStoryStepS = m_actualStoryStep;
+        m_saveData.m_actualRessourcesS = m_actualRessources;
+        m_saveData.m_robotCoreS = m_robotCore;
+        m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
     }
 
     /// <summary>
@@ -213,11 +242,6 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillAllRobot()
     {
-        m_camera.Follow = m_player.transform;
-        m_camera.LookAt = Instance.m_player.transform;
-
-        m_currentPlayerState = m_PlayerState.move_player;
-
         if ( m_robotNumber > 0)
         {
             for (int i = 0; i < m_robotNumber; i++)
@@ -236,6 +260,14 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillOneRobot(int i)
     {
+        MenuManager.Instance.m_magnetLogo.SetActive(true);
+        MenuManager.Instance.m_openCraftLogo.SetActive(true);
+
+        m_camera.Follow = m_player.transform;
+        m_camera.LookAt = Instance.m_player.transform;
+
+        m_currentPlayerState = m_PlayerState.move_player;
+
         RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
 
         int type = 0;
@@ -265,7 +297,6 @@ public class GameManager : Singleton<GameManager>
     {
         Intro,
         LevelOne,
-        BridgePass,
     }
 
 }

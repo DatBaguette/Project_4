@@ -83,7 +83,7 @@ public class BridgeBehavior : MonoBehaviour
     /// </summary>
     IEnumerator BakeNavMeshSurface()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(5);
 
         m_invisibleWallDesactivated = true;
     }
