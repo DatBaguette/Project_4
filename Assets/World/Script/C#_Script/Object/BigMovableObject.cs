@@ -8,7 +8,7 @@ using UnityEngine;
 /// 
 /// </summary>
 
-public class MovableObject : MonoBehaviour
+public class BigMovableObject : MonoBehaviour
 {
     private Rigidbody m_rb;
 
@@ -21,22 +21,25 @@ public class MovableObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if ( other.gameObject.tag == "FlyingRobot")
+        if ( other.gameObject.tag == "PlateformRobot")
         {
             RobotInisialisation m_fRobotScript = other.GetComponent<RobotInisialisation>();
 
             if (m_fRobotScript.m_size == 2)
                 move();
         }
-
-        if ( other.gameObject.tag == "PlateformRobot" )
-        {
-            move();
-        }
     }
 
     private void move()
     {
         m_parent.gameObject.transform.Translate(transform.forward * 5 * Time.deltaTime, Space.World);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "KillEntitiesZone")
+        {
+            Destroy(other.transform.parent.gameObject);
+        }
     }
 }

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// 
 /// </summary>
 
-public class CraftManager : MonoBehaviour
+public class CraftManager : Singleton<CraftManager>
 {
     [HideInInspector] public int[] m_RobotCraftCost = { 0, 0, 0 };
     [HideInInspector] public int[] m_RobotSize = { 0, 0, 0 };

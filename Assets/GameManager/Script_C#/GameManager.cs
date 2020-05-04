@@ -87,13 +87,11 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject m_magnetActivateImage;
 
+    private bool m_initDone = false;
+
     private void Start()
     {
-        m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
-        m_actualStoryStep = m_saveData.m_actualStoryStepS;
-        m_actualRessources.Value = m_saveData.m_actualRessourcesS;
-        m_robotCore = m_saveData.m_robotCoreS;
-        m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
+        m_initDone = true;
 
         m_player.GetComponent<NavMeshAgent>().enabled = false;
 
@@ -105,6 +103,26 @@ public class GameManager : Singleton<GameManager>
             m_currentPlayerState = m_PlayerState.move_drone;
         else
             m_currentPlayerState = m_PlayerState.move_player;
+    }
+
+    private void Update()
+    {
+        StateController();
+
+        if (m_initDone)
+        {
+            InitialiseSaveData();
+            m_initDone = false;
+        }
+    }
+
+    public void InitialiseSaveData()
+    {
+        m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
+        m_actualStoryStep = m_saveData.m_actualStoryStepS;
+        m_actualRessources.Value = m_saveData.m_actualRessourcesS;
+        m_robotCore = m_saveData.m_robotCoreS;
+        m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
     }
 
     /// <summary>
@@ -136,11 +154,6 @@ public class GameManager : Singleton<GameManager>
 
         return (hit.point);
 
-    }
-
-    private void Update()
-    {
-        StateController();
     }
 
     // Cheat keycode

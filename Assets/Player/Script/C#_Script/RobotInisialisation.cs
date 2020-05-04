@@ -16,7 +16,7 @@ public class RobotInisialisation : MonoBehaviour
     public Robot_Type m_robotType;
 
     /// <summary>
-    /// Robot size ( 1 /2 / 3 )
+    /// Robot size
     /// </summary>
     public int m_size;
 
@@ -55,15 +55,20 @@ public class RobotInisialisation : MonoBehaviour
 
             case Robot_Type.Platforme:
 
-                //Nothing for the moment
+                gameObject.transform.position += new Vector3(0, 2, 0);
 
                 break;
 
             case Robot_Type.Destruction:
 
-                gameObject.transform.position += new Vector3(0, 2, 0);
+                gameObject.transform.position += new Vector3(0, 3, 0);
 
                 break;
+        }
+
+        if ( m_size == 2)
+        {
+            gameObject.transform.localScale *= 1.5f;
         }
 
     }

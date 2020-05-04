@@ -43,25 +43,16 @@ public class Manage_Robot : Singleton<Manage_Robot>
     private GameObject m_FlyingBot_2;
 
     [SerializeField]
-    private GameObject m_FlyingBot_3;
-
-    [SerializeField]
     private GameObject m_PlatformeBot_1;
 
     [SerializeField]
     private GameObject m_PlatformeBot_2;
 
     [SerializeField]
-    private GameObject m_PlatformeBot_3;
-
-    [SerializeField]
     private GameObject m_DestructionBot_1;
 
     [SerializeField]
     private GameObject m_DestructionBot_2;
-
-    [SerializeField]
-    private GameObject m_DestructionBot_3;
 
 
     [Tooltip("Array of robot price")]
@@ -192,6 +183,10 @@ public class Manage_Robot : Singleton<Manage_Robot>
         }
         else
             GameManager.Instance.m_robots.Add(robot);
+
+        // Robot Infos
+        RobotInisialisation m_robotInfosScript = robot.GetComponent<RobotInisialisation>();
+        m_robotInfosScript.m_size = CraftManager.Instance.m_choosenSize;
 
         // Robot Values
         RobotMovement robotScriptToMove = robot.gameObject.GetComponent<RobotMovement>();
