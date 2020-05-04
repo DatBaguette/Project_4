@@ -66,11 +66,6 @@ public class RobotInisialisation : MonoBehaviour
                 break;
         }
 
-        if ( m_size == 2)
-        {
-            gameObject.transform.localScale *= 1.5f;
-        }
-
     }
 
     

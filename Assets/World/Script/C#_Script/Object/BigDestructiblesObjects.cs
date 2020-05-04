@@ -8,7 +8,7 @@ using UnityEngine;
 /// Destroy him and activate environnement's events
 /// </summary>
 
-public class DestructiblesObjects : MonoBehaviour, IFireReact
+public class BigDestructiblesObjects : MonoBehaviour, IFireReact
 {
     [SerializeField] List<ActivateEnvironnementAnimation> m_EAScript;
 
@@ -21,7 +21,7 @@ public class DestructiblesObjects : MonoBehaviour, IFireReact
             m_EAScript[i].Activate = true;
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 
     void IFireReact.OnKillFire()

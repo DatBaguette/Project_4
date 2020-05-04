@@ -73,8 +73,6 @@ public class Manage_Robot : Singleton<Manage_Robot>
             case 1: createRobot = CheckIfEnoughMoney(price[0]); break;
 
             case 2: createRobot = CheckIfEnoughMoney(price[1]); break;
-
-            case 3: createRobot = CheckIfEnoughMoney(price[2]); break;
         }
 
         // Delete ressources depending on the good amount
@@ -86,11 +84,14 @@ public class Manage_Robot : Singleton<Manage_Robot>
                 case 1: GameManager.Instance.m_actualRessources.Value -= price[0]; break;
 
                 case 2: GameManager.Instance.m_actualRessources.Value -= price[1]; break;
-
-                case 3: GameManager.Instance.m_actualRessources.Value -= price[2]; break;
             }
 
-            InstantiateRobot(m_FlyingBot_1);
+            switch (CraftManager.Instance.m_choosenSize)
+            {
+                case 1: InstantiateRobot(m_FlyingBot_1); break;
+
+                case 2: InstantiateRobot(m_FlyingBot_2); break;
+            }
         }
 
         GameManager.Instance.m_navmesh.ResetPath();
@@ -104,11 +105,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(price[3]); break;
+            case 1: createRobot = CheckIfEnoughMoney(price[2]); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(price[4]); break;
-
-            case 3: createRobot = CheckIfEnoughMoney(price[5]); break;
+            case 2: createRobot = CheckIfEnoughMoney(price[3]); break;
         }
 
         if (createRobot)
@@ -116,14 +115,17 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources.Value -= price[3]; break;
+                case 1: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
 
-                case 2: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
-
-                case 3: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
+                case 2: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
             }
 
-            InstantiateRobot(m_PlatformeBot_1);
+            switch (CraftManager.Instance.m_choosenSize)
+            {
+                case 1: InstantiateRobot(m_PlatformeBot_1); break;
+
+                case 2: InstantiateRobot(m_PlatformeBot_2); break;
+            }
         }
 
         GameManager.Instance.m_navmesh.ResetPath();
@@ -156,7 +158,12 @@ public class Manage_Robot : Singleton<Manage_Robot>
                 case 3: GameManager.Instance.m_actualRessources.Value -= price[8]; break;
             }
 
-            InstantiateRobot(m_DestructionBot_1);
+            switch ( CraftManager.Instance.m_choosenSize)
+            {
+                case 1: InstantiateRobot(m_DestructionBot_1); break;
+
+                case 2: InstantiateRobot(m_DestructionBot_2); break;
+            }
         }
 
         GameManager.Instance.m_navmesh.ResetPath();
