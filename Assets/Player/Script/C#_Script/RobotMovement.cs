@@ -23,6 +23,9 @@ public class RobotMovement : MonoBehaviour
 
     public int m_thisEntityNumber;
 
+    [SerializeField]
+    private Transform m_transform_to_rotate;
+
     void Start()
     {
         controller = GetComponent<Rigidbody>();
@@ -37,7 +40,26 @@ public class RobotMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        Robot_Mouvement();
+        
+        if(m_transform_to_rotate != null)
+        Robot_Rotation();
+    }
 
+
+    private void Robot_Rotation()
+    {
+        if(m_moveJoystickScript.m_InputDirection != Vector3.zero && GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
+        {
+            Debug.Log("rotate zeubi");
+
+            
+        }
+    }
+
+
+    private void Robot_Mouvement()
+    {
         Vector3 dir = Vector3.zero;
 
         dir.x = Input.GetAxis("Horizontal");
@@ -56,10 +78,15 @@ public class RobotMovement : MonoBehaviour
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value != m_thisEntityNumber)
             dir = new Vector3(0, 0, 0);
 
-        // Adpat the movement type because it did weird things with the flying robot
-        if ( gameObject.tag == "FlyingRobot")
-            controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
-        else 
-            transform.Translate(dir * m_movementSpeed);
+        if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
+        {
+            // Adpat the movement type because it did weird things with the flying robot
+            if (gameObject.tag == "FlyingRobot")
+                controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
+            else
+                transform.Translate(dir * m_movementSpeed);
+        }
+        
     }
+
 }
