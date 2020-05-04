@@ -14,7 +14,7 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] float m_drag = 0.5f;
     [SerializeField] float m_terminalRotationSpeed = 25.0f;
 
-    private VirtualJoystick m_moveJoystickScript;
+    public VirtualJoystick m_moveJoystickScript;
     private GameObject[] m_moveJoystick = { null };
 
     private Rigidbody controller;
@@ -25,6 +25,12 @@ public class RobotMovement : MonoBehaviour
 
     [SerializeField]
     private Transform m_transform_to_rotate;
+    [SerializeField]
+    private Transform transform_LookAt;
+
+    private float f_ImpulseX;
+    private float f_ImpulseZ;
+    private Vector3 Vt3_Dir;
 
     void Start()
     {
@@ -49,29 +55,33 @@ public class RobotMovement : MonoBehaviour
 
     private void Robot_Rotation()
     {
-        if(m_moveJoystickScript.m_InputDirection != Vector3.zero && GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
-        {
-            Debug.Log("rotate zeubi");
-
-            
-        }
+        m_transform_to_rotate.LookAt(transform_LookAt);
     }
 
 
     private void Robot_Mouvement()
     {
         Vector3 dir = Vector3.zero;
+        Vector3 dir_rot = Vector3.zero;
 
         dir.x = Input.GetAxis("Horizontal");
         dir.z = Input.GetAxis("Vertical");
+        //dir_rot.x = Input.GetAxis("Horizontal");
+        //dir_rot.z = Input.GetAxis("Vertical");
 
         if (dir.magnitude > 1)
             dir.Normalize();
+
+        //if (dir_rot.magnitude > 1)
+        //    dir_rot.Normalize();
+
 
         // if the joystick position isn't null, it give a direciton to the player
         if (m_moveJoystickScript.m_InputDirection != Vector3.zero)
         {
             dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z);
+
+            dir_rot = new Vector3(0, 0 , 0 );
         }
 
         // Stop the movement if the actual robot isn't this one
@@ -86,7 +96,15 @@ public class RobotMovement : MonoBehaviour
             else
                 transform.Translate(dir * m_movementSpeed);
         }
-        
+
+
+        //if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber  && m_transform_to_rotate != null)
+        //{
+        //    //Debug.Log(dir_rot);
+        //    m_transform_to_rotate.localEulerAngles += dir_rot;
+        //}
+        //else if (m_transform_to_rotate == null)
+        //    Debug.LogWarning("SC_StickHelper - Missing References GROS CON ");
     }
 
 }
