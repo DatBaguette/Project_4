@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Number of ressources in the inventory
     /// </summary>
-    [SerializeField]
     public GD2Lib.IntVar m_actualRessources;
 
     /// <summary>
@@ -45,7 +44,7 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Check if the player has unlocked robots size
     /// </summary>
-    public bool[] m_sizeUnlocked = { false, false };
+    public bool m_sizeUnlocked = false;
 
     public GameObject m_player;
 
@@ -201,9 +200,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
-        SaveData();
-
         KillAllRobot();
+
+        SaveData();
 
         SceneManager.LoadScene(m_saveData.m_actualSceneID);
 

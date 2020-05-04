@@ -60,7 +60,8 @@ public class ChooseRobot : MonoBehaviour
 
             for ( int i=0; i<GameManager.Instance.m_robotsUI.Count; i++)
             {
-                GameManager.Instance.m_robotsUI[i].GetComponent<Image>().color = Color.white;
+                if (GameManager.Instance.m_robotsUI[i] != null)
+                    GameManager.Instance.m_robotsUI[i].GetComponent<Image>().color = Color.white;
             }
 
             m_img.color = Color.green;

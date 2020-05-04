@@ -26,7 +26,7 @@ public class MenuManager : Singleton<MenuManager>
 
     [SerializeField] List<GameObject> m_CraftMenuRobotTypeArea;
 
-    [SerializeField] List<GameObject> m_sizeArea;
+    [SerializeField] GameObject m_sizeArea;
 
     public void OpenCraftMenu()
     {
@@ -78,13 +78,10 @@ public class MenuManager : Singleton<MenuManager>
                  m_CraftMenuRobotTypeArea[i].SetActive(true);
         }
 
-        for (int i = 0; i < m_sizeArea.Count; i++)
-        {
-            if (!GameManager.Instance.m_sizeUnlocked[i])
-                m_sizeArea[i].SetActive(false);
+        if (!GameManager.Instance.m_sizeUnlocked)
+            m_sizeArea.SetActive(false);
 
-            else
-                m_sizeArea[i].SetActive(true);
-        }
+        else
+            m_sizeArea.SetActive(true);
     }
 }
