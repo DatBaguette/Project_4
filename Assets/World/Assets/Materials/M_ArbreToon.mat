@@ -21,18 +21,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_ArbreToon
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+  m_Shader: {fileID: -6465566751694194690, guid: b524458199e8dbc439a895b22f8e7a6e,
+    type: 3}
+  m_ShaderKeywords: FRESNEL_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Aldebo:
+        m_Texture: {fileID: 2800000, guid: 213379d9190f6e242927cf4f6cf34e93, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: cc8564d81080c5040aa98d7e1793e931, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -45,12 +49,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 213379d9190f6e242927cf4f6cf34e93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Lighting_Ramp:
+        m_Texture: {fileID: 2800000, guid: 9f612e4e7a5bc3c4488afa92327064ff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: cc8564d81080c5040aa98d7e1793e931, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: cc8564d81080c5040aa98d7e1793e931, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 67227b1eba9f00a40aa7a9bf3806974c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -62,6 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - FRESNEL: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 2.23
@@ -76,7 +89,8 @@ Material:
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.176
+    - _RimStrenght: 0.34
+    - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -84,7 +98,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_7CA48F9B: {r: 0.26048964, g: 0.33962262, b: 0.033641864, a: 0}
+    - Shadow_Tint: {r: 0.15076537, g: 0.41509432, b: 0.15441126, a: 0}
+    - Vector3_2573FE9A: {r: 1, g: 2, b: 1, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0.5019608, g: 0.7372549, b: 0.5019608, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _Tint: {r: 0.6854345, g: 0.8113208, b: 0.6544144, a: 1}
