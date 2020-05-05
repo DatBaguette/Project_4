@@ -18,44 +18,10 @@ public class TutoManager : MonoBehaviour
     [SerializeField] GameObject m_joystickHelper;
     [SerializeField] GameObject m_arrowToMove;
     [SerializeField] GameObject m_buildIconHelper;
+    [SerializeField] GameObject m_boomerangIconHelper;
+    [SerializeField] GameObject m_arrowBoomerang;
 
     [SerializeField] GameObject m_begginingRobotSpawner;
-
-    public tutoState m_actualTutoState;
-    public tutoState ActualTutoState
-    {
-        get
-        {
-            return m_actualTutoState;
-        }
-        set
-        {
-            switch (ActualTutoState)
-            {
-                case tutoState.robotMovement:
-                    m_joystickHelper.GetComponent<Animator>().SetBool("canFlash", false);
-                    break;
-
-                case tutoState.playerMovement:
-                    m_arrowToMove.GetComponent<Animator>().SetBool("canMove", false);
-                    break;
-
-                case tutoState.craft:
-                    m_buildIconHelper.GetComponent<Animator>().SetBool("CanFlash", false);
-                    break;
-
-                case tutoState.core:
-                    // Desactivate helper on core
-                    break;
-
-                case tutoState.boomerang:
-                    // Desactivate helper around ressources
-                    break;
-            }
-
-            m_actualTutoState = value;
-        }
-    }
 
     public bool m_activateNextTutoState = false;
     public bool ActivateNextTutoState
@@ -81,18 +47,54 @@ public class TutoManager : MonoBehaviour
                     m_buildIconHelper.GetComponent<Animator>().SetBool("canFlash", true);
                     break;
 
-                case tutoState.core:
-                    // Activate helper on core
+                case tutoState.boomerang:
+                    m_boomerangIconHelper.GetComponent<Animator>().SetBool("canFlash", true);
                     break;
 
-                case tutoState.boomerang:
-                    // Activate helper around ressources
+                case tutoState.ressources:
+                    m_arrowBoomerang.GetComponent<Animator>().SetBool("canMove", true);
                     break;
             }
 
             m_activateNextTutoState = false;
 
             m_activateNextTutoState = value;
+        }
+    }
+
+    public tutoState m_actualTutoState;
+    public tutoState ActualTutoState
+    {
+        get
+        {
+            return m_actualTutoState;
+        }
+        set
+        {
+            switch (ActualTutoState)
+            {
+                case tutoState.robotMovement:
+                    m_joystickHelper.GetComponent<Animator>().SetBool("canFlash", false);
+                    break;
+
+                case tutoState.playerMovement:
+                    m_arrowToMove.GetComponent<Animator>().SetBool("canMove", false);
+                    break;
+
+                case tutoState.craft:
+                    m_buildIconHelper.GetComponent<Animator>().SetBool("canFlash", false);
+                    break;
+
+                case tutoState.boomerang:
+                    m_boomerangIconHelper.GetComponent<Animator>().SetBool("canFlash", false);
+                    break;
+
+                case tutoState.ressources:
+                    m_arrowBoomerang.GetComponent<Animator>().SetBool("canMove", false);
+                    break;
+            }
+
+            m_actualTutoState = value;
         }
     }
 
@@ -112,6 +114,12 @@ public class TutoManager : MonoBehaviour
             ActivateNextTutoState = true;
         }
 
+        if (ActualTutoState == tutoState.boomerang && GameManager.Instance.m_robotCore[1])
+        {
+
+            ActivateNextTutoState = true;
+        }
+
         // Stop helper's animation
         if (ActualTutoState == tutoState.robotMovement && m_begginingRobotSpawner.transform.GetChild(0).GetComponent<Rigidbody>().velocity.magnitude > 0)
         {
@@ -126,7 +134,18 @@ public class TutoManager : MonoBehaviour
 
         if (ActualTutoState == tutoState.craft && MenuManager.Instance.m_craftMenu.activeSelf)
         {
-            ActualTutoState = tutoState.core;
+            ActualTutoState = tutoState.boomerang;
+        }
+
+        if (ActualTutoState == tutoState.boomerang && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
+        {
+            ActualTutoState = tutoState.ressources;
+            ActivateNextTutoState = true;
+        }
+
+        if (ActualTutoState == tutoState.ressources && GameManager.Instance.m_actualRessources.Value >= 2 )
+        {
+            ActualTutoState = tutoState.end;
         }
     }
 
@@ -135,8 +154,8 @@ public class TutoManager : MonoBehaviour
         robotMovement,
         playerMovement,
         craft,
-        core,
         boomerang,
         ressources,
+        end
     }
 }
