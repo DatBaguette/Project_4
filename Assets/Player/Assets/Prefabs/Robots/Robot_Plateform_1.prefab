@@ -143,7 +143,10 @@ MonoBehaviour:
   m_baseMoveSpeed: 0.1
   m_drag: 0.5
   m_terminalRotationSpeed: 25
+  m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_transform_to_rotate: {fileID: 0}
+  transform_LookAt: {fileID: 0}
 --- !u!135 &2730609933874018852
 SphereCollider:
   m_ObjectHideFlags: 0
