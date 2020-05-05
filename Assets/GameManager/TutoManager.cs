@@ -78,7 +78,7 @@ public class TutoManager : MonoBehaviour
                     break;
 
                 case tutoState.craft:
-                    m_buildIconHelper.GetComponent<Animator>().SetBool("CanFlash", true);
+                    m_buildIconHelper.GetComponent<Animator>().SetBool("canFlash", true);
                     break;
 
                 case tutoState.core:
@@ -124,7 +124,7 @@ public class TutoManager : MonoBehaviour
             ActivateNextTutoState = true;
         }
 
-        if (ActualTutoState == tutoState.craft && m_begginingRobotSpawner.transform.GetChild(0).GetComponent<Rigidbody>().velocity.magnitude > 0)
+        if (ActualTutoState == tutoState.craft && MenuManager.Instance.m_craftMenu.activeSelf)
         {
             ActualTutoState = tutoState.core;
         }
