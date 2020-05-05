@@ -115,9 +115,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
+                case 1: GameManager.Instance.m_actualRessources.Value -= price[2]; break;
 
-                case 2: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
+                case 2: GameManager.Instance.m_actualRessources.Value -= price[3]; break;
             }
 
             switch (CraftManager.Instance.m_choosenSize)
@@ -139,11 +139,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
         switch (m_craftManager.m_choosenSize)
         {
-            case 1: createRobot = CheckIfEnoughMoney(price[6]); break;
+            case 1: createRobot = CheckIfEnoughMoney(price[4]); break;
 
-            case 2: createRobot = CheckIfEnoughMoney(price[7]); break;
-
-            case 3: createRobot = CheckIfEnoughMoney(price[8]); break;
+            case 2: createRobot = CheckIfEnoughMoney(price[5]); break;
         }
 
         if (createRobot)
@@ -151,11 +149,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             switch (m_craftManager.m_choosenSize)
             {
-                case 1: GameManager.Instance.m_actualRessources.Value -= price[6]; break;
+                case 1: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
 
-                case 2: GameManager.Instance.m_actualRessources.Value -= price[7]; break;
-
-                case 3: GameManager.Instance.m_actualRessources.Value -= price[8]; break;
+                case 2: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
             }
 
             switch ( CraftManager.Instance.m_choosenSize)
@@ -222,6 +218,7 @@ public class Manage_Robot : Singleton<Manage_Robot>
         Text UINameText = UIName.gameObject.GetComponent<Text>();
         UINameText.text = robot.gameObject.name;
     }
+
     //public void InstantiateRobot(RobotInisialisation RobotCreat)
     //{
     //    GameManager.Instance.m_robotNumber += 1;

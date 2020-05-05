@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2872651683421489155}
   m_LocalRotation: {x: 0, y: 0.000008507889, z: -1.3e-44, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3681410646748626972}
   - {fileID: 90399166976189966}
@@ -113,6 +113,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &7728062435766953431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765154563025945891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &193561859700549056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +233,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Robot_Plateform_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlateformRobot
       objectReference: {fileID: 0}
     - target: {fileID: 6023960766003447684, guid: b8749e090e163db43a6c00094c48af6b,
         type: 3}
