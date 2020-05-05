@@ -91,6 +91,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+
         m_initDone = true;
 
         m_player.GetComponent<NavMeshAgent>().enabled = false;

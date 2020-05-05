@@ -18,24 +18,17 @@ public class CraftManager : Singleton<CraftManager>
     [SerializeField] List<Text> m_robotCost;
 
     [HideInInspector] public int m_choosenSize = 1;
-    private List<int> getPrice;
-
-    [SerializeField]
-    private Manage_Robot CurrentManager;
 
     private void Start()
     {
-        //getPrice[] = gameObject.GetComponent<Manage_Robot>().price[];
-
-        for(int i = 0; i < getPrice.Count ; i++)
-        {
-            getPrice[i] = CurrentManager.price[i];
-        }
         
-        m_robotCost[0].text = getPrice[0].ToString();
-        m_robotCost[1].text = getPrice[1].ToString();
+        m_robotCost[0].text = Manage_Robot.Instance.price[0].ToString();
+        m_robotCost[1].text = Manage_Robot.Instance.price[1].ToString();
     }
 
+    /// <summary>
+    /// Update the cost of the robot on the menu
+    /// </summary>
     public void RobotSize(int choosenSize)
     {
         m_choosenSize = choosenSize;
@@ -44,22 +37,22 @@ public class CraftManager : Singleton<CraftManager>
         {
             case 1:
 
-                m_robotCost[0].text = getPrice[0].ToString();
-                m_robotCost[1].text = getPrice[1].ToString();
+                m_robotCost[0].text = Manage_Robot.Instance.price[0].ToString();
+                m_robotCost[1].text = Manage_Robot.Instance.price[1].ToString();
 
                 break;
 
             case 2:
 
-                m_robotCost[0].text = getPrice[2].ToString();
-                m_robotCost[1].text = getPrice[3].ToString();
+                m_robotCost[0].text = Manage_Robot.Instance.price[2].ToString();
+                m_robotCost[1].text = Manage_Robot.Instance.price[3].ToString();
 
                 break;
 
             case 3:
 
-                m_robotCost[0].text = getPrice[4].ToString();
-                m_robotCost[1].text = getPrice[5].ToString();
+                m_robotCost[0].text = Manage_Robot.Instance.price[4].ToString();
+                m_robotCost[1].text = Manage_Robot.Instance.price[5].ToString();
 
                 break;
         }

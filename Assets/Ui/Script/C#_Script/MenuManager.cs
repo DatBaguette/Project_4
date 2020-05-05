@@ -42,7 +42,7 @@ public class MenuManager : Singleton<MenuManager>
         GameManager.Instance.m_navmesh.ResetPath();
      
     }
-
+    
     public void AddRessources()
     {
         GameManager.Instance.m_actualRessources.Value += 100;
