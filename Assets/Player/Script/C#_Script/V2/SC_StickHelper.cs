@@ -39,7 +39,7 @@ public class SC_StickHelper : MonoBehaviour
         if (Robot_Mesh != null)
         {
             this.transform.position = Robot_Mesh.transform.position + (Vt3_Dir.normalized * 3);
-            Debug.Log("BAH YES");
+            //Debug.Log("BAH YES");
         }
         else if (Robot_Mesh == null)
             Debug.LogWarning("SC_StickHelper - Missing References Robot_Mesh ");

@@ -47,9 +47,7 @@ public class RobotMovement : MonoBehaviour
     void FixedUpdate()
     {
         Robot_Mouvement();
-        
-        if(m_transform_to_rotate != null)
-        Robot_Rotation();
+       
     }
 
 
@@ -66,14 +64,10 @@ public class RobotMovement : MonoBehaviour
 
         dir.x = Input.GetAxis("Horizontal");
         dir.z = Input.GetAxis("Vertical");
-        //dir_rot.x = Input.GetAxis("Horizontal");
-        //dir_rot.z = Input.GetAxis("Vertical");
+
 
         if (dir.magnitude > 1)
             dir.Normalize();
-
-        //if (dir_rot.magnitude > 1)
-        //    dir_rot.Normalize();
 
 
         // if the joystick position isn't null, it give a direciton to the player
@@ -92,19 +86,18 @@ public class RobotMovement : MonoBehaviour
         {
             // Adpat the movement type because it did weird things with the flying robot
             if (gameObject.tag == "FlyingRobot")
+            {
                 controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
+                Robot_Rotation();
+            }
             else
+            {
                 transform.Translate(dir * m_movementSpeed);
+                Robot_Rotation();
+            }
+                
         }
 
-
-        //if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber  && m_transform_to_rotate != null)
-        //{
-        //    //Debug.Log(dir_rot);
-        //    m_transform_to_rotate.localEulerAngles += dir_rot;
-        //}
-        //else if (m_transform_to_rotate == null)
-        //    Debug.LogWarning("SC_StickHelper - Missing References GROS CON ");
     }
 
 }
