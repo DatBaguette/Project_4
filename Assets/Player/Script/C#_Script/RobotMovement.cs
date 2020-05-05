@@ -14,7 +14,7 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] float m_drag = 0.5f;
     [SerializeField] float m_terminalRotationSpeed = 25.0f;
 
-    private VirtualJoystick m_moveJoystickScript;
+    public VirtualJoystick m_moveJoystickScript;
     private GameObject[] m_moveJoystick = { null };
 
     private Rigidbody controller;
@@ -22,6 +22,15 @@ public class RobotMovement : MonoBehaviour
     private float m_movementSpeed;
 
     public int m_thisEntityNumber;
+
+    [SerializeField]
+    private Transform m_transform_to_rotate;
+    [SerializeField]
+    private Transform transform_LookAt;
+
+    private float f_ImpulseX;
+    private float f_ImpulseZ;
+    private Vector3 Vt3_Dir;
 
     void Start()
     {
@@ -37,29 +46,58 @@ public class RobotMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        Robot_Mouvement();
+       
+    }
 
+
+    private void Robot_Rotation()
+    {
+        m_transform_to_rotate.LookAt(transform_LookAt);
+    }
+
+
+    private void Robot_Mouvement()
+    {
         Vector3 dir = Vector3.zero;
+        Vector3 dir_rot = Vector3.zero;
 
         dir.x = Input.GetAxis("Horizontal");
         dir.z = Input.GetAxis("Vertical");
 
+
         if (dir.magnitude > 1)
             dir.Normalize();
+
 
         // if the joystick position isn't null, it give a direciton to the player
         if (m_moveJoystickScript.m_InputDirection != Vector3.zero)
         {
             dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z);
+
+            dir_rot = new Vector3(0, 0 , 0 );
         }
 
         // Stop the movement if the actual robot isn't this one
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value != m_thisEntityNumber)
             dir = new Vector3(0, 0, 0);
 
-        // Adpat the movement type because it did weird things with the flying robot
-        if ( gameObject.tag == "FlyingRobot")
-            controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
-        else 
-            transform.Translate(dir * m_movementSpeed);
+        if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
+        {
+            // Adpat the movement type because it did weird things with the flying robot
+            if (gameObject.tag == "FlyingRobot")
+            {
+                controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
+                Robot_Rotation();
+            }
+            else
+            {
+                transform.Translate(dir * m_movementSpeed);
+                Robot_Rotation();
+            }
+                
+        }
+
     }
+
 }
