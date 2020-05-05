@@ -91,14 +91,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-
         m_initDone = true;
-
-        m_player.GetComponent<NavMeshAgent>().enabled = false;
-
-        m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
-
-        m_player.GetComponent<NavMeshAgent>().enabled = true;
 
         if ( m_actualStoryStep == StoryStep.Intro)
             m_currentPlayerState = m_PlayerState.move_drone;
@@ -124,6 +117,12 @@ public class GameManager : Singleton<GameManager>
         m_actualRessources.Value = m_saveData.m_actualRessourcesS;
         m_robotCore = m_saveData.m_robotCoreS;
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
+
+        m_player.GetComponent<NavMeshAgent>().enabled = false;
+
+        m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
+
+        m_player.GetComponent<NavMeshAgent>().enabled = true;
     }
 
     /// <summary>
