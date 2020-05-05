@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &6956858272212680984
+--- !u!65 &2639165835710148067
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3418286134724768824}
+  m_GameObject: {fileID: 3247168188527906108}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -45,7 +45,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8621456166117503239}
+  - {fileID: 8486439589564041219}
   - {fileID: 5040168303332988693}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
-  m_transform_to_rotate: {fileID: 8621456166117503239}
+  m_transform_to_rotate: {fileID: 8486439589564041219}
   transform_LookAt: {fileID: 6532843452192750759}
 --- !u!114 &2607870131397633772
 MonoBehaviour:
@@ -126,7 +126,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &2611235465240409731
+--- !u!1001 &2764237865926807431
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -136,7 +136,17 @@ PrefabInstance:
     - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
         type: 3}
       propertyPath: m_Name
-      value: Robot_Plateform_1
+      value: Robot_Plateform_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlateformRobot
       objectReference: {fileID: 0}
     - target: {fileID: 6023960766003447684, guid: b8749e090e163db43a6c00094c48af6b,
         type: 3}
@@ -200,17 +210,17 @@ PrefabInstance:
     - {fileID: 5534576420000826309, guid: b8749e090e163db43a6c00094c48af6b, type: 3}
     - {fileID: 2730609933874018852, guid: b8749e090e163db43a6c00094c48af6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b8749e090e163db43a6c00094c48af6b, type: 3}
---- !u!1 &3418286134724768824 stripped
+--- !u!1 &3247168188527906108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
     type: 3}
-  m_PrefabInstance: {fileID: 2611235465240409731}
+  m_PrefabInstance: {fileID: 2764237865926807431}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8621456166117503239 stripped
+--- !u!4 &8486439589564041219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6023960766003447684, guid: b8749e090e163db43a6c00094c48af6b,
     type: 3}
-  m_PrefabInstance: {fileID: 2611235465240409731}
+  m_PrefabInstance: {fileID: 2764237865926807431}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5052129152568661211
 PrefabInstance:
@@ -288,12 +298,12 @@ PrefabInstance:
         type: 3}
       propertyPath: Robot_Mesh
       value: 
-      objectReference: {fileID: 3418286134724768824}
+      objectReference: {fileID: 0}
     - target: {fileID: 6612850701185917929, guid: 1d0fa25a18c7c594c875d5f445f5fff3,
         type: 3}
       propertyPath: Robot_Mesh
       value: 
-      objectReference: {fileID: 3418286134724768824}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d0fa25a18c7c594c875d5f445f5fff3, type: 3}
 --- !u!4 &5040168303332988693 stripped
