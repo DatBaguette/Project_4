@@ -10,7 +10,7 @@ public class LookPlayerboss : MonoBehaviour
     [SerializeField]
     private GameObject Target;
 
-    private Vector3 m_Vt3_DIR;
+    private Vector3 m_target_position;
 
     // Start is called before the first frame update
     void Start()
@@ -22,21 +22,18 @@ public class LookPlayerboss : MonoBehaviour
     void Update()
     {
 
+        m_target_position = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 10f);
+        m_target_position.y = 0;
+        gameObject.transform.position = m_target_position;
 
-
-
-        m_Vt3_DIR = Target.transform.position.normalized;
-
-        //Debug.Log(m_Vt3_DIR);
-        //Debug.Log(m_Vt3_DIR.normalized);
-
-        gameObject.transform.position = Parent.transform.position + (m_Vt3_DIR.normalized *10);
-        //if (Robot_Mesh != null)
-        //{
-        //    this.transform.position = Robot_Mesh.transform.position + (Vt3_Dir.normalized * 3);
-        //    //Debug.Log("BAH YES");
-        //}
-        //else if (Robot_Mesh == null)
-        //    Debug.LogWarning("SC_StickHelper - Missing References Robot_Mesh ");
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(Parent.transform.position, Target.transform.position);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(Parent.transform.position, m_target_position);
+    }
+
 }
