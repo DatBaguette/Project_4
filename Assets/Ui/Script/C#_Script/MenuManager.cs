@@ -21,27 +21,16 @@ public class MenuManager : Singleton<MenuManager>
     [Tooltip("Icon to activate magnet")]
     public GameObject m_magnetLogo;
 
+    public bool m_menuOpen = false;
+
+    [SerializeField] Animator m_menuAnimator;
+
     [Tooltip("Text gameObject that will show the actual amount of ressources")]
     [SerializeField] Text m_ressourcesText;
 
     [SerializeField] List<GameObject> m_CraftMenuRobotTypeArea;
 
     [SerializeField] GameObject m_sizeArea;
-
-    public void OpenCraftMenu()
-    {
-        if ( m_craftMenu.activeSelf )
-        {
-            m_craftMenu.SetActive(false);
-        }
-        else
-        {
-            m_craftMenu.SetActive(true);
-        }
-
-        GameManager.Instance.m_navmesh.ResetPath();
-     
-    }
     
     public void AddRessources()
     {
@@ -60,6 +49,16 @@ public class MenuManager : Singleton<MenuManager>
         {
             GameManager.Instance.m_actualRessources.Value = 0;
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
+    }
+
+    public void OpenCloseMenu()
+    {
+        if (m_menuOpen)
+            m_menuAnimator.Play("Hdding");
+        else
+            m_menuAnimator.Play("Open");
 
         GameManager.Instance.m_navmesh.ResetPath();
     }
