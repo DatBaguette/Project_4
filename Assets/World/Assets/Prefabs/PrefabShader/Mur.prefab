@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4401336981116835326
+--- !u!1 &1493123369221910871
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4401336981116835327}
-  - component: {fileID: 4401336981116835314}
-  - component: {fileID: 4401336981116835313}
-  - component: {fileID: 4401336981116835312}
-  - component: {fileID: 4401336981116835315}
+  - component: {fileID: 2514127980605244228}
+  - component: {fileID: 6897540648826026354}
+  - component: {fileID: 901975325789668747}
+  - component: {fileID: -2372940781360447403}
+  - component: {fileID: 7302447439668577672}
   m_Layer: 0
-  m_Name: Poison Cloud
+  m_Name: Mur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4401336981116835327
+--- !u!4 &2514127980605244228
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401336981116835326}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 294.2, y: 9.21, z: 181.25}
-  m_LocalScale: {x: 16.519194, y: 5.1881237, z: 5.1142173}
+  m_GameObject: {fileID: 1493123369221910871}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 18.554409, y: 0.36, z: 34.519268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4401336981116835314
+--- !u!33 &6897540648826026354
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401336981116835326}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4401336981116835313
+  m_GameObject: {fileID: 1493123369221910871}
+  m_Mesh: {fileID: 6715375062900545627, guid: cf589d4d067f0c34da06215fb727cb5c, type: 3}
+--- !u!23 &901975325789668747
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401336981116835326}
+  m_GameObject: {fileID: 1493123369221910871}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ce25708eb985b048ba58a0e56ab76b0, type: 2}
+  - {fileID: 2100000, guid: 56e08995cc63ea841a3ef727fa0270b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,28 +81,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4401336981116835312
+--- !u!65 &-2372940781360447403
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401336981116835326}
+  m_GameObject: {fileID: 1493123369221910871}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4401336981116835315
-MonoBehaviour:
+  m_Size: {x: 2.2506223, y: 0.2995265, z: 1.0615443}
+  m_Center: {x: -0.09195125, y: 0.0030153475, z: 0.15632874}
+--- !u!208 &7302447439668577672
+NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401336981116835326}
+  m_GameObject: {fileID: 1493123369221910871}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7daf6ef32c4a83c4195cb1bd53429ac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.125, y: 0.15, z: 0.531}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.09200001, y: 0.003, z: 0.156}
+  m_TimeToStationary: 0.5

@@ -93,10 +93,10 @@ public class MenuManager : Singleton<MenuManager>
         for ( int i = 0; i < m_CraftMenuRobotTypeArea.Count; i++)
         {
              if (!GameManager.Instance.m_robotCore[i])
-                 m_CraftMenuRobotTypeArea[i].SetActive(false);
+                 m_CraftMenuRobotTypeArea[i].SetActive(true);
 
              else
-                 m_CraftMenuRobotTypeArea[i].SetActive(true);
+                 m_CraftMenuRobotTypeArea[i].SetActive(false);
         }
 
         if (!GameManager.Instance.m_sizeUnlocked)
