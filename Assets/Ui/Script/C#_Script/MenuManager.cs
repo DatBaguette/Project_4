@@ -23,7 +23,9 @@ public class MenuManager : Singleton<MenuManager>
 
     public bool m_menuOpen = false;
 
-    [SerializeField] Animator m_menuAnimator;
+    public GameObject m_Joystick;
+
+    public Animator m_menuAnimator;
 
     [Tooltip("Text gameObject that will show the actual amount of ressources")]
     [SerializeField] Text m_ressourcesText;
@@ -31,7 +33,17 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField] List<GameObject> m_CraftMenuRobotTypeArea;
 
     [SerializeField] GameObject m_sizeArea;
-    
+
+    /// <summary>
+    /// Allow to reset the joystick position
+    /// </summary>
+    public Vector3 m_baseJoystickPosition;
+
+    private void Start()
+    {
+        m_baseJoystickPosition = m_Joystick.transform.position;
+    }
+
     public void AddRessources()
     {
         GameManager.Instance.m_actualRessources.Value += 100;
@@ -56,16 +68,26 @@ public class MenuManager : Singleton<MenuManager>
     public void OpenCloseMenu()
     {
         if (m_menuOpen)
-            m_menuAnimator.Play("Hdding");
+        {
+            m_menuAnimator.Play("Hidding");
+            m_menuOpen = false;
+            m_magnetLogo.SetActive(true);
+            m_Joystick.transform.position = m_baseJoystickPosition;
+        }
         else
+        {
             m_menuAnimator.Play("Open");
+            m_menuOpen = true;
+            m_magnetLogo.SetActive(false);
+            m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
+        }
 
         GameManager.Instance.m_navmesh.ResetPath();
     }
 
     private void Update()
     {
-        m_ressourcesText.text = "Pièces détachées : " + GameManager.Instance.m_actualRessources.Value;
+        m_ressourcesText.text = GameManager.Instance.m_actualRessources.Value.ToString();
 
         // Desactivate areas in the craft menu if the player dont have the robot's core associate
         for ( int i = 0; i < m_CraftMenuRobotTypeArea.Count; i++)
@@ -82,5 +104,21 @@ public class MenuManager : Singleton<MenuManager>
 
         else
             m_sizeArea.SetActive(true);
+
+        if (!m_menuOpen)
+        {
+            // desactivate the interface if the player dont control the character
+            if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player
+                && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang)
+            {
+                m_magnetLogo.SetActive(false);
+                m_Joystick.transform.position = m_baseJoystickPosition;
+            }
+            else
+            {
+                m_magnetLogo.SetActive(true);
+                m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
+            }
+        }
     }
 }

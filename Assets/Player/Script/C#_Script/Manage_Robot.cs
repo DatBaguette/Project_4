@@ -64,6 +64,11 @@ public class Manage_Robot : Singleton<Manage_Robot>
     [SerializeField]
     public int[] price;
 
+    public void ChooseRobot(int robotType)
+    {
+        m_actualCraftRobot = robotType;
+    }
+
     public void CreateRobot()
     {
         // Condition to create robot if player have enough money

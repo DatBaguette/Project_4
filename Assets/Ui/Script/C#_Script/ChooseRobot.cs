@@ -66,7 +66,11 @@ public class ChooseRobot : MonoBehaviour
 
             m_img.color = Color.green;
 
-            MenuManager.Instance.m_craftMenu.SetActive(false);
+            MenuManager.Instance.m_menuAnimator.Play("Hidding");
+            MenuManager.Instance.m_menuOpen = false;
+            MenuManager.Instance.m_magnetLogo.SetActive(true);
+            MenuManager.Instance.m_Joystick.transform.position = MenuManager.Instance.m_baseJoystickPosition;
+
             MenuManager.Instance.m_magnetLogo.SetActive(false);
             MenuManager.Instance.m_openCraftLogo.SetActive(false);
         }
