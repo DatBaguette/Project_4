@@ -10,7 +10,10 @@ public class LookPlayerboss : MonoBehaviour
     [SerializeField]
     private GameObject Target;
 
-    private Vector3 m_target_position;
+    [SerializeField]
+    private BossBehaviour CurrentBoss;
+
+    public Vector3 m_target_position;
 
     // Start is called before the first frame update
     void Start()
@@ -23,17 +26,40 @@ public class LookPlayerboss : MonoBehaviour
     {
 
         m_target_position = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 10f);
-        m_target_position.y = 0;
+        m_target_position.y = 5f;
+        
         gameObject.transform.position = m_target_position;
-
+        
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        
+        if (other.gameObject.name == "LerpFlow")
+        {
+           
+
+            CurrentBoss.Current_Boss_State = BossState.Mouvement;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "LerpFlow")
+        {
+            
+
+            CurrentBoss.Current_Boss_State = BossState.Rotation_On;
+        }
+    }
+
+
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(Parent.transform.position, Target.transform.position);
+        
         Gizmos.color = Color.red;
         Gizmos.DrawLine(Parent.transform.position, m_target_position);
     }
-
+#endif
 }
