@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1999490771857965482}
   - component: {fileID: 7414219096579586972}
   - component: {fileID: 3879870420261848933}
+  - component: {fileID: 9083088345983891761}
   m_Layer: 0
   m_Name: ArbreParois
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9083088345983891761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3306987497276502969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.156128, y: 2.247532, z: 2.5705059}
+  m_Center: {x: -0.110622406, y: -0.40077424, z: 3.1800687}
