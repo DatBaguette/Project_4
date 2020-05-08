@@ -30,6 +30,9 @@ public class BossBehaviour : MonoBehaviour
 
     private bool It_By_Caisse = false;
 
+    
+    private Vector3 Dir= Vector3.zero;
+
     [SerializeField]
     private GameObject LerpHelper;
 
@@ -45,11 +48,18 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject Self;
 
+    private Rigidbody Self_Rigidbody;
+
+    private void Start()
+    {
+        Self_Rigidbody = Self.GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
 
 
-
+        Self.transform.LookAt(LerpHelper.transform);
 
 
         switch (Current_Boss_State)
@@ -62,15 +72,17 @@ public class BossBehaviour : MonoBehaviour
                 break;
             case BossState.Rotation_On:
 
-                Self.transform.LookAt(LerpHelper.transform);
+                
                 
                 break;
             case BossState.Mouvement:
 
-                Vector3 dir = Vector3.MoveTowards(Self.transform.position, Lookhelper.transform.position, 5f).normalized;
-                Debug.Log(dir);
+                //Parent.transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
+                //Self.transform.Translate(Vector3.dir / 100, Space.Self);
+                
+                transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
 
-                Parent.transform.Translate(Vector3.forward * Time.deltaTime, Space.Self);
+                //Self_Rigidbody.AddForce(Vector3.forward , ForceMode.Impulse );
 
                 break;
             case BossState.Stuned:

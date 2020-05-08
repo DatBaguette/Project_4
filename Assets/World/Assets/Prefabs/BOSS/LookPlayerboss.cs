@@ -13,7 +13,7 @@ public class LookPlayerboss : MonoBehaviour
     [SerializeField]
     private BossBehaviour CurrentBoss;
 
-    public Vector3 m_target_position;
+    private Vector3 m_target_position;
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +26,13 @@ public class LookPlayerboss : MonoBehaviour
     {
 
         m_target_position = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 10f);
-        m_target_position.y = 5f;
-        
+        m_target_position.y = 0f;
+
         gameObject.transform.position = m_target_position;
-        
+
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         if (other.gameObject.name == "LerpFlow")
