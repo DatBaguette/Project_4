@@ -34,6 +34,8 @@ public class MenuManager : Singleton<MenuManager>
 
     [SerializeField] GameObject m_sizeArea;
 
+    [SerializeField] List<GameObject> m_lockers;
+
     /// <summary>
     /// Allow to reset the joystick position
     /// </summary>
@@ -42,6 +44,7 @@ public class MenuManager : Singleton<MenuManager>
     private void Start()
     {
         m_baseJoystickPosition = m_Joystick.transform.position;
+        
     }
 
     public void AddRessources()
@@ -93,10 +96,10 @@ public class MenuManager : Singleton<MenuManager>
         for ( int i = 0; i < m_CraftMenuRobotTypeArea.Count; i++)
         {
              if (!GameManager.Instance.m_robotCore[i])
-                 m_CraftMenuRobotTypeArea[i].SetActive(true);
+                m_lockers[i].SetActive(true);
 
-             else
-                 m_CraftMenuRobotTypeArea[i].SetActive(false);
+            else
+                m_lockers[i].SetActive(false);
         }
 
         if (!GameManager.Instance.m_sizeUnlocked)
