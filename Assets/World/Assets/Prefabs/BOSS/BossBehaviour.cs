@@ -43,7 +43,7 @@ public class BossBehaviour : MonoBehaviour
     private GameObject CaisseToStun;
 
     [SerializeField]
-    private GameObject Parent;
+    private ContainerBoss ContainerScript;
 
     [SerializeField]
     private GameObject Self;
@@ -80,8 +80,10 @@ public class BossBehaviour : MonoBehaviour
                 //Parent.transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
                 //Self.transform.Translate(Vector3.dir / 100, Space.Self);
                 
-                transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
+                //transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
 
+                ContainerScript.Mouvement(f_Boss_Speed);
+                
                 //Self_Rigidbody.AddForce(Vector3.forward , ForceMode.Impulse );
 
                 break;

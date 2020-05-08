@@ -124,6 +124,7 @@ MonoBehaviour:
   Parent: {fileID: 5181403500700187589}
   Target: {fileID: 0}
   CurrentBoss: {fileID: 6485604171174784699}
+  m_target_position: {fileID: 11400000, guid: c88edcd282d6e114cbaf7497fdd28df0, type: 2}
 --- !u!54 &58050309
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -370,6 +371,7 @@ GameObject:
   - component: {fileID: 2593999231212065308}
   - component: {fileID: 5840139666948655540}
   - component: {fileID: 5300867269951876135}
+  - component: {fileID: 4290908423073116622}
   m_Layer: 0
   m_Name: BOSS_CONTAINER
   m_TagString: Untagged
@@ -422,6 +424,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Child: {fileID: 5527459105920626842}
+  SyncDir: {fileID: 11400000, guid: c88edcd282d6e114cbaf7497fdd28df0, type: 2}
+  Target: {fileID: 0}
+--- !u!195 &4290908423073116622
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406324247669075232}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &5181403500700187589
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +535,7 @@ MonoBehaviour:
   LerpHelper: {fileID: 4397227416348353368}
   Lookhelper: {fileID: 2711541898978976865}
   CaisseToStun: {fileID: 0}
-  Parent: {fileID: 4406324247669075232}
+  ContainerScript: {fileID: 5300867269951876135}
   Self: {fileID: 5527459105920626842}
 --- !u!65 &5133555622321687255
 BoxCollider:

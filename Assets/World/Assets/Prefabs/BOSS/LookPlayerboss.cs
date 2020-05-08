@@ -13,7 +13,8 @@ public class LookPlayerboss : MonoBehaviour
     [SerializeField]
     private BossBehaviour CurrentBoss;
 
-    private Vector3 m_target_position;
+    [SerializeField]
+    private GD2Lib.Vector3Var m_target_position;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +26,13 @@ public class LookPlayerboss : MonoBehaviour
     void Update()
     {
 
-        m_target_position = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 10f);
-        m_target_position.y = 0f;
+        m_target_position.Value = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 10f);
+        //m_target_position.y;
+        
+        Vector3 dir = m_target_position.Value;
+        dir.y = 0f;
 
-        gameObject.transform.position = m_target_position;
+        gameObject.transform.position = dir;
 
     }
 
@@ -58,8 +62,8 @@ public class LookPlayerboss : MonoBehaviour
     private void OnDrawGizmos()
     {
         
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(Parent.transform.position, m_target_position);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawLine(Parent.transform.position, m_target_position.Value);
     }
 #endif
 }
