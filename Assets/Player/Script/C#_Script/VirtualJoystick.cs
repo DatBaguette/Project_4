@@ -18,7 +18,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 
     private Vector3 m_joystickPosition;
 
-    [SerializeField] public Vector3 m_InputDirection { set; get; }
+    public Vector3 m_InputDirection { set; get; }
 
 
     public virtual void OnDrag(PointerEventData ped)

@@ -21,8 +21,8 @@ public class CraftManager : Singleton<CraftManager>
 
     private void Start()
     {
-        
-        m_robotCost.text = Manage_Robot.Instance.price[0].ToString();
+
+        RobotCostChange();
     }
 
     /// <summary>

@@ -22,6 +22,8 @@ public class RobotCoreBehavior : MonoBehaviour
     [Tooltip("Amount of ressources that will give the object")]
     [SerializeField] CoreType m_coretype;
 
+    [SerializeField] Animator m_robotCoreHelper;
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -56,6 +58,8 @@ public class RobotCoreBehavior : MonoBehaviour
 
                     break;
             }
+
+            m_robotCoreHelper.Play("Show");
 
             Destroy(gameObject);
         }

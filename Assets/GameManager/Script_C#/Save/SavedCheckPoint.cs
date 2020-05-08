@@ -16,4 +16,6 @@ public class SavedCheckPoint : ScriptableObject
     public bool m_sizeUnlockedS = false;
 
     public int m_actualSceneID = 0;
+
+    public TutoManager.tutoState m_actualTutoStepS;
 }

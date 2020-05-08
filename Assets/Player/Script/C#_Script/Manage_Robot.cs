@@ -86,6 +86,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
                     case 2: createRobot = CheckIfEnoughMoney(price[1]); break;
                 }
 
+                if (!GameManager.Instance.m_robotCore[0])
+                    createRobot = false;
+
                 break;
 
             case 1:
@@ -97,6 +100,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
                     case 2: createRobot = CheckIfEnoughMoney(price[3]); break;
                 }
 
+                if (!GameManager.Instance.m_robotCore[1])
+                    createRobot = false;
+
                 break;
 
             case 2:
@@ -107,6 +113,9 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
                     case 2: createRobot = CheckIfEnoughMoney(price[5]); break;
                 }
+
+                if (!GameManager.Instance.m_robotCore[2])
+                    createRobot = false;
 
                 break;
         }

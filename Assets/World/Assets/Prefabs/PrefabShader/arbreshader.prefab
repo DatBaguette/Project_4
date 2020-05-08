@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7308388623795693665}
   - component: {fileID: 3913652059635897496}
   - component: {fileID: 2688749019166442024}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arbreshader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,6 +185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415594970085479, guid: 94efd78202a2ca6429eb4a2a65142a49,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94efd78202a2ca6429eb4a2a65142a49, type: 3}

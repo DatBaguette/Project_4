@@ -89,6 +89,8 @@ public class GameManager : Singleton<GameManager>
 
     private bool m_initDone = false;
 
+    public TutoManager m_tutorialScript;
+
     private void Start()
     {
         m_initDone = true;
@@ -117,6 +119,8 @@ public class GameManager : Singleton<GameManager>
         m_actualRessources.Value = m_saveData.m_actualRessourcesS;
         m_robotCore = m_saveData.m_robotCoreS;
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
+        if ( m_tutorialScript != null )
+            m_tutorialScript.m_actualTutoState = m_saveData.m_actualTutoStepS;
 
         m_player.GetComponent<NavMeshAgent>().enabled = false;
 
@@ -232,6 +236,8 @@ public class GameManager : Singleton<GameManager>
         m_saveData.m_actualRessourcesS = m_actualRessources.Value;
         m_saveData.m_robotCoreS = m_robotCore;
         m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
+        if (m_tutorialScript != null)
+            m_saveData.m_actualTutoStepS = m_tutorialScript.m_actualTutoState;
     }
 
     /// <summary>
@@ -282,24 +288,41 @@ public class GameManager : Singleton<GameManager>
 
         RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
 
-        int type = 0;
-
-        switch (m_robotScript.m_robotType)
+        switch (Manage_Robot.Instance.m_actualCraftRobot)
         {
-            case Robot_Type.Flying:
-                type = 0;
+            case 0:
+
+                switch (CraftManager.Instance.m_choosenSize)
+                {
+                    case 1: m_actualRessources.Value += m_manageRobotScript.price[0]; break;
+
+                    case 2: m_actualRessources.Value += m_manageRobotScript.price[1]; break;
+                }
+
                 break;
 
-            case Robot_Type.Platforme:
-                type = 3;
+            case 1:
+
+                switch (CraftManager.Instance.m_choosenSize)
+                {
+                    case 1: m_actualRessources.Value += m_manageRobotScript.price[2]; break;
+
+                    case 2: m_actualRessources.Value += m_manageRobotScript.price[3]; break;
+                }
+
                 break;
 
-            case Robot_Type.Destruction:
-                type = 6;
+            case 2:
+
+                switch (CraftManager.Instance.m_choosenSize)
+                {
+                    case 1: m_actualRessources.Value += m_manageRobotScript.price[4]; break;
+
+                    case 2: m_actualRessources.Value += m_manageRobotScript.price[5]; break;
+                }
+
                 break;
         }
-
-        m_actualRessources.Value += m_manageRobotScript.price[type];
 
         Destroy(m_robots[i]);
         Destroy(m_robotsUI[i]);

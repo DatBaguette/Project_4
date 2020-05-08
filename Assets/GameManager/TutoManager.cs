@@ -121,7 +121,7 @@ public class TutoManager : MonoBehaviour
         }
 
         // Stop helper's animation
-        if (ActualTutoState == tutoState.robotMovement && m_begginingRobotSpawner.transform.GetChild(0).GetComponent<Rigidbody>().velocity.magnitude > 0)
+        if (ActualTutoState == tutoState.robotMovement && MenuManager.Instance.m_Joystick.transform.GetChild(1).GetComponent<VirtualJoystick>().m_InputDirection != Vector3.zero)
         {
             ActualTutoState = tutoState.playerMovement;
         }
@@ -132,7 +132,7 @@ public class TutoManager : MonoBehaviour
             ActivateNextTutoState = true;
         }
 
-        if (ActualTutoState == tutoState.craft && MenuManager.Instance.m_craftMenu.activeSelf)
+        if (ActualTutoState == tutoState.craft && MenuManager.Instance.m_menuOpen)
         {
             ActualTutoState = tutoState.boomerang;
         }
