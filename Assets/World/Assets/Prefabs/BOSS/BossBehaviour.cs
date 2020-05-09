@@ -30,14 +30,9 @@ public class BossBehaviour : MonoBehaviour
 
     private bool It_By_Caisse = false;
 
-    
-    private Vector3 Dir= Vector3.zero;
-
     [SerializeField]
     private GameObject LerpHelper;
 
-    [SerializeField]
-    private GameObject Lookhelper;
 
     [SerializeField]
     private GameObject CaisseToStun;
@@ -50,9 +45,18 @@ public class BossBehaviour : MonoBehaviour
 
     private Rigidbody Self_Rigidbody;
 
+    [SerializeField]
+    private float m_Stun_Duration;
+
+    private float m_Current_Stun_Duration;
+
+
     private void Start()
     {
+
         Self_Rigidbody = Self.GetComponent<Rigidbody>();
+        m_Current_Stun_Duration = m_Stun_Duration;
+
     }
 
     private void Update()
@@ -76,20 +80,23 @@ public class BossBehaviour : MonoBehaviour
                 
                 break;
             case BossState.Mouvement:
-
-                //Parent.transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
-                //Self.transform.Translate(Vector3.dir / 100, Space.Self);
                 
-                //transform.Translate(Vector3.forward * Time.deltaTime / 100, Space.Self);
-
                 ContainerScript.Mouvement(f_Boss_Speed);
                 
-                //Self_Rigidbody.AddForce(Vector3.forward , ForceMode.Impulse );
-
                 break;
             case BossState.Stuned:
 
-
+                if(m_Current_Stun_Duration >= 0)
+                {
+                    m_Current_Stun_Duration -= Time.deltaTime;
+                    Debug.Log(m_Current_Stun_Duration);
+                }
+                else
+                {
+                    m_Current_Stun_Duration = m_Stun_Duration;
+                    Current_Boss_State = BossState.Rotation_On;
+                    Debug.Log("Stun end");
+                }
 
                 break;
             case BossState.Dead:
@@ -100,13 +107,14 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other == CaisseToStun)
+        if (collision.gameObject == CaisseToStun.gameObject.activeSelf)
         {
             It_By_Caisse = true;
+            Current_Boss_State = BossState.Stuned;
+            Destroy(collision.gameObject);
+            
         }
     }
-
-
 }

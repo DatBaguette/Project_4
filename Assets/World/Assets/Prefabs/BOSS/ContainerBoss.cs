@@ -29,7 +29,7 @@ public class ContainerBoss : MonoBehaviour
     {
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, m_player.transform.position);
+       // Gizmos.DrawLine(transform.position, m_player.transform.position);
         
     }
 #endif
