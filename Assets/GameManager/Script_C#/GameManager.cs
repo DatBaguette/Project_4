@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.SceneManagement;
 
@@ -45,6 +46,11 @@ public class GameManager : Singleton<GameManager>
     /// Check if the player has unlocked robots size
     /// </summary>
     public bool m_sizeUnlocked = false;
+
+
+    public bool m_musicOn;
+    public bool m_soundEffectOn;
+    public Language m_actualLanguage;
 
     public GameObject m_player;
 
@@ -91,6 +97,8 @@ public class GameManager : Singleton<GameManager>
 
     public TutoManager m_tutorialScript;
 
+    public Dropdown m_language;
+
     private void Start()
     {
         m_initDone = true;
@@ -121,6 +129,9 @@ public class GameManager : Singleton<GameManager>
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
         if ( m_tutorialScript != null )
             m_tutorialScript.m_actualTutoState = m_saveData.m_actualTutoStepS;
+        m_musicOn = m_saveData.m_musicOn;
+        m_soundEffectOn = m_saveData.m_soundEffectOn;
+        m_actualLanguage = m_saveData.m_actualLanguage;
 
         m_player.GetComponent<NavMeshAgent>().enabled = false;
 
@@ -238,6 +249,28 @@ public class GameManager : Singleton<GameManager>
         m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
         if (m_tutorialScript != null)
             m_saveData.m_actualTutoStepS = m_tutorialScript.m_actualTutoState;
+        m_saveData.m_musicOn = m_musicOn;
+        m_saveData.m_soundEffectOn = m_soundEffectOn;
+        m_saveData.m_actualLanguage = m_actualLanguage;
+    }
+
+    public void ChangeLanguage()
+    {
+        switch (m_language.options[m_language.value].text )
+        {
+            case "French" :
+
+                m_actualLanguage = Language.French;
+
+                break;
+
+            case "English":
+
+                m_actualLanguage = Language.English;
+
+                break;
+
+        }
     }
 
     /// <summary>
@@ -332,6 +365,12 @@ public class GameManager : Singleton<GameManager>
     {
         Intro,
         LevelOne,
+    }
+
+    public enum Language
+    {
+        French,
+        English
     }
 
 }
