@@ -36,6 +36,8 @@ public class MenuManager : Singleton<MenuManager>
 
     [SerializeField] List<GameObject> m_lockers;
 
+    [SerializeField] GameObject m_parameterMenu;
+
     /// <summary>
     /// Allow to reset the joystick position
     /// </summary>
@@ -88,6 +90,14 @@ public class MenuManager : Singleton<MenuManager>
         GameManager.Instance.m_navmesh.ResetPath();
     }
 
+    public void OpenParameterMenu()
+    {
+        if (m_parameterMenu.activeSelf)
+            m_parameterMenu.SetActive(false);
+        else
+            m_parameterMenu.SetActive(true);
+    }
+
     private void Update()
     {
         m_ressourcesText.text = GameManager.Instance.m_actualRessources.Value.ToString();
@@ -123,5 +133,15 @@ public class MenuManager : Singleton<MenuManager>
                 m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
             }
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        //SceneManager.LoadScene("Main_Menu");
     }
 }

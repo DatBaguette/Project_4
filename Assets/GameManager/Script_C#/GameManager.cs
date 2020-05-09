@@ -138,6 +138,22 @@ public class GameManager : Singleton<GameManager>
         m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
 
         m_player.GetComponent<NavMeshAgent>().enabled = true;
+
+        switch (m_actualLanguage)
+        {
+            case Language.French:
+
+                m_language.options.RemoveAt(1);
+
+                break;
+
+            case Language.English:
+
+                m_language.options.RemoveAt(2);
+
+                break;
+
+        }
     }
 
     /// <summary>
