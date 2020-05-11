@@ -11,7 +11,7 @@ Stuned,
 Dead,
 Mouvement
 }
-public class BossBehaviour : MonoBehaviour
+public class BossBehaviour : MonoBehaviour, IFireReact
 {
     
 
@@ -28,11 +28,10 @@ public class BossBehaviour : MonoBehaviour
 
     public BossState Current_Boss_State = BossState.Rotation_On;
 
-    private bool It_By_Caisse = false;
+    //private bool It_By_Caisse = false;
 
     [SerializeField]
     private GameObject LerpHelper;
-
 
     [SerializeField]
     private GameObject CaisseToStun;
@@ -50,6 +49,11 @@ public class BossBehaviour : MonoBehaviour
 
     private float m_Current_Stun_Duration;
 
+    private float m_Hit_timer;
+
+    private bool CanBeHit = false;
+
+    private int m_Boss_Life = 3;
 
     private void Start()
     {
@@ -59,11 +63,33 @@ public class BossBehaviour : MonoBehaviour
 
     }
 
+    void IFireReact.OnFire()
+    {
+        if(Current_Boss_State == BossState.Stuned && CanBeHit == true)
+        {
+            CanBeHit = false;
+            m_Boss_Life -= 1;
+
+        }
+    }
+    void IFireReact.OnKillFire()
+    {
+        Debug.Log("Boom");
+    }
+
     private void Update()
     {
 
 
         Self.transform.LookAt(LerpHelper.transform);
+
+
+        if(m_Boss_Life == 0)
+        {
+            Current_Boss_State = BossState.Dead;
+        }
+
+
 
 
         switch (Current_Boss_State)
@@ -101,7 +127,7 @@ public class BossBehaviour : MonoBehaviour
                 break;
             case BossState.Dead:
 
-
+                Destroy(gameObject);
 
                 break;
         }
@@ -111,7 +137,7 @@ public class BossBehaviour : MonoBehaviour
     {
         if (collision.gameObject == CaisseToStun.gameObject.activeSelf)
         {
-            It_By_Caisse = true;
+            //It_By_Caisse = true;
             Current_Boss_State = BossState.Stuned;
             Destroy(collision.gameObject);
             
