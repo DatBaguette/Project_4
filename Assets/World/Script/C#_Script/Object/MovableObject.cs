@@ -21,10 +21,22 @@ public class MovableObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
-        if ( other.gameObject.tag == "PlateformRobot")
+        if ( other.gameObject.tag == "FlyingRobot")
         {
-            m_parent.gameObject.transform.Translate(transform.forward * 5 * Time.deltaTime, Space.World);
+            RobotInisialisation m_fRobotScript = other.GetComponent<RobotInisialisation>();
+
+            if (m_fRobotScript.m_size == 2)
+                move();
         }
+
+        if ( other.gameObject.tag == "PlateformRobot" )
+        {
+            move();
+        }
+    }
+
+    private void move()
+    {
+        m_parent.gameObject.transform.Translate(transform.forward * 5 * Time.deltaTime, Space.World);
     }
 }

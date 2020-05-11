@@ -23,7 +23,7 @@ public class Imput_Manager : Singleton<Imput_Manager>
 #else
         if (Input.touchCount > 0)
         {
-           is_touched = true
+           is_touched = true;
         }       
 #endif
         return (is_touched);

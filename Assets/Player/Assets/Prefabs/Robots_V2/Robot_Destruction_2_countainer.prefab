@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907898189583761359}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: -0.82, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 9170472817257717815}
   - {fileID: 2973687788930509472}
@@ -111,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &851057910904142537
 PrefabInstance:
@@ -120,10 +120,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6657530696589435516}
     m_Modifications:
+    - target: {fileID: 1313276238104478241, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_Name
       value: Robot_Destruction_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109656078881537047, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109656078881537047, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109656078881537047, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.29073358
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109656078881537047, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.29073358
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109656078881537047, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8168056
       objectReference: {fileID: 0}
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
@@ -133,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}

@@ -8,6 +8,8 @@ public class GrinderBehavior : MonoBehaviour
 
     [SerializeField] GameObject m_elevator;
 
+    [SerializeField] GameObject m_invisibleWall;
+
     [SerializeField] int m_numberOfGrind = 1;
 
     private bool m_canGrind = true;
@@ -42,6 +44,8 @@ public class GrinderBehavior : MonoBehaviour
             }
 
             m_elevator.GetComponent<Animator>().Play("MoveUp");
+
+            m_invisibleWall.SetActive(false);
         }
     }
 }

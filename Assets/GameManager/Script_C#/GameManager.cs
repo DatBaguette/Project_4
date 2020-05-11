@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +35,6 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Number of ressources in the inventory
     /// </summary>
-    [SerializeField]
     public GD2Lib.IntVar m_actualRessources;
 
     /// <summary>
@@ -45,7 +45,12 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Check if the player has unlocked robots size
     /// </summary>
-    public bool[] m_sizeUnlocked = { false, false };
+    public bool m_sizeUnlocked = false;
+
+
+    public bool m_musicOn;
+    public bool m_soundEffectOn;
+    public Language m_actualLanguage;
 
     public GameObject m_player;
 
@@ -88,13 +93,45 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject m_magnetActivateImage;
 
+    private bool m_initDone = false;
+
+    public TutoManager m_tutorialScript;
+
+    public Dropdown m_language;
+
     private void Start()
+    {
+        m_initDone = true;
+
+        if ( m_actualStoryStep == StoryStep.Intro)
+            m_currentPlayerState = m_PlayerState.move_drone;
+        else
+            m_currentPlayerState = m_PlayerState.move_player;
+    }
+
+    private void Update()
+    {
+        StateController();
+
+        if (m_initDone)
+        {
+            InitialiseSaveData();
+            m_initDone = false;
+        }
+    }
+
+    public void InitialiseSaveData()
     {
         m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
         m_actualStoryStep = m_saveData.m_actualStoryStepS;
         m_actualRessources.Value = m_saveData.m_actualRessourcesS;
         m_robotCore = m_saveData.m_robotCoreS;
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
+        if ( m_tutorialScript != null )
+            m_tutorialScript.m_actualTutoState = m_saveData.m_actualTutoStepS;
+        m_musicOn = m_saveData.m_musicOn;
+        m_soundEffectOn = m_saveData.m_soundEffectOn;
+        m_actualLanguage = m_saveData.m_actualLanguage;
 
         m_player.GetComponent<NavMeshAgent>().enabled = false;
 
@@ -102,10 +139,21 @@ public class GameManager : Singleton<GameManager>
 
         m_player.GetComponent<NavMeshAgent>().enabled = true;
 
-        if ( m_actualStoryStep == StoryStep.Intro)
-            m_currentPlayerState = m_PlayerState.move_drone;
-        else
-            m_currentPlayerState = m_PlayerState.move_player;
+        switch (m_actualLanguage)
+        {
+            case Language.French:
+
+                m_language.options.RemoveAt(1);
+
+                break;
+
+            case Language.English:
+
+                m_language.options.RemoveAt(2);
+
+                break;
+
+        }
     }
 
     /// <summary>
@@ -137,11 +185,6 @@ public class GameManager : Singleton<GameManager>
 
         return (hit.point);
 
-    }
-
-    private void Update()
-    {
-        StateController();
     }
 
     // Cheat keycode
@@ -201,9 +244,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
-        SaveData();
-
         KillAllRobot();
+
+        SaveData();
 
         SceneManager.LoadScene(m_saveData.m_actualSceneID);
 
@@ -220,6 +263,30 @@ public class GameManager : Singleton<GameManager>
         m_saveData.m_actualRessourcesS = m_actualRessources.Value;
         m_saveData.m_robotCoreS = m_robotCore;
         m_saveData.m_sizeUnlockedS = m_sizeUnlocked;
+        if (m_tutorialScript != null)
+            m_saveData.m_actualTutoStepS = m_tutorialScript.m_actualTutoState;
+        m_saveData.m_musicOn = m_musicOn;
+        m_saveData.m_soundEffectOn = m_soundEffectOn;
+        m_saveData.m_actualLanguage = m_actualLanguage;
+    }
+
+    public void ChangeLanguage()
+    {
+        switch (m_language.options[m_language.value].text )
+        {
+            case "French" :
+
+                m_actualLanguage = Language.French;
+
+                break;
+
+            case "English":
+
+                m_actualLanguage = Language.English;
+
+                break;
+
+        }
     }
 
     /// <summary>
@@ -270,24 +337,41 @@ public class GameManager : Singleton<GameManager>
 
         RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
 
-        int type = 0;
-
-        switch (m_robotScript.m_robotType)
+        switch (Manage_Robot.Instance.m_actualCraftRobot)
         {
-            case Robot_Type.Flying:
-                type = 0;
+            case 0:
+
+                switch (CraftManager.Instance.m_choosenSize)
+                {
+                    case 1: m_actualRessources.Value += m_manageRobotScript.price[0]; break;
+
+                    case 2: m_actualRessources.Value += m_manageRobotScript.price[1]; break;
+                }
+
                 break;
 
-            case Robot_Type.Platforme:
-                type = 3;
+            case 1:
+
+                switch (CraftManager.Instance.m_choosenSize)
+                {
+                    case 1: m_actualRessources.Value += m_manageRobotScript.price[2]; break;
+
+                    case 2: m_actualRessources.Value += m_manageRobotScript.price[3]; break;
+                }
+
                 break;
 
-            case Robot_Type.Destruction:
-                type = 6;
+            case 2:
+
+                switch (CraftManager.Instance.m_choosenSize)
+                {
+                    case 1: m_actualRessources.Value += m_manageRobotScript.price[4]; break;
+
+                    case 2: m_actualRessources.Value += m_manageRobotScript.price[5]; break;
+                }
+
                 break;
         }
-
-        m_actualRessources.Value += m_manageRobotScript.price[type];
 
         Destroy(m_robots[i]);
         Destroy(m_robotsUI[i]);
@@ -297,6 +381,12 @@ public class GameManager : Singleton<GameManager>
     {
         Intro,
         LevelOne,
+    }
+
+    public enum Language
+    {
+        French,
+        English
     }
 
 }

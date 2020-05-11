@@ -41,7 +41,7 @@ public class RobotMovement : MonoBehaviour
         m_movementSpeed = m_baseMoveSpeed;
 
         m_moveJoystick = GameObject.FindGameObjectsWithTag("Joystick");
-        m_moveJoystickScript = m_moveJoystick[0].GetComponent<VirtualJoystick>();
+        m_moveJoystickScript = m_moveJoystick[1].GetComponent<VirtualJoystick>();
     }
 
     void FixedUpdate()

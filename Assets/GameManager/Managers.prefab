@@ -239,6 +239,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1954657009586716979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7293386817002878669}
+  - component: {fileID: 5516943231938485281}
+  m_Layer: 0
+  m_Name: TutoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7293386817002878669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954657009586716979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5468893606872578786}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5516943231938485281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954657009586716979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae91a14930f8e4c958fa70fc0eb6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5468893606872578787
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +314,7 @@ Transform:
   - {fileID: 5468893608244249313}
   - {fileID: 5468893606908338786}
   - {fileID: 438461468}
+  - {fileID: 7293386817002878669}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -324,8 +368,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_choosenSize: 1
-  getPrice: 000000000000000000000000000000000000000000000000000000000000000000000000
-  CurrentManager: {fileID: 5468893607689251633}
 --- !u!1 &5468893607486663499
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +415,7 @@ MonoBehaviour:
   m_actualStoryStep: 1
   m_actualRessources: {fileID: 11400000, guid: 8dc41d20e44ac5241a444089e7a9d8df, type: 2}
   m_robotCore: 010101
-  m_sizeUnlocked: 0000
+  m_sizeUnlocked: 0
   m_player: {fileID: 0}
   m_navmesh: {fileID: 0}
   defautMask:
@@ -449,19 +491,13 @@ MonoBehaviour:
     type: 3}
   m_FlyingBot_2: {fileID: 8647913404613452588, guid: 07eac9c142f6e034cb87e60dbc2c6cff,
     type: 3}
-  m_FlyingBot_3: {fileID: 8647913404613452588, guid: 5e3484574f7c25344ac54731e43b7932,
-    type: 3}
   m_PlatformeBot_1: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
     type: 3}
   m_PlatformeBot_2: {fileID: 814247677799154363, guid: 8d45f8d099bd50f42ac43b81810243ba,
     type: 3}
-  m_PlatformeBot_3: {fileID: 814247677799154363, guid: 0cccfb90f48fa5342b87bac54a5bba94,
-    type: 3}
   m_DestructionBot_1: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
     type: 3}
   m_DestructionBot_2: {fileID: 6017328427754874115, guid: 12353737333c6254aadb99aaf49d91b3,
-    type: 3}
-  m_DestructionBot_3: {fileID: 6017328427754874115, guid: cf8b1e6f5fbc378429b72f3fc9a7aaa2,
     type: 3}
   price: 01000000020000000300000002000000040000000800000003000000060000000c000000
 --- !u!1 &5468893608244249326
@@ -515,6 +551,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_sizeArea:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_sizeArea: {fileID: 0}

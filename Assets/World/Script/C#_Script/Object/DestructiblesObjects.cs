@@ -28,12 +28,4 @@ public class DestructiblesObjects : MonoBehaviour, IFireReact
     {
         Debug.Log("Boom");
     }
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -36,14 +36,16 @@ public class Manage_Robot : Singleton<Manage_Robot>
     [Tooltip("Craft manager gameObject")]
     [SerializeField] CraftManager m_craftManager;
 
+    /// <summary>
+    /// Actual selected robot in the craft menu
+    /// </summary>
+    public int m_actualCraftRobot;
+
     [SerializeField]
     private GameObject m_FlyingBot_1;
 
     [SerializeField]
     private GameObject m_FlyingBot_2;
-
-    [SerializeField]
-    private GameObject m_FlyingBot_3;
 
     [SerializeField]
     private GameObject m_PlatformeBot_1;
@@ -52,125 +54,137 @@ public class Manage_Robot : Singleton<Manage_Robot>
     private GameObject m_PlatformeBot_2;
 
     [SerializeField]
-    private GameObject m_PlatformeBot_3;
-
-    [SerializeField]
     private GameObject m_DestructionBot_1;
 
     [SerializeField]
     private GameObject m_DestructionBot_2;
 
-    [SerializeField]
-    private GameObject m_DestructionBot_3;
-
 
     [Tooltip("Array of robot price")]
     [SerializeField]
     public int[] price;
-    
-    public void CreateFlyingRobot()
-    {
-        // Use to define robot type in "RobotInisialisation" script
-        //int actualRobotType = 1;
 
+    public void ChooseRobot(int robotType)
+    {
+        m_actualCraftRobot = robotType;
+    }
+
+    public void CreateRobot()
+    {
         // Condition to create robot if player have enough money
         bool createRobot = false;
 
         // Check if there is enough money depending on the chosen size
-        switch (m_craftManager.m_choosenSize)
+        switch ( m_actualCraftRobot)
         {
-            case 1: createRobot = CheckIfEnoughMoney(price[0]); break;
+            case 0:
 
-            case 2: createRobot = CheckIfEnoughMoney(price[1]); break;
+                switch (m_craftManager.m_choosenSize)
+                {
+                    case 1: createRobot = CheckIfEnoughMoney(price[0]); break;
 
-            case 3: createRobot = CheckIfEnoughMoney(price[2]); break;
+                    case 2: createRobot = CheckIfEnoughMoney(price[1]); break;
+                }
+
+                if (!GameManager.Instance.m_robotCore[0])
+                    createRobot = false;
+
+                break;
+
+            case 1:
+
+                switch (m_craftManager.m_choosenSize)
+                {
+                    case 1: createRobot = CheckIfEnoughMoney(price[2]); break;
+
+                    case 2: createRobot = CheckIfEnoughMoney(price[3]); break;
+                }
+
+                if (!GameManager.Instance.m_robotCore[1])
+                    createRobot = false;
+
+                break;
+
+            case 2:
+
+                switch (m_craftManager.m_choosenSize)
+                {
+                    case 1: createRobot = CheckIfEnoughMoney(price[4]); break;
+
+                    case 2: createRobot = CheckIfEnoughMoney(price[5]); break;
+                }
+
+                if (!GameManager.Instance.m_robotCore[2])
+                    createRobot = false;
+
+                break;
         }
 
         // Delete ressources depending on the good amount
         if (createRobot)
         {
 
-            switch (m_craftManager.m_choosenSize)
+            switch (m_actualCraftRobot)
             {
-                case 1: GameManager.Instance.m_actualRessources.Value -= price[0]; break;
+                case 0:
 
-                case 2: GameManager.Instance.m_actualRessources.Value -= price[1]; break;
+                    switch (m_craftManager.m_choosenSize)
+                    {
+                        case 1: GameManager.Instance.m_actualRessources.Value -= price[0]; break;
 
-                case 3: GameManager.Instance.m_actualRessources.Value -= price[2]; break;
+                        case 2: GameManager.Instance.m_actualRessources.Value -= price[1]; break;
+                    }
+
+                    switch (CraftManager.Instance.m_choosenSize)
+                    {
+                        case 1: InstantiateRobot(m_FlyingBot_1); break;
+
+                        case 2: InstantiateRobot(m_FlyingBot_2); break;
+                    }
+
+                    break;
+
+                case 1:
+
+                    switch (m_craftManager.m_choosenSize)
+                    {
+                        case 1: GameManager.Instance.m_actualRessources.Value -= price[2]; break;
+
+                        case 2: GameManager.Instance.m_actualRessources.Value -= price[3]; break;
+                    }
+
+                    switch (CraftManager.Instance.m_choosenSize)
+                    {
+                        case 1: InstantiateRobot(m_PlatformeBot_1); break;
+
+                        case 2: InstantiateRobot(m_PlatformeBot_2); break;
+                    }
+
+                    break;
+
+                case 2:
+
+                    switch (m_craftManager.m_choosenSize)
+                    {
+                        case 1: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
+
+                        case 2: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
+                    }
+
+                    switch (CraftManager.Instance.m_choosenSize)
+                    {
+                        case 1: InstantiateRobot(m_DestructionBot_1); break;
+
+                        case 2: InstantiateRobot(m_DestructionBot_2); break;
+                    }
+
+                    break;
             }
-
-            InstantiateRobot(m_FlyingBot_1);
         }
 
         GameManager.Instance.m_navmesh.ResetPath();
     }
-
-    public void CreatePlatformRobot()
-    {
-        //int actualRobotType = 2;
-
-        bool createRobot = false;
-
-        switch (m_craftManager.m_choosenSize)
-        {
-            case 1: createRobot = CheckIfEnoughMoney(price[3]); break;
-
-            case 2: createRobot = CheckIfEnoughMoney(price[4]); break;
-
-            case 3: createRobot = CheckIfEnoughMoney(price[5]); break;
-        }
-
-        if (createRobot)
-        {
-
-            switch (m_craftManager.m_choosenSize)
-            {
-                case 1: GameManager.Instance.m_actualRessources.Value -= price[3]; break;
-
-                case 2: GameManager.Instance.m_actualRessources.Value -= price[4]; break;
-
-                case 3: GameManager.Instance.m_actualRessources.Value -= price[5]; break;
-            }
-
-            InstantiateRobot(m_PlatformeBot_1);
-        }
-
-        GameManager.Instance.m_navmesh.ResetPath();
-    }
-
-    public void CreateDestructionRobot()
-    {
-        //int actualRobotType = 3;
-
-        bool createRobot = false;
-
-        switch (m_craftManager.m_choosenSize)
-        {
-            case 1: createRobot = CheckIfEnoughMoney(price[6]); break;
-
-            case 2: createRobot = CheckIfEnoughMoney(price[7]); break;
-
-            case 3: createRobot = CheckIfEnoughMoney(price[8]); break;
-        }
-
-        if (createRobot)
-        {
-
-            switch (m_craftManager.m_choosenSize)
-            {
-                case 1: GameManager.Instance.m_actualRessources.Value -= price[6]; break;
-
-                case 2: GameManager.Instance.m_actualRessources.Value -= price[7]; break;
-
-                case 3: GameManager.Instance.m_actualRessources.Value -= price[8]; break;
-            }
-
-            InstantiateRobot(m_DestructionBot_1);
-        }
-
-        GameManager.Instance.m_navmesh.ResetPath();
-    }
-
+    
     //Instantiate Robot and give him properties to work
 
     public void InstantiateRobot(GameObject p_prebabbot)
@@ -192,6 +206,10 @@ public class Manage_Robot : Singleton<Manage_Robot>
         }
         else
             GameManager.Instance.m_robots.Add(robot);
+
+        // Robot Infos
+        RobotInisialisation m_robotInfosScript = robot.GetComponent<RobotInisialisation>();
+        m_robotInfosScript.m_size = Mathf.FloorToInt(CraftManager.Instance.m_choosenSize);
 
         // Robot Values
         RobotMovement robotScriptToMove = robot.gameObject.GetComponent<RobotMovement>();
@@ -220,6 +238,7 @@ public class Manage_Robot : Singleton<Manage_Robot>
         Text UINameText = UIName.gameObject.GetComponent<Text>();
         UINameText.text = robot.gameObject.name;
     }
+
     //public void InstantiateRobot(RobotInisialisation RobotCreat)
     //{
     //    GameManager.Instance.m_robotNumber += 1;
