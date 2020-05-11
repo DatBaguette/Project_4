@@ -53,7 +53,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
     private void Update()
     {
         ChangeEventState();
-
     }
 
     public void ChangeEventState()
