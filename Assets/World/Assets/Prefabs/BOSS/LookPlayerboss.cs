@@ -30,7 +30,7 @@ public class LookPlayerboss : MonoBehaviour
         //m_target_position.y;
         
         Vector3 dir = m_target_position.Value;
-        dir.y = 0f;
+        //dir.y = 0f;
 
         gameObject.transform.position = dir;
 
