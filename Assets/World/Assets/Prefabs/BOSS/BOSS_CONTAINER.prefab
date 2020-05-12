@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2711541898978976865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 9.8, y: 0, z: -51.1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3029115934104803660}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33600d0cc39c268438a5af3dc0dcd873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 5181403500700187589}
+  Parent: {fileID: 5527459105920626842}
   Target: {fileID: 0}
   CurrentBoss: {fileID: 6485604171174784699}
   m_target_position: {fileID: 11400000, guid: c88edcd282d6e114cbaf7497fdd28df0, type: 2}
@@ -171,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4397227416348353368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: -0.26, y: 0, z: 9.92}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3029115934104803660}
@@ -292,7 +292,6 @@ GameObject:
   - component: {fileID: 2593999231212065308}
   - component: {fileID: 5840139666948655540}
   - component: {fileID: 5300867269951876135}
-  - component: {fileID: 4290908423073116622}
   m_Layer: 0
   m_Name: BOSS_CONTAINER
   m_TagString: Untagged
@@ -345,28 +344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_player: {fileID: 0}
---- !u!195 &4290908423073116622
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4406324247669075232}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &5181403500700187589
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5181403500700187589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3406252207252640182}
@@ -448,9 +425,9 @@ MonoBehaviour:
   f_Boss_FollowDirLerp: 0.01
   f_Boss_FactorD: 0
   f_Boss_MaxSpeed: 10000
-  f_Boss_Speed: 0.02
+  f_Boss_Speed: 1
   f_Boss_Brake: 10
-  Current_Boss_State: 0
+  Current_Boss_State: 1
   LerpHelper: {fileID: 4397227416348353368}
   CaisseToStun: {fileID: 0}
   ContainerScript: {fileID: 5300867269951876135}
