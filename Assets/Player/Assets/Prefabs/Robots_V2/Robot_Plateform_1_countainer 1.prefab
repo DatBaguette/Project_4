@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 2546125223362490060}
   m_Layer: 0
   m_Name: Robot_Plateform_1_countainer 1
-  m_TagString: Untagged
+  m_TagString: PlateformRobot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2546125223362490060
 Rigidbody:
