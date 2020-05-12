@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1608,12 +1608,12 @@ PrefabInstance:
     - target: {fileID: 959189034236947659, guid: dcb60bf4639cc3649b7e62af0a2f635f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.37
+      value: -2.52
       objectReference: {fileID: 0}
     - target: {fileID: 959189034236947659, guid: dcb60bf4639cc3649b7e62af0a2f635f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.73
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 959189034236947659, guid: dcb60bf4639cc3649b7e62af0a2f635f,
         type: 3}
@@ -1623,12 +1623,12 @@ PrefabInstance:
     - target: {fileID: 959189034726533615, guid: dcb60bf4639cc3649b7e62af0a2f635f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.02
+      value: -2.17
       objectReference: {fileID: 0}
     - target: {fileID: 959189034726533615, guid: dcb60bf4639cc3649b7e62af0a2f635f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.26
+      value: -0.91
       objectReference: {fileID: 0}
     - target: {fileID: 959189034726533615, guid: dcb60bf4639cc3649b7e62af0a2f635f,
         type: 3}
@@ -14438,7 +14438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810752413}
   m_LocalRotation: {x: -0, y: 0.91406363, z: -0, w: 0.40557098}
-  m_LocalPosition: {x: -3.3800163, y: 4.68, z: -0.35999426}
+  m_LocalPosition: {x: -3.64, y: 4.15, z: -0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 229974279}
@@ -14620,17 +14620,17 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.46432158
+      value: -0.4643216
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000068951704
+      value: -0.0000007282618
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013544454
+      value: 0.0000013747579
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -14730,17 +14730,17 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.46432158
+      value: -0.4643216
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000068951704
+      value: -0.0000007282618
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013544454
+      value: 0.0000013747579
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -18911,7 +18911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_saveData: {fileID: 11400000, guid: ebd9c245a7dabda41b17a9d93fb2ae03, type: 2}
   m_actualStoryStep: 1
-  m_actualRessources: {fileID: 11400000, guid: 163ba45c2b2ec1d43bf26e1831129d3a, type: 2}
+  m_actualRessources: {fileID: 0}
   m_robotCore: 010101
   m_sizeUnlocked: 0
   m_musicOn: 0
@@ -18926,8 +18926,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   m_currentPlayerState: 0
-  m_actualSelectedRobotNumber: {fileID: 11400000, guid: 8e4890e4d963e4641afb33d09d1327d6,
-    type: 2}
+  m_actualSelectedRobotNumber: {fileID: 0}
   m_robotNumber: 0
   m_actualCheckPointNumber: 0
   m_actualCheckPointObject:
