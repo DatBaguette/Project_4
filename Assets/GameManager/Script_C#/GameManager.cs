@@ -244,15 +244,13 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
-        KillAllRobot();
+        if ( m_actualStoryStep == StoryStep.LevelOne)
+            KillAllRobot();
 
         SaveData();
 
         SceneManager.LoadScene(m_saveData.m_actualSceneID);
-
-        //ResetAllEnnemies();
-        //m_player.transform.position = m_actualCheckPointObject.transform.position;
-        //KillAllRobot();
+        
 
     }
 
