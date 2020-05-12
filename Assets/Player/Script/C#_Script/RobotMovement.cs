@@ -14,8 +14,7 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] float m_drag = 0.5f;
     [SerializeField] float m_terminalRotationSpeed = 25.0f;
 
-    public VirtualJoystick m_moveJoystickScript;
-    private GameObject[] m_moveJoystick = { null };
+    public VirtualJoystick m_moveJoystickScript = null;
 
     private Rigidbody controller;
 
@@ -39,14 +38,12 @@ public class RobotMovement : MonoBehaviour
         controller.drag = m_drag;
 
         m_movementSpeed = m_baseMoveSpeed;
-
-        m_moveJoystick = GameObject.FindGameObjectsWithTag("Joystick");
-        m_moveJoystickScript = m_moveJoystick[1].GetComponent<VirtualJoystick>();
     }
 
     void FixedUpdate()
     {
-        Robot_Mouvement();
+        if (m_moveJoystickScript != null)
+            Robot_Mouvement();
        
     }
 
@@ -59,25 +56,19 @@ public class RobotMovement : MonoBehaviour
 
     private void Robot_Mouvement()
     {
+
         Vector3 dir = Vector3.zero;
         Vector3 dir_rot = Vector3.zero;
-
-        dir.x = Input.GetAxis("Horizontal");
-        dir.z = Input.GetAxis("Vertical");
-
-
-        if (dir.magnitude > 1)
-            dir.Normalize();
 
 
         // if the joystick position isn't null, it give a direciton to the player
         if (m_moveJoystickScript.m_InputDirection != Vector3.zero)
         {
-            dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z);
+            dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z).normalized;
 
             dir_rot = new Vector3(0, 0 , 0 );
         }
-
+        
         // Stop the movement if the actual robot isn't this one
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value != m_thisEntityNumber)
             dir = new Vector3(0, 0, 0);

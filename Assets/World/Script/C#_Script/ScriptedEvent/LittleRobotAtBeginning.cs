@@ -30,23 +30,15 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
     [SerializeField] GameObject m_movingCloud;
 
+    [SerializeField] VirtualJoystick m_joystickScript;
+
+    private GameObject m_robot;
+
+    private bool m_introActivated = false;
+
     private void Start()
     {
-        GameManager.Instance.m_actualSelectedRobotNumber.Value = 1;
-
-        GameManager.Instance.m_robotNumber += 1;
-
-        var robot = Instantiate(m_robotPrefab, m_spawnPosition.transform);
-
-        robot.gameObject.name = "RobotIntro";
-
-        RobotMovement robotScriptToMove = robot.gameObject.GetComponent<RobotMovement>();
-        robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
-
-        m_playerCamera.Follow = robot.transform;
-        m_playerCamera.LookAt = robot.transform;
-
-        m_movingCloud.GetComponent<IntroMovingCloud>().Move();
+        Introduction();
 
     }
 
@@ -59,6 +51,10 @@ public class LittleRobotAtBeginning : MonoBehaviour
     {
         if ( GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro )
         {
+            if (!m_introActivated)
+            {
+                Introduction();
+            }
 
             m_selectRobotUi.SetActive(false);
             m_craftMenuOpenIcon.SetActive(false);
@@ -86,5 +82,29 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void Introduction()
+    {
+        GameManager.Instance.m_actualSelectedRobotNumber.Value = 1;
+
+        GameManager.Instance.m_robotNumber += 1;
+
+        m_robot = Instantiate(m_robotPrefab, m_spawnPosition.transform);
+
+        RobotMovement robotScript = m_robot.GetComponent<RobotMovement>();
+        robotScript.m_moveJoystickScript = m_joystickScript;
+
+        m_robot.gameObject.name = "RobotIntro";
+
+        RobotMovement robotScriptToMove = m_robot.gameObject.GetComponent<RobotMovement>();
+        robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
+
+        m_playerCamera.Follow = m_robot.transform;
+        m_playerCamera.LookAt = m_robot.transform;
+
+        m_movingCloud.GetComponent<IntroMovingCloud>().Move();
+
+        m_introActivated = true;
     }
 }
