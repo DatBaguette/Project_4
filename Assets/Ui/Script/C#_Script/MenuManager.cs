@@ -142,6 +142,6 @@ public class MenuManager : Singleton<MenuManager>
 
     public void ReturnToMainMenu()
     {
-        //SceneManager.LoadScene("Main_Menu");
+        SceneManager.LoadScene("Main_Menu");
     }
 }
