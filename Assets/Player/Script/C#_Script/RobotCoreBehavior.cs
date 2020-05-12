@@ -57,6 +57,12 @@ public class RobotCoreBehavior : MonoBehaviour
                     GameManager.Instance.m_robotCore[2] = true;
 
                     break;
+
+                case CoreType.size:
+
+                    GameManager.Instance.m_sizeUnlocked = true;
+
+                    break;
             }
 
             m_robotCoreHelper.Play("Show");
@@ -90,6 +96,7 @@ public class RobotCoreBehavior : MonoBehaviour
     {
         flyingRobot,
         platformRobot,
-        destructionRobot
+        destructionRobot,
+        size
     }
 }

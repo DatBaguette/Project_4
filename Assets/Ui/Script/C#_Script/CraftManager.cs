@@ -19,6 +19,8 @@ public class CraftManager : Singleton<CraftManager>
 
     [SerializeField] Slider m_sizeSlider;
 
+    [SerializeField] Text m_sliderText;
+
     private void Start()
     {
 
@@ -30,6 +32,8 @@ public class CraftManager : Singleton<CraftManager>
     /// </summary>
     public void RobotCostChange()
     {
+        m_sliderText.text = m_sizeSlider.value.ToString();
+
         m_choosenSize = m_sizeSlider.value;
 
         switch ( Manage_Robot.Instance.m_actualCraftRobot )
