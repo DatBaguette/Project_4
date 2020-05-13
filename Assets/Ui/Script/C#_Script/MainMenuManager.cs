@@ -9,6 +9,11 @@ public class MainMenuManager : MonoBehaviour
     
     public void LaunchGame()
     {
-        SceneManager.LoadScene(m_saveData.m_actualSceneID);
+        SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

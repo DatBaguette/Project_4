@@ -41,7 +41,6 @@ public class ClickToMoveEntity : MonoBehaviour
         }
 
         if (Input.GetKeyDown("k")){
-            Debug.Log("oui");
             GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
         }
     }

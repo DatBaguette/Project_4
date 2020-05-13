@@ -25,8 +25,11 @@ public class MovableObject : MonoBehaviour
         {
             RobotInisialisation m_fRobotScript = other.GetComponent<RobotInisialisation>();
 
-            if (m_fRobotScript.m_size == 2)
-                move();
+            if (m_fRobotScript != null)
+            {
+                if (m_fRobotScript.m_size == 2)
+                    move();
+            }
         }
 
         if ( other.gameObject.tag == "PlateformRobot" )

@@ -48,6 +48,7 @@ public class RessourcesBehavior : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.Instance.m_actualRessources.Value += m_ressourcesAmount;
+            GameManager.Instance.m_nbRessourcesSinceLastCheckpoint += m_ressourcesAmount;
         }
     }
 

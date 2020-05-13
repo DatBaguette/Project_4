@@ -59,6 +59,8 @@ public class Manage_Robot : Singleton<Manage_Robot>
     [SerializeField]
     private GameObject m_DestructionBot_2;
 
+    [SerializeField] GameObject m_joystick;
+    private VirtualJoystick m_joystickScript;
 
     [Tooltip("Array of robot price")]
     [SerializeField]
@@ -71,6 +73,8 @@ public class Manage_Robot : Singleton<Manage_Robot>
     private void Start()
     {
         CraftHelper = m_player.GetComponentInChildren<RobotCraftHelper>();
+
+        m_joystickScript = m_joystick.GetComponent<VirtualJoystick>();
 
     }
     public void ChooseRobot(int robotType)
@@ -222,6 +226,7 @@ public class Manage_Robot : Singleton<Manage_Robot>
             // Robot Values
             RobotMovement robotScriptToMove = robot.gameObject.GetComponent<RobotMovement>();
             robotScriptToMove.m_thisEntityNumber = GameManager.Instance.m_robotNumber;
+            robotScriptToMove.m_moveJoystickScript = m_joystickScript;
 
             // Robot UI
             var robotUi = Instantiate(m_robotUIPrefab);

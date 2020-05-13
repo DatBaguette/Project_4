@@ -25,8 +25,13 @@ public class BigMovableObject : MonoBehaviour
         {
             RobotInisialisation m_fRobotScript = other.GetComponent<RobotInisialisation>();
 
-            if (m_fRobotScript.m_size == 2)
-                move();
+            Debug.Log(" robot scrip : " + m_fRobotScript);
+
+            if ( m_fRobotScript != null)
+            {
+                if (m_fRobotScript.m_size == 2)
+                    move();
+            }
         }
     }
 

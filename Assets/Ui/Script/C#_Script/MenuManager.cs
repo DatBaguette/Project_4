@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 
@@ -142,6 +143,11 @@ public class MenuManager : Singleton<MenuManager>
 
     public void ReturnToMainMenu()
     {
-        //SceneManager.LoadScene("Main_Menu");
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    public void OpenBrowserForFeedbacks()
+    {
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSeACeRAw54Zd0whN3faM3H6IcdtmiYor_04sxPtPw867ZVm3A/viewform?usp=sf_link");
     }
 }
