@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -10821,6 +10821,16 @@ PrefabInstance:
       propertyPath: m_parameterMenu
       value: 
       objectReference: {fileID: 302381807}
+    - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_selectRobotUi
+      value: 
+      objectReference: {fileID: 470376749}
+    - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_ressourcesUi
+      value: 
+      objectReference: {fileID: 321934441}
     - target: {fileID: 5516943231938485281, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_joystickHelper
@@ -18407,8 +18417,6 @@ MonoBehaviour:
   m_robotPrefab: {fileID: 518808972666964579, guid: d3a3b28676aab7a4fb50a4b98da6eed8,
     type: 3}
   m_selectRobotUi: {fileID: 470376749}
-  m_craftMenuOpenIcon: {fileID: 1741550813}
-  m_boomerangIcon: {fileID: 470376752}
   m_ressourcesUi: {fileID: 321934441}
   m_playerCamera: {fileID: 692650527}
   m_player: {fileID: 1431791729}

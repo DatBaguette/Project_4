@@ -100,7 +100,7 @@ public class TutoManager : MonoBehaviour
 
     void Start()
     {
-        if ( GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro)
+        if ( GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro && ActualTutoState == tutoState.robotMovement)
         {
             ActivateNextTutoState = true;
         }

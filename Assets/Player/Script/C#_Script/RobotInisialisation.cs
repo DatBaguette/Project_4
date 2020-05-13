@@ -71,6 +71,7 @@ public class RobotInisialisation : MonoBehaviour
                 gameObject.transform.position += new Vector3(0, 3, 0);
 
                 m_fire.Stop();
+                m_flameCollisonTracker.SetActive(false);
 
                 break;
         }

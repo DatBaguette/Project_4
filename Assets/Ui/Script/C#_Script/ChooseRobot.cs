@@ -46,6 +46,9 @@ public class ChooseRobot : MonoBehaviour
             MenuManager.Instance.m_magnetLogo.SetActive(true);
             MenuManager.Instance.m_openCraftLogo.SetActive(true);
 
+            MenuManager.Instance.m_selectRobotUi.SetActive(true);
+            MenuManager.Instance.m_ressourcesUi.SetActive(true);
+
             m_img.color = Color.white;
 
         }
@@ -73,6 +76,8 @@ public class ChooseRobot : MonoBehaviour
 
             MenuManager.Instance.m_magnetLogo.SetActive(false);
             MenuManager.Instance.m_openCraftLogo.SetActive(false);
+            
+            MenuManager.Instance.m_ressourcesUi.SetActive(false);
         }
 
         GameManager.Instance.m_navmesh.ResetPath();

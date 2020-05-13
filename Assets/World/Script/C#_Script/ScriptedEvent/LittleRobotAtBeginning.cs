@@ -18,8 +18,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
     [SerializeField] GameObject m_robotPrefab;
 
     [SerializeField] GameObject m_selectRobotUi;
-    [SerializeField] GameObject m_craftMenuOpenIcon;
-    [SerializeField] GameObject m_boomerangIcon;
     [SerializeField] GameObject m_ressourcesUi;
 
     [SerializeField] CinemachineVirtualCamera m_playerCamera;
@@ -56,19 +54,19 @@ public class LittleRobotAtBeginning : MonoBehaviour
                 Introduction();
             }
 
-            m_selectRobotUi.SetActive(false);
-            m_craftMenuOpenIcon.SetActive(false);
-            m_boomerangIcon.SetActive(false);
+            MenuManager.Instance.m_selectRobotUi.SetActive(false);
+            MenuManager.Instance.m_openCraftLogo.SetActive(false);
+            MenuManager.Instance.m_magnetLogo.SetActive(false);
             MenuManager.Instance.m_craftMenu.SetActive(false);
-            m_ressourcesUi.SetActive(false);
+            MenuManager.Instance.m_ressourcesUi.SetActive(false);
         }
         else
         {
-            m_selectRobotUi.SetActive(true);
-            m_craftMenuOpenIcon.SetActive(true);
-            m_boomerangIcon.SetActive(true);
+            MenuManager.Instance.m_selectRobotUi.SetActive(true);
+            MenuManager.Instance.m_openCraftLogo.SetActive(true);
+            MenuManager.Instance.m_magnetLogo.SetActive(true);
             MenuManager.Instance.m_craftMenu.SetActive(true);
-            m_ressourcesUi.SetActive(true);
+            MenuManager.Instance.m_ressourcesUi.SetActive(true);
 
             m_playerCamera.Follow = m_player.transform;
             m_playerCamera.LookAt = m_player.transform;

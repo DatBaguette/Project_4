@@ -22,6 +22,12 @@ public class MenuManager : Singleton<MenuManager>
     [Tooltip("Icon to activate magnet")]
     public GameObject m_magnetLogo;
 
+    [Tooltip("The right canvas to select or destroy all robot")]
+    public GameObject m_selectRobotUi;
+
+    [Tooltip("Number of ressources text")]
+    public GameObject m_ressourcesUi;
+
     public bool m_menuOpen = false;
 
     public GameObject m_Joystick;
