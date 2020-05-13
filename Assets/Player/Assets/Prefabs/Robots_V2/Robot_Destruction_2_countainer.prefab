@@ -53,6 +53,8 @@ MonoBehaviour:
   m_size: 0
   m_fire: {fileID: 677806479898176911}
   m_flameCollisonTracker: {fileID: 6776756606676402196}
+  m_smoke: {fileID: 0}
+  m_robotMovementScript: {fileID: 0}
 --- !u!114 &3832238158848990896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,7 @@ MonoBehaviour:
   m_thisEntityNumber: 0
   m_transform_to_rotate: {fileID: 9170472817257717815}
   transform_LookAt: {fileID: 3900044254292558098}
+  m_dir: {x: 0, y: 0, z: 0}
 --- !u!65 &3400918202488388757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -384,16 +387,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LanceFlameFx
       objectReference: {fileID: 0}
-    - target: {fileID: 1973326375163093761, guid: 91bc96c75c304cf459ceb6b6321ce4db,
-        type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1973326375163093761, guid: 91bc96c75c304cf459ceb6b6321ce4db,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5927586345767251812, guid: 91bc96c75c304cf459ceb6b6321ce4db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -448,21 +441,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5927586345767251812, guid: 91bc96c75c304cf459ceb6b6321ce4db,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5927586345767251812, guid: 91bc96c75c304cf459ceb6b6321ce4db,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5927586345767251812, guid: 91bc96c75c304cf459ceb6b6321ce4db,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91bc96c75c304cf459ceb6b6321ce4db, type: 3}

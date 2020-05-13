@@ -31,6 +31,12 @@ public class RobotInisialisation : MonoBehaviour
     /// Cone collider to burn things
     /// </summary>
     [SerializeField] GameObject m_flameCollisonTracker;
+
+    [SerializeField] ParticleSystem m_smoke;
+
+    [SerializeField] RobotMovement m_robotMovementScript;
+
+    private Rigidbody m_rb;
     
     /// <summary>
     /// Script that allow the robot to move
@@ -39,6 +45,7 @@ public class RobotInisialisation : MonoBehaviour
 
     private void Start()
     {
+        m_rb = gameObject.GetComponent<Rigidbody>();
 
         controller = GetComponent<Rigidbody>();
 
@@ -63,7 +70,7 @@ public class RobotInisialisation : MonoBehaviour
 
                 gameObject.transform.position += new Vector3(0, 3, 0);
 
-                m_fire.Stop(true);
+                m_fire.Stop();
 
                 break;
         }
@@ -84,7 +91,14 @@ public class RobotInisialisation : MonoBehaviour
 
             case Robot_Type.Platforme:
 
-                //Nothing for the moment
+                if ( m_robotMovementScript.m_dir != new Vector3(0,0,0) )
+                {
+                    if (!m_smoke.isPlaying)
+                        m_smoke.Play();
+                }
+                else
+                    m_smoke.Stop();
+
 
                 break;
 
@@ -93,7 +107,7 @@ public class RobotInisialisation : MonoBehaviour
                 if ( ( Input.touchCount == 2 || Input.GetKeyDown(KeyCode.T) ) && 
                     GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
                 {
-                    m_fire.Play(true);
+                    m_fire.Play();
                     m_flameCollisonTracker.SetActive(true);
 
                     StartCoroutine(StopFlame());
@@ -108,7 +122,7 @@ public class RobotInisialisation : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        m_fire.Stop(true);
+        m_fire.Stop();
         m_flameCollisonTracker.SetActive(false);
     }
 }

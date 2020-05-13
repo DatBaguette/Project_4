@@ -69,6 +69,7 @@ MonoBehaviour:
   m_thisEntityNumber: 0
   m_transform_to_rotate: {fileID: 8486439589564041219}
   transform_LookAt: {fileID: 6532843452192750759}
+  m_dir: {x: 0, y: 0, z: 0}
 --- !u!114 &2607870131397633772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +84,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_robotType: 1
   m_size: 0
-  m_cone: {fileID: 0}
+  m_fire: {fileID: 0}
+  m_flameCollisonTracker: {fileID: 0}
+  m_smoke: {fileID: 6054180849862992658}
+  m_robotMovementScript: {fileID: 6253583774612818811}
 --- !u!65 &6763478904755757165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -219,6 +223,12 @@ GameObject:
 --- !u!4 &8486439589564041219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6023960766003447684, guid: b8749e090e163db43a6c00094c48af6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2764237865926807431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6054180849862992658 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8239422214794783893, guid: b8749e090e163db43a6c00094c48af6b,
     type: 3}
   m_PrefabInstance: {fileID: 2764237865926807431}
   m_PrefabAsset: {fileID: 0}
