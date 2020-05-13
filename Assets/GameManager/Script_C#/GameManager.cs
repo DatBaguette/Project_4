@@ -99,8 +99,12 @@ public class GameManager : Singleton<GameManager>
 
     public Dropdown m_language;
 
+    public int m_nbRessourcesSinceLastCheckpoint;
+
     private void Start()
     {
+        m_nbRessourcesSinceLastCheckpoint = 0;
+
         m_initDone = true;
 
         if ( m_actualStoryStep == StoryStep.Intro)
@@ -244,6 +248,8 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void playerDeath()
     {
+        m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
+
         if ( m_actualStoryStep == StoryStep.LevelOne)
             KillAllRobot();
 

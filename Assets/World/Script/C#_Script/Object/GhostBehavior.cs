@@ -34,6 +34,7 @@ public class GhostBehavior : MonoBehaviour
         // It will move to the character
         if ( m_chasePlayer)
         {
+
             var m_targetPosition = m_player.transform.position;
             var directionOfTravel = m_targetPosition - gameObject.transform.position;
             directionOfTravel = directionOfTravel.normalized;
@@ -68,6 +69,8 @@ public class GhostBehavior : MonoBehaviour
             if (!Physics.Raycast(transform.position, transform.forward, out hit, Vector3.Distance(transform.position, other.transform.position) - 1, layerMask))
             {
                 m_chasePlayer = true;
+
+                Debug.Log("detect raycast");
             }
         }
     }
