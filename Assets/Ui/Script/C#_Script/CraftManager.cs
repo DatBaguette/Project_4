@@ -32,7 +32,17 @@ public class CraftManager : Singleton<CraftManager>
     /// </summary>
     public void RobotCostChange()
     {
-        m_sliderText.text = m_sizeSlider.value.ToString();
+
+        if(m_sliderText != null)
+        {
+            m_sliderText.text = m_sizeSlider.value.ToString();
+        }
+        else
+        {
+            m_sliderText.text = "No link";
+            Debug.Log("le truc il est la ");
+        }
+        
 
         m_choosenSize = m_sizeSlider.value;
 
