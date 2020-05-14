@@ -53,6 +53,8 @@ MonoBehaviour:
   m_size: 0
   m_fire: {fileID: 5144595888816030629}
   m_flameCollisonTracker: {fileID: 2421353825498947227}
+  m_smoke: {fileID: 0}
+  m_robotMovementScript: {fileID: 0}
 --- !u!114 &3265494244116948316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,7 @@ MonoBehaviour:
   m_thisEntityNumber: 0
   m_transform_to_rotate: {fileID: 7438703634760457179}
   transform_LookAt: {fileID: 3341732966947699454}
+  m_dir: {x: 0, y: 0, z: 0}
 --- !u!65 &3985114944318375801
 BoxCollider:
   m_ObjectHideFlags: 0
