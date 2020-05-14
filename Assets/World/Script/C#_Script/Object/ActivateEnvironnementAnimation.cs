@@ -20,13 +20,4 @@ public class ActivateEnvironnementAnimation : MonoBehaviour
             m_activate = value;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if ( other.gameObject.tag == "KillEntitiesZone" )
-        {
-            Debug.Log("kek");
-            Destroy(other.transform.parent.gameObject);
-        }
-    }
 }

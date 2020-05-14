@@ -34,6 +34,7 @@ public class GhostBehavior : MonoBehaviour
         // It will move to the character
         if ( m_chasePlayer)
         {
+
             var m_targetPosition = m_player.transform.position;
             var directionOfTravel = m_targetPosition - gameObject.transform.position;
             directionOfTravel = directionOfTravel.normalized;

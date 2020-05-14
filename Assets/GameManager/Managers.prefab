@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_failSound: {fileID: 438461470}
   m_succeedSound: {fileID: 438461469}
+  m_musicSlider: {fileID: 0}
+  m_soundEffectSlider: {fileID: 0}
 --- !u!82 &438461470
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,6 +241,58 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1954657009586716979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7293386817002878669}
+  - component: {fileID: 5516943231938485281}
+  m_Layer: 0
+  m_Name: TutoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7293386817002878669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954657009586716979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5468893606872578786}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5516943231938485281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954657009586716979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ae91a14930f8e4c958fa70fc0eb6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_joystickHelper: {fileID: 0}
+  m_arrowToMove: {fileID: 0}
+  m_buildIconHelper: {fileID: 0}
+  m_boomerangIconHelper: {fileID: 0}
+  m_arrowBoomerang: {fileID: 0}
+  m_begginingRobotSpawner: {fileID: 0}
+  m_movingCloud: {fileID: 0}
+  m_activateNextTutoState: 0
+  m_actualTutoState: 0
 --- !u!1 &5468893606872578787
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +325,7 @@ Transform:
   - {fileID: 5468893608244249313}
   - {fileID: 5468893606908338786}
   - {fileID: 438461468}
+  - {fileID: 7293386817002878669}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -317,15 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05133220b3dfdb2478c1b7c4f6d206b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RobotCraftCost: 000000000000000000000000
-  m_RobotSize: 000000000000000000000000
-  m_robotCost:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_robotCost: {fileID: 0}
   m_choosenSize: 1
-  getPrice: 000000000000000000000000000000000000000000000000000000000000000000000000
-  CurrentManager: {fileID: 5468893607689251633}
+  m_sizeSlider: {fileID: 0}
+  m_sliderText: {fileID: 0}
 --- !u!1 &5468893607486663499
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,9 +421,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_saveData: {fileID: 11400000, guid: ebd9c245a7dabda41b17a9d93fb2ae03, type: 2}
   m_actualStoryStep: 1
-  m_actualRessources: {fileID: 11400000, guid: 8dc41d20e44ac5241a444089e7a9d8df, type: 2}
+  m_actualRessources: {fileID: 0}
   m_robotCore: 010101
-  m_sizeUnlocked: 0000
+  m_sizeUnlocked: 0
+  m_musicOn: 0
+  m_soundEffectOn: 0
+  m_actualLanguage: 0
   m_player: {fileID: 0}
   m_navmesh: {fileID: 0}
   defautMask:
@@ -383,8 +436,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   m_currentPlayerState: 0
-  m_actualSelectedRobotNumber: {fileID: 11400000, guid: 8dc41d20e44ac5241a444089e7a9d8df,
-    type: 2}
+  m_actualSelectedRobotNumber: {fileID: 0}
   m_robotNumber: 0
   m_actualCheckPointNumber: 0
   m_actualCheckPointObject:
@@ -394,6 +446,9 @@ MonoBehaviour:
   m_manageRobotScript: {fileID: 5468893607689251633}
   m_camera: {fileID: 0}
   m_magnetActivateImage: {fileID: 0}
+  m_tutorialScript: {fileID: 0}
+  m_language: {fileID: 0}
+  m_nbRessourcesSinceLastCheckpoint: 0
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,25 +500,23 @@ MonoBehaviour:
   m_robotContainer: {fileID: 0}
   m_player: {fileID: 0}
   m_craftManager: {fileID: 5468893606908338789}
-  m_FlyingBot_1: {fileID: 8647913404613452588, guid: b87f12cc487ec8b45a622d4efea9a701,
+  m_actualCraftRobot: 0
+  m_FlyingBot_1: {fileID: 518808972666964579, guid: d3a3b28676aab7a4fb50a4b98da6eed8,
     type: 3}
-  m_FlyingBot_2: {fileID: 8647913404613452588, guid: 07eac9c142f6e034cb87e60dbc2c6cff,
+  m_FlyingBot_2: {fileID: 6076604755334416341, guid: 6d7f31fb19d32714e87f38134eab1e57,
     type: 3}
-  m_FlyingBot_3: {fileID: 8647913404613452588, guid: 5e3484574f7c25344ac54731e43b7932,
+  m_PlatformeBot_1: {fileID: 7164904517279414552, guid: c6729766b7606cd4f9743d86cb54a248,
     type: 3}
-  m_PlatformeBot_1: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+  m_PlatformeBot_2: {fileID: 2872651683421489155, guid: 70513182cb70ac14ea1c5c6f3ef9c9b1,
     type: 3}
-  m_PlatformeBot_2: {fileID: 814247677799154363, guid: 8d45f8d099bd50f42ac43b81810243ba,
+  m_DestructionBot_1: {fileID: 145719032438866979, guid: e1d51762b8243134795c922e50dc5d14,
     type: 3}
-  m_PlatformeBot_3: {fileID: 814247677799154363, guid: 0cccfb90f48fa5342b87bac54a5bba94,
+  m_DestructionBot_2: {fileID: 1907898189583761359, guid: c035786fc22d12a4ea40ff14f653a930,
     type: 3}
-  m_DestructionBot_1: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
-    type: 3}
-  m_DestructionBot_2: {fileID: 6017328427754874115, guid: 12353737333c6254aadb99aaf49d91b3,
-    type: 3}
-  m_DestructionBot_3: {fileID: 6017328427754874115, guid: cf8b1e6f5fbc378429b72f3fc9a7aaa2,
-    type: 3}
+  m_joystick: {fileID: 0}
   price: 01000000020000000300000002000000040000000800000003000000060000000c000000
+  CanYouCraft: 1
+  NextNodeToCreatARobot: {fileID: 0}
 --- !u!1 &5468893608244249326
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,11 +563,17 @@ MonoBehaviour:
   m_craftMenu: {fileID: 0}
   m_openCraftLogo: {fileID: 0}
   m_magnetLogo: {fileID: 0}
+  m_selectRobotUi: {fileID: 0}
+  m_ressourcesUi: {fileID: 0}
+  m_menuOpen: 0
+  m_Joystick: {fileID: 0}
+  m_menuAnimator: {fileID: 0}
   m_ressourcesText: {fileID: 0}
   m_CraftMenuRobotTypeArea:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_sizeArea:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_sizeArea: {fileID: 0}
+  m_lockers: []
+  m_parameterMenu: {fileID: 0}
+  m_baseJoystickPosition: {x: 0, y: 0, z: 0}

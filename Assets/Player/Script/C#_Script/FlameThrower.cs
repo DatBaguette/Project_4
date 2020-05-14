@@ -13,5 +13,13 @@ public class FlameThrower : MonoBehaviour
             fireReact.OnFire();
 
         }
+
+        if ( other.GetComponent<BigDestructiblesObjects>() )
+        {
+            IFireReact fireReact = other.GetComponent<BigDestructiblesObjects>();
+
+            fireReact.OnFire();
+
+        }
     }
 }

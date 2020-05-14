@@ -46,6 +46,9 @@ public class ChooseRobot : MonoBehaviour
             MenuManager.Instance.m_magnetLogo.SetActive(true);
             MenuManager.Instance.m_openCraftLogo.SetActive(true);
 
+            MenuManager.Instance.m_selectRobotUi.SetActive(true);
+            MenuManager.Instance.m_ressourcesUi.SetActive(true);
+
             m_img.color = Color.white;
 
         }
@@ -60,14 +63,21 @@ public class ChooseRobot : MonoBehaviour
 
             for ( int i=0; i<GameManager.Instance.m_robotsUI.Count; i++)
             {
-                GameManager.Instance.m_robotsUI[i].GetComponent<Image>().color = Color.white;
+                if (GameManager.Instance.m_robotsUI[i] != null)
+                    GameManager.Instance.m_robotsUI[i].GetComponent<Image>().color = Color.white;
             }
 
             m_img.color = Color.green;
 
-            MenuManager.Instance.m_craftMenu.SetActive(false);
+            MenuManager.Instance.m_menuAnimator.Play("Hidding");
+            MenuManager.Instance.m_menuOpen = false;
+            MenuManager.Instance.m_magnetLogo.SetActive(true);
+            MenuManager.Instance.m_Joystick.transform.position = MenuManager.Instance.m_baseJoystickPosition;
+
             MenuManager.Instance.m_magnetLogo.SetActive(false);
             MenuManager.Instance.m_openCraftLogo.SetActive(false);
+            
+            MenuManager.Instance.m_ressourcesUi.SetActive(false);
         }
 
         GameManager.Instance.m_navmesh.ResetPath();

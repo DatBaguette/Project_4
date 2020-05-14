@@ -15,17 +15,17 @@ public class Imput_Manager : Singleton<Imput_Manager>
     }
     public bool GetInput()
     {
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR*/
         if (Input.GetMouseButtonDown(0))
         {
             is_touched = true;
         }
-#else
+/*#else
         if (Input.touchCount > 0)
         {
-           is_touched = true
-        }       
-#endif
+           is_touched = true;
+        }  
+#endif*/
         return (is_touched);
     }
 }
