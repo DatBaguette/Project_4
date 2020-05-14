@@ -47,7 +47,7 @@ public class GrinderBehavior : MonoBehaviour
                 SoundManager.Instance.m_succeedSound.Play();
             }
 
-            m_elevator.GetComponent<Animator>().Play("MoveUp");
+            m_elevator.GetComponent<Animator>().Play("MoveUp2");
 
             m_invisibleWall.SetActive(false);
         }
