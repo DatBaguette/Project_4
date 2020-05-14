@@ -62,7 +62,14 @@ public class BossBehaviour : MonoBehaviour, IFireReact
 
     [SerializeField] Animator m_elevatorAnimations;
 
-    [SerializeField] int m_Boss_Life = 3;
+    [SerializeField] ParticleSystem m_flame;
+    [SerializeField] ParticleSystem m_bigSMOKE;
+
+    [SerializeField] GameObject m_rollingThings;
+
+    [SerializeField] Animator m_robotEye;
+
+    [SerializeField] int m_Boss_Life = 1;
     private int Boss_Life
     {
         get
@@ -71,6 +78,7 @@ public class BossBehaviour : MonoBehaviour, IFireReact
         }
         set
         {
+
             switch ( m_Boss_Life)
             {
                 case 1:
@@ -78,8 +86,11 @@ public class BossBehaviour : MonoBehaviour, IFireReact
                     Current_Boss_State = BossState.Dead;
                     m_robotCore.SetActive(false);
                     m_highSmoke.Stop();
-                    Instantiate(m_secondSizeBall, gameObject.transform);
-                    m_elevatorAnimations.Play("MoveUp");
+                    m_secondSizeBall.SetActive(true);
+                    m_elevatorAnimations.Play("MoveDown");
+                    m_flame.Play();
+                    m_bigSMOKE.Play();
+                    Destroy(m_rollingThings);
 
                     break;
 
@@ -106,6 +117,8 @@ public class BossBehaviour : MonoBehaviour, IFireReact
 
         Self_Rigidbody = Self.GetComponent<Rigidbody>();
 
+        //Current_Boss_State = BossState.Dead;
+
     }
 
     void IFireReact.OnFire()
@@ -124,7 +137,7 @@ public class BossBehaviour : MonoBehaviour, IFireReact
 
     private void Update()
     {
-        
+
         Self.transform.LookAt(LerpHelper.transform);
 
 
@@ -140,6 +153,12 @@ public class BossBehaviour : MonoBehaviour, IFireReact
                 
                 break;
 
+            case BossState.Stuned:
+
+                m_robotEye.Play("RobotEyeFlash");
+
+                break;
+
             case BossState.Mouvement:
                 
                 ContainerScript.Mouvement(f_Boss_Speed);
@@ -148,7 +167,7 @@ public class BossBehaviour : MonoBehaviour, IFireReact
 
             case BossState.Dead:
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
 
                 break;
         }
@@ -178,6 +197,9 @@ public class BossBehaviour : MonoBehaviour, IFireReact
     {
         yield return new WaitForSeconds(m_Stun_Duration);
 
-        Current_Boss_State = BossState.Rotation_On;
+        if ( m_Boss_Life > 0)
+            Current_Boss_State = BossState.Rotation_On;
+        else
+            Current_Boss_State = BossState.Dead;
     }
 }
