@@ -23,6 +23,8 @@ public class TutoManager : MonoBehaviour
 
     [SerializeField] GameObject m_begginingRobotSpawner;
 
+    [SerializeField] GameObject m_movingCloud;
+
     public bool m_activateNextTutoState = false;
     public bool ActivateNextTutoState
     {
@@ -75,6 +77,7 @@ public class TutoManager : MonoBehaviour
             {
                 case tutoState.robotMovement:
                     m_joystickHelper.GetComponent<Animator>().SetBool("canFlash", false);
+                    m_movingCloud.GetComponent<IntroMovingCloud>().Move();
                     break;
 
                 case tutoState.playerMovement:
