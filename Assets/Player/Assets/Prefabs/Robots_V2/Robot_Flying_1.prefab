@@ -141,7 +141,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_robotType: 0
   m_size: 0
-  m_cone: {fileID: 0}
+  m_fire: {fileID: 0}
+  m_flameCollisonTracker: {fileID: 0}
+  m_smoke: {fileID: 0}
+  m_robotMovementScript: {fileID: 0}
 --- !u!114 &-323940271943936563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +164,7 @@ MonoBehaviour:
   m_thisEntityNumber: 0
   m_transform_to_rotate: {fileID: 0}
   transform_LookAt: {fileID: 0}
+  m_dir: {x: 0, y: 0, z: 0}
 --- !u!1001 &7307917219481765677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,6 +172,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8354243605870075709}
     m_Modifications:
+    - target: {fileID: -8977087616649498383, guid: 67a0e9d71d4e5414eb1f977034996b25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fce0d8a784057b84c8de1ded9c1ab975, type: 2}
     - target: {fileID: -4216859302048453862, guid: 67a0e9d71d4e5414eb1f977034996b25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -238,11 +247,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.314
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 67a0e9d71d4e5414eb1f977034996b25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fce0d8a784057b84c8de1ded9c1ab975, type: 2}
     - target: {fileID: -927199367670048503, guid: 67a0e9d71d4e5414eb1f977034996b25,
         type: 3}
       propertyPath: m_Name
       value: Robot_Volant
       objectReference: {fileID: 0}
+    - target: {fileID: 1962306578164620635, guid: 67a0e9d71d4e5414eb1f977034996b25,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fce0d8a784057b84c8de1ded9c1ab975, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67a0e9d71d4e5414eb1f977034996b25, type: 3}
 --- !u!4 &2310446885501037623 stripped
