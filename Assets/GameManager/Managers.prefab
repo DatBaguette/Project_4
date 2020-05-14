@@ -292,6 +292,112 @@ MonoBehaviour:
   m_begginingRobotSpawner: {fileID: 0}
   m_activateNextTutoState: 0
   m_actualTutoState: 0
+--- !u!1 &3955951875537208332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212292565302530219}
+  - component: {fileID: 8265723924559956120}
+  m_Layer: 0
+  m_Name: Analytics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &212292565302530219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955951875537208332}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5468893606872578786}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8265723924559956120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955951875537208332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 0
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: LevelFail
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 1
+        m_GroupID: level
+        m_Tooltip: The level name. Either level_name or level_index is required.
+        m_Name: level_name
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 2
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 11500000, guid: f18394308319a134b8c5f86125e0af3d, type: 3}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: level
+        m_Tooltip: The order of this level within the game. Either level_name or
+          level_index is required.
+        m_Name: level_index
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 2
+          m_ValueType: System.Int32
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 11400000, guid: ebd9c245a7dabda41b17a9d93fb2ae03, type: 2}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            m_Type: System.Int32
+            m_EnumType: 
+    m_Name: level_fail
 --- !u!1 &5468893606872578787
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +431,7 @@ Transform:
   - {fileID: 5468893606908338786}
   - {fileID: 438461468}
   - {fileID: 7293386817002878669}
+  - {fileID: 212292565302530219}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,6 +481,7 @@ MonoBehaviour:
   m_robotCost: {fileID: 0}
   m_choosenSize: 1
   m_sizeSlider: {fileID: 0}
+  m_sliderText: {fileID: 0}
 --- !u!1 &5468893607486663499
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +554,7 @@ MonoBehaviour:
   m_magnetActivateImage: {fileID: 0}
   m_tutorialScript: {fileID: 0}
   m_language: {fileID: 0}
+  m_nbRessourcesSinceLastCheckpoint: 0
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +619,10 @@ MonoBehaviour:
     type: 3}
   m_DestructionBot_2: {fileID: 1907898189583761359, guid: c035786fc22d12a4ea40ff14f653a930,
     type: 3}
+  m_joystick: {fileID: 0}
   price: 01000000020000000300000002000000040000000800000003000000060000000c000000
+  CanYouCraft: 1
+  NextNodeToCreatARobot: {fileID: 0}
 --- !u!1 &5468893608244249326
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +669,8 @@ MonoBehaviour:
   m_craftMenu: {fileID: 0}
   m_openCraftLogo: {fileID: 0}
   m_magnetLogo: {fileID: 0}
+  m_selectRobotUi: {fileID: 0}
+  m_ressourcesUi: {fileID: 0}
   m_menuOpen: 0
   m_Joystick: {fileID: 0}
   m_menuAnimator: {fileID: 0}
