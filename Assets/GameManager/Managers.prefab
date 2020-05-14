@@ -290,6 +290,7 @@ MonoBehaviour:
   m_boomerangIconHelper: {fileID: 0}
   m_arrowBoomerang: {fileID: 0}
   m_begginingRobotSpawner: {fileID: 0}
+  m_movingCloud: {fileID: 0}
   m_activateNextTutoState: 0
   m_actualTutoState: 0
 --- !u!1 &5468893606872578787
@@ -374,6 +375,7 @@ MonoBehaviour:
   m_robotCost: {fileID: 0}
   m_choosenSize: 1
   m_sizeSlider: {fileID: 0}
+  m_sliderText: {fileID: 0}
 --- !u!1 &5468893607486663499
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +448,7 @@ MonoBehaviour:
   m_magnetActivateImage: {fileID: 0}
   m_tutorialScript: {fileID: 0}
   m_language: {fileID: 0}
+  m_nbRessourcesSinceLastCheckpoint: 0
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +513,10 @@ MonoBehaviour:
     type: 3}
   m_DestructionBot_2: {fileID: 1907898189583761359, guid: c035786fc22d12a4ea40ff14f653a930,
     type: 3}
+  m_joystick: {fileID: 0}
   price: 01000000020000000300000002000000040000000800000003000000060000000c000000
+  CanYouCraft: 1
+  NextNodeToCreatARobot: {fileID: 0}
 --- !u!1 &5468893608244249326
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +563,8 @@ MonoBehaviour:
   m_craftMenu: {fileID: 0}
   m_openCraftLogo: {fileID: 0}
   m_magnetLogo: {fileID: 0}
+  m_selectRobotUi: {fileID: 0}
+  m_ressourcesUi: {fileID: 0}
   m_menuOpen: 0
   m_Joystick: {fileID: 0}
   m_menuAnimator: {fileID: 0}
