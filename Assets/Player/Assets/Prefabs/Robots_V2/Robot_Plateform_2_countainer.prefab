@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7486892057113206743}
   m_Layer: 0
   m_Name: Robot_Plateform_2_countainer
-  m_TagString: Untagged
+  m_TagString: PlateformRobot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2872651683421489155}
   m_LocalRotation: {x: 0, y: 0.000008507889, z: -1.3e-44, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3681410646748626972}
   - {fileID: 90399166976189966}
@@ -56,6 +56,7 @@ MonoBehaviour:
   m_thisEntityNumber: 0
   m_transform_to_rotate: {fileID: 3681410646748626972}
   transform_LookAt: {fileID: 2169113583649852860}
+  m_dir: {x: 0, y: 0, z: 0}
 --- !u!114 &6954239381369346039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +71,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_robotType: 1
   m_size: 0
-  m_cone: {fileID: 0}
+  m_fire: {fileID: 0}
+  m_flameCollisonTracker: {fileID: 0}
+  m_smoke: {fileID: 1357793255122774797}
+  m_robotMovementScript: {fileID: 1331480549750110816}
 --- !u!65 &1832925417335640438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95,7 +99,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7486892057113206743
 Rigidbody:
@@ -111,8 +115,21 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &7728062435766953431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765154563025945891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &193561859700549056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,6 +238,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot_Plateform_2
       objectReference: {fileID: 0}
+    - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814247677799154363, guid: b8749e090e163db43a6c00094c48af6b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlateformRobot
+      objectReference: {fileID: 0}
     - target: {fileID: 6023960766003447684, guid: b8749e090e163db43a6c00094c48af6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,6 +319,12 @@ GameObject:
 --- !u!4 &3681410646748626972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6023960766003447684, guid: b8749e090e163db43a6c00094c48af6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6957946096115877784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1357793255122774797 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8239422214794783893, guid: b8749e090e163db43a6c00094c48af6b,
     type: 3}
   m_PrefabInstance: {fileID: 6957946096115877784}
   m_PrefabAsset: {fileID: 0}

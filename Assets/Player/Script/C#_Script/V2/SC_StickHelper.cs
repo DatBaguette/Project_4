@@ -34,7 +34,8 @@ public class SC_StickHelper : MonoBehaviour
         float f_ImpulseX = Input.GetAxis("Horizontal");
         float f_ImpulseZ = Input.GetAxis("Vertical");
 
-        Vt3_Dir = new Vector3(moveBOT.m_moveJoystickScript.m_InputDirection.x, 0, moveBOT.m_moveJoystickScript.m_InputDirection.z);
+        if(moveBOT != null && moveBOT.m_moveJoystickScript != null)
+            Vt3_Dir = new Vector3(moveBOT.m_moveJoystickScript.m_InputDirection.x, 0, moveBOT.m_moveJoystickScript.m_InputDirection.z);
 
         if (Robot_Mesh != null)
         {

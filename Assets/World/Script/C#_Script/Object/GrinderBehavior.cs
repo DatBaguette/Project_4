@@ -8,7 +8,11 @@ public class GrinderBehavior : MonoBehaviour
 
     [SerializeField] GameObject m_elevator;
 
+    [SerializeField] GameObject m_invisibleWall;
+
     [SerializeField] int m_numberOfGrind = 1;
+
+    [SerializeField] ParticleSystem m_smoke;
 
     private bool m_canGrind = true;
 
@@ -21,6 +25,8 @@ public class GrinderBehavior : MonoBehaviour
             {
                 m_canGrind = false;
                 StartCoroutine(GrindObject());
+
+                m_smoke.Play();
             }
         }
     }
@@ -42,6 +48,8 @@ public class GrinderBehavior : MonoBehaviour
             }
 
             m_elevator.GetComponent<Animator>().Play("MoveUp");
+
+            m_invisibleWall.SetActive(false);
         }
     }
 }

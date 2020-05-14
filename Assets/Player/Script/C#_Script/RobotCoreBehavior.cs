@@ -22,12 +22,16 @@ public class RobotCoreBehavior : MonoBehaviour
     [Tooltip("Amount of ressources that will give the object")]
     [SerializeField] CoreType m_coretype;
 
+    [SerializeField] Animator m_robotCoreHelper;
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.gameObject.tag == "HarvestZone")
         {
             m_harvested = true;
+
+            Debug.Log("ta mere la pute");
 
         }
     }
@@ -55,7 +59,15 @@ public class RobotCoreBehavior : MonoBehaviour
                     GameManager.Instance.m_robotCore[2] = true;
 
                     break;
+
+                case CoreType.size:
+
+                    GameManager.Instance.m_sizeUnlocked = true;
+
+                    break;
             }
+
+            m_robotCoreHelper.Play("Show");
 
             Destroy(gameObject);
         }
@@ -86,6 +98,7 @@ public class RobotCoreBehavior : MonoBehaviour
     {
         flyingRobot,
         platformRobot,
-        destructionRobot
+        destructionRobot,
+        size
     }
 }

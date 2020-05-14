@@ -9,64 +9,69 @@ using UnityEngine.UI;
 /// 
 /// </summary>
 
-public class CraftManager : MonoBehaviour
+public class CraftManager : Singleton<CraftManager>
 {
-    [HideInInspector] public int[] m_RobotCraftCost = { 0, 0, 0 };
-    [HideInInspector] public int[] m_RobotSize = { 0, 0, 0 };
 
     [Tooltip("Text that will show the cost of each robot depending of his size")]
-    [SerializeField] List<Text> m_robotCost;
+    [SerializeField] Text m_robotCost;
 
-    [HideInInspector] public int m_choosenSize = 1;
+    [HideInInspector] public float m_choosenSize = 1;
 
-    [SerializeField]
-    private List<int> getPrice;
+    [SerializeField] Slider m_sizeSlider;
 
-    [SerializeField]
-    private Manage_Robot CurrentManager;
+    [SerializeField] Text m_sliderText;
 
     private void Start()
     {
-        //getPrice[] = gameObject.GetComponent<Manage_Robot>().price[];
 
-        for(int i = 0; i < getPrice.Count ; i++)
-        {
-            getPrice[i] = CurrentManager.price[i];
-        }
-
-
-        m_robotCost[0].text = getPrice[0].ToString();
-        m_robotCost[1].text = getPrice[1].ToString();
-        m_robotCost[2].text = getPrice[2].ToString();
+        RobotCostChange();
     }
 
-    public void RobotSize(int choosenSize)
+    /// <summary>
+    /// Update the cost of the robot on the menu
+    /// </summary>
+    public void RobotCostChange()
     {
-        m_choosenSize = choosenSize;
 
-        switch ( choosenSize)
+        if(m_sliderText != null)
         {
+            m_sliderText.text = m_sizeSlider.value.ToString();
+        }
+        else
+        {
+            m_sliderText.text = "No link";
+            Debug.Log("le truc il est la ");
+        }
+        
+
+        m_choosenSize = m_sizeSlider.value;
+
+        switch ( Manage_Robot.Instance.m_actualCraftRobot )
+        {
+            case 0:
+
+                if ( m_sizeSlider.value == 1 )
+                    m_robotCost.text = Manage_Robot.Instance.price[0].ToString();
+                else
+                    m_robotCost.text = Manage_Robot.Instance.price[1].ToString();
+
+                break;
+
             case 1:
 
-                m_robotCost[0].text = getPrice[0].ToString();
-                m_robotCost[1].text = getPrice[1].ToString();
-                m_robotCost[2].text = getPrice[2].ToString();
+                if (m_sizeSlider.value == 1)
+                    m_robotCost.text = Manage_Robot.Instance.price[2].ToString();
+                else
+                    m_robotCost.text = Manage_Robot.Instance.price[3].ToString();
 
                 break;
 
             case 2:
 
-                m_robotCost[0].text = getPrice[3].ToString();
-                m_robotCost[1].text = getPrice[4].ToString();
-                m_robotCost[2].text = getPrice[5].ToString();
-
-                break;
-
-            case 3:
-
-                m_robotCost[0].text = getPrice[6].ToString();
-                m_robotCost[1].text = getPrice[7].ToString();
-                m_robotCost[2].text = getPrice[8].ToString();
+                if (m_sizeSlider.value == 1)
+                    m_robotCost.text = Manage_Robot.Instance.price[4].ToString();
+                else
+                    m_robotCost.text = Manage_Robot.Instance.price[5].ToString();
 
                 break;
         }

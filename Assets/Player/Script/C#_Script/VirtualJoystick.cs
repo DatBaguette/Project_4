@@ -14,11 +14,11 @@ using UnityEngine.EventSystems;
 public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     private Image m_bgImg;
-    private Image m_joystickImg;
+    [SerializeField] Image m_joystickImg;
 
     private Vector3 m_joystickPosition;
 
-    [SerializeField] public Vector3 m_InputDirection { set; get; }
+    public Vector3 m_InputDirection { set; get; }
 
 
     public virtual void OnDrag(PointerEventData ped)
@@ -62,7 +62,6 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     void Start()
     {
         m_bgImg = GetComponent<Image>();
-        m_joystickImg = transform.GetChild(0).GetComponent<Image>();
         m_InputDirection = Vector3.zero;
     }
 }
