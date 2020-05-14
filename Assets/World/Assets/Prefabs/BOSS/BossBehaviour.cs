@@ -142,5 +142,10 @@ public class BossBehaviour : MonoBehaviour, IFireReact
             Destroy(collision.gameObject);
             
         }
+
+        if ( collision.gameObject.GetComponent<ClickToMoveEntity>())
+        {
+            GameManager.Instance.playerDeath();
+        }
     }
 }
