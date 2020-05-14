@@ -31,6 +31,8 @@ public class RobotCoreBehavior : MonoBehaviour
         {
             m_harvested = true;
 
+            Debug.Log("ta mere la pute");
+
         }
     }
 

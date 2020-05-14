@@ -12,6 +12,8 @@ public class GrinderBehavior : MonoBehaviour
 
     [SerializeField] int m_numberOfGrind = 1;
 
+    [SerializeField] ParticleSystem m_smoke;
+
     private bool m_canGrind = true;
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +25,8 @@ public class GrinderBehavior : MonoBehaviour
             {
                 m_canGrind = false;
                 StartCoroutine(GrindObject());
+
+                m_smoke.Play();
             }
         }
     }

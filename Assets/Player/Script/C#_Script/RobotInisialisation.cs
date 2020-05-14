@@ -23,14 +23,20 @@ public class RobotInisialisation : MonoBehaviour
     private Rigidbody controller;
 
     /// <summary>
-    /// Time of activation of the flameThrower
-    /// </summary>
-    private float m_timer = 0;
-
-    /// <summary>
     /// FlameThrower area of attack
     /// </summary>
-    [SerializeField] GameObject m_cone;
+    [SerializeField] ParticleSystem m_fire;
+
+    /// <summary>
+    /// Cone collider to burn things
+    /// </summary>
+    [SerializeField] GameObject m_flameCollisonTracker;
+
+    [SerializeField] ParticleSystem m_smoke;
+
+    [SerializeField] RobotMovement m_robotMovementScript;
+
+    private Rigidbody m_rb;
     
     /// <summary>
     /// Script that allow the robot to move
@@ -39,6 +45,7 @@ public class RobotInisialisation : MonoBehaviour
 
     private void Start()
     {
+        m_rb = gameObject.GetComponent<Rigidbody>();
 
         controller = GetComponent<Rigidbody>();
 
@@ -63,6 +70,9 @@ public class RobotInisialisation : MonoBehaviour
 
                 gameObject.transform.position += new Vector3(0, 3, 0);
 
+                m_fire.Stop();
+                m_flameCollisonTracker.SetActive(false);
+
                 break;
         }
 
@@ -82,30 +92,38 @@ public class RobotInisialisation : MonoBehaviour
 
             case Robot_Type.Platforme:
 
-                //Nothing for the moment
+                if ( m_robotMovementScript.m_dir != new Vector3(0,0,0) )
+                {
+                    if (!m_smoke.isPlaying)
+                        m_smoke.Play();
+                }
+                else
+                    m_smoke.Stop();
+
 
                 break;
 
             case Robot_Type.Destruction:
 
-                if (m_timer > 0)
-                {
-                    m_timer -= .1f;
-                    m_cone.SetActive(true);
-                }
-                else
-                {
-                    m_cone.SetActive(false);
-                }
-
                 if ( ( Input.touchCount == 2 || Input.GetKeyDown(KeyCode.T) ) && 
                     GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
                 {
-                    m_timer = 2;
+                    m_fire.Play();
+                    m_flameCollisonTracker.SetActive(true);
+
+                    StartCoroutine(StopFlame());
 
                 }
 
                 break;
         }
+    }
+
+    IEnumerator StopFlame()
+    {
+        yield return new WaitForSeconds(2);
+
+        m_fire.Stop();
+        m_flameCollisonTracker.SetActive(false);
     }
 }

@@ -69,8 +69,6 @@ public class GhostBehavior : MonoBehaviour
             if (!Physics.Raycast(transform.position, transform.forward, out hit, Vector3.Distance(transform.position, other.transform.position) - 1, layerMask))
             {
                 m_chasePlayer = true;
-
-                Debug.Log("detect raycast");
             }
         }
     }

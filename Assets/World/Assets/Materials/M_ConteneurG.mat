@@ -23,7 +23,7 @@ Material:
   m_Name: M_ConteneurG
   m_Shader: {fileID: -6465566751694194690, guid: b524458199e8dbc439a895b22f8e7a6e,
     type: 3}
-  m_ShaderKeywords: BOOLEAN_A511C7D6_ON FRESNEL_ON
+  m_ShaderKeywords: FRESNEL_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - BOOLEAN_A511C7D6: 1
+    - BOOLEAN_A511C7D6: 0
     - FRESNEL: 1
     - Vector1_4AED9A05: 1
     - _AlphaClip: 0
@@ -104,7 +104,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_1A5DA529: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+    - Color_1A5DA529: {r: 0, g: 0, b: 0, a: 1}
     - Color_7CA48F9B: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
     - Shadow_Tint: {r: 0, g: 0, b: 0, a: 0}
     - Vector3_2573FE9A: {r: 1, g: 1, b: 1, a: 0}

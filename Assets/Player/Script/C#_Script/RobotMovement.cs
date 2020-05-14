@@ -29,7 +29,8 @@ public class RobotMovement : MonoBehaviour
 
     private float f_ImpulseX;
     private float f_ImpulseZ;
-    private Vector3 Vt3_Dir;
+
+    [HideInInspector] public Vector3 m_dir;
 
     void Start()
     {
@@ -57,33 +58,33 @@ public class RobotMovement : MonoBehaviour
     private void Robot_Mouvement()
     {
 
-        Vector3 dir = Vector3.zero;
+        m_dir = Vector3.zero;
         Vector3 dir_rot = Vector3.zero;
 
 
         // if the joystick position isn't null, it give a direciton to the player
         if (m_moveJoystickScript.m_InputDirection != Vector3.zero)
         {
-            dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z).normalized;
+            m_dir = new Vector3(m_moveJoystickScript.m_InputDirection.x, 0, m_moveJoystickScript.m_InputDirection.z).normalized;
 
             dir_rot = new Vector3(0, 0 , 0 );
         }
         
         // Stop the movement if the actual robot isn't this one
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value != m_thisEntityNumber)
-            dir = new Vector3(0, 0, 0);
+            m_dir = new Vector3(0, 0, 0);
 
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
         {
             // Adpat the movement type because it did weird things with the flying robot
             if (gameObject.tag == "FlyingRobot")
             {
-                controller.AddForce(dir * m_movementSpeed, ForceMode.Impulse);
+                controller.AddForce(m_dir * m_movementSpeed, ForceMode.Impulse);
                 Robot_Rotation();
             }
             else
             {
-                transform.Translate(dir * m_movementSpeed);
+                transform.Translate(m_dir * m_movementSpeed);
                 Robot_Rotation();
             }
                 
