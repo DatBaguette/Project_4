@@ -49,6 +49,8 @@ public class SC_Boomerang : MonoBehaviour
 
     public bool readyTochannel = true;
 
+    [SerializeField] int m_returnSpeed = 5;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -179,7 +181,7 @@ public class SC_Boomerang : MonoBehaviour
 
     public void RestardBoomrangPos()
     {
-        currentLerptime += Time.deltaTime;
+        currentLerptime += Time.deltaTime / m_returnSpeed; ;
         if (currentLerptime >= LerpTime)
         {
             currentLerptime = LerpTime;

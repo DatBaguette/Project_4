@@ -801,17 +801,17 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4718579
+      value: -0.47185794
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007584261
+      value: -0.0000007198559
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000014033521
+      value: 0.00000138271
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -911,17 +911,17 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4718579
+      value: -0.47185794
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007584261
+      value: -0.0000007198559
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000014033521
+      value: 0.00000138271
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -7648,7 +7648,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1972562245 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4802207092544803586, guid: 83d42bdde083caf419af893bc83c5fba,
+  m_CorrespondingSourceObject: {fileID: 745274577496296566, guid: 83d42bdde083caf419af893bc83c5fba,
     type: 3}
   m_PrefabInstance: {fileID: 1972562241}
   m_PrefabAsset: {fileID: 0}
@@ -8409,6 +8409,8 @@ MonoBehaviour:
   m_craftMenu: {fileID: 194697538}
   m_openCraftLogo: {fileID: 194697533}
   m_magnetLogo: {fileID: 194697528}
+  m_selectRobotUi: {fileID: 0}
+  m_ressourcesUi: {fileID: 0}
   m_menuOpen: 0
   m_Joystick: {fileID: 194697523}
   m_menuAnimator: {fileID: 194697539}

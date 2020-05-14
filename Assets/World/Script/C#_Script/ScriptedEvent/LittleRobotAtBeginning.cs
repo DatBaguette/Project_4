@@ -26,8 +26,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
     [SerializeField] GameObject m_flyingRobotCore;
 
-    [SerializeField] GameObject m_movingCloud;
-
     [SerializeField] VirtualJoystick m_joystickScript;
 
     private GameObject m_robot;
@@ -100,8 +98,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
         m_playerCamera.Follow = m_robot.transform;
         m_playerCamera.LookAt = m_robot.transform;
-
-        m_movingCloud.GetComponent<IntroMovingCloud>().Move();
 
         m_introActivated = true;
     }
