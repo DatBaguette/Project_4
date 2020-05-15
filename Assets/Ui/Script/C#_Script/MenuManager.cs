@@ -90,7 +90,7 @@ public class MenuManager : Singleton<MenuManager>
 
             if(m_Player_Animator != null)
             {
-                m_Player_Animator.isTabletteOpen = false;
+                m_Player_Animator.isTabletteOpen = true;
 
                 Debug.Log("Tab In");
             }

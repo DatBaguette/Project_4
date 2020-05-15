@@ -13,9 +13,11 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
     private NavMeshAgent m_player_NavAgent;
 
-    private bool isWalkingPressed = false;
+    public bool isWalkingPressed = false;
 
     public bool isTabletteOpen = false;
+
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,10 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
         m_Animator_Billy.SetBool("Is_Running", isWalkingPressed);
 
-        Debug.Log(isTabletteOpen);
         m_Animator_Billy.SetBool("Is_Tab_out", isTabletteOpen);
+
+
+        Debug.Log(isDead);
+        m_Animator_Billy.SetBool("Is_Dead", isDead);
     }
 }

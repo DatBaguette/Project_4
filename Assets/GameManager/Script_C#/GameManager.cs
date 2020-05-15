@@ -22,6 +22,7 @@ public class GameManager : Singleton<GameManager>
         boomerang,
         cinematic,
         Idle,
+        Dead,
         Menu
     }
 
@@ -266,41 +267,42 @@ public class GameManager : Singleton<GameManager>
     /// If the player die
     /// </summary>
     /// 
-    public void playerDeath()
-    {
-        m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
-
-        if (m_actualStoryStep == StoryStep.LevelOne)
-            KillAllRobot();
-
-        SaveData();
-
-        SceneManager.LoadScene(m_saveData.m_actualSceneID);
-    }
-
     //public void playerDeath()
     //{
+    //    m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
 
-    //    StartCoroutine(RechargerLeNiveau(1f));
+    //    if (m_actualStoryStep == StoryStep.LevelOne)
+    //        KillAllRobot();
+
+    //    SaveData();
+
+    //    SceneManager.LoadScene(m_saveData.m_actualSceneID);
     //}
 
-    //private IEnumerator RechargerLeNiveau(float WaitTime)
-    //{
+    public void playerDeath()
+    {
+        m_currentPlayerState = m_PlayerState.Dead;
+        m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isDead = true;
+        m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isWalkingPressed = false;
+        StartCoroutine(RechargerLeNiveau(2.5f));
+    }
 
-    //    while (true)
-    //    {
-    //        yield return new WaitForSeconds(WaitTime);
+    private IEnumerator RechargerLeNiveau(float WaitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(WaitTime);
 
-    //        m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
+            m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
 
-    //        if (m_actualStoryStep == StoryStep.LevelOne)
-    //            KillAllRobot();
+            if (m_actualStoryStep == StoryStep.LevelOne)
+                KillAllRobot();
 
-    //        SaveData();
+            SaveData();
 
-    //        SceneManager.LoadScene(m_saveData.m_actualSceneID);
-    //    } 
-    //}
+            SceneManager.LoadScene(m_saveData.m_actualSceneID);
+        }
+    }
 
     public void SaveData()
     {
