@@ -22,6 +22,8 @@ public class ChooseRobot : MonoBehaviour
 
     private Image m_img;
 
+    public BIlly_Anim_CTRL m_Player_Animator;
+
     private void Start()
     {
         GameObject[]  m_playerCameraObject = GameObject.FindGameObjectsWithTag("PlayerCamera");
@@ -51,6 +53,11 @@ public class ChooseRobot : MonoBehaviour
 
             m_img.color = Color.white;
 
+            if (m_Player_Animator != null)
+            {
+                m_Player_Animator.isTabletteOpen = false;
+            }
+
         }
         else
         {
@@ -78,6 +85,11 @@ public class ChooseRobot : MonoBehaviour
             MenuManager.Instance.m_openCraftLogo.SetActive(false);
             
             MenuManager.Instance.m_ressourcesUi.SetActive(false);
+
+            if (m_Player_Animator != null)
+            {
+                m_Player_Animator.isTabletteOpen = true;
+            }
         }
 
         GameManager.Instance.m_navmesh.ResetPath();

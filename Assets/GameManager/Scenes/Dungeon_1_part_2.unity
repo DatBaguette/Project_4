@@ -4521,6 +4521,11 @@ PrefabInstance:
       propertyPath: m_Joystick
       value: 
       objectReference: {fileID: 2113331224}
+    - target: {fileID: 6023011473359263971, guid: 83d42bdde083caf419af893bc83c5fba,
+        type: 3}
+      propertyPath: m_boomerangManager
+      value: 
+      objectReference: {fileID: 613796734}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -4562,6 +4567,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 613796729}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &613796734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1530042240524683899, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 613796729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &613796735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8462526245517775333, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 613796729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613796731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f973c3f5d2fc41245b4fa99ceb077bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &614059563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16601,6 +16624,7 @@ MonoBehaviour:
   m_menuOpen: 0
   m_Joystick: {fileID: 2113331224}
   m_menuAnimator: {fileID: 2113331236}
+  m_Player_Animator: {fileID: 613796735}
   m_ressourcesText: {fileID: 2113331235}
   m_CraftMenuRobotTypeArea:
   - {fileID: 2113331233}
@@ -16671,6 +16695,7 @@ MonoBehaviour:
   - {fileID: 2113331241}
   - {fileID: 2113331240}
   - {fileID: 2113331238}
+  m_Player_Animator: {fileID: 613796735}
 --- !u!1 &5468893607650657562
 GameObject:
   m_ObjectHideFlags: 0
