@@ -34,6 +34,8 @@ public class MenuManager : Singleton<MenuManager>
 
     public Animator m_menuAnimator;
 
+    public BIlly_Anim_CTRL m_Player_Animator;
+
     [Tooltip("Text gameObject that will show the actual amount of ressources")]
     [SerializeField] Text m_ressourcesText;
 
@@ -85,6 +87,14 @@ public class MenuManager : Singleton<MenuManager>
             m_menuOpen = false;
             m_magnetLogo.SetActive(true);
             m_Joystick.transform.position = m_baseJoystickPosition;
+
+            if(m_Player_Animator != null)
+            {
+                m_Player_Animator.isTabletteOpen = false;
+
+                Debug.Log("Tab In");
+            }
+
         }
         else
         {
@@ -92,6 +102,13 @@ public class MenuManager : Singleton<MenuManager>
             m_menuOpen = true;
             m_magnetLogo.SetActive(false);
             m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
+
+            if (m_Player_Animator != null)
+            {
+                m_Player_Animator.isTabletteOpen = true;
+                Debug.Log("tab out");
+               
+            }
         }
 
         GameManager.Instance.m_navmesh.ResetPath();

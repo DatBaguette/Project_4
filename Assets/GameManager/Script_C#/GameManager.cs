@@ -118,7 +118,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        
 
         m_nbRessourcesSinceLastCheckpoint = 0;
 
@@ -264,19 +263,42 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// If the player die
     /// </summary>
+    /// 
     public void playerDeath()
     {
         m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
 
-        if ( m_actualStoryStep == StoryStep.LevelOne)
+        if (m_actualStoryStep == StoryStep.LevelOne)
             KillAllRobot();
 
         SaveData();
 
         SceneManager.LoadScene(m_saveData.m_actualSceneID);
-        
-
     }
+
+    //public void playerDeath()
+    //{
+
+    //    StartCoroutine(RechargerLeNiveau(1f));
+    //}
+
+    //private IEnumerator RechargerLeNiveau(float WaitTime)
+    //{
+
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(WaitTime);
+
+    //        m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
+
+    //        if (m_actualStoryStep == StoryStep.LevelOne)
+    //            KillAllRobot();
+
+    //        SaveData();
+
+    //        SceneManager.LoadScene(m_saveData.m_actualSceneID);
+    //    } 
+    //}
 
     public void SaveData()
     {

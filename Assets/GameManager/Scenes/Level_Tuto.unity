@@ -10928,7 +10928,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_robotCraftSelection.Array.data[2]
       value: 
-      objectReference: {fileID: 1510840571}
+      objectReference: {fileID: 0}
     - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_CraftMenuRobotTypeArea.Array.size
@@ -15370,6 +15370,11 @@ PrefabInstance:
       propertyPath: m_Joystick
       value: 
       objectReference: {fileID: 470376748}
+    - target: {fileID: 6023011473359263971, guid: 83d42bdde083caf419af893bc83c5fba,
+        type: 3}
+      propertyPath: m_boomerangManager
+      value: 
+      objectReference: {fileID: 1691181629}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -16432,12 +16437,6 @@ Transform:
   m_Father: {fileID: 2119960790}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1510840571 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3527580368489021772, guid: 63cc27e58e07fa841aa6eb196ff8598d,
-    type: 3}
-  m_PrefabInstance: {fileID: 470376746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1519599565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17981,6 +17980,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1465258184541815794, guid: 50ac51b199ad5fa46b43290e4523008e,
     type: 3}
   m_PrefabInstance: {fileID: 1669225763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1691181629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1530042240524683899, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1431791728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1701628858
 PrefabInstance:

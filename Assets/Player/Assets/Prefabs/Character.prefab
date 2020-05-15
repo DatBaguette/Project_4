@@ -5485,6 +5485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846b7c369ad95e1499b6bbcdd3f4ead5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_boomerangManager: {fileID: 0}
+  m_Joystick: {fileID: 0}
 --- !u!114 &8462526245517775333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5498,7 +5500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator_Billy: {fileID: 2427867229388366889}
-  CurrentBillyAnimStep: 2
 --- !u!195 &6023011473359263968
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5984,10 +5985,15 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2feb62a54c12ef14ea6e8102d7e0c436, type: 2}
+    - target: {fileID: -6057140222963153312, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
         type: 3}
@@ -5997,7 +6003,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
         type: 3}
@@ -6044,6 +6050,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Billy_Animations_Scale
       objectReference: {fileID: 0}
+    - target: {fileID: 1651062367082650294, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68e31baaa1f747846894b04704ba5bd6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c25e2a3db623d9f4994ff7cbda7b0c8b, type: 3}
 --- !u!4 &5709306074282445139 stripped
