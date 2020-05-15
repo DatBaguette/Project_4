@@ -9,6 +9,6 @@ public class CheckPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<ClickToMoveEntity>() )
-            GameManager.Instance.m_actualCheckPointNumber = m_thisCheckPointNumber;
+            GameManager.Instance.ActualCheckPointNumber = m_thisCheckPointNumber;
     }
 }

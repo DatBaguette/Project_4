@@ -26,7 +26,8 @@ public class ClickToMoveEntity : MonoBehaviour
     {
 
         // Move the player
-        if (Imput_Manager.Instance.GetInput() == true && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
+        if (Imput_Manager.Instance.GetInput() == true && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player
+            && !MenuManager.Instance.m_menuOpen)
         {
 
             if (EventSystem.current.IsPointerOverGameObject())
@@ -40,7 +41,6 @@ public class ClickToMoveEntity : MonoBehaviour
             {
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
                 //animationcontroleur.Instance.BillyRun();
-                Debug.Log("nik zeubi;");
             }
                 
         }

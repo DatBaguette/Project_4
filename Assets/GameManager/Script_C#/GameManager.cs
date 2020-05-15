@@ -78,6 +78,19 @@ public class GameManager : Singleton<GameManager>
     /// ID of the actual checkpoint
     /// </summary>
     public int m_actualCheckPointNumber = 0;
+    public int ActualCheckPointNumber
+    {
+        get
+        {
+            return m_actualCheckPointNumber;
+        }
+        set
+        {
+            m_nbRessourcesSinceLastCheckpoint = 0;
+
+            m_actualCheckPointNumber = value;
+        }
+    }
 
     /// <summary>
     /// GameObject of the actual CheckPoint
@@ -103,7 +116,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        m_nbRessourcesSinceLastCheckpoint = 0;
 
         m_initDone = true;
 
@@ -126,7 +138,7 @@ public class GameManager : Singleton<GameManager>
 
     public void InitialiseSaveData()
     {
-        m_actualCheckPointNumber = m_saveData.m_checkPointNumberS;
+        ActualCheckPointNumber = m_saveData.m_checkPointNumberS;
         m_actualStoryStep = m_saveData.m_actualStoryStepS;
         m_actualRessources.Value = m_saveData.m_actualRessourcesS;
         m_robotCore = m_saveData.m_robotCoreS;
@@ -139,7 +151,7 @@ public class GameManager : Singleton<GameManager>
 
         m_player.GetComponent<NavMeshAgent>().enabled = false;
 
-        m_player.transform.position = m_actualCheckPointObject[m_actualCheckPointNumber].transform.position;
+        m_player.transform.position = m_actualCheckPointObject[ActualCheckPointNumber].transform.position;
 
         m_player.GetComponent<NavMeshAgent>().enabled = true;
 
@@ -262,7 +274,7 @@ public class GameManager : Singleton<GameManager>
 
     public void SaveData()
     {
-        m_saveData.m_checkPointNumberS = m_actualCheckPointNumber;
+        m_saveData.m_checkPointNumberS = ActualCheckPointNumber;
         m_saveData.m_actualStoryStepS = m_actualStoryStep;
         m_saveData.m_actualRessourcesS = m_actualRessources.Value;
         m_saveData.m_robotCoreS = m_robotCore;

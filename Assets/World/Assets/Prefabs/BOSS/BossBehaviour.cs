@@ -173,6 +173,12 @@ public class BossBehaviour : MonoBehaviour, IFireReact
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if ( other.GetComponent<ClickToMoveEntity>())
+            GameManager.Instance.playerDeath();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "MovableObject")
@@ -185,11 +191,6 @@ public class BossBehaviour : MonoBehaviour, IFireReact
             CanBeHit = true;
 
 
-        }
-
-        if ( collision.gameObject.GetComponent<ClickToMoveEntity>())
-        {
-            GameManager.Instance.playerDeath();
         }
     }
 

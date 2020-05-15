@@ -4336,6 +4336,11 @@ PrefabInstance:
       propertyPath: m_Boomerang
       value: 
       objectReference: {fileID: 613796733}
+    - target: {fileID: 4821453511514453138, guid: 83d42bdde083caf419af893bc83c5fba,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 613796731}
     - target: {fileID: 5260462464898416039, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -16168,9 +16173,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2113331223}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2113331238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3527580368489021772, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2113331223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2113331239 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4032518419984174296, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2113331223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2113331240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1070218665702480483, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2113331223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2113331241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8492831328483524458, guid: 63cc27e58e07fa841aa6eb196ff8598d,
     type: 3}
   m_PrefabInstance: {fileID: 2113331223}
   m_PrefabAsset: {fileID: 0}
@@ -16760,6 +16783,10 @@ MonoBehaviour:
   price: 010000000200000002000000040000000300000005000000
   CanYouCraft: 1
   NextNodeToCreatARobot: {fileID: 0}
+  m_robotCraftSelection:
+  - {fileID: 2113331241}
+  - {fileID: 2113331240}
+  - {fileID: 2113331238}
 --- !u!1 &5468893607650657562
 GameObject:
   m_ObjectHideFlags: 0

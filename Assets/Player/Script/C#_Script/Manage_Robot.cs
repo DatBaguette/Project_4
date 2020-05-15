@@ -70,16 +70,32 @@ public class Manage_Robot : Singleton<Manage_Robot>
     public Transform NextNodeToCreatARobot;
     private RobotCraftHelper CraftHelper;
 
+    [SerializeField] List<GameObject> m_robotCraftSelection;
+
     private void Start()
     {
         CraftHelper = m_player.GetComponentInChildren<RobotCraftHelper>();
 
         m_joystickScript = m_joystick.GetComponent<VirtualJoystick>();
 
+        for (int i = 0; i < m_robotCraftSelection.Count; i++)
+        {
+            m_robotCraftSelection[i].SetActive(false);
+        }
+
     }
     public void ChooseRobot(int robotType)
     {
         m_actualCraftRobot = robotType;
+
+        for ( int i=0; i<m_robotCraftSelection.Count; i++)
+        {
+
+            if ( i == robotType )
+                m_robotCraftSelection[i].SetActive(true);
+            else
+                m_robotCraftSelection[i].SetActive(false);
+        }
     }
 
     public void CreateRobot()

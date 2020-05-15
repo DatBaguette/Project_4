@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3936,7 +3936,7 @@ PrefabInstance:
     - target: {fileID: 5920141494085907079, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -76.00012
+      value: -76
       objectReference: {fileID: 0}
     - target: {fileID: 6204442292521676003, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
@@ -4273,7 +4273,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReturnToMainMenu
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1252329265296213075, guid: 63cc27e58e07fa841aa6eb196ff8598d, type: 3}
+    - {fileID: 583871140122068812, guid: 63cc27e58e07fa841aa6eb196ff8598d, type: 3}
+    - {fileID: 5470084814043412989, guid: 63cc27e58e07fa841aa6eb196ff8598d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 63cc27e58e07fa841aa6eb196ff8598d, type: 3}
 --- !u!114 &470376747 stripped
 MonoBehaviour:
@@ -4347,6 +4350,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &470376756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1070218665702480483, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 470376746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &470376757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8492831328483524458, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 470376746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470376761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4032518419984174296, guid: 63cc27e58e07fa841aa6eb196ff8598d,
@@ -10736,6 +10751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
+      propertyPath: m_robotCraftSelection.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
       propertyPath: m_robotUIContainer
       value: 
       objectReference: {fileID: 470376749}
@@ -10894,6 +10914,21 @@ PrefabInstance:
       propertyPath: m_joystick
       value: 
       objectReference: {fileID: 275242725}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_robotCraftSelection.Array.data[0]
+      value: 
+      objectReference: {fileID: 470376757}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_robotCraftSelection.Array.data[1]
+      value: 
+      objectReference: {fileID: 470376756}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_robotCraftSelection.Array.data[2]
+      value: 
+      objectReference: {fileID: 1510840571}
     - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_CraftMenuRobotTypeArea.Array.size
@@ -15230,6 +15265,11 @@ PrefabInstance:
       propertyPath: m_Boomerang
       value: 
       objectReference: {fileID: 1125955769}
+    - target: {fileID: 4821453511514453138, guid: 83d42bdde083caf419af893bc83c5fba,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1431791729}
     - target: {fileID: 5260462464898416039, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -16392,6 +16432,12 @@ Transform:
   m_Father: {fileID: 2119960790}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510840571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3527580368489021772, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 470376746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1519599565
 PrefabInstance:
   m_ObjectHideFlags: 0
