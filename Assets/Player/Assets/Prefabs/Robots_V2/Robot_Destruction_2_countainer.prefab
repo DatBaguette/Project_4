@@ -55,6 +55,9 @@ MonoBehaviour:
   m_flameCollisonTracker: {fileID: 6776756606676402196}
   m_smoke: {fileID: 0}
   m_robotMovementScript: {fileID: 0}
+  m_robotDestructeurActivationHelper:
+  - {fileID: 5774336723297696097}
+  - {fileID: 1087060018796775387}
 --- !u!114 &3832238158848990896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +375,18 @@ GameObject:
 --- !u!4 &9170472817257717815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 851057910904142537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1087060018796775387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 349473152131366162, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 851057910904142537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5774336723297696097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623950690737505192, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
     type: 3}
   m_PrefabInstance: {fileID: 851057910904142537}
   m_PrefabAsset: {fileID: 0}

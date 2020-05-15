@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6669,6 +6669,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4658714830564786658, guid: 8c4370c47f9e9364e97d42db0d1bbb99,
     type: 3}
   m_PrefabInstance: {fileID: 936365825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &948568910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1574065291240453396, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 902244955}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &959469578
 PrefabInstance:
@@ -13975,17 +13981,17 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4643216
+      value: -0.46432158
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007282618
+      value: -0.00000068951704
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013747579
+      value: 0.0000013544454
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -14085,17 +14091,17 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4643216
+      value: -0.46432158
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007282618
+      value: -0.00000068951704
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013747579
+      value: 0.0000013544454
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -16639,8 +16645,8 @@ MonoBehaviour:
   m_craftMenu: {fileID: 902244970}
   m_openCraftLogo: {fileID: 902244967}
   m_magnetLogo: {fileID: 498528669}
-  m_selectRobotUi: {fileID: 0}
-  m_ressourcesUi: {fileID: 0}
+  m_selectRobotUi: {fileID: 902244958}
+  m_ressourcesUi: {fileID: 948568910}
   m_menuOpen: 0
   m_Joystick: {fileID: 902244956}
   m_menuAnimator: {fileID: 902244981}
