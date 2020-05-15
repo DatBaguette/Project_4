@@ -31,7 +31,7 @@ public class LerpFlowBoss : MonoBehaviour
 
             Vector3 vt3_Temp = new Vector3(this.transform.position.x - Parent.transform.position.x, 0f, this.transform.position.z - Parent.transform.position.z).normalized;
 
-            this.transform.position = Parent.transform.position + (vt3_Temp * 10f);
+            this.transform.position = Parent.transform.position + (vt3_Temp * 3f);
 
 
         }

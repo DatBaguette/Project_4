@@ -39,7 +39,7 @@ public class ClickToMoveEntity : MonoBehaviour
             if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity, 5))
             {
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
-                animationcontroleur.Instance.BillyRun();
+                //animationcontroleur.Instance.BillyRun();
                 Debug.Log("nik zeubi;");
             }
                 
