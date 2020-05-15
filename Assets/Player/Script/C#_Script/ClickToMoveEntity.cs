@@ -18,8 +18,10 @@ public class ClickToMoveEntity : MonoBehaviour
 
     void Start()
     {
+
         m_navMeshAgent = GetComponent<NavMeshAgent>();
         
+
     }
 
     private void Update()
@@ -38,14 +40,18 @@ public class ClickToMoveEntity : MonoBehaviour
 
             if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity, 5))
             {
+                //Debug.Log(GameManager.Instance.RetrievePosition());
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
-                //animationcontroleur.Instance.BillyRun();
-                Debug.Log("nik zeubi;");
+                
+                
+                
+               // Debug.Log("nik zeubi;");
             }
                 
         }
 
-        if (Input.GetKeyDown("k")){
+        if (Input.GetKeyDown("k"))
+        {
             GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
         }
     }

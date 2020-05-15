@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 5045712228282857311, guid: 9b68243ee26a1124aaa82692fc8af7eb,
+  m_Motion: {fileID: 8811488134576623684, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -45,9 +45,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.2619214
   m_TransitionOffset: 0
-  m_ExitTime: 0.8611111
+  m_ExitTime: 0.85448813
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -110,7 +110,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New State
+  m_Name: IdleTab
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -124,7 +124,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 244228356678678942, guid: 9b68243ee26a1124aaa82692fc8af7eb, type: 3}
+  m_Motion: {fileID: 4973607609525032367, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -153,7 +154,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8072000526911472608, guid: 9b68243ee26a1124aaa82692fc8af7eb,
+  m_Motion: {fileID: -8072000526911472608, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -196,27 +197,27 @@ AnimatorStateMachine:
     m_Position: {x: 260, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6136835015603959679}
-    m_Position: {x: 170, y: 210, z: 0}
+    m_Position: {x: 200, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6389690568030081711}
-    m_Position: {x: 370, y: 270, z: 0}
+    m_Position: {x: 390, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8816178786124514286}
-    m_Position: {x: 600, y: 130, z: 0}
+    m_Position: {x: 480, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3072396034820754278}
-    m_Position: {x: 600, y: -30, z: 0}
+    m_Position: {x: 480, y: -80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4598462225986082066}
-    m_Position: {x: 600, y: 50, z: 0}
+    m_Position: {x: 480, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 20, y: 320, z: 0}
+  m_AnyStatePosition: {x: 130, y: -50, z: 0}
+  m_EntryPosition: {x: 130, y: 100, z: 0}
+  m_ExitPosition: {x: 130, y: 240, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -3670640998439524000}
 --- !u!91 &9100000
@@ -235,6 +236,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Is_Running
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Is_Tab_out
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -321,7 +328,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1017026519634860743, guid: 9b68243ee26a1124aaa82692fc8af7eb,
+  m_Motion: {fileID: 9059845454850295039, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -349,7 +356,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 244228356678678942, guid: 9b68243ee26a1124aaa82692fc8af7eb, type: 3}
+  m_Motion: {fileID: 244228356678678942, guid: c25e2a3db623d9f4994ff7cbda7b0c8b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -376,7 +383,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1705379643436003721, guid: 9b68243ee26a1124aaa82692fc8af7eb,
+  m_Motion: {fileID: 1705379643436003721, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -390,7 +397,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: Is_Tab_out
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3072396034820754278}
   m_Solo: 0
@@ -412,7 +422,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Is_Tab_out
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8816178786124514286}
   m_Solo: 0

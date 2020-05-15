@@ -101,8 +101,12 @@ public class GameManager : Singleton<GameManager>
 
     public int m_nbRessourcesSinceLastCheckpoint;
 
+    
+
     private void Start()
     {
+        
+
         m_nbRessourcesSinceLastCheckpoint = 0;
 
         m_initDone = true;
@@ -183,10 +187,11 @@ public class GameManager : Singleton<GameManager>
 
         if (Physics.Raycast(ray, out hit, 100, currentLayer))
         {
-
             return (hit.point);
         }
 
+
+        
         return (hit.point);
 
     }
