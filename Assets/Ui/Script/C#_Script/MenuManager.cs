@@ -103,6 +103,8 @@ public class MenuManager : Singleton<MenuManager>
             m_parameterMenu.SetActive(false);
         else
             m_parameterMenu.SetActive(true);
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
     private void Update()
