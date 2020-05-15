@@ -133,6 +133,8 @@ public class GameManager : Singleton<GameManager>
         {
             InitialiseSaveData();
             m_initDone = false;
+
+            SoundManager.Instance.m_music[m_saveData.m_actualSceneID].Play();
         }
     }
 
