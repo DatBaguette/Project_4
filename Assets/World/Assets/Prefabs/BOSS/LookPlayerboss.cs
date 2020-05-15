@@ -26,7 +26,7 @@ public class LookPlayerboss : MonoBehaviour
     void Update()
     {
 
-        m_target_position.Value = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 10f);
+        m_target_position.Value = Vector3.MoveTowards(Parent.transform.position, Target.transform.position, 3f);
         //m_target_position.y;
         
         Vector3 dir = m_target_position.Value;

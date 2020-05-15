@@ -8,8 +8,6 @@ public class ContainerBoss : MonoBehaviour
     [SerializeField]
     private GameObject m_player;
 
- 
-
     public void Mouvement(float speed)
     {
 
