@@ -12,8 +12,18 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource m_failSound;
     public AudioSource m_succeedSound;
 
+    public List<AudioSource> m_music;
+
     public Slider m_musicSlider;
     public Slider m_soundEffectSlider;
+
+    [SerializeField] SavedCheckPoint m_saveData;
+
+    public void Start()
+    {
+        if (m_saveData.m_actualSceneID == 0 || m_saveData.m_actualSceneID == 5)
+            m_music[m_saveData.m_actualSceneID].Play();
+    }
 
     public void changeMusicVolume()
     {
@@ -24,11 +34,17 @@ public class SoundManager : Singleton<SoundManager>
 
         if (GameManager.Instance.m_musicOn)
         {
-            // music volume .1f
+            for ( int i = 0; i<m_music.Count; i++)
+            {
+                m_music[i].volume = .1f;
+            }
         }
         else
         {
-            // music volume 0
+            for (int i = 0; i < m_music.Count; i++)
+            {
+                m_music[i].volume = 0;
+            }
         }
     }
 

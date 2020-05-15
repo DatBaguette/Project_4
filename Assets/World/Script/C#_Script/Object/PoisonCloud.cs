@@ -23,8 +23,7 @@ public class PoisonCloud : MonoBehaviour
             else //Kill the robot and return to the main character
             {
                 GameManager.Instance.KillAllRobot();
-
-                //GameManager.Instance.KillOneRobot(other.gameObject.GetComponent<RobotMovement>().m_thisEntityNumber - 1);
+                
             }
         }
     }

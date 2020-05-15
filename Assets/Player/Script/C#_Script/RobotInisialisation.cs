@@ -36,6 +36,8 @@ public class RobotInisialisation : MonoBehaviour
 
     [SerializeField] RobotMovement m_robotMovementScript;
 
+    [SerializeField] List<GameObject> m_robotDestructeurActivationHelper;
+
     private Rigidbody m_rb;
     
     /// <summary>
@@ -45,6 +47,7 @@ public class RobotInisialisation : MonoBehaviour
 
     private void Start()
     {
+
         m_rb = gameObject.GetComponent<Rigidbody>();
 
         controller = GetComponent<Rigidbody>();
@@ -67,6 +70,17 @@ public class RobotInisialisation : MonoBehaviour
                 break;
 
             case Robot_Type.Destruction:
+
+                for ( int i=0; i<m_robotDestructeurActivationHelper.Count; i++)
+                {
+                    m_robotDestructeurActivationHelper[i].SetActive(false);
+                }
+
+#if UNITY_ANDROID
+                m_robotDestructeurActivationHelper[0].SetActive(true);
+#else
+                m_robotDestructeurActivationHelper[1].SetActive(true);
+#endif
 
                 gameObject.transform.position += new Vector3(0, 3, 0);
 
