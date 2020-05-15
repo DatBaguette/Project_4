@@ -1,41 +1,50 @@
 fileFormatVersion: 2
-guid: c25e2a3db623d9f4994ff7cbda7b0c8b
+guid: 9b68243ee26a1124aaa82692fc8af7eb
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Marche
+    second: Tpose
   - first:
-      74: 5522812681064789136
-    second: Run
+      74: 244228356678678942
+    second: Idle_Tablette_Billy
   - first:
-      74: -3100369314251171874
-    second: Idle
+      74: 1705379643436003721
+    second: Run_Billy
   - first:
-      74: -5792731101569260209
-    second: TakeTablette
+      74: -8072000526911472608
+    second: Idle_Billy
+  - first:
+      74: 5045712228282857311
+    second: Take_Tablette_Billy
+  - first:
+      74: -5228817810385705658
+    second: Death_Billy
+  - first:
+      74: 9007889319920599004
+    second: Fear1_Billy
+  - first:
+      74: 1025276190857448953
+    second: Fear_End1_Billy
+  - first:
+      74: -700190671362478994
+    second: Fear2_Billy
+  - first:
+      74: 1938922765736172205
+    second: Fera_End2_Billy
+  - first:
+      74: -8913797699793370223
+    second: Push_Billy
   - first:
       74: -2579911071784703512
     second: StoreTablette
   - first:
-      74: 4348485665485846014
-    second: Death
+      74: -1017026519634860743
+    second: Store_Tablette_Billy
   - first:
-      74: -4929341431322053651
-    second: Fear1
-  - first:
-      74: -3377931219424155108
-    second: Fear2
-  - first:
-      74: -1250308563666316836
-    second: Push
-  - first:
-      74: 2479382825872298421
-    second: FearEnd1
-  - first:
-      74: 4785673328545673514
-    second: FearEnd2
+      74: 1240264273876905154
+    second: Walk_Billy
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -65,11 +74,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Marche
+      name: Tpose
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,11 +103,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
+      name: Idle_Tablette_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 40
-      lastFrame: 59
+      firstFrame: 146
+      lastFrame: 151
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run_Billy
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 41
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -123,10 +161,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Idle_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 65
+      firstFrame: 66
       lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
@@ -134,7 +172,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -152,11 +190,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TakeTablette
+      name: Take_Tablette_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 125
-      lastFrame: 145
+      firstFrame: 126
+      lastFrame: 146
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,40 +219,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StoreTablette
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 150
-      lastFrame: 170
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Death
+      name: Death_Billy
       takeName: Take 001
       internalID: 0
       firstFrame: 180
-      lastFrame: 215
+      lastFrame: 216
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -239,11 +248,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fear1
+      name: Fear1_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 220
-      lastFrame: 232
+      firstFrame: 221
+      lastFrame: 231
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -268,11 +277,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fear2
+      name: Fear_End1_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 250
-      lastFrame: 260
+      firstFrame: 236
+      lastFrame: 246
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -297,11 +306,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Push
+      name: Fear2_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 280
-      lastFrame: 410
+      firstFrame: 251
+      lastFrame: 261
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -326,11 +335,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: FearEnd1
+      name: Fera_End2_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 235
-      lastFrame: 240
+      firstFrame: 251
+      lastFrame: 261
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -355,11 +364,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: FearEnd2
+      name: Push_Billy
       takeName: Take 001
       internalID: 0
-      firstFrame: 265
-      lastFrame: 275
+      firstFrame: 275
+      lastFrame: 411
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -367,6 +376,64 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Store_Tablette_Billy
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 151
+      lastFrame: 171
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk_Billy
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 2
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -433,7 +500,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Body
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -441,7 +508,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
