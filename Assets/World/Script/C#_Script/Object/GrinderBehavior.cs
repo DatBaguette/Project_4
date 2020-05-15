@@ -38,7 +38,7 @@ public class GrinderBehavior : MonoBehaviour
         m_canGrind = true;
 
         m_numberOfGrind -= 1;
-        m_objectToGrind.transform.position -= new Vector3(0, 4, 0);
+        m_objectToGrind.transform.position -= new Vector3(0, 5, 0);
 
         if ( m_numberOfGrind == 0)
         {

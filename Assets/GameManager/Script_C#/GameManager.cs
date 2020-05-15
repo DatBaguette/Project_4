@@ -341,11 +341,11 @@ public class GameManager : Singleton<GameManager>
 
         RobotInisialisation m_robotScript = m_robots[i].GetComponent<RobotInisialisation>();
 
-        switch (Manage_Robot.Instance.m_actualCraftRobot)
+        switch (m_robotScript.m_robotType)
         {
-            case 0:
+            case Robot_Type.Flying:
 
-                switch (CraftManager.Instance.m_choosenSize)
+                switch (m_robotScript.m_size)
                 {
                     case 1: m_actualRessources.Value += m_manageRobotScript.price[0]; break;
 
@@ -354,7 +354,7 @@ public class GameManager : Singleton<GameManager>
 
                 break;
 
-            case 1:
+            case Robot_Type.Platforme:
 
                 switch (CraftManager.Instance.m_choosenSize)
                 {
@@ -365,7 +365,7 @@ public class GameManager : Singleton<GameManager>
 
                 break;
 
-            case 2:
+            case Robot_Type.Destruction:
 
                 switch (CraftManager.Instance.m_choosenSize)
                 {
