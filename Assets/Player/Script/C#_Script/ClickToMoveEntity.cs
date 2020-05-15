@@ -16,19 +16,38 @@ public class ClickToMoveEntity : MonoBehaviour
     
     private NavMeshAgent m_navMeshAgent;
 
+    [SerializeField] GameObject m_boomerangManager;
+    [SerializeField] GameObject m_Joystick;
+
+    /// <summary>
+    /// Allow to reset the joystick position
+    /// </summary>
+    private Vector3 m_baseJoystickPosition;
+
     void Start()
     {
-
         m_navMeshAgent = GetComponent<NavMeshAgent>();
-        
 
+        m_baseJoystickPosition = m_Joystick.transform.position;
     }
 
     private void Update()
     {
+        // desactivate the interface if the player dont control the character
+        if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player 
+            && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang )
+        {
+            m_boomerangManager.SetActive(false);
+            m_Joystick.transform.position = m_baseJoystickPosition;
+        }
+        else
+        {
+            m_boomerangManager.SetActive(true);
+            m_Joystick.transform.position = m_baseJoystickPosition - new Vector3(1000, 0, 0);
+        }
 
         // Move the player
-        if (Imput_Manager.Instance.GetInput() == true && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
+        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
         {
 
             if (EventSystem.current.IsPointerOverGameObject())
@@ -39,19 +58,20 @@ public class ClickToMoveEntity : MonoBehaviour
             RaycastHit hitInfo;
 
             if ( Physics.Raycast( ray, out hitInfo, Mathf.Infinity, 5))
-            {
-                //Debug.Log(GameManager.Instance.RetrievePosition());
                 m_navMeshAgent.destination = GameManager.Instance.RetrievePosition();
-                
-                
-                
-               // Debug.Log("nik zeubi;");
-            }
-                
         }
 
-        if (Input.GetKeyDown("k"))
+        if (Input.touchCount > 0)
         {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+
+            }
+        }
+
+        if (Input.GetKeyDown("k")){
+            Debug.Log("oui");
             GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
         }
     }

@@ -21,5 +21,13 @@ public class FlameThrower : MonoBehaviour
             fireReact.OnFire();
 
         }
+
+        if (other.GetComponent<BossBehaviour>())
+        {
+            IFireReact fireReact = other.GetComponent<BossBehaviour>();
+
+            fireReact.OnFire();
+
+        }
     }
 }
