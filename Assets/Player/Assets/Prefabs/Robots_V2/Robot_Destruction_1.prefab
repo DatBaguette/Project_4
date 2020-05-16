@@ -402,9 +402,11 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 0}
   transform_LookAt: {fileID: 0}
-  m_dir: {x: 0, y: 0, z: 0}
+  m_Robot_Anim: {fileID: 0}
+  Is_this_atk: 0
 --- !u!135 &1914948774798535040
 SphereCollider:
   m_ObjectHideFlags: 0
