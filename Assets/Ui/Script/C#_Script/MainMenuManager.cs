@@ -20,6 +20,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenBrowserForFeedbacks()
     {
-        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSeACeRAw54Zd0whN3faM3H6IcdtmiYor_04sxPtPw867ZVm3A/viewform?usp=sf_link");
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSfExEdubQvAVt_tSGWCivZEKC8owTmXVLdGz6VoBYyUstQggQ/viewform?usp=sf_link");
     }
 }
