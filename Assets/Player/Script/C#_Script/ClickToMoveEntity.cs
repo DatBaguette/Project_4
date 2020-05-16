@@ -35,7 +35,8 @@ public class ClickToMoveEntity : MonoBehaviour
     {
         // desactivate the interface if the player dont control the character
         if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player 
-            && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang )
+            && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang
+            && !MenuManager.Instance.m_parameterMenu.activeSelf)
         {
             m_boomerangManager.SetActive(false);
             m_Joystick.transform.position = m_baseJoystickPosition;

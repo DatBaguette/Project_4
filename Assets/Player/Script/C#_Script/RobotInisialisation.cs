@@ -129,6 +129,12 @@ public class RobotInisialisation : MonoBehaviour
 
                 }
 
+                if ( Input.touchCount == 1 || Input.GetKeyUp(KeyCode.T))
+                {
+                    m_fire.Stop();
+                    m_flameCollisonTracker.SetActive(false);
+                }
+
                 break;
         }
     }

@@ -45,7 +45,7 @@ public class MenuManager : Singleton<MenuManager>
 
     [SerializeField] List<GameObject> m_lockers;
 
-    [SerializeField] GameObject m_parameterMenu;
+    public GameObject m_parameterMenu;
 
     /// <summary>
     /// Allow to reset the joystick position

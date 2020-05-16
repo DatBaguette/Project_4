@@ -75,6 +75,8 @@ public class CraftManager : Singleton<CraftManager>
 
                 break;
         }
+
+        GameManager.Instance.m_navmesh.ResetPath();
     }
 
 
