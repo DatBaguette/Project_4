@@ -21,17 +21,18 @@ public class RobotMovement : MonoBehaviour
     private float m_movementSpeed;
 
     public int m_thisEntityNumber;
+    
+    [HideInInspector] public Vector3 m_dir;
 
     [SerializeField]
     private Transform m_transform_to_rotate;
     [SerializeField]
     private Transform transform_LookAt;
 
-    private float f_ImpulseX;
-    private float f_ImpulseZ;
-
-    [HideInInspector] public Vector3 m_dir;
-
+    [SerializeField] private Animator m_Robot_Anim;
+    private bool Is_this_Walking = false;
+    [HideInInspector] public bool Is_this_atk = false;
+    
     void Start()
     {
         controller = GetComponent<Rigidbody>();
@@ -44,23 +45,35 @@ public class RobotMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (m_moveJoystickScript != null)
+        {
             Robot_Mouvement();
+        }
+        else
+        {
+            Is_this_Walking = false;
+        }
+            
        
     }
-
 
     private void Robot_Rotation()
     {
         m_transform_to_rotate.LookAt(transform_LookAt);
     }
 
+    private void Update()
+    {
+        if (m_Robot_Anim != null)
+        {
+            m_Robot_Anim.SetBool("Is_Walking", Is_this_Walking);
+            m_Robot_Anim.SetBool("Is_Fire", Is_this_atk);
+        }
+    }
 
     private void Robot_Mouvement()
     {
-
         m_dir = Vector3.zero;
         Vector3 dir_rot = Vector3.zero;
-
 
         // if the joystick position isn't null, it give a direciton to the player
         if (m_moveJoystickScript.m_InputDirection != Vector3.zero)
@@ -81,11 +94,19 @@ public class RobotMovement : MonoBehaviour
             {
                 controller.AddForce(m_dir * m_movementSpeed, ForceMode.Impulse);
                 Robot_Rotation();
+                if (m_Robot_Anim != null)
+                {
+                    Is_this_Walking = true;
+                }
             }
             else
             {
                 transform.Translate(m_dir * m_movementSpeed);
                 Robot_Rotation();
+                if (m_Robot_Anim != null)
+                {
+                    Is_this_Walking = true;
+                }
             }
                 
         }

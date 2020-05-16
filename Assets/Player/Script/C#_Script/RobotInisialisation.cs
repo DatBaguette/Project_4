@@ -122,6 +122,7 @@ public class RobotInisialisation : MonoBehaviour
                 if ( ( Input.touchCount == 2 || Input.GetKeyDown(KeyCode.T) ) && 
                     GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
                 {
+                    m_robotMovementScript.Is_this_atk = true;
                     m_fire.Play();
                     m_flameCollisonTracker.SetActive(true);
 
@@ -139,5 +140,6 @@ public class RobotInisialisation : MonoBehaviour
 
         m_fire.Stop();
         m_flameCollisonTracker.SetActive(false);
+        m_robotMovementScript.Is_this_atk = false;
     }
 }

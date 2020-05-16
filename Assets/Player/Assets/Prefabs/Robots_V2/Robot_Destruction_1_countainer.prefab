@@ -73,9 +73,11 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 7438703634760457179}
   transform_LookAt: {fileID: 3341732966947699454}
-  m_dir: {x: 0, y: 0, z: 0}
+  m_Robot_Anim: {fileID: 8760488210168291534}
+  Is_this_atk: 0
 --- !u!65 &3985114944318375801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -146,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421353825498947227}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.065, z: 0.72}
+  m_LocalPosition: {x: 0, y: 0.23, z: 0.938}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.48199242}
   m_Children: []
   m_Father: {fileID: 7438703634760457179}
@@ -237,6 +239,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3254207748827606302, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_Name
@@ -325,17 +332,17 @@ PrefabInstance:
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4629307584182602238, guid: 3f357892ba01bed40b291b2e4bf8d0ed, type: 3}
@@ -353,6 +360,12 @@ GameObject:
 --- !u!4 &7438703634760457179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 1418657327555428645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8760488210168291534 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7648120204704506347, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
     type: 3}
   m_PrefabInstance: {fileID: 1418657327555428645}
   m_PrefabAsset: {fileID: 0}
@@ -472,12 +485,12 @@ PrefabInstance:
     - target: {fileID: 5927586345767251812, guid: 9204e8a28dd8aeb4f89ab113ecabcbfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.114999995
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 5927586345767251812, guid: 9204e8a28dd8aeb4f89ab113ecabcbfa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.31
+      value: 0.528
       objectReference: {fileID: 0}
     - target: {fileID: 5927586345767251812, guid: 9204e8a28dd8aeb4f89ab113ecabcbfa,
         type: 3}
