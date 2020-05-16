@@ -72,6 +72,8 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
     [SerializeField] List<GameObject> m_robotCraftSelection;
 
+    [SerializeField] BIlly_Anim_CTRL m_Player_Animator;
+
     private void Start()
     {
         CraftHelper = m_player.GetComponentInChildren<RobotCraftHelper>();
@@ -258,6 +260,7 @@ public class Manage_Robot : Singleton<Manage_Robot>
             chooseRobotScript.m_uiRobotNumber = GameManager.Instance.m_robotNumber;
             chooseRobotScript.m_associateRobot = robot;
             chooseRobotScript.m_player = m_player;
+            chooseRobotScript.m_Player_Animator = m_Player_Animator;
 
             Button robotUiButton = robotUi.gameObject.GetComponent<Button>();
             robotUiButton.onClick.AddListener(chooseRobotScript.SelectRobot);

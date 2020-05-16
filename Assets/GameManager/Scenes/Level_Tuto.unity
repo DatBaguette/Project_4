@@ -4354,6 +4354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &470376754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3527580368489021772, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+    type: 3}
+  m_PrefabInstance: {fileID: 470376746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &470376755 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 85135460455223473, guid: 63cc27e58e07fa841aa6eb196ff8598d,
@@ -10954,7 +10960,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_robotCraftSelection.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 470376754}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_Player_Animator
+      value: 
+      objectReference: {fileID: 1431791732}
     - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_CraftMenuRobotTypeArea.Array.size
@@ -11065,6 +11076,11 @@ PrefabInstance:
       propertyPath: m_ressourcesUi
       value: 
       objectReference: {fileID: 321934441}
+    - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_Player_Animator
+      value: 
+      objectReference: {fileID: 1431791732}
     - target: {fileID: 5516943231938485281, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_joystickHelper
@@ -15434,6 +15450,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1431791728}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1431791732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8462526245517775333, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1431791728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431791729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f973c3f5d2fc41245b4fa99ceb077bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1438602965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5152013002540748632, guid: baad1e2666e682e4791a2e2f4defca65,

@@ -90,9 +90,7 @@ public class MenuManager : Singleton<MenuManager>
 
             if(m_Player_Animator != null)
             {
-                m_Player_Animator.isTabletteOpen = true;
-
-                Debug.Log("Tab In");
+                m_Player_Animator.isTabletteOpen = false;
             }
 
         }
@@ -106,7 +104,6 @@ public class MenuManager : Singleton<MenuManager>
             if (m_Player_Animator != null)
             {
                 m_Player_Animator.isTabletteOpen = true;
-                Debug.Log("tab out");
                
             }
         }
