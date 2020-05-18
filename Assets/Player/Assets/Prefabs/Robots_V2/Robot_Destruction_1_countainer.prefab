@@ -78,7 +78,7 @@ MonoBehaviour:
   m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 7438703634760457179}
   transform_LookAt: {fileID: 3341732966947699454}
-  m_Robot_Anim: {fileID: 8760488210168291534}
+  m_Robot_Anim: {fileID: 0}
   Is_this_atk: 0
 --- !u!65 &3985114944318375801
 BoxCollider:
@@ -236,6 +236,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4907737352441469328}
     m_Modifications:
+    - target: {fileID: 335965740831263889, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.40251487
+      objectReference: {fileID: 0}
+    - target: {fileID: 335965740831263889, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.40251487
+      objectReference: {fileID: 0}
+    - target: {fileID: 335965740831263889, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.40251487
+      objectReference: {fileID: 0}
+    - target: {fileID: 335965740831263889, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000072049
+      objectReference: {fileID: 0}
+    - target: {fileID: 335965740831263889, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.29498
+      objectReference: {fileID: 0}
+    - target: {fileID: 335965740831263889, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.031518
+      objectReference: {fileID: 0}
     - target: {fileID: 1313276238104478241, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_IsActive
@@ -245,6 +275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671224070170754690, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
