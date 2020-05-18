@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1532954626520972880}
   - component: {fileID: 2994768889834979793}
   - component: {fileID: 1428758097211882431}
+  - component: {fileID: 978341488829379714}
   m_Layer: 0
   m_Name: tentacule 1
   m_TagString: Untagged
@@ -79,6 +80,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &978341488829379714
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783603720465812170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.9360001, y: 5.5620003, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.427, y: -5.039, z: -0.014}
+  m_TimeToStationary: 0.5
 --- !u!1 &9222741712278771324
 GameObject:
   m_ObjectHideFlags: 0
