@@ -43,7 +43,7 @@ Transform:
   m_GameObject: {fileID: 7164904517279414552}
   m_LocalRotation: {x: 0, y: 0.000008507889, z: -1.3e-44, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8486439589564041219}
   - {fileID: 5040168303332988693}
@@ -67,9 +67,11 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 8486439589564041219}
   transform_LookAt: {fileID: 6532843452192750759}
-  m_dir: {x: 0, y: 0, z: 0}
+  m_Robot_Anim: {fileID: 0}
+  Is_this_atk: 0
 --- !u!114 &2607870131397633772
 MonoBehaviour:
   m_ObjectHideFlags: 0

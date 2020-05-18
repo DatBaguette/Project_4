@@ -357,6 +357,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillAllRobot()
     {
+
         if ( m_robotNumber > 0)
         {
             for (int i = 0; i < m_robotNumber; i++)
@@ -377,6 +378,8 @@ public class GameManager : Singleton<GameManager>
     {
         MenuManager.Instance.m_magnetLogo.SetActive(true);
         MenuManager.Instance.m_openCraftLogo.SetActive(true);
+
+        MenuManager.Instance.m_ressourcesUi.SetActive(true);
 
         m_camera.Follow = m_player.transform;
         m_camera.LookAt = Instance.m_player.transform;
