@@ -75,9 +75,11 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 9170472817257717815}
   transform_LookAt: {fileID: 3900044254292558098}
-  m_dir: {x: 0, y: 0, z: 0}
+  m_Robot_Anim: {fileID: 0}
+  Is_this_atk: 0
 --- !u!65 &3400918202488388757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,7 +154,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1.6817912}
   m_Children: []
   m_Father: {fileID: 9170472817257717815}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!33 &4243386604679566538
 MeshFilter:
@@ -238,6 +240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254207748827606302, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6017328427754874115, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}

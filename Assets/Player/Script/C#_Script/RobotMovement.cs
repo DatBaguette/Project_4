@@ -33,6 +33,7 @@ public class RobotMovement : MonoBehaviour
     
     private bool Is_this_Walking = false;
     [HideInInspector] public bool Is_this_atk = false;
+
    // [HideInInspector] public bool Is_push = false;
 
     void Start()
