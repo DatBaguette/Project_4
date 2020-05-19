@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 145719032438866979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.87, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7438703634760457179}
   - {fileID: 3547478276384936268}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_fire: {fileID: 5144595888816030629}
   m_flameCollisonTracker: {fileID: 2421353825498947227}
   m_smoke: {fileID: 0}
-  m_robotMovementScript: {fileID: 0}
+  m_robotMovementScript: {fileID: 3265494244116948316}
   m_robotDestructeurActivationHelper:
   - {fileID: 5214347430223315597}
   - {fileID: 1687027592640674871}
@@ -150,8 +150,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421353825498947227}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.23, z: 0.938}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.48199242}
+  m_LocalPosition: {x: 0, y: 0.23, z: 1.22}
+  m_LocalScale: {x: 0.92055, y: 1.053759, z: 0.81882226}
   m_Children: []
   m_Father: {fileID: 7438703634760457179}
   m_RootOrder: 2
@@ -314,7 +314,7 @@ PrefabInstance:
     - target: {fileID: 6833271087869831202, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8397947601969715966, guid: 3f357892ba01bed40b291b2e4bf8d0ed,
         type: 3}
@@ -544,12 +544,12 @@ PrefabInstance:
     - target: {fileID: 5927586345767251812, guid: 9204e8a28dd8aeb4f89ab113ecabcbfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.23
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 5927586345767251812, guid: 9204e8a28dd8aeb4f89ab113ecabcbfa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.528
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 5927586345767251812, guid: 9204e8a28dd8aeb4f89ab113ecabcbfa,
         type: 3}

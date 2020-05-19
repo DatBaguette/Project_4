@@ -47,7 +47,6 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
         m_Animator_Billy.SetBool("Is_Tab_out", isTabletteOpen);
 
-
         
         m_Animator_Billy.SetBool("Is_Dead", isDead);
     }

@@ -14,13 +14,12 @@ public class RessourcesBehavior : MonoBehaviour
     /// <summary>
     /// the ressource will move if it is harvested
     /// </summary>
-    [HideInInspector] private bool m_harvested;
+    [HideInInspector] public bool m_harvested;
 
     [Tooltip("Time to reach the player")]
     [SerializeField] float m_speed = 2f;
 
     [Tooltip("Main character gameObject")]
-    [SerializeField] GameObject m_player;
     private Vector3 m_targetPosition;
 
     [Tooltip("Amount of ressources that will give the object")]
@@ -29,7 +28,8 @@ public class RessourcesBehavior : MonoBehaviour
     private void Start()
     {
         // Adapt the ressources size of his amount
-        gameObject.transform.localScale *= ( m_ressourcesAmount * 0.5f ) / 10 + 1;
+        if ( m_ressourcesAmount > 0)
+            gameObject.transform.localScale *= ( m_ressourcesAmount * 0.5f ) / 10 + 1;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,7 +64,7 @@ public class RessourcesBehavior : MonoBehaviour
     // Move the ressources to the player
     private void moveRessources()
     {
-        m_targetPosition = m_player.transform.position;
+        m_targetPosition = GameManager.Instance.m_player.transform.position;
         var directionOfTravel = m_targetPosition - gameObject.transform.position;
         transform.Translate(
                 (directionOfTravel.x * m_speed * Time.deltaTime),

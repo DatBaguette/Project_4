@@ -115,7 +115,8 @@ public class GameManager : Singleton<GameManager>
 
     public int m_nbRessourcesSinceLastCheckpoint;
 
-    
+    [SerializeField] GameObject m_ressourcesPrefab;
+
 
     private void Start()
     {
@@ -284,6 +285,8 @@ public class GameManager : Singleton<GameManager>
         m_currentPlayerState = m_PlayerState.Dead;
         m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isDead = true;
         m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isWalkingPressed = false;
+        m_camera.Follow = m_player.transform;
+        m_camera.LookAt = Instance.m_player.transform;
         StartCoroutine(RechargerLeNiveau(2.5f));
     }
 
@@ -357,6 +360,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void KillAllRobot()
     {
+
         if ( m_robotNumber > 0)
         {
             for (int i = 0; i < m_robotNumber; i++)
@@ -377,6 +381,8 @@ public class GameManager : Singleton<GameManager>
     {
         MenuManager.Instance.m_magnetLogo.SetActive(true);
         MenuManager.Instance.m_openCraftLogo.SetActive(true);
+
+        MenuManager.Instance.m_ressourcesUi.SetActive(true);
 
         m_camera.Follow = m_player.transform;
         m_camera.LookAt = Instance.m_player.transform;
@@ -420,6 +426,13 @@ public class GameManager : Singleton<GameManager>
 
                 break;
         }
+        
+        GameObject ressourcesCreate = Instantiate(m_ressourcesPrefab, m_robots[i].transform);
+        ressourcesCreate.transform.SetParent(gameObject.transform);
+        ressourcesCreate.transform.position += new Vector3(0, 2, 0);
+        RessourcesBehavior ressourcesScript = ressourcesCreate.GetComponent<RessourcesBehavior>();
+        ressourcesScript.m_ressourcesAmount = 0;
+        ressourcesScript.m_harvested = true;
 
         Destroy(m_robots[i]);
         Destroy(m_robotsUI[i]);

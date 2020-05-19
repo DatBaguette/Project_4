@@ -39,7 +39,9 @@ public class RobotInisialisation : MonoBehaviour
     [SerializeField] List<GameObject> m_robotDestructeurActivationHelper;
 
     private Rigidbody m_rb;
-    
+
+    private RaycastHit hit;
+
     /// <summary>
     /// Script that allow the robot to move
     /// </summary>
@@ -119,15 +121,28 @@ public class RobotInisialisation : MonoBehaviour
 
             case Robot_Type.Destruction:
 
-                if ( ( Input.touchCount == 2 || Input.GetKeyDown(KeyCode.T) ) && 
-                    GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
+                if ( GameManager.Instance.m_actualSelectedRobotNumber.Value == m_movementScript.m_thisEntityNumber)
                 {
-                    m_robotMovementScript.Is_this_atk = true;
-                    m_fire.Play();
-                    m_flameCollisonTracker.SetActive(true);
+                    Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f);
 
-                    StartCoroutine(StopFlame());
+                    if (hit.collider.tag == "DestructionRobot")
+                    {
+                        m_robotMovementScript.Is_this_atk = true;
+                        m_fire.Play();
+                        m_flameCollisonTracker.SetActive(true);
 
+                        StartCoroutine(StopFlame());
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.T) )
+                    {
+                        m_robotMovementScript.Is_this_atk = true;
+                        m_fire.Play();
+                        m_flameCollisonTracker.SetActive(true);
+
+                        StartCoroutine(StopFlame());
+
+                    }
                 }
 
                 if ( Input.touchCount == 1 || Input.GetKeyUp(KeyCode.T))
