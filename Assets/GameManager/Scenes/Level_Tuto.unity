@@ -4532,7 +4532,7 @@ Terrain:
   m_HeightmapPixelError: 1
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -4554,7 +4554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461975198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 296.3, y: 0, z: 374.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17234,7 +17234,7 @@ PrefabInstance:
     - target: {fileID: 3857302451896302866, guid: 851d5bb01cfd3874e9bb815c569379d3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3857302451896302868, guid: 851d5bb01cfd3874e9bb815c569379d3,
         type: 3}
@@ -21528,7 +21528,7 @@ PrefabInstance:
     - target: {fileID: 4401336981116835327, guid: 20033915394ad734b994107da24aa2d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.6
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 4401336981116835327, guid: 20033915394ad734b994107da24aa2d4,
         type: 3}
@@ -21579,6 +21579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 7.4703374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401336981116835327, guid: 20033915394ad734b994107da24aa2d4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.631254
       objectReference: {fileID: 0}
     - target: {fileID: 7692403089888884492, guid: 20033915394ad734b994107da24aa2d4,
         type: 3}
@@ -24006,7 +24011,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4401336981206076970}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -5334,11 +5334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f03bc0a6ad6a21428e836870f1517f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  f_Boss_FollowDirLerp: 0.01
+  f_Boss_FollowDirLerp: 0.005
   f_Boss_FactorD: 0
   f_Boss_MaxSpeed: 10000
-  f_Boss_Speed: 1
-  f_Boss_Brake: 10
+  f_Boss_Speed: 0.1
+  f_Boss_Brake: 1
   Current_Boss_State: 1
   LerpHelper: {fileID: 4397227416348353368}
   CaisseToStun: {fileID: 0}

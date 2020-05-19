@@ -189,7 +189,7 @@ public class BossBehaviour : MonoBehaviour, IFireReact
             m_lightning.Play();
             StartCoroutine(StopStun());
             CanBeHit = true;
-
+            m_robotEye.SetBool("CanBlink", true);
 
         }
     }
@@ -202,5 +202,7 @@ public class BossBehaviour : MonoBehaviour, IFireReact
             Current_Boss_State = BossState.Rotation_On;
         else
             Current_Boss_State = BossState.Dead;
+
+        m_robotEye.SetBool("CanBlink", false);
     }
 }
