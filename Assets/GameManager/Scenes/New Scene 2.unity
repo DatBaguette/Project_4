@@ -1922,6 +1922,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6718827901468075600, guid: b1258e8285a062949b56651344e57ffd,
+        type: 3}
+      propertyPath: m_hologramme
+      value: 
+      objectReference: {fileID: 1964468471}
     - target: {fileID: 7200592925046206922, guid: b1258e8285a062949b56651344e57ffd,
         type: 3}
       propertyPath: m_Enabled
@@ -2188,6 +2193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00236683e0a6e049a22f21b6800c36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1964468471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4030697819559157475, guid: b1258e8285a062949b56651344e57ffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1779868752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978888477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4032518420257412002, guid: 63cc27e58e07fa841aa6eb196ff8598d,
@@ -2503,11 +2514,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1954609848}
+      objectReference: {fileID: 638923756}
     - target: {fileID: 3268887416585213234, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateRobot
+      value: RobotCostChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268887416585213234, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3311294956382770084, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
@@ -2733,11 +2749,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1954609848}
+      objectReference: {fileID: 638923756}
     - target: {fileID: 4823137527416731206, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateRobot
+      value: RobotCostChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823137527416731206, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5653259935462192858, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
@@ -2768,6 +2789,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868482912378540604, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1954609848}
+    - target: {fileID: 5868482912378540604, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CreateRobot
       objectReference: {fileID: 0}
     - target: {fileID: 6432295937359191947, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
@@ -2878,11 +2909,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1954609848}
+      objectReference: {fileID: 638923756}
     - target: {fileID: 7326225217165840247, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CreateRobot
+      value: RobotCostChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326225217165840247, guid: 63cc27e58e07fa841aa6eb196ff8598d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7352229370144401845, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
@@ -3447,6 +3483,42 @@ PrefabInstance:
       propertyPath: m_Player_Animator
       value: 
       objectReference: {fileID: 276640753}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_DestructionBot_1
+      value: 
+      objectReference: {fileID: 4851035590501495074, guid: 6908960806bd41b408045bfa8d3ec4c2,
+        type: 3}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_DestructionBot_2
+      value: 
+      objectReference: {fileID: 3166415139324720402, guid: a5dab4fb448068d4b8b13c752483476a,
+        type: 3}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_PlatformeBot_2
+      value: 
+      objectReference: {fileID: 6949589460052204629, guid: 9b2b9e4ce8a787d47b4a559ade229eb5,
+        type: 3}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_PlatformeBot_1
+      value: 
+      objectReference: {fileID: 3117688491237432837, guid: 8070a4adbbe8c7948b6b825bee65f4c0,
+        type: 3}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_FlyingBot_2
+      value: 
+      objectReference: {fileID: 5375572046705228563, guid: e56ba7a4db1a0bd4581a984978073aea,
+        type: 3}
+    - target: {fileID: 5468893607689251633, guid: a80c5a476fd34234c9ac9199e930bf93,
+        type: 3}
+      propertyPath: m_FlyingBot_1
+      value: 
+      objectReference: {fileID: 3245706251710693333, guid: 5a049ad6f87b80d43b534908ec3d21aa,
+        type: 3}
     - target: {fileID: 5468893608244249312, guid: a80c5a476fd34234c9ac9199e930bf93,
         type: 3}
       propertyPath: m_CraftMenuRobotTypeArea.Array.size
