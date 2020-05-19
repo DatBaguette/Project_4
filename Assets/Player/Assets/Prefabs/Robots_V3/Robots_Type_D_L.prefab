@@ -271,7 +271,7 @@ MonoBehaviour:
   m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 2548221081112854315}
   transform_LookAt: {fileID: 5752252525544007742}
-  m_Robot_Anim: {fileID: 0}
+  m_Robot_Anim: {fileID: 1419899704490009219}
   Is_this_atk: 0
 --- !u!65 &1284440484956298714
 BoxCollider:
@@ -572,6 +572,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1419899704490009219
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691337934900495840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 45dfb068a50e22c419fe63b009b9ffd6, type: 3}
+  m_Controller: {fileID: 9100000, guid: 08708edeecc78764087c0ecac0dc6d23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8297178113362869647
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +775,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28eaf547bb4d33e42ab4270adac00124, type: 3}
+--- !u!1 &7691337934900495840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 28eaf547bb4d33e42ab4270adac00124,
+    type: 3}
+  m_PrefabInstance: {fileID: 1845616096224500969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6694115691390171123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 28eaf547bb4d33e42ab4270adac00124,

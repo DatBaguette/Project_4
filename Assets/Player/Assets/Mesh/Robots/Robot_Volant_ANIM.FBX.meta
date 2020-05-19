@@ -12,7 +12,12 @@ ModelImporter:
   - first:
       74: -4371905874109845797
     second: Buton_Fly
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: fce0d8a784057b84c8de1ded9c1ab975, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
