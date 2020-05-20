@@ -35,6 +35,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 2310446885501037623}
+  - {fileID: 2415125664574007536}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_flameCollisonTracker: {fileID: 0}
   m_smoke: {fileID: 0}
   m_robotMovementScript: {fileID: 0}
+  m_robotDestructeurActivationHelper: []
 --- !u!114 &-323940271943936563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +164,102 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 0}
   transform_LookAt: {fileID: 0}
-  m_dir: {x: 0, y: 0, z: 0}
+  m_Robot_Anim: {fileID: 5696556821339719050}
+  Is_this_atk: 0
+--- !u!1001 &7277407088253682666
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8354243605870075709}
+    m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ccec919a7939d9141ac744a971667118, type: 2}
+    - target: {fileID: -6057140222963153312, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002752293
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.001834862
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e73358c94afdace4d8fd8d3406044a41,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot_Volant_ANIM
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e73358c94afdace4d8fd8d3406044a41, type: 3}
+--- !u!4 &2415125664574007536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e73358c94afdace4d8fd8d3406044a41,
+    type: 3}
+  m_PrefabInstance: {fileID: 7277407088253682666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5696556821339719050 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: e73358c94afdace4d8fd8d3406044a41,
+    type: 3}
+  m_PrefabInstance: {fileID: 7277407088253682666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7307917219481765677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,6 +351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Robot_Volant
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 67a0e9d71d4e5414eb1f977034996b25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1962306578164620635, guid: 67a0e9d71d4e5414eb1f977034996b25,
         type: 3}

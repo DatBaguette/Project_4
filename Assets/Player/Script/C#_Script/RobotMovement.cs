@@ -30,9 +30,12 @@ public class RobotMovement : MonoBehaviour
     private Transform transform_LookAt;
 
     [SerializeField] private Animator m_Robot_Anim;
+    
     private bool Is_this_Walking = false;
     [HideInInspector] public bool Is_this_atk = false;
-    
+
+   // [HideInInspector] public bool Is_push = false;
+
     void Start()
     {
         controller = GetComponent<Rigidbody>();
@@ -47,13 +50,7 @@ public class RobotMovement : MonoBehaviour
         if (m_moveJoystickScript != null)
         {
             Robot_Mouvement();
-        }
-        else
-        {
-            Is_this_Walking = false;
-        }
-            
-       
+        } 
     }
 
     private void Robot_Rotation()
@@ -63,12 +60,37 @@ public class RobotMovement : MonoBehaviour
 
     private void Update()
     {
+
         if (m_Robot_Anim != null)
-        {
-            m_Robot_Anim.SetBool("Is_Walking", Is_this_Walking);
+        {          
             m_Robot_Anim.SetBool("Is_Fire", Is_this_atk);
+            //m_Robot_Anim.SetBool("Is_Pushing", Is_push);
+            m_Robot_Anim.SetBool("Is_Walking", Is_this_Walking);
         }
     }
+
+    private void RobotAnim()
+    {
+        if (m_dir.normalized != Vector3.zero)
+        {
+            
+            if (m_Robot_Anim != null)
+            {
+                Is_this_Walking = true;
+                Debug.Log(Is_this_Walking);
+            }
+        }
+        else
+        {
+            
+            if (m_Robot_Anim != null)
+            {
+                Is_this_Walking = false;
+                Debug.Log(Is_this_Walking);
+            }
+        }
+    }
+
 
     private void Robot_Mouvement()
     {
@@ -92,24 +114,20 @@ public class RobotMovement : MonoBehaviour
             // Adpat the movement type because it did weird things with the flying robot
             if (gameObject.tag == "FlyingRobot")
             {
+                RobotAnim();
+
                 controller.AddForce(m_dir * m_movementSpeed, ForceMode.Impulse);
                 Robot_Rotation();
-                if (m_Robot_Anim != null)
-                {
-                    Is_this_Walking = true;
-                }
+                
             }
             else
             {
                 transform.Translate(m_dir * m_movementSpeed);
                 Robot_Rotation();
-                if (m_Robot_Anim != null)
-                {
-                    Is_this_Walking = true;
-                }
-            }
-                
+                RobotAnim();
+            }         
         }
+
 
     }
 

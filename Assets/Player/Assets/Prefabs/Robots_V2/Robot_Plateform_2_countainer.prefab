@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2872651683421489155}
   m_LocalRotation: {x: 0, y: 0.000008507889, z: -1.3e-44, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 3681410646748626972}
   - {fileID: 90399166976189966}
@@ -54,9 +54,11 @@ MonoBehaviour:
   m_terminalRotationSpeed: 25
   m_moveJoystickScript: {fileID: 0}
   m_thisEntityNumber: 0
+  m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 3681410646748626972}
   transform_LookAt: {fileID: 2169113583649852860}
-  m_dir: {x: 0, y: 0, z: 0}
+  m_Robot_Anim: {fileID: 0}
+  Is_this_atk: 0
 --- !u!114 &6954239381369346039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +77,7 @@ MonoBehaviour:
   m_flameCollisonTracker: {fileID: 0}
   m_smoke: {fileID: 1357793255122774797}
   m_robotMovementScript: {fileID: 1331480549750110816}
+  m_robotDestructeurActivationHelper: []
 --- !u!65 &1832925417335640438
 BoxCollider:
   m_ObjectHideFlags: 0
