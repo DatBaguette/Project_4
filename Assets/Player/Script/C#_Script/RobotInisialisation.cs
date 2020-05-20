@@ -127,7 +127,9 @@ public class RobotInisialisation : MonoBehaviour
 
                     if (hit.collider.tag == "DestructionRobot")
                     {
-                        m_robotMovementScript.Is_this_atk = true;
+                        if (m_robotMovementScript != null)
+                            m_robotMovementScript.Is_this_atk = true;
+                        
                         m_fire.Play();
                         m_flameCollisonTracker.SetActive(true);
 
@@ -136,7 +138,9 @@ public class RobotInisialisation : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.T) )
                     {
-                        m_robotMovementScript.Is_this_atk = true;
+                        if(m_robotMovementScript != null)
+                            m_robotMovementScript.Is_this_atk = true;
+                        
                         m_fire.Play();
                         m_flameCollisonTracker.SetActive(true);
 
