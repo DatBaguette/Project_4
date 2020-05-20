@@ -152,7 +152,7 @@ MonoBehaviour:
   m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 6098444911637331572}
   transform_LookAt: {fileID: 7396761033522392457}
-  m_Robot_Anim: {fileID: 0}
+  m_Robot_Anim: {fileID: 368279750911458302}
   Is_this_atk: 0
 --- !u!114 &1263258239038231015
 MonoBehaviour:
@@ -215,6 +215,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &368279750911458302
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821734305281183191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0599c6f20647aaa47b77fe4e5a8318b6, type: 3}
+  m_Controller: {fileID: 9100000, guid: a7d805dd7ef54e543aa2f431e84f88cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &668038340304749791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,7 +345,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0599c6f20647aaa47b77fe4e5a8318b6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.43
+      value: -0.487
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0599c6f20647aaa47b77fe4e5a8318b6,
         type: 3}
@@ -405,6 +424,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4c22526bf500ad9468f2968450e56bd2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0599c6f20647aaa47b77fe4e5a8318b6, type: 3}
+--- !u!1 &3821734305281183191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0599c6f20647aaa47b77fe4e5a8318b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5055407182606685406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &239498658291351492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0599c6f20647aaa47b77fe4e5a8318b6,

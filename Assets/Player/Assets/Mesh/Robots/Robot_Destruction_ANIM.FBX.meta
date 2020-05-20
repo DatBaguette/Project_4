@@ -7,19 +7,16 @@ ModelImporter:
       74: 1827226128182048838
     second: Walk_Fire
   - first:
-      74: -6712725380312225458
-    second: Tpose
+      74: -4733124042292219848
+    second: Tpose_Fire
   - first:
-      74: 5022232061689418458
-    second: Run_Fire
+      74: -2829564014058757644
+    second: Atk_On_Fire
   - first:
-      74: -1735474561192907417
-    second: Atk_Fire
+      74: -5033053475852441157
+    second: Atk_Of_Fire
   - first:
-      74: -3079564883975713710
-    second: Atk_End_Fire
-  - first:
-      74: -3100369314251171874
+      74: 3215631906679977623
     second: Idle_Fire
   externalObjects:
   - first:
@@ -58,64 +55,6 @@ ModelImporter:
       name: Walk_Fire
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 24
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Tpose
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 0
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Run_Fire
-      takeName: Take 001
-      internalID: 0
       firstFrame: 30
       lastFrame: 45
       wrapMode: 0
@@ -142,7 +81,36 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Atk_Fire
+      name: Tpose_Fire
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Atk_On_Fire
       takeName: Take 001
       internalID: 0
       firstFrame: 50
@@ -171,7 +139,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Atk_End_Fire
+      name: Atk_Of_Fire
       takeName: Take 001
       internalID: 0
       firstFrame: 68

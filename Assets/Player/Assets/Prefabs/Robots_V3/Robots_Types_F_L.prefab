@@ -94,6 +94,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &4177654337851980776
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026961158938097809}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b67ea6b24b98a564086938092c66752a, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2f79f1d7cefd88644a48d7ec05222353, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5375572046705228563
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +167,7 @@ MonoBehaviour:
   m_fire: {fileID: 0}
   m_flameCollisonTracker: {fileID: 0}
   m_smoke: {fileID: 0}
-  m_robotMovementScript: {fileID: 0}
+  m_robotMovementScript: {fileID: 1001238356818209044}
   m_robotDestructeurActivationHelper: []
 --- !u!114 &1001238356818209044
 MonoBehaviour:
@@ -170,7 +189,7 @@ MonoBehaviour:
   m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 5312358177760676250}
   transform_LookAt: {fileID: 5022719709109325553}
-  m_Robot_Anim: {fileID: 0}
+  m_Robot_Anim: {fileID: 4177654337851980776}
   Is_this_atk: 0
 --- !u!65 &7326073700380517666
 BoxCollider:
@@ -283,6 +302,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b67ea6b24b98a564086938092c66752a, type: 3}
+--- !u!1 &4026961158938097809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b67ea6b24b98a564086938092c66752a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4954890605684826520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &124405404734720642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b67ea6b24b98a564086938092c66752a,

@@ -332,7 +332,7 @@ MonoBehaviour:
   m_dir: {x: 0, y: 0, z: 0}
   m_transform_to_rotate: {fileID: 0}
   transform_LookAt: {fileID: 0}
-  m_Robot_Anim: {fileID: 2843182059893942439}
+  m_Robot_Anim: {fileID: 0}
   Is_this_atk: 0
 --- !u!135 &1914948774798535040
 SphereCollider:
@@ -486,22 +486,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 45dfb068a50e22c419fe63b009b9ffd6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5000001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45dfb068a50e22c419fe63b009b9ffd6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.50000006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45dfb068a50e22c419fe63b009b9ffd6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45dfb068a50e22c419fe63b009b9ffd6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.49999997
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45dfb068a50e22c419fe63b009b9ffd6,
         type: 3}
@@ -540,12 +540,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45dfb068a50e22c419fe63b009b9ffd6, type: 3}
---- !u!95 &2843182059893942439 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 45dfb068a50e22c419fe63b009b9ffd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 902325256074620615}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5331981328489989597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 45dfb068a50e22c419fe63b009b9ffd6,
