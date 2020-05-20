@@ -254,11 +254,16 @@ public class GameManager : Singleton<GameManager>
             m_currentPlayerState = m_PlayerState.move_player;
             m_magnetActivateImage.SetActive(false);
 
+            //isBoomerang_out = true;
+
+            m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_out = false;
+
         }
         else
         {
             m_player.GetComponentInChildren<SC_Boomerang>().InitBoom();
             m_magnetActivateImage.SetActive(true);
+            m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_out = true;
         }
 
         m_navmesh.ResetPath();

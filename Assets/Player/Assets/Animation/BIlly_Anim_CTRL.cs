@@ -19,6 +19,10 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
     public bool isDead = false;
 
+    public bool isBoomerang_out = false;
+
+    public bool isBoomerang_Lunch = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,19 @@ public class BIlly_Anim_CTRL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if(GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
+        //{
+        //    isBoomerang_out = true;
+
+        //    Debug.Log("1");
+        //}
+        //else
+        //{
+        //    isBoomerang_out = false;
+
+        //    Debug.Log("2");
+        //}
+
 
         if (m_player_NavAgent.velocity.magnitude > 0.3f)
         {
@@ -47,7 +64,10 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
         m_Animator_Billy.SetBool("Is_Tab_out", isTabletteOpen);
 
-        
+        m_Animator_Billy.SetBool("is_Boomerang_Out", isBoomerang_out);
+
+        m_Animator_Billy.SetBool("Is_BoomLunch", isBoomerang_Lunch);
+
         m_Animator_Billy.SetBool("Is_Dead", isDead);
     }
 }

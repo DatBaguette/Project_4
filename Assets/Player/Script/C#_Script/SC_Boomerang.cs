@@ -93,12 +93,14 @@ public class SC_Boomerang : MonoBehaviour
                 case BoomerangState.OnTravel:
 
                     MouveBoomerang();
-
+                    
                     break;
                 case BoomerangState.Restart:
 
                     RestardBoomrangPos();
+                    
 
+                    
                     break;
             }
         }
@@ -130,9 +132,12 @@ public class SC_Boomerang : MonoBehaviour
                 nextNodeId++;
                 CurrentTimeBetweenNode = 0;
             }
+
         }
         if (Input.GetMouseButtonUp(0))
         {
+            GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = true;
+
             finalNode = nextNodeId - 1;
             nextNodeId = 0;
             CurrentBoomerangstat = BoomerangState.OnTravel;
@@ -175,12 +180,17 @@ public class SC_Boomerang : MonoBehaviour
                 
                 Restart_boomerang();
                 CurrentBoomerangstat = BoomerangState.Restart;
+
+                GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = false;
             }
         }
     }
 
     public void RestardBoomrangPos()
     {
+
+        //GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = false;
+
         currentLerptime += Time.deltaTime / m_returnSpeed; ;
         if (currentLerptime >= LerpTime)
         {
