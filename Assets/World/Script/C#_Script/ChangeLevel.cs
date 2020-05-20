@@ -20,6 +20,18 @@ public class ChangeLevel : MonoBehaviour
 
             SceneManager.LoadScene(m_nextLevelNumber);
         }
+        else if (other.GetComponent<RobotMovement>() && GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro)
+        {
+            GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
+
+            GameManager.Instance.m_saveData.m_actualSceneID = m_nextLevelNumber;
+
+            GameManager.Instance.SaveData();
+
+            SoundManager.Instance.m_music[3].Stop();
+
+            SceneManager.LoadScene(m_nextLevelNumber);
+        }
         
     }
 }

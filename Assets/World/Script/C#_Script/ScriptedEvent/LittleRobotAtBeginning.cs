@@ -24,8 +24,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
     [SerializeField] GameObject m_player;
 
-    [SerializeField] GameObject m_flyingRobotCore;
-
     [SerializeField] VirtualJoystick m_joystickScript;
 
     private GameObject m_robot;
@@ -72,8 +70,6 @@ public class LittleRobotAtBeginning : MonoBehaviour
             GameManager.Instance.m_robotNumber -= 1;
             GameManager.Instance.m_actualSelectedRobotNumber.Value = 0;
 
-            m_flyingRobotCore.SetActive(true);
-
             GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_player;
 
             Destroy(gameObject);
@@ -82,6 +78,7 @@ public class LittleRobotAtBeginning : MonoBehaviour
 
     public void Introduction()
     {
+
         GameManager.Instance.m_actualSelectedRobotNumber.Value = 1;
 
         GameManager.Instance.m_robotNumber += 1;
