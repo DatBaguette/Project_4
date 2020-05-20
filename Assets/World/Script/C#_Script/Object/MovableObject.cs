@@ -31,9 +31,9 @@ public class MovableObject : MonoBehaviour
                     move();
             }
         }
-
-        if ( other.gameObject.tag == "PlateformRobot" )
+        if (other.gameObject.tag == "PlateformRobot")
         {
+           
             move();
         }
     }
