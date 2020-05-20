@@ -1659,12 +1659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18394308319a134b8c5f86125e0af3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1147427379 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1530042240524683899, guid: 83d42bdde083caf419af893bc83c5fba,
-    type: 3}
-  m_PrefabInstance: {fileID: 6023011473093258005}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1368527934 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6345506913642568074, guid: 63cc27e58e07fa841aa6eb196ff8598d,
@@ -2295,12 +2289,12 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000044417905
+      value: 0.00000047706567
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000014896625
+      value: -0.000001499797
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -2405,12 +2399,12 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000044417905
+      value: 0.00000047706567
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000014896625
+      value: -0.000001499797
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -3913,11 +3907,6 @@ PrefabInstance:
       propertyPath: m_Joystick
       value: 
       objectReference: {fileID: 482759425}
-    - target: {fileID: 6023011473359263971, guid: 83d42bdde083caf419af893bc83c5fba,
-        type: 3}
-      propertyPath: m_boomerangManager
-      value: 
-      objectReference: {fileID: 1147427379}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
