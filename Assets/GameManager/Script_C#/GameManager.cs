@@ -140,7 +140,8 @@ public class GameManager : Singleton<GameManager>
             InitialiseSaveData();
             m_initDone = false;
 
-            SoundManager.Instance.m_music[m_saveData.m_actualSceneID].Play();
+            if ( m_saveData.m_actualSceneID != 1 )
+                SoundManager.Instance.m_music[m_saveData.m_actualSceneID].Play();
         }
     }
 
@@ -336,8 +337,9 @@ public class GameManager : Singleton<GameManager>
                 m_actualLanguage = Language.English;
 
                 break;
-
         }
+
+        playerDeath();
     }
 
     /// <summary>

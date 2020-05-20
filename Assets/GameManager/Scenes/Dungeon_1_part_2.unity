@@ -2064,12 +2064,12 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007309666
+      value: -0.00000068805815
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013372178
+      value: 0.000001314254
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -2174,12 +2174,12 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007309666
+      value: -0.00000068805815
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013372178
+      value: 0.000001314254
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -3403,7 +3403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06ff94eb0701a74f9edc625ea9123c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nextLevelNumber: 5
+  m_nextLevelNumber: 6
 --- !u!65 &442806186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16834,6 +16834,7 @@ MonoBehaviour:
   m_tutorialScript: {fileID: 0}
   m_language: {fileID: 1508153951}
   m_nbRessourcesSinceLastCheckpoint: 0
+  m_ressourcesPrefab: {fileID: 0}
 --- !u!1 &5468893607852328302
 GameObject:
   m_ObjectHideFlags: 0

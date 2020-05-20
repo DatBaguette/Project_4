@@ -21,6 +21,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Start()
     {
+        changeMusicVolume();
+        changeSoundEffectVolume();
+
         if (m_saveData.m_actualSceneID == 0 || m_saveData.m_actualSceneID == 5)
             m_music[m_saveData.m_actualSceneID].Play();
     }

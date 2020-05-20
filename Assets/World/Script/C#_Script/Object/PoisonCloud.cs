@@ -17,8 +17,7 @@ public class PoisonCloud : MonoBehaviour
             //End the intro if it's the actual story's step
             if (GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro)
             {
-                GameManager.Instance.m_actualStoryStep = GameManager.StoryStep.LevelOne;
-                GameManager.Instance.m_actualRessources.Value = 0;
+                GameManager.Instance.playerDeath();
             }
             else //Kill the robot and return to the main character
             {
