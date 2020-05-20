@@ -4960,6 +4960,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -575.1875
       objectReference: {fileID: 0}
+    - target: {fileID: 3769244446740739889, guid: dcdeb8277f910c146b98159788d9b12a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769244446740739889, guid: dcdeb8277f910c146b98159788d9b12a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769244446740739889, guid: dcdeb8277f910c146b98159788d9b12a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4628103685396323480, guid: dcdeb8277f910c146b98159788d9b12a,
         type: 3}
       propertyPath: m_AnchorMin.y

@@ -78,6 +78,8 @@ public class TutoManager : MonoBehaviour
                 case tutoState.robotMovement:
                     m_joystickHelper.GetComponent<Animator>().SetBool("canFlash", false);
                     m_movingCloud.GetComponent<IntroMovingCloud>().Move();
+                    SoundManager.Instance.m_music[3].Play();
+                    Debug.Log("kek");
                     break;
 
                 case tutoState.playerMovement:
@@ -103,6 +105,8 @@ public class TutoManager : MonoBehaviour
 
     void Start()
     {
+        m_actualTutoState = GameManager.Instance.m_saveData.m_actualTutoStepS;
+
         if ( GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro && ActualTutoState == tutoState.robotMovement)
         {
             ActivateNextTutoState = true;
@@ -111,44 +115,54 @@ public class TutoManager : MonoBehaviour
     
     void Update()
     {
-        // Begin Helper's animation
-        if (ActualTutoState == tutoState.playerMovement && GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.LevelOne)
+        if (GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.LevelOne && ActualTutoState == tutoState.robotMovement )
         {
+            ActualTutoState = tutoState.playerMovement;
             ActivateNextTutoState = true;
         }
 
-        if (ActualTutoState == tutoState.boomerang && GameManager.Instance.m_robotCore[1])
-        {
-
-            ActivateNextTutoState = true;
-        }
-
-        // Stop helper's animation
         if (ActualTutoState == tutoState.robotMovement && MenuManager.Instance.m_Joystick.transform.GetChild(1).GetComponent<VirtualJoystick>().m_InputDirection != Vector3.zero)
         {
             ActualTutoState = tutoState.playerMovement;
         }
 
-        if (ActualTutoState == tutoState.playerMovement && GameManager.Instance.m_player.GetComponent<NavMeshAgent>().velocity.magnitude > 0)
+        if (SceneManager.GetActiveScene().buildIndex != 1)
         {
-            ActualTutoState = tutoState.craft;
-            ActivateNextTutoState = true;
-        }
+            // Begin Helper's animation
+            if (ActualTutoState == tutoState.playerMovement && GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.LevelOne)
+            {
+                ActivateNextTutoState = true;
+            }
 
-        if (ActualTutoState == tutoState.craft && MenuManager.Instance.m_menuOpen)
-        {
-            ActualTutoState = tutoState.boomerang;
-        }
+            if (ActualTutoState == tutoState.boomerang && GameManager.Instance.m_robotCore[1])
+            {
 
-        if (ActualTutoState == tutoState.boomerang && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
-        {
-            ActualTutoState = tutoState.ressources;
-            ActivateNextTutoState = true;
-        }
+                ActivateNextTutoState = true;
+            }
 
-        if (ActualTutoState == tutoState.ressources && GameManager.Instance.m_actualRessources.Value >= 2 )
-        {
-            ActualTutoState = tutoState.end;
+            // Stop helper's animation
+
+            if (ActualTutoState == tutoState.playerMovement && GameManager.Instance.m_player.GetComponent<NavMeshAgent>().velocity.magnitude > 0)
+            {
+                ActualTutoState = tutoState.craft;
+                ActivateNextTutoState = true;
+            }
+
+            if (ActualTutoState == tutoState.craft && MenuManager.Instance.m_menuOpen)
+            {
+                ActualTutoState = tutoState.boomerang;
+            }
+
+            if (ActualTutoState == tutoState.boomerang && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.boomerang)
+            {
+                ActualTutoState = tutoState.ressources;
+                ActivateNextTutoState = true;
+            }
+
+            if (ActualTutoState == tutoState.ressources && GameManager.Instance.m_actualRessources.Value >= 2)
+            {
+                ActualTutoState = tutoState.end;
+            }
         }
     }
 

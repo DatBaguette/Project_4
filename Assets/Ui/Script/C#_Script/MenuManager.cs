@@ -166,6 +166,17 @@ public class MenuManager : Singleton<MenuManager>
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
+
+        GameManager.Instance.m_saveData.m_checkPointNumberS = 0;
+        GameManager.Instance.m_saveData.m_actualStoryStepS = GameManager.StoryStep.Intro;
+        GameManager.Instance.m_saveData.m_actualRessourcesS = 0;
+        for ( int i = 0; i<3; i++ )
+        {
+            GameManager.Instance.m_saveData.m_robotCoreS[i] = false;
+        }
+        GameManager.Instance.m_saveData.m_sizeUnlockedS = false;
+        if (GameManager.Instance.m_tutorialScript != null)
+            GameManager.Instance.m_saveData.m_actualTutoStepS = GameManager.Instance.m_tutorialScript.m_actualTutoState;
     }
 
     public void OpenBrowserForFeedbacks()
