@@ -272,6 +272,8 @@ MonoBehaviour:
   isWalkingPressed: 0
   isTabletteOpen: 0
   isDead: 0
+  isBoomerang_out: 0
+  isBoomerang_Lunch: 0
 --- !u!195 &6023011473359263968
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -571,10 +573,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3910960151437676019, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08593633
+      objectReference: {fileID: 0}
+    - target: {fileID: -3910960151437676019, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.04866393
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
         type: 3}
       propertyPath: m_Name
       value: Billy_Animations_Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: -419373447646351533, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.017799018
+      objectReference: {fileID: 0}
+    - target: {fileID: -419373447646351533, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14444408
+      objectReference: {fileID: 0}
+    - target: {fileID: -294816554013414269, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.08445928
+      objectReference: {fileID: 0}
+    - target: {fileID: -294816554013414269, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.013332421
       objectReference: {fileID: 0}
     - target: {fileID: 1651062367082650294, guid: c25e2a3db623d9f4994ff7cbda7b0c8b,
         type: 3}

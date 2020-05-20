@@ -45,7 +45,8 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
         //    Debug.Log("2");
         //}
-
+        Debug.Log($"Is it out "+ isBoomerang_out);
+        Debug.Log($"is it lunched" + isBoomerang_Lunch);
 
         if (m_player_NavAgent.velocity.magnitude > 0.3f)
         {
@@ -64,9 +65,9 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
         m_Animator_Billy.SetBool("Is_Tab_out", isTabletteOpen);
 
-        m_Animator_Billy.SetBool("is_Boomerang_Out", isBoomerang_out);
+        m_Animator_Billy.SetBool("Is_BoomerangOut", isBoomerang_out);
 
-        m_Animator_Billy.SetBool("Is_BoomLunch", isBoomerang_Lunch);
+        m_Animator_Billy.SetBool("Is_Boomerang_Lunched", isBoomerang_Lunch);
 
         m_Animator_Billy.SetBool("Is_Dead", isDead);
     }
