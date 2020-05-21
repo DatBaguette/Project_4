@@ -25,7 +25,7 @@ Material:
     type: 3}
   m_ShaderKeywords: FRESNEL_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -33,6 +33,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_6A3EAA3F:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Aldebo:
         m_Texture: {fileID: 2800000, guid: d969035483b5c0f42bc240df1012c292, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -74,7 +78,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - BOOLEAN_A511C7D6: 0
     - FRESNEL: 1
+    - Vector1_4AED9A05: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -98,6 +104,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_1A5DA529: {r: 1, g: 1, b: 1, a: 1}
     - Color_7CA48F9B: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - Shadow_Tint: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - Vector3_2573FE9A: {r: 1, g: 2, b: 1, a: 0}
