@@ -45,6 +45,8 @@ public class BIlly_Anim_CTRL : MonoBehaviour
 
         //    Debug.Log("2");
         //}
+        //Debug.Log($"Is it out "+ isBoomerang_out);
+        //Debug.Log($"is it lunched" + isBoomerang_Lunch);
 
         if (m_player_NavAgent.velocity.magnitude > 0.3f)
         {
