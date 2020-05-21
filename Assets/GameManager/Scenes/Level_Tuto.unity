@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16905,7 +16905,7 @@ PrefabInstance:
     - target: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_AngularSpeed
-      value: 120
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
@@ -16976,7 +16976,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_boomerangManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1431791733}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -17034,6 +17034,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f973c3f5d2fc41245b4fa99ceb077bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1431791733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2802794447119096827, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1431791728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437355544
 GameObject:
   m_ObjectHideFlags: 0

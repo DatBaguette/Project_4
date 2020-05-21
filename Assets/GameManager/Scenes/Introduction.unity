@@ -3862,7 +3862,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_boomerangManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1675189854}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -3899,6 +3899,12 @@ GameObject:
 --- !u!195 &1675189853 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1675189851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1675189854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2802794447119096827, guid: 83d42bdde083caf419af893bc83c5fba,
     type: 3}
   m_PrefabInstance: {fileID: 1675189851}
   m_PrefabAsset: {fileID: 0}

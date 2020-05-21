@@ -2064,12 +2064,12 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007309666
+      value: -0.00000068805815
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013372178
+      value: 0.000001314254
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -2174,12 +2174,12 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007309666
+      value: -0.00000068805815
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000013372178
+      value: 0.000001314254
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -4647,7 +4647,7 @@ PrefabInstance:
     - target: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_AngularSpeed
-      value: 120
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
@@ -10599,6 +10599,7 @@ Transform:
   - {fileID: 994448806}
   - {fileID: 1780150833}
   - {fileID: 999057085}
+  - {fileID: 2131254349}
   - {fileID: 434700360}
   - {fileID: 1020996317}
   - {fileID: 1527516257}
@@ -10610,7 +10611,6 @@ Transform:
   - {fileID: 922156721}
   - {fileID: 696864860}
   - {fileID: 1510250926}
-  - {fileID: 2131254349}
   - {fileID: 9579882}
   - {fileID: 1744357525}
   - {fileID: 418987733}
@@ -16516,7 +16516,7 @@ Transform:
   m_LocalScale: {x: 10.862937, y: 3.9690042, z: 11.848028}
   m_Children: []
   m_Father: {fileID: 1419056184}
-  m_RootOrder: 52
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: -114.77901, z: 0}
 --- !u!208 &2131254350
 NavMeshObstacle:
