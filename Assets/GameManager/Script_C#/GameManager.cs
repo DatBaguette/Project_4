@@ -141,7 +141,7 @@ public class GameManager : Singleton<GameManager>
             m_initDone = false;
 
             if ( m_saveData.m_actualSceneID != 1 )
-                SoundManager.Instance.m_music[m_saveData.m_actualSceneID].Play();
+                SoundManager.Instance.m_music[m_saveData.m_actualSceneID-1].Play();
         }
     }
 
