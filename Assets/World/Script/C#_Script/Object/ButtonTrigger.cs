@@ -15,6 +15,7 @@ public class ButtonTrigger : MonoBehaviour
     /// </summary>
     public bool m_activate = false;
 
+    [SerializeField] GameObject m_associateHelper;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +23,8 @@ public class ButtonTrigger : MonoBehaviour
         {
             m_activate = true;
             gameObject.transform.position += transform.forward * .3f;
+            if (m_associateHelper != null)
+                m_associateHelper.SetActive(true);
         }
     }
 }

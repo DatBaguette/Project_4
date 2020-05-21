@@ -25,7 +25,8 @@ public class PressurePlate : MonoBehaviour
         if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
             m_activate = true;
-            m_associateHelper.SetActive(true);
+            if ( m_associateHelper != null )
+                m_associateHelper.SetActive(true);
         }
     }
 
@@ -35,7 +36,8 @@ public class PressurePlate : MonoBehaviour
         if ( other.GetComponent<ClickToMoveEntity>() || other.GetComponent<RobotMovement>() )
         {
             m_activate = false;
-            m_associateHelper.SetActive(false);
+            if (m_associateHelper != null)
+                m_associateHelper.SetActive(false);
         }
     }
 }
