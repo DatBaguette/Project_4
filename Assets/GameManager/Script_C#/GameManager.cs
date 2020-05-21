@@ -393,6 +393,13 @@ public class GameManager : Singleton<GameManager>
 
         m_player.GetComponent<ClickToMoveEntity>().m_tablette.SetActive(false);
 
+        BIlly_Anim_CTRL m_animationScript = m_player.GetComponent<ClickToMoveEntity>().m_Player_Animator;
+
+        if (m_player.GetComponent<ClickToMoveEntity>().m_Player_Animator != null)
+        {
+            m_player.GetComponent<ClickToMoveEntity>().m_Player_Animator.isTabletteOpen = false;
+        }
+
         m_camera.Follow = m_player.transform;
         m_camera.LookAt = Instance.m_player.transform;
 

@@ -20,6 +20,7 @@ public class ClickToMoveEntity : MonoBehaviour
     [SerializeField] GameObject m_Joystick;
 
     public GameObject m_tablette;
+    public BIlly_Anim_CTRL m_Player_Animator;
 
     /// <summary>
     /// Allow to reset the joystick position
@@ -31,6 +32,8 @@ public class ClickToMoveEntity : MonoBehaviour
         m_navMeshAgent = GetComponent<NavMeshAgent>();
 
         m_baseJoystickPosition = m_Joystick.transform.position;
+
+        m_Player_Animator = gameObject.GetComponent<BIlly_Anim_CTRL>();
     }
 
     private void Update()

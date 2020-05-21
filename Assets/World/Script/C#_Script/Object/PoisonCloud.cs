@@ -9,16 +9,15 @@ using UnityEngine;
 
 public class PoisonCloud : MonoBehaviour
 {
-
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         // If it touch a robot
         if ( ( other.GetComponent<RobotMovement>() ))
         {
             //End the intro if it's the actual story's step
             if (GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro)
             {
+                GameManager.Instance.m_tutorialScript.m_actualTutoState = TutoManager.tutoState.robotMovement;
                 GameManager.Instance.playerDeath();
             }
             else //Kill the robot and return to the main character
