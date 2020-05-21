@@ -79,7 +79,6 @@ public class TutoManager : MonoBehaviour
                     m_joystickHelper.GetComponent<Animator>().SetBool("canFlash", false);
                     m_movingCloud.GetComponent<IntroMovingCloud>().Move();
                     SoundManager.Instance.m_music[3].Play();
-                    Debug.Log("kek");
                     break;
 
                 case tutoState.playerMovement:

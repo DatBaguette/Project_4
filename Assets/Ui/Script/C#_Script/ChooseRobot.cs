@@ -24,6 +24,8 @@ public class ChooseRobot : MonoBehaviour
 
     public BIlly_Anim_CTRL m_Player_Animator;
 
+    private GameObject m_tablette;
+
     private void Start()
     {
         GameObject[]  m_playerCameraObject = GameObject.FindGameObjectsWithTag("PlayerCamera");
@@ -31,6 +33,8 @@ public class ChooseRobot : MonoBehaviour
         m_playerCamera = m_playerCameraObject[0].GetComponent<CinemachineVirtualCamera>();
 
         m_img = gameObject.GetComponent<Image>();
+
+        m_tablette = m_player.GetComponent<ClickToMoveEntity>().m_tablette;
 
     }
 
@@ -56,6 +60,8 @@ public class ChooseRobot : MonoBehaviour
             {
                 m_Player_Animator.isTabletteOpen = false;
             }
+
+            m_tablette.SetActive(false);
 
         }
         else
@@ -89,6 +95,8 @@ public class ChooseRobot : MonoBehaviour
             {
                 m_Player_Animator.isTabletteOpen = true;
             }
+
+            m_tablette.SetActive(true);
         }
 
         GameManager.Instance.m_navmesh.ResetPath();

@@ -141,7 +141,7 @@ public class GameManager : Singleton<GameManager>
             m_initDone = false;
 
             if ( m_saveData.m_actualSceneID != 1 )
-                SoundManager.Instance.m_music[m_saveData.m_actualSceneID].Play();
+                SoundManager.Instance.m_music[m_saveData.m_actualSceneID-1].Play();
         }
     }
 
@@ -390,6 +390,8 @@ public class GameManager : Singleton<GameManager>
         MenuManager.Instance.m_openCraftLogo.SetActive(true);
 
         MenuManager.Instance.m_ressourcesUi.SetActive(true);
+
+        m_player.GetComponent<ClickToMoveEntity>().m_tablette.SetActive(false);
 
         m_camera.Follow = m_player.transform;
         m_camera.LookAt = Instance.m_player.transform;

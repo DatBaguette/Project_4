@@ -1232,17 +1232,17 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4718579
+      value: -0.47185794
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007584261
+      value: -0.0000007198559
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000014033521
+      value: 0.00000138271
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -1342,17 +1342,17 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4718579
+      value: -0.47185794
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000007584261
+      value: -0.0000007198559
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000014033521
+      value: 0.00000138271
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -8784,7 +8784,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Boomerang
       value: 
-      objectReference: {fileID: 1972562245}
+      objectReference: {fileID: 0}
     - target: {fileID: 4821453511514453138, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: Player
@@ -8889,7 +8889,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_boomerangManager
       value: 
-      objectReference: {fileID: 1972562246}
+      objectReference: {fileID: 0}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -8922,18 +8922,6 @@ GameObject:
 --- !u!195 &1972562244 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1972562241}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1972562245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 745274577496296566, guid: 83d42bdde083caf419af893bc83c5fba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1972562241}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1972562246 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1530042240524683899, guid: 83d42bdde083caf419af893bc83c5fba,
     type: 3}
   m_PrefabInstance: {fileID: 1972562241}
   m_PrefabAsset: {fileID: 0}
@@ -10315,7 +10303,8 @@ MonoBehaviour:
   m_tutorialScript: {fileID: 0}
   m_language: {fileID: 194697529}
   m_nbRessourcesSinceLastCheckpoint: 0
-  m_ressourcesPrefab: {fileID: 0}
+  m_ressourcesPrefab: {fileID: 7763393547187129292, guid: 74090f4114665124ba3c6e79cfc87113,
+    type: 3}
 --- !u!1 &5468893607218400210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10483,17 +10472,17 @@ MonoBehaviour:
   m_player: {fileID: 1972562243}
   m_craftManager: {fileID: 5468893607250236244}
   m_actualCraftRobot: 0
-  m_FlyingBot_1: {fileID: 518808972666964579, guid: d3a3b28676aab7a4fb50a4b98da6eed8,
+  m_FlyingBot_1: {fileID: 3245706251710693333, guid: 5a049ad6f87b80d43b534908ec3d21aa,
     type: 3}
-  m_FlyingBot_2: {fileID: 6076604755334416341, guid: 6d7f31fb19d32714e87f38134eab1e57,
+  m_FlyingBot_2: {fileID: 5375572046705228563, guid: e56ba7a4db1a0bd4581a984978073aea,
     type: 3}
-  m_PlatformeBot_1: {fileID: 7164904517279414552, guid: c6729766b7606cd4f9743d86cb54a248,
+  m_PlatformeBot_1: {fileID: 3117688491237432837, guid: 8070a4adbbe8c7948b6b825bee65f4c0,
     type: 3}
-  m_PlatformeBot_2: {fileID: 2872651683421489155, guid: 70513182cb70ac14ea1c5c6f3ef9c9b1,
+  m_PlatformeBot_2: {fileID: 6949589460052204629, guid: 9b2b9e4ce8a787d47b4a559ade229eb5,
     type: 3}
-  m_DestructionBot_1: {fileID: 145719032438866979, guid: e1d51762b8243134795c922e50dc5d14,
+  m_DestructionBot_1: {fileID: 4851035590501495074, guid: 6908960806bd41b408045bfa8d3ec4c2,
     type: 3}
-  m_DestructionBot_2: {fileID: 1907898189583761359, guid: c035786fc22d12a4ea40ff14f653a930,
+  m_DestructionBot_2: {fileID: 3166415139324720402, guid: a5dab4fb448068d4b8b13c752483476a,
     type: 3}
   m_joystick: {fileID: 194697542}
   price: 010000000200000002000000040000000300000005000000

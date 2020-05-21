@@ -21,10 +21,13 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Start()
     {
-        changeMusicVolume();
-        changeSoundEffectVolume();
+        if ( m_musicSlider != null && m_soundEffectSlider != null)
+        {
+            changeMusicVolume();
+            changeSoundEffectVolume();
+        }
 
-        if (m_saveData.m_actualSceneID == 0 || m_saveData.m_actualSceneID == 5)
+        if (m_saveData.m_actualSceneID == 0 || m_saveData.m_actualSceneID == 6)
             m_music[m_saveData.m_actualSceneID].Play();
     }
 

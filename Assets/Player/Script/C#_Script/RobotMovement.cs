@@ -62,8 +62,9 @@ public class RobotMovement : MonoBehaviour
     {
 
         if (m_Robot_Anim != null)
-        {          
-            m_Robot_Anim.SetBool("Is_Fire", Is_this_atk);
+        {   
+            if ( gameObject.tag == "DestructionRobot" )
+                m_Robot_Anim.SetBool("Is_Fire", Is_this_atk);
             //m_Robot_Anim.SetBool("Is_Pushing", Is_push);
             m_Robot_Anim.SetBool("Is_Walking", Is_this_Walking);
         }

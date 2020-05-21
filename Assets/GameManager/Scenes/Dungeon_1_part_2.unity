@@ -4647,7 +4647,7 @@ PrefabInstance:
     - target: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_AngularSpeed
-      value: 120
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
@@ -10588,6 +10588,7 @@ Transform:
   - {fileID: 61214758}
   - {fileID: 1955607820}
   - {fileID: 1739516027}
+  - {fileID: 2131254349}
   - {fileID: 133411916}
   - {fileID: 124097467}
   - {fileID: 1593471357}
@@ -16516,7 +16517,7 @@ Transform:
   m_LocalScale: {x: 10.862937, y: 3.9690042, z: 11.848028}
   m_Children: []
   m_Father: {fileID: 1419056184}
-  m_RootOrder: 15
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: -114.77901, z: 0}
 --- !u!208 &2131254350
 NavMeshObstacle:
@@ -16965,17 +16966,17 @@ MonoBehaviour:
   m_player: {fileID: 613796731}
   m_craftManager: {fileID: 5468893608431701056}
   m_actualCraftRobot: 0
-  m_FlyingBot_1: {fileID: 518808972666964579, guid: d3a3b28676aab7a4fb50a4b98da6eed8,
+  m_FlyingBot_1: {fileID: 3245706251710693333, guid: 5a049ad6f87b80d43b534908ec3d21aa,
     type: 3}
-  m_FlyingBot_2: {fileID: 6076604755334416341, guid: 6d7f31fb19d32714e87f38134eab1e57,
+  m_FlyingBot_2: {fileID: 5375572046705228563, guid: e56ba7a4db1a0bd4581a984978073aea,
     type: 3}
-  m_PlatformeBot_1: {fileID: 7164904517279414552, guid: c6729766b7606cd4f9743d86cb54a248,
+  m_PlatformeBot_1: {fileID: 3117688491237432837, guid: 8070a4adbbe8c7948b6b825bee65f4c0,
     type: 3}
-  m_PlatformeBot_2: {fileID: 2872651683421489155, guid: 70513182cb70ac14ea1c5c6f3ef9c9b1,
+  m_PlatformeBot_2: {fileID: 6949589460052204629, guid: 9b2b9e4ce8a787d47b4a559ade229eb5,
     type: 3}
-  m_DestructionBot_1: {fileID: 145719032438866979, guid: e1d51762b8243134795c922e50dc5d14,
+  m_DestructionBot_1: {fileID: 4851035590501495074, guid: 6908960806bd41b408045bfa8d3ec4c2,
     type: 3}
-  m_DestructionBot_2: {fileID: 1907898189583761359, guid: c035786fc22d12a4ea40ff14f653a930,
+  m_DestructionBot_2: {fileID: 3166415139324720402, guid: a5dab4fb448068d4b8b13c752483476a,
     type: 3}
   m_joystick: {fileID: 2113331227}
   price: 010000000200000002000000040000000300000005000000
