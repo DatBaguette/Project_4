@@ -27,8 +27,10 @@ public class SoundManager : Singleton<SoundManager>
             changeSoundEffectVolume();
         }
 
-        if (m_saveData.m_actualSceneID == 0 || m_saveData.m_actualSceneID == 6)
+        if (m_saveData.m_actualSceneID == 0)
             m_music[m_saveData.m_actualSceneID].Play();
+        if (m_saveData.m_actualSceneID == 6)
+            m_music[m_saveData.m_actualSceneID-1].Play();
     }
 
     public void changeMusicVolume()
