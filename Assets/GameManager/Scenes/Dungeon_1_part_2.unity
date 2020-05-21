@@ -2064,12 +2064,12 @@ PrefabInstance:
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000068805815
+      value: -0.0000007309666
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000001314254
+      value: 0.0000013372178
       objectReference: {fileID: 0}
     - target: {fileID: 2250844055635996262, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -2174,12 +2174,12 @@ PrefabInstance:
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000068805815
+      value: -0.0000007309666
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000001314254
+      value: 0.0000013372178
       objectReference: {fileID: 0}
     - target: {fileID: 2250844056496494054, guid: 331157e929b796a41bce45ce5c57d7e7,
         type: 3}
@@ -4493,7 +4493,7 @@ Terrain:
   m_HeightmapPixelError: 1
   m_SplatMapDistance: 29
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -10588,7 +10588,6 @@ Transform:
   - {fileID: 61214758}
   - {fileID: 1955607820}
   - {fileID: 1739516027}
-  - {fileID: 2131254349}
   - {fileID: 133411916}
   - {fileID: 124097467}
   - {fileID: 1593471357}
@@ -16517,7 +16516,7 @@ Transform:
   m_LocalScale: {x: 10.862937, y: 3.9690042, z: 11.848028}
   m_Children: []
   m_Father: {fileID: 1419056184}
-  m_RootOrder: 29
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -114.77901, z: 0}
 --- !u!208 &2131254350
 NavMeshObstacle:
