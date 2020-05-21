@@ -77,7 +77,6 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = true;
-                Debug.Log(Is_this_Walking);
             }
         }
         else
@@ -86,7 +85,6 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = false;
-                Debug.Log(Is_this_Walking);
             }
         }
     }

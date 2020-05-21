@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2185,7 +2185,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9622642, g: 0.94204503, b: 0.6127626, a: 1}
+  m_Color: {r: 1, g: 0.9594552, b: 0.2783019, a: 1}
   m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
@@ -2242,13 +2242,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979007152}
-  m_LocalRotation: {x: 0.41572207, y: -0.3812138, z: 0.65243095, w: 0.5061474}
+  m_LocalRotation: {x: 0.35460427, y: -0.24229226, z: 0.7383494, w: 0.51999086}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 66.674, y: 23.29, z: 119.83301}
+  m_LocalEulerAnglesHint: {x: 46.6, y: 23.29, z: 119.83301}
 --- !u!1001 &980260226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3752,7 +3752,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Boomerang
       value: 
-      objectReference: {fileID: 1675189855}
+      objectReference: {fileID: 0}
     - target: {fileID: 4821453511514453138, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: Player
@@ -3862,7 +3862,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_boomerangManager
       value: 
-      objectReference: {fileID: 1675189854}
+      objectReference: {fileID: 0}
     - target: {fileID: 6023011473359263972, guid: 83d42bdde083caf419af893bc83c5fba,
         type: 3}
       propertyPath: m_Enabled
@@ -3899,18 +3899,6 @@ GameObject:
 --- !u!195 &1675189853 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 6023011473359263968, guid: 83d42bdde083caf419af893bc83c5fba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675189851}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1675189854 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1530042240524683899, guid: 83d42bdde083caf419af893bc83c5fba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1675189851}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1675189855 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 745274577496296566, guid: 83d42bdde083caf419af893bc83c5fba,
     type: 3}
   m_PrefabInstance: {fileID: 1675189851}
   m_PrefabAsset: {fileID: 0}
