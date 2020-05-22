@@ -24,12 +24,24 @@ Material:
         m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_68821870:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_6A3EAA3F:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_7E796647:
         m_Texture: {fileID: 2800000, guid: 662ae22e2a5cba447b49216b22d15baf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8F6D8B2B:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CE5E9F75:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Aldebo:
@@ -76,6 +88,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9f612e4e7a5bc3c4488afa92327064ff, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_8F9AD713_Out_0:
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_A85D9DEB_Out_0:
+        m_Texture: {fileID: 2800000, guid: 9f612e4e7a5bc3c4488afa92327064ff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_B83B1B3_Out_0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -100,6 +120,7 @@ Material:
     - Vector1_601ED788: 0
     - Vector1_8E8CCE6D: 0.5
     - Vector1_9846B839: 0.25
+    - Vector1_B9199224: 1
     - Vector1_E1C27C64: 0.5
     - Vector1_EEE0316D: 0
     - _AlphaClip: 0
@@ -126,9 +147,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_1A5DA529: {r: 1, g: 1, b: 1, a: 1}
+    - Color_4F54B3B3: {r: 1, g: 1, b: 1, a: 1}
     - Color_512F897D: {r: 1, g: 1, b: 1, a: 1}
     - Color_59EF6516: {r: 0, g: 0, b: 0, a: 0}
     - Color_7CA48F9B: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 0}
+    - Color_999A3883: {r: 1, g: 1, b: 1, a: 0}
     - Color_AB8454AE: {r: 0, g: 0, b: 0, a: 0}
     - Shadow_Tint: {r: 0.4716981, g: 0.33089173, b: 0.28257388, a: 0}
     - Vector3_2573FE9A: {r: 1, g: 1, b: 1, a: 0}
