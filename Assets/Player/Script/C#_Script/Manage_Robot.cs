@@ -265,10 +265,57 @@ public class Manage_Robot : Singleton<Manage_Robot>
             Button robotUiButton = robotUi.gameObject.GetComponent<Button>();
             robotUiButton.onClick.AddListener(chooseRobotScript.SelectRobot);
 
-            var UIName = robotUi.gameObject.transform.Find("Text");
+            switch ( m_robotInfosScript.m_size)
+            {
+                case 1:
+                    switch ( m_robotInfosScript.m_robotType)
+                    {
+                        case Robot_Type.Destruction:
 
-            Text UINameText = UIName.gameObject.GetComponent<Text>();
-            UINameText.text = robot.gameObject.name;
+                            robotUi.transform.GetChild(0).gameObject.SetActive(true);
+
+                            break;
+
+                        case Robot_Type.Flying:
+
+                            robotUi.transform.GetChild(2).gameObject.SetActive(true);
+
+                            break;
+
+                        case Robot_Type.Platforme:
+
+                            robotUi.transform.GetChild(4).gameObject.SetActive(true);
+
+                            break;
+                    }
+
+                    break;
+
+                case 2:
+
+                    switch (m_robotInfosScript.m_robotType)
+                    {
+                        case Robot_Type.Destruction:
+
+                            robotUi.transform.GetChild(1).gameObject.SetActive(true);
+
+                            break;
+
+                        case Robot_Type.Flying:
+
+                            robotUi.transform.GetChild(3).gameObject.SetActive(true);
+
+                            break;
+
+                        case Robot_Type.Platforme:
+
+                            robotUi.transform.GetChild(5).gameObject.SetActive(true);
+
+                            break;
+                    }
+
+                    break;
+            }
         }
     }
 

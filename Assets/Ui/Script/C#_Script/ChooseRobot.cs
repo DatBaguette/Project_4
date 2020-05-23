@@ -26,6 +26,8 @@ public class ChooseRobot : MonoBehaviour
 
     private GameObject m_tablette;
 
+    [SerializeField] GameObject m_selectedFeedback;
+
     private void Start()
     {
         GameObject[]  m_playerCameraObject = GameObject.FindGameObjectsWithTag("PlayerCamera");
@@ -54,7 +56,7 @@ public class ChooseRobot : MonoBehaviour
             
             MenuManager.Instance.m_ressourcesUi.SetActive(true);
 
-            m_img.color = Color.white;
+            m_selectedFeedback.SetActive(false);
 
             if (m_Player_Animator != null)
             {
@@ -76,10 +78,10 @@ public class ChooseRobot : MonoBehaviour
             for ( int i=0; i<GameManager.Instance.m_robotsUI.Count; i++)
             {
                 if (GameManager.Instance.m_robotsUI[i] != null)
-                    GameManager.Instance.m_robotsUI[i].GetComponent<Image>().color = Color.white;
+                    GameManager.Instance.m_robotsUI[i].GetComponent<ChooseRobot>().m_selectedFeedback.SetActive(false);
             }
 
-            m_img.color = Color.green;
+            m_selectedFeedback.SetActive(true);
 
             MenuManager.Instance.m_menuAnimator.Play("Hidding");
             MenuManager.Instance.m_menuOpen = false;
