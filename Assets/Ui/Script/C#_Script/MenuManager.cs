@@ -37,7 +37,7 @@ public class MenuManager : Singleton<MenuManager>
     public BIlly_Anim_CTRL m_Player_Animator;
 
     [Tooltip("Text gameObject that will show the actual amount of ressources")]
-    [SerializeField] Text m_ressourcesText;
+    public Text m_ressourcesText;
 
     [SerializeField] List<GameObject> m_CraftMenuRobotTypeArea;
 
@@ -52,10 +52,18 @@ public class MenuManager : Singleton<MenuManager>
     /// </summary>
     public Vector3 m_baseJoystickPosition;
 
+    public float ressourcesRetrieve = 0;
+
     private void Start()
     {
         m_baseJoystickPosition = m_Joystick.transform.position;
         
+    }
+
+    public void FixedUpdate()
+    {
+        if (ressourcesRetrieve > 0)
+            RetrieveRessourcesFeedbacks();
     }
 
     public void AddRessources()
@@ -183,4 +191,23 @@ public class MenuManager : Singleton<MenuManager>
     {
         Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSfExEdubQvAVt_tSGWCivZEKC8owTmXVLdGz6VoBYyUstQggQ/viewform?usp=sf_link");
     }
+
+    public void RetrieveRessourcesFeedbacks()
+    {
+        ressourcesRetrieve -= 1 * Time.fixedDeltaTime;
+
+        if ( ressourcesRetrieve > 10)
+        {
+            ressourcesRetrieve = 10;
+        }
+
+        if (ressourcesRetrieve <= 0)
+        {
+            ressourcesRetrieve = 0;
+            m_ressourcesText.color = Color.black;
+        }
+
+    }
+
+
 }

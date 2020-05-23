@@ -94,6 +94,8 @@ public class BossBehaviour : MonoBehaviour, IFireReact
                     m_bigSMOKE.Play();
                     Destroy(m_rollingThings);
 
+                    SoundManager.Instance.m_music[GameManager.Instance.m_saveData.m_actualSceneID - 1].Stop();
+
                     GameObject deadBoss = Instantiate(m_bossCarcasse, gameObject.transform);
                     deadBoss.transform.SetParent(gameObject.transform.parent);
                     deadBoss.transform.localPosition = new Vector3(0, 0, 0);
