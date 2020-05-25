@@ -27,11 +27,25 @@ public class ChangeLevel : MonoBehaviour
                 case 3:
                     
                     m_anim.GetComponent<Animation>().Play("Cinematic3");
+                    StartCoroutine(ChangeScene(15));
+
+                    break;
+
+                case 4:
+
+                    m_anim.GetComponent<Animation>().Play("Cinematic4");
+                    SoundManager.Instance.m_music[GameManager.Instance.m_saveData.m_actualSceneID - 1].Stop();
+                    StartCoroutine(ChangeScene(12));
+
+                    break;
+
+                case 5:
+
+                    m_anim.GetComponent<Animation>().Play("Cinematic5");
+                    StartCoroutine(ChangeScene(15));
 
                     break;
             }
-
-            StartCoroutine(ChangeScene(15));
 
         }
         else if (other.GetComponent<RobotMovement>() && GameManager.Instance.m_actualStoryStep == GameManager.StoryStep.Intro)
