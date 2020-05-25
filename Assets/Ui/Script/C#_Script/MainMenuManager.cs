@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
     public void LaunchGame()
     {
         m_cinematic.SetActive(true);
-        m_cinematic.GetComponent<Animation>().Play("Buisson1");
+        m_cinematic.GetComponent<Animation>().Play("Cinematic1");
 
         StartCoroutine(NextScene());
     }
