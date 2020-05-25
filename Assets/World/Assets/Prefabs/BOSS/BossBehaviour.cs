@@ -69,6 +69,8 @@ public class BossBehaviour : MonoBehaviour, IFireReact
 
     [SerializeField] Animator m_robotEye;
 
+    [SerializeField] GameObject m_bossCarcasse;
+
     [SerializeField] int m_Boss_Life = 1;
     private int Boss_Life
     {
@@ -91,6 +93,13 @@ public class BossBehaviour : MonoBehaviour, IFireReact
                     m_flame.Play();
                     m_bigSMOKE.Play();
                     Destroy(m_rollingThings);
+
+                    GameObject deadBoss = Instantiate(m_bossCarcasse, gameObject.transform);
+                    deadBoss.transform.SetParent(gameObject.transform.parent);
+                    deadBoss.transform.localPosition = new Vector3(0, 0, 0);
+                    deadBoss.transform.localScale /= 5;
+                    deadBoss.transform.LookAt(GameManager.Instance.m_player.transform);
+                    Destroy(gameObject);
 
                     break;
 
@@ -123,12 +132,14 @@ public class BossBehaviour : MonoBehaviour, IFireReact
 
     void IFireReact.OnFire()
     {
-        if (Current_Boss_State == BossState.Stuned && CanBeHit == true)
+        /*if (Current_Boss_State == BossState.Stuned && CanBeHit == true)
         {
             CanBeHit = false;
             Boss_Life -= 1;
 
-        }
+        }*/
+
+        Boss_Life -= 1;
     }
     void IFireReact.OnKillFire()
     {
@@ -163,12 +174,6 @@ public class BossBehaviour : MonoBehaviour, IFireReact
                 
                 ContainerScript.Mouvement(f_Boss_Speed);
                 
-                break;
-
-            case BossState.Dead:
-
-                //Destroy(gameObject);
-
                 break;
         }
     }
