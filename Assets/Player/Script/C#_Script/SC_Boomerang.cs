@@ -138,9 +138,21 @@ public class SC_Boomerang : MonoBehaviour
         {
             GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = true;
 
+            StartCoroutine(AnimBoomrang(0.5f));
+
             finalNode = nextNodeId - 1;
             nextNodeId = 0;
             CurrentBoomerangstat = BoomerangState.OnTravel;
+        }
+    }
+
+    private IEnumerator AnimBoomrang(float WaitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(WaitTime);
+
+            GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = false;
         }
     }
 
