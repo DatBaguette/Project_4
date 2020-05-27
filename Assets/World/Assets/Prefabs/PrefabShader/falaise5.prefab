@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7641365895996356838}
   - component: {fileID: 4122795460512334879}
   - component: {fileID: 858461349267256194}
+  - component: {fileID: 4096281103519738789}
   m_Layer: 12
   m_Name: falaise5
   m_TagString: Untagged
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.426548, y: 11.2779255, z: 10.939485}
   m_Center: {x: -1.2727495, y: -1.7885886, z: 5.373858}
+--- !u!208 &4096281103519738789
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381219668296495299}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 8.713, y: 5.6390004, z: 5.4700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.273, y: -1.789, z: 5.374}
+  m_TimeToStationary: 0.5
