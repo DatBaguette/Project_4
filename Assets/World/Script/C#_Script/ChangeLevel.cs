@@ -45,6 +45,16 @@ public class ChangeLevel : MonoBehaviour
                     StartCoroutine(ChangeScene(15));
 
                     break;
+
+                case 6:
+
+                    SoundManager.Instance.m_music[GameManager.Instance.m_saveData.m_actualSceneID - 2].Stop();
+                    SoundManager.Instance.m_music[GameManager.Instance.m_saveData.m_actualSceneID - 1].Play();
+                    m_anim.GetComponent<Animation>().Play("Cinematic6");
+                    StartCoroutine(ChangeScene(38));
+
+                    break;
+
             }
 
         }
