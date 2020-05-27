@@ -38,9 +38,13 @@ public class ClickToMoveEntity : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(GameManager.Instance.m_currentPlayerState);
+
+
         // desactivate the interface if the player dont control the character
         if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player 
             && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.boomerang
+            && GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.Menu
             && !MenuManager.Instance.m_parameterMenu.activeSelf)
         {
             m_boomerangManager.SetActive(false);
@@ -53,8 +57,9 @@ public class ClickToMoveEntity : MonoBehaviour
         }
 
         // Move the player
-        if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
-        {
+       // if (Input.GetMouseButtonDown(0) && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
+       if (Imput_Manager.Instance.GetInput() == true && GameManager.Instance.m_currentPlayerState == GameManager.m_PlayerState.move_player)
+            {
 
             if (EventSystem.current.IsPointerOverGameObject())
                 return;

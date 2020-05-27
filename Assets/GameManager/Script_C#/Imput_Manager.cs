@@ -19,8 +19,7 @@ public class Imput_Manager : Singleton<Imput_Manager>
         if (Input.GetMouseButtonDown(0))
         {
             is_touched = true;
-        }
-        
+        }       
 #else
         if (Input.touchCount > 0)
         {

@@ -91,9 +91,16 @@ public class MenuManager : Singleton<MenuManager>
     {
         if (m_menuOpen)
         {
+
+            GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.move_player;
+
             m_menuAnimator.Play("Hidding");
             m_menuOpen = false;
+
+
             m_magnetLogo.SetActive(true);
+
+
             m_Joystick.transform.position = m_baseJoystickPosition;
 
             if(m_Player_Animator != null)
@@ -104,6 +111,9 @@ public class MenuManager : Singleton<MenuManager>
         }
         else
         {
+
+            GameManager.Instance.m_currentPlayerState = GameManager.m_PlayerState.Menu;
+
             m_menuAnimator.Play("Open");
             m_menuOpen = true;
             m_magnetLogo.SetActive(false);
