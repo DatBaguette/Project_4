@@ -75,6 +75,8 @@ public class ChooseRobot : MonoBehaviour
             m_playerCamera.Follow = m_associateRobot.transform;
             m_playerCamera.LookAt = m_associateRobot.transform;
 
+            SoundManager.Instance.m_selectRobot.Play();
+
             for ( int i=0; i<GameManager.Instance.m_robotsUI.Count; i++)
             {
                 if (GameManager.Instance.m_robotsUI[i] != null)

@@ -11,6 +11,16 @@ public class SoundManager : Singleton<SoundManager>
 {
     public AudioSource m_failSound;
     public AudioSource m_succeedSound;
+    
+    
+    public AudioSource m_robotFlamme;
+    public AudioSource m_selectRobot;   
+    public AudioSource m_coreSound;
+    public AudioSource m_bossSound;
+    public AudioSource m_robotCreat;
+    public AudioSource m_robotMotor_Sound;
+    public AudioSource m_robotDestruction;
+    public AudioSource m_boomerangSoundWHOOSH;
 
     public List<AudioSource> m_music;
 

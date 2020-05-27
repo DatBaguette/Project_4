@@ -219,7 +219,7 @@ public class Manage_Robot : Singleton<Manage_Robot>
 
             GameManager.Instance.m_robotNumber += 1;
             CraftHelper.NextNode();
-
+            SoundManager.Instance.m_robotCreat.Play();
 
             // Robot Object
             var robot = Instantiate(p_prebabbot, m_player.gameObject.transform);

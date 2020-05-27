@@ -136,6 +136,7 @@ public class SC_Boomerang : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            SoundManager.Instance.m_boomerangSoundWHOOSH.Play();
             GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = true;
 
             StartCoroutine(AnimBoomrang(0.5f));
@@ -194,6 +195,7 @@ public class SC_Boomerang : MonoBehaviour
                 CurrentBoomerangstat = BoomerangState.Restart;
 
                 GameManager.Instance.m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isBoomerang_Lunch = false;
+                SoundManager.Instance.m_boomerangSoundWHOOSH.Stop();
             }
         }
     }

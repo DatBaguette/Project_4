@@ -67,6 +67,8 @@ public class RobotMovement : MonoBehaviour
                 m_Robot_Anim.SetBool("Is_Fire", Is_this_atk);
             //m_Robot_Anim.SetBool("Is_Pushing", Is_push);
             m_Robot_Anim.SetBool("Is_Walking", Is_this_Walking);
+            
+
         }
     }
 
@@ -78,6 +80,7 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = true;
+                
             }
         }
         else
@@ -86,6 +89,7 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = false;
+                SoundManager.Instance.m_robotMotor_Sound.Stop();
             }
         }
     }
@@ -110,6 +114,13 @@ public class RobotMovement : MonoBehaviour
 
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
         {
+            
+
+            if(SoundManager.Instance.m_robotMotor_Sound.isPlaying != true)
+            {
+                SoundManager.Instance.m_robotMotor_Sound.Play();
+            }
+
             // Adpat the movement type because it did weird things with the flying robot
             if (gameObject.tag == "FlyingRobot")
             {
