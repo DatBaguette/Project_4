@@ -208,6 +208,7 @@ MonoBehaviour:
   m_tutorialScript: {fileID: 0}
   m_language: {fileID: 0}
   m_nbRessourcesSinceLastCheckpoint: 0
+  m_ressourcesPrefab: {fileID: 0}
 --- !u!1 &5468893607689251647
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
   CanYouCraft: 1
   NextNodeToCreatARobot: {fileID: 0}
   m_robotCraftSelection: []
+  m_Player_Animator: {fileID: 0}
 --- !u!1 &5468893608244249326
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +330,7 @@ MonoBehaviour:
   m_menuOpen: 0
   m_Joystick: {fileID: 0}
   m_menuAnimator: {fileID: 0}
+  m_Player_Animator: {fileID: 0}
   m_ressourcesText: {fileID: 0}
   m_CraftMenuRobotTypeArea:
   - {fileID: 0}
@@ -337,6 +340,7 @@ MonoBehaviour:
   m_lockers: []
   m_parameterMenu: {fileID: 0}
   m_baseJoystickPosition: {x: 0, y: 0, z: 0}
+  ressourcesRetrieve: 0
 --- !u!1001 &7899743992578138795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,6 +348,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5468893606872578786}
     m_Modifications:
+    - target: {fileID: 5978070474389309816, guid: 5343baa73e0c4284b841fa7220f8a7aa,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 63726d539a90aff4085d991a6db90e08, type: 3}
     - target: {fileID: 5978070474389309818, guid: 5343baa73e0c4284b841fa7220f8a7aa,
         type: 3}
       propertyPath: m_LocalPosition.x

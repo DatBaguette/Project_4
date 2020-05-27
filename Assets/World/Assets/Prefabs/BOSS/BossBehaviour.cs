@@ -127,7 +127,7 @@ public class BossBehaviour : MonoBehaviour, IFireReact
     {
 
         Self_Rigidbody = Self.GetComponent<Rigidbody>();
-
+        SoundManager.Instance.m_bossSound.Play();
         //Current_Boss_State = BossState.Dead;
 
     }
@@ -152,6 +152,11 @@ public class BossBehaviour : MonoBehaviour, IFireReact
     {
 
         Self.transform.LookAt(LerpHelper.transform);
+
+        if(Boss_Life == 0)
+        {
+            SoundManager.Instance.m_bossSound.Stop();
+        }
 
 
         switch (Current_Boss_State)

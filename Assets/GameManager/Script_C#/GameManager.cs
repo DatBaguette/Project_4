@@ -370,6 +370,8 @@ public class GameManager : Singleton<GameManager>
 
         if ( m_robotNumber > 0)
         {
+            SoundManager.Instance.m_robotDestruction.Play();
+
             for (int i = 0; i < m_robotNumber; i++)
             {
                 KillOneRobot(i);

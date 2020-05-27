@@ -132,7 +132,7 @@ public class RobotInisialisation : MonoBehaviour
                         
                         m_fire.Play();
                         m_flameCollisonTracker.SetActive(true);
-
+                        SoundManager.Instance.m_robotFlamme.Play();
                         StartCoroutine(StopFlame());
                     }
 
@@ -143,7 +143,7 @@ public class RobotInisialisation : MonoBehaviour
                         
                         m_fire.Play();
                         m_flameCollisonTracker.SetActive(true);
-
+                        SoundManager.Instance.m_robotFlamme.Play();
                         StartCoroutine(StopFlame());
 
                     }

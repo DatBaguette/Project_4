@@ -38,6 +38,8 @@ public class RobotCoreBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            SoundManager.Instance.m_coreSound.Play();
+
             switch (m_coretype)
             {
                 case CoreType.flyingRobot:
