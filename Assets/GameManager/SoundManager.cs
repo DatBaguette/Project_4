@@ -19,7 +19,7 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource m_bossSound;
     public AudioSource m_robotCreat;
     public AudioSource m_robotMotor_Sound;
-    public AudioSource m_robotDestruction;/**/
+    public AudioSource m_robotDestruction;
     public AudioSource m_boomerangSoundWHOOSH;
 
     public List<AudioSource> m_music;

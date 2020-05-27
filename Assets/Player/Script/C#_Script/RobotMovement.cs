@@ -80,7 +80,7 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = true;
-                SoundManager.Instance.m_robotMotor_Sound.Play();
+                
             }
         }
         else
@@ -114,6 +114,13 @@ public class RobotMovement : MonoBehaviour
 
         if (GameManager.Instance.m_actualSelectedRobotNumber.Value == m_thisEntityNumber)
         {
+            
+
+            if(SoundManager.Instance.m_robotMotor_Sound.isPlaying != true)
+            {
+                SoundManager.Instance.m_robotMotor_Sound.Play();
+            }
+
             // Adpat the movement type because it did weird things with the flying robot
             if (gameObject.tag == "FlyingRobot")
             {
