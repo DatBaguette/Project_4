@@ -67,6 +67,8 @@ public class RobotMovement : MonoBehaviour
                 m_Robot_Anim.SetBool("Is_Fire", Is_this_atk);
             //m_Robot_Anim.SetBool("Is_Pushing", Is_push);
             m_Robot_Anim.SetBool("Is_Walking", Is_this_Walking);
+            
+
         }
     }
 
@@ -78,6 +80,7 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = true;
+                SoundManager.Instance.m_robotMotor_Sound.Play();
             }
         }
         else
@@ -86,6 +89,7 @@ public class RobotMovement : MonoBehaviour
             if (m_Robot_Anim != null)
             {
                 Is_this_Walking = false;
+                SoundManager.Instance.m_robotMotor_Sound.Stop();
             }
         }
     }
