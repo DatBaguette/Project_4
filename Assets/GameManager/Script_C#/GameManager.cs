@@ -288,12 +288,22 @@ public class GameManager : Singleton<GameManager>
 
     public void playerDeath()
     {
-        m_currentPlayerState = m_PlayerState.Dead;
-        m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isDead = true;
-        m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isWalkingPressed = false;
-        m_camera.Follow = m_player.transform;
-        m_camera.LookAt = Instance.m_player.transform;
-        StartCoroutine(RechargerLeNiveau(2.5f));
+        
+        if ( m_saveData.m_actualSceneID == 1)
+        {
+            SceneManager.LoadScene(m_saveData.m_actualSceneID);
+        }
+        else
+        {
+            m_currentPlayerState = m_PlayerState.Dead;
+            m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isDead = true;
+            m_player.GetComponentInChildren<BIlly_Anim_CTRL>().isWalkingPressed = false;
+
+            m_camera.Follow = m_player.transform;
+            m_camera.LookAt = Instance.m_player.transform;
+
+            StartCoroutine(RechargerLeNiveau(2.5f));
+        }
     }
 
     private IEnumerator RechargerLeNiveau(float WaitTime)
