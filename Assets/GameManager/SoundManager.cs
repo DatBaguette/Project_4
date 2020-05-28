@@ -22,6 +22,7 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource m_robotDestruction;
     public AudioSource m_boomerangSoundWHOOSH;
 
+    public List<AudioSource> m_soundeffect;
     public List<AudioSource> m_music;
 
     public Slider m_musicSlider;
@@ -31,6 +32,17 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Start()
     {
+        m_soundeffect.Add(m_robotFlamme);
+        m_soundeffect.Add(m_selectRobot);
+        m_soundeffect.Add(m_coreSound);
+        m_soundeffect.Add(m_bossSound);
+        m_soundeffect.Add(m_robotCreat);
+        m_soundeffect.Add(m_robotMotor_Sound);
+        m_soundeffect.Add(m_robotDestruction);
+        m_soundeffect.Add(m_boomerangSoundWHOOSH);
+        m_soundeffect.Add(m_failSound);
+        m_soundeffect.Add(m_succeedSound);
+
         if ( m_musicSlider != null && m_soundEffectSlider != null)
         {
             changeMusicVolume();
@@ -56,6 +68,7 @@ public class SoundManager : Singleton<SoundManager>
             {
                 m_music[i].volume = .1f;
             }
+            
         }
         else
         {
@@ -63,6 +76,7 @@ public class SoundManager : Singleton<SoundManager>
             {
                 m_music[i].volume = 0;
             }
+            
         }
     }
 
@@ -75,13 +89,20 @@ public class SoundManager : Singleton<SoundManager>
 
         if ( GameManager.Instance.m_soundEffectOn)
         {
-            m_failSound.volume = .1f;
-            m_succeedSound.volume = .1f;
+
+            foreach (AudioSource i in m_soundeffect)
+            {
+                i.volume = 0.1f;
+            }
+            
         }
         else
         {
-            m_failSound.volume = 0;
-            m_succeedSound.volume = 0;
+            foreach (AudioSource i in m_soundeffect)
+            {
+                i.volume = 0f;
+            }
+            
         }
     }
 }
