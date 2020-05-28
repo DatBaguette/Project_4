@@ -38,8 +38,7 @@ public class ClickToMoveEntity : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(GameManager.Instance.m_currentPlayerState);
-
+        
 
         // desactivate the interface if the player dont control the character
         if (GameManager.Instance.m_currentPlayerState != GameManager.m_PlayerState.move_player 
