@@ -31,9 +31,9 @@ public class Imput_Manager : Singleton<Imput_Manager>
 #endif
 
 #if UNITY_STANDALONE_WIN
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-           is_touched = true;
+            is_touched = true;
         }
 #endif
 
