@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona
+// CREATE DATE     :    ????
+// PURPOSE     :        Manage Imput between different platforme
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +23,11 @@ public class Imput_Manager : Singleton<Imput_Manager>
         if(is_touched == true)
         is_touched = false;
     }
+
+    /// <summary>
+    /// this us the good imput system
+    /// </summary>
+    /// <returns> is_touched </returns>
     public bool GetInput()
     {
 

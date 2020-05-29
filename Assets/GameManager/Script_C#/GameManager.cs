@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona , Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Manage the all game and transfère data between script
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,7 +24,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-
+    /// <summary>
+    /// State of Nilly
+    /// </summary>
     public enum m_PlayerState
     {
         move_player,
@@ -26,6 +38,9 @@ public class GameManager : Singleton<GameManager>
         Menu
     }
 
+    /// <summary>
+    /// SO where the data are saved
+    /// </summary>
     public SavedCheckPoint m_saveData;
 
     /// <summary>
@@ -48,18 +63,29 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public bool m_sizeUnlocked = false;
 
-
+    
+    // There is some paramètre to interact with the ui and the game fx
     public bool m_musicOn;
     public bool m_soundEffectOn;
     public Language m_actualLanguage;
 
+    /// <summary>
+    /// This is billy himself
+    /// </summary>
     public GameObject m_player;
 
+    /// <summary>
+    /// This is the navmesh
+    /// </summary>
     public NavMeshAgent m_navmesh;
 
+    //To layer that are us in game
     public LayerMask defautMask;
     public LayerMask boomerang;
 
+    /// <summary>
+    /// Current player state 
+    /// </summary>
     public m_PlayerState m_currentPlayerState;
 
     /// <summary>
@@ -73,12 +99,15 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public int m_robotNumber = 0;
 
-    //public bool m_boomerangLaunch = false;
-
     /// <summary>
     /// ID of the actual checkpoint
     /// </summary>
     public int m_actualCheckPointNumber = 0;
+    
+    /// <summary>
+    /// The number of checkpoint on the current lvl
+    ///  It returne an int 
+    /// </summary>
     public int ActualCheckPointNumber
     {
         get
@@ -98,25 +127,55 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public List<GameObject> m_actualCheckPointObject;
 
+    /// <summary>
+    /// All the robot are on this list
+    /// </summary>
     public List<GameObject> m_robots;
+
+    /// <summary>
+    /// The container, that robots us in th UI
+    /// </summary>
     public List<GameObject> m_robotsUI;
 
+    /// <summary>
+    /// Creat and manage robots
+    /// </summary>
     public Manage_Robot m_manageRobotScript;
 
+    /// <summary>
+    /// The used camera
+    /// </summary>
     public CinemachineVirtualCamera m_camera;
 
+    /// <summary>
+    /// Boomerang Buton 
+    /// </summary>
     public GameObject m_magnetActivateImage;
 
+    /// <summary>
+    /// check if the initialisation is finished
+    /// </summary>
     private bool m_initDone = false;
 
+    /// <summary>
+    /// The script of the tutorial 
+    /// </summary>
     public TutoManager m_tutorialScript;
 
+    /// <summary>
+    /// the current langue use 
+    /// </summary>
     public Dropdown m_language;
 
+    /// <summary>
+    /// actual ressources since last checkpoint
+    /// </summary>
     public int m_nbRessourcesSinceLastCheckpoint;
 
+    /// <summary>
+    /// The prefab of the ressource
+    /// </summary>
     [SerializeField] GameObject m_ressourcesPrefab;
-
 
     private void Start()
     {
@@ -145,6 +204,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// Save all the data in the SO m_saveData
+    /// </summary>
     public void InitialiseSaveData()
     {
         ActualCheckPointNumber = m_saveData.m_checkPointNumberS;
@@ -154,6 +216,7 @@ public class GameManager : Singleton<GameManager>
         m_sizeUnlocked = m_saveData.m_sizeUnlockedS;
         if ( m_tutorialScript != null )
             m_tutorialScript.m_actualTutoState = m_saveData.m_actualTutoStepS;
+
         m_musicOn = m_saveData.m_musicOn;
         m_soundEffectOn = m_saveData.m_soundEffectOn;
         m_actualLanguage = m_saveData.m_actualLanguage;
@@ -167,17 +230,11 @@ public class GameManager : Singleton<GameManager>
         switch (m_actualLanguage)
         {
             case Language.French:
-
                 m_language.options.RemoveAt(1);
-
                 break;
-
             case Language.English:
-
                 m_language.options.RemoveAt(2);
-
                 break;
-
         }
     }
 
@@ -206,27 +263,22 @@ public class GameManager : Singleton<GameManager>
         {
             return (hit.point);
         }
-
-
-        
         return (hit.point);
-
     }
 
-    // Cheat keycode
+    /// <summary>
+    /// Cheat keycode in editor
+    /// </summary>
     public void StateController()
     {
-        //if (!m_boomerangLaunch)
-        //{
-            if (Input.GetKeyDown("z"))
+#if UNITY_EDITOR
+        if (Input.GetKeyDown("z"))
             {
-                m_currentPlayerState = m_PlayerState.boomerang;
-                Debug.Log(m_currentPlayerState);
+                m_currentPlayerState = m_PlayerState.boomerang;                
             }
             if (Input.GetKeyDown("a"))
             {
                 m_currentPlayerState = m_PlayerState.move_player;
-                Debug.Log(m_currentPlayerState);
             }
             if (Input.GetKeyDown("e"))
             {
@@ -236,8 +288,7 @@ public class GameManager : Singleton<GameManager>
             {
                 KillAllRobot();
             }
-        //}
-       
+#endif 
     }
 
     /// <summary>
@@ -271,21 +322,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
-    /// If the player die
+    /// Intence player death
     /// </summary>
-    /// 
-    //public void playerDeath()
-    //{
-    //    m_actualRessources.Value -= m_nbRessourcesSinceLastCheckpoint;
-
-    //    if (m_actualStoryStep == StoryStep.LevelOne)
-    //        KillAllRobot();
-
-    //    SaveData();
-
-    //    SceneManager.LoadScene(m_saveData.m_actualSceneID);
-    //}
-
     public void playerDeath()
     {
         
@@ -306,6 +344,11 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// delay to remake the game 
+    /// </summary>
+    /// <param name="WaitTime"></param>
+    /// <returns></returns>
     private IEnumerator RechargerLeNiveau(float WaitTime)
     {
         while (true)
@@ -323,6 +366,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// save data on the so
+    /// </summary>
     public void SaveData()
     {
         m_saveData.m_checkPointNumberS = ActualCheckPointNumber;
@@ -337,6 +383,10 @@ public class GameManager : Singleton<GameManager>
         m_saveData.m_actualLanguage = m_actualLanguage;
     }
 
+
+    /// <summary>
+    /// change the text depending on the select language
+    /// </summary>
     public void ChangeLanguage()
     {
         switch (m_language.options[m_language.value].text )
@@ -466,12 +516,18 @@ public class GameManager : Singleton<GameManager>
         Destroy(m_robotsUI[i]);
     }
 
+    /// <summary>
+    /// The different story step
+    /// </summary>
     public enum StoryStep
     {
         Intro,
         LevelOne,
     }
 
+    /// <summary>
+    /// The different language
+    /// </summary>
     public enum Language
     {
         French,
