@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5231,7 +5231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442806183}
   m_LocalRotation: {x: -0, y: 0.4712096, z: -0, w: 0.88202137}
-  m_LocalPosition: {x: 577, y: 30.3, z: 434.6}
+  m_LocalPosition: {x: 603.4, y: 30.3, z: 476.27}
   m_LocalScale: {x: 1, y: 1, z: 1.3496}
   m_Children: []
   m_Father: {fileID: 1905396546}
@@ -9513,6 +9513,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tentacule 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202265279449501144, guid: 1492ad2145eb95142b59bb068edcb470,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6938224799194120139, guid: 1492ad2145eb95142b59bb068edcb470,
         type: 3}
@@ -22530,7 +22535,7 @@ PrefabInstance:
     - target: {fileID: 7205105003121375632, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7240692219175775979, guid: 63cc27e58e07fa841aa6eb196ff8598d,
         type: 3}
