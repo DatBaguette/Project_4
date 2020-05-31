@@ -16,11 +16,6 @@ using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// 
-/// Script that manage all the game
-/// 
-/// </summary>
 
 public class GameManager : Singleton<GameManager>
 {

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 
-/// Ressources behavior adapted on robots core :)
-/// 
-/// </summary>
+// ===============================
+// AUTHOR     :         Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Ressources behavior adapted on robots core
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
 
 public class RobotCoreBehavior : MonoBehaviour
 {

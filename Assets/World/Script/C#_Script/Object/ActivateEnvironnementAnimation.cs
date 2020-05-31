@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Animate a rock to fall
+/// </summary>
+
 public class ActivateEnvironnementAnimation : MonoBehaviour
 {
     [SerializeField] Animator m_animation;

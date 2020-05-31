@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// ===============================
+// AUTHOR     :         Balbona , Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        It will assign parameter to robot depending on their type
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
 
-/// <summary>
-/// 
-/// It will assign parameter to robot depending on their type
-/// 
-/// </summary>
 
 public class RobotInisialisation : MonoBehaviour
 {
@@ -38,8 +42,14 @@ public class RobotInisialisation : MonoBehaviour
 
     [SerializeField] List<GameObject> m_robotDestructeurActivationHelper;
 
+    /// <summary>
+    /// the rigidbody of the robot
+    /// </summary>
     private Rigidbody m_rb;
 
+    /// <summary>
+    /// the raycast return
+    /// </summary>
     private RaycastHit hit;
 
     /// <summary>

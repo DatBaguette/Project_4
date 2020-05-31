@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona 
+// CREATE DATE     :    ????
+// PURPOSE     :        Trow flam LoL
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

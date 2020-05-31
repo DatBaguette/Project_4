@@ -1,21 +1,44 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona 
+// CREATE DATE     :    ????
+// PURPOSE     :        Make the helper lerp into the position of the other helper
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SC_DirHelper : MonoBehaviour
 {
-
+    /// <summary>
+    /// Data for the lerp
+    /// </summary>
     public SC_MoveVar MoveVar;
 
-    float f_ImpulseX;
-    float f_ImpulseZ;
-    Vector3 Vt3_Dir;
-
+    /// <summary>
+    /// dead zone of the stick  
+    /// </summary>
     private float StickDeadZone;
+    /// <summary>
+    /// speed to lerp
+    /// </summary>
     private float f_FollowDirLerp;
+    /// <summary>
+    /// The D factor, I'm not really sure of how it work
+    /// </summary>
     private float f_FactorD;
 
+    /// <summary>
+    /// the stick 
+    /// </summary>
     public GameObject StickHelper;
+    /// <summary>
+    /// the mesh of the rebot us like the point 
+    /// </summary>
     public GameObject Robot_Mesh;
 
     // Start is called before the first frame update
@@ -35,10 +58,6 @@ public class SC_DirHelper : MonoBehaviour
     void FollowDir()
     {
 
-        float f_ImpulseX = Input.GetAxis("Horizontal");
-        float f_ImpulseZ = Input.GetAxis("Vertical");
-
-        Vt3_Dir = new Vector3(f_ImpulseX, 0, -f_ImpulseZ);
 
         if ( StickHelper != null && Robot_Mesh != null)
         {

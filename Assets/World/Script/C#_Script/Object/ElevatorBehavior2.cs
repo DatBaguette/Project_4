@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ElevatorBehavior2 : MonoBehaviour
 {
+    /// <summary>
+    /// the animator to trigger
+    /// </summary>
     private Animator m_animator;
 
     private void Start()

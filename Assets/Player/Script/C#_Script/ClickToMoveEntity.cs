@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona, Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Make Billy move
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,13 +22,22 @@ using UnityEngine.EventSystems;
 
 public class ClickToMoveEntity : MonoBehaviour
 {
-    
+    /// <summary>
+    /// the nav mesh of billy
+    /// </summary>
     private NavMeshAgent m_navMeshAgent;
+
 
     [SerializeField] GameObject m_boomerangManager;
     [SerializeField] GameObject m_Joystick;
 
+    /// <summary>
+    /// the tablette Gameobject
+    /// </summary>
     public GameObject m_tablette;
+    /// <summary>
+    /// the animator of billy
+    /// </summary>
     public BIlly_Anim_CTRL m_Player_Animator;
 
     /// <summary>

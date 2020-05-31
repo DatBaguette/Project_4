@@ -3,14 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+// ===============================
+// AUTHOR     :          Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Manage the change between level and the cinematique
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
 public class ChangeLevel : MonoBehaviour
 {
+    /// <summary>
+    /// the next level the script have to lunch
+    /// </summary>
     [SerializeField] int m_nextLevelNumber;
-
+  
+    /// <summary>
+    /// the gameobject of the cinematique to lunch
+    /// </summary>
     [SerializeField] GameObject m_anim;
 
     private void OnTriggerEnter(Collider other)
     {
+        //lunch the next scene
         if ( other.GetComponent<ClickToMoveEntity>())
         {
             GameManager.Instance.KillAllRobot();

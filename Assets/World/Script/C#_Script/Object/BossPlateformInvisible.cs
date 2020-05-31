@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Hide the plateform when you controle a robot
+/// </summary>
+
 public class BossPlateformInvisible : MonoBehaviour
 {
     [SerializeField] GameObject m_objectToHide;
