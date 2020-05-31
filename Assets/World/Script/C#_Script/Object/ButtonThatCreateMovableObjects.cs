@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Creat Mouvable object in the boss scene
+/// </summary>
+
 public class ButtonThatCreateMovableObjects : MonoBehaviour
 {
+    /// <summary>
+    /// the spawnner for the object
+    /// </summary>
     [SerializeField] GameObject m_spawnerPosition;
 
+    /// <summary>
+    /// mouvable prefab to creat
+    /// </summary>
     [SerializeField] GameObject m_movableObjectsPrefab;
 
+    /// <summary>
+    /// activate on not
+    /// </summary>
     public bool m_activate = false;
     
     private void OnTriggerEnter(Collider other)

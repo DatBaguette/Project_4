@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona 
+// CREATE DATE     :    ????
+// PURPOSE     :        Data to manage the lerp of the robots
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

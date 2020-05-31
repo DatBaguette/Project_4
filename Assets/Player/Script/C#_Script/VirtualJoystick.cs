@@ -4,20 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// 
-/// Behavior of the joystick gameObject
-/// It save his direction to send it to the robot movement script
-/// 
-/// </summary>
-
+// ===============================
+// AUTHOR     :         Balbona
+// CREATE DATE     :    ????
+// PURPOSE     :        Behavior of the joystick gameObject
+//                      It save his direction to send it to the robot movement script
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
 public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
+    /// <summary>
+    /// img in the background
+    /// </summary>
     private Image m_bgImg;
+    /// <summary>
+    /// Joystick intérieur image
+    /// </summary>
     [SerializeField] Image m_joystickImg;
 
+    /// <summary>
+    /// Position of the joystick
+    /// </summary>
     private Vector3 m_joystickPosition;
 
+    /// <summary>
+    /// Imput variable in game manager
+    /// </summary>
     public Vector3 m_InputDirection { set; get; }
 
 

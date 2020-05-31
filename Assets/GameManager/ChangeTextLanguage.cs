@@ -13,6 +13,10 @@ public class ChangeTextLanguage : MonoBehaviour
         StartCoroutine(ChangeText());
     }
 
+    /// <summary>
+    /// change the text depending of the select language 
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ChangeText()
     {
         yield return new WaitForSeconds(.1f);

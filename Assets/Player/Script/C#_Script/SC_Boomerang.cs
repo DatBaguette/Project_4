@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ===============================
+// AUTHOR     :         Balbona , Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Manage the boomerang behaviour 
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
 
 public enum BoomerangState
 {
@@ -13,25 +22,43 @@ public enum BoomerangState
 }
 public class SC_Boomerang : MonoBehaviour
 {
+    /// <summary>
+    /// The boomerang gameobject
+    /// </summary>
     [SerializeField]
     public GameObject m_Boomerang;
+    /// <summary>
+    /// the boomerang helper 
+    /// </summary>
     [SerializeField]
     private GameObject helperBoomerang;
+    /// <summary>
+    /// the player prefab
+    /// </summary>
     [SerializeField]
     private GameObject Player;
-
-    
-
+    /// <summary>
+    /// the current boomerang state
+    /// </summary>
     public BoomerangState CurrentBoomerangstat;
-
+    /// <summary>
+    ///time between node in lerp 
+    /// </summary>
     [SerializeField]
     private float DelayBetweenNode;
-
+    /// <summary>
+    /// Actuel lerp time
+    /// </summary>
     private float CurrentTimeBetweenNode;
 
+    /// <summary>
+    /// the array of node
+    /// </summary>
     [SerializeField]
     private GameObject[] TravelNode;
 
+
+    //*  Lot of variable to move the boomerang   *///
     private int nextNodeId;
     private int finalNode;
     private int NodeFrom = 0;

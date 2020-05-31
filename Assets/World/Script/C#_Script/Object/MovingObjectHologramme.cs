@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// move the hologramme shader
+/// </summary>
+
 public class MovingObjectHologramme : MonoBehaviour
 {
     [SerializeField] GameObject m_hologramme;

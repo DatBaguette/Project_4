@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 
-/// Movement of the robot with the joystick
-/// 
-/// </summary>
-
+// ===============================
+// AUTHOR     :         Balbona , Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Movement of the robot with the joystick
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
 public class RobotMovement : MonoBehaviour
 {
     [SerializeField] float m_baseMoveSpeed = 5.0f;

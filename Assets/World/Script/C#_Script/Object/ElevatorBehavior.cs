@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ElevatorBehavior : MonoBehaviour
 {
+    /// <summary>
+    /// the elevator animator
+    /// </summary>
     private Animator m_animator;
 
     private void Start()

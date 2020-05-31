@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿// ===============================
+// AUTHOR     :         Balbona , Curie
+// CREATE DATE     :    ????
+// PURPOSE     :        Manage Sound 
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +22,7 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource m_failSound;
     public AudioSource m_succeedSound;
     
-    
+    /*  All the different feedback  */
     public AudioSource m_robotFlamme;
     public AudioSource m_selectRobot;   
     public AudioSource m_coreSound;
@@ -21,17 +31,23 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource m_robotMotor_Sound;
     public AudioSource m_robotDestruction;
     public AudioSource m_boomerangSoundWHOOSH;
-
     public List<AudioSource> m_soundeffect;
+
+    /* the music */
     public List<AudioSource> m_music;
 
+    /* ui music */
     public Slider m_musicSlider;
     public Slider m_soundEffectSlider;
 
+    /** saved data **/
     [SerializeField] SavedCheckPoint m_saveData;
 
     public void Start()
     {
+
+        /*  Put all the sound in the   */
+
         m_soundeffect.Add(m_robotFlamme);
         m_soundeffect.Add(m_selectRobot);
         m_soundeffect.Add(m_coreSound);
@@ -43,6 +59,8 @@ public class SoundManager : Singleton<SoundManager>
         m_soundeffect.Add(m_failSound);
         m_soundeffect.Add(m_succeedSound);
 
+
+        
         if ( m_musicSlider != null && m_soundEffectSlider != null)
         {
             changeMusicVolume();
@@ -55,6 +73,10 @@ public class SoundManager : Singleton<SoundManager>
             m_music[0].Play();
     }
 
+
+    /// <summary>
+    /// Change the voulume of the volume depending the UI
+    /// </summary>
     public void changeMusicVolume()
     {
         if (m_musicSlider.value == 0)
@@ -80,6 +102,9 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
 
+    /// <summary>
+    /// Change the voulume of the volume depending the UI
+    /// </summary>
     public void changeSoundEffectVolume()
     {
         if (m_soundEffectSlider.value == 0)

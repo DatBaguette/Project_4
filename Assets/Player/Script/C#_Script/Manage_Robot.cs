@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 
-/// It contain function to create robot
-/// 
-/// </summary>
+// ===============================
+// AUTHOR     :         Balbona 
+// CREATE DATE     :    ????
+// PURPOSE     :        Manage all the behaviour of robots
+// SPECIAL NOTES:       null
+// ===============================
+// Change History:      404 error not fund
+//
+//==================================
+
 
 public enum Robot_Type
 {
@@ -41,37 +46,77 @@ public class Manage_Robot : Singleton<Manage_Robot>
     /// </summary>
     public int m_actualCraftRobot;
 
+    /// <summary>
+    /// Littel fly Robot Prefab
+    /// </summary>
     [SerializeField]
     private GameObject m_FlyingBot_1;
 
+    /// <summary>
+    /// big fly Robot Prefab
+    /// </summary>
     [SerializeField]
     private GameObject m_FlyingBot_2;
 
+    /// <summary>
+    /// littel push Robot Prefab
+    /// </summary>
     [SerializeField]
     private GameObject m_PlatformeBot_1;
 
+    /// <summary>
+    /// big push Robot Prefab
+    /// </summary>
     [SerializeField]
     private GameObject m_PlatformeBot_2;
 
+
+    /// <summary>
+    /// littel destruction Robot Prefab
+    /// </summary>
     [SerializeField]
     private GameObject m_DestructionBot_1;
 
+    /// <summary>
+    /// Big destruction Robot Prefab
+    /// </summary>
     [SerializeField]
     private GameObject m_DestructionBot_2;
 
+
+    /// <summary>
+    /// The joystick of the robots
+    /// </summary>
     [SerializeField] GameObject m_joystick;
+    
+    /// <summary>
+    /// the script of the joystick
+    /// </summary>
     private VirtualJoystick m_joystickScript;
 
     [Tooltip("Array of robot price")]
     [SerializeField]
     public int[] price;
 
+    /// <summary>
+    /// Ckeck if you can craft 
+    /// </summary>
     public bool CanYouCraft = true;
+    /// <summary>
+    /// the next position to creat a robot
+    /// </summary>
     public Transform NextNodeToCreatARobot;
+    /// <summary>
+    /// The craft helper to creat aa robots
+    /// </summary>
     private RobotCraftHelper CraftHelper;
-
+    /// <summary>
+    /// the chosen robot to craft in the UI
+    /// </summary>
     [SerializeField] List<GameObject> m_robotCraftSelection;
-
+    /// <summary>
+    /// the animator of the player
+    /// </summary>
     [SerializeField] BIlly_Anim_CTRL m_Player_Animator;
 
     private void Start()
